@@ -1,0 +1,1 @@
+# Death.NeoVim (Best Config)
