@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source ~/Singularis/bin/common
+
+log_info "Installing nvim"
+
+ln -sf  ~/.config/
+
