@@ -6,20 +6,11 @@ Plug 'valloric/MatchTagAlways'
 
 " Lsp completion
 Plug 'neovim/nvim-lspconfig'
-
-" Deoplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'hrsh7th/nvim-compe'
 
 " Snippets
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'rafamadriz/friendly-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Airline
 Plug 'deviantfero/wpgtk.vim'
