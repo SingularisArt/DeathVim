@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/hashedupforyou101/.config/wall.jpg"
+let background = "#002b36"
+let foreground = "#93a1a1"
+let cursor     = "#93a1a1"
+
+" Colors
+let color0  = "#002b36"
+let color1  = "#dc322f"
+let color2  = "#859900"
+let color3  = "#b58900"
+let color4  = "#268bd2"
+let color5  = "#6c71c4"
+let color6  = "#2aa198"
+let color7  = "#93a1a1"
+let color8  = "#657b83"
+let color9  = "#dc322f"
+let color10 = "#859900"
+let color11 = "#b58900"
+let color12 = "#268bd2"
+let color13 = "#6c71c4"
+let color14 = "#2aa198"
+let color15 = "#fdf6e3"

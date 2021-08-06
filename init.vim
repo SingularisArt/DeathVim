@@ -1,0 +1,1 @@
+/home/hashedupforyou101/Singularis/aspects/dotfiles/files/init.vim

@@ -1,0 +1,2 @@
+nmap <C-a> ggVG
+

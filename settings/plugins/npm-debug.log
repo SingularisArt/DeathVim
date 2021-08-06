@@ -1,0 +1,118 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', '-g', 'pyright' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData pyright
+8 silly fetchNamedPackageData pyright
+9 silly mapToRegistry name pyright
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/pyright
+13 verbose request uri https://registry.npmjs.org/pyright
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 9:38:53 AM
+16 verbose request id 8c6bb20f690cfc70
+17 verbose etag W/"380fc439663a5f13a2470834a4f6bd12"
+18 verbose lastModified Mon, 14 Jun 2021 19:58:58 GMT
+19 http request GET https://registry.npmjs.org/pyright
+20 http 304 https://registry.npmjs.org/pyright
+21 verbose headers { date: 'Wed, 16 Jun 2021 16:38:53 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'cf-ray': '660578973bcdfda5-PDX',
+21 verbose headers   'cache-control': 'public, max-age=300',
+21 verbose headers   etag: '"380fc439663a5f13a2470834a4f6bd12"',
+21 verbose headers   'last-modified': 'Mon, 14 Jun 2021 19:58:58 GMT',
+21 verbose headers   vary: 'Accept-Encoding',
+21 verbose headers   'cf-cache-status': 'REVALIDATED',
+21 verbose headers   'cf-request-id': '0ab749b2840000fda5b92b5000000001',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   server: 'cloudflare' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Wed, 16 Jun 2021 16:38:53 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'cf-ray': '660578973bcdfda5-PDX',
+22 silly get     'cache-control': 'public, max-age=300',
+22 silly get     etag: '"380fc439663a5f13a2470834a4f6bd12"',
+22 silly get     'last-modified': 'Mon, 14 Jun 2021 19:58:58 GMT',
+22 silly get     vary: 'Accept-Encoding',
+22 silly get     'cf-cache-status': 'REVALIDATED',
+22 silly get     'cf-request-id': '0ab749b2840000fda5b92b5000000001',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     server: 'cloudflare' } ]
+23 verbose etag https://registry.npmjs.org/pyright from cache
+24 verbose get saving pyright to /home/hashedupforyou101/.npm/registry.npmjs.org/pyright/.cache.json
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule pyright@1.1.149 checking installable status
+38 silly cache add args [ 'pyright', null ]
+39 verbose cache add spec pyright
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'pyright',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'pyright',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed pyright@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for pyright
+43 info addNameTag [ 'pyright', 'latest' ]
+44 silly mapToRegistry name pyright
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry uri https://registry.npmjs.org/pyright
+48 verbose addNameTag registry:https://registry.npmjs.org/pyright not in flight; fetching
+49 verbose get https://registry.npmjs.org/pyright not expired, no request
+50 silly addNameTag next cb for pyright with tag latest
+51 silly addNamed pyright@1.1.149
+52 verbose addNamed "1.1.149" is a plain semver version for pyright
+53 silly cache afterAdd pyright@1.1.149
+54 verbose afterAdd /home/hashedupforyou101/.npm/pyright/1.1.149/package/package.json not in flight; writing
+55 verbose afterAdd /home/hashedupforyou101/.npm/pyright/1.1.149/package/package.json written
+56 silly loadAllDepsIntoIdealTree Finishing
+57 silly idealTree:prePrune lib
+57 silly idealTree:prePrune └── pyright@1.1.149
+58 silly loadIdealTree Finishing
+59 silly currentTree lib
+59 silly currentTree └── pyright@1.1.149
+60 silly idealTree lib
+60 silly idealTree └── pyright@1.1.149
+61 silly generateActionsToTake Starting
+62 silly install generateActionsToTake
+63 warn checkPermissions Missing write access to /usr/local/lib/node_modules/pyright
+64 warn checkPermissions Missing write access to /usr/local/lib/node_modules
+65 silly rollbackFailedOptional Starting
+66 silly rollbackFailedOptional Finishing
+67 silly runTopLevelLifecycles Starting
+68 silly runTopLevelLifecycles Finishing
+69 silly install printInstalled
+70 verbose stack Error: EACCES: permission denied, access '/usr/local/lib/node_modules/pyright'
+71 verbose cwd /home/hashedupforyou101/Singularis/aspects/dotfiles/files/.vim/settings/plugins
+72 error Linux 5.4.0-64-generic
+73 error argv "/usr/bin/node" "/usr/bin/npm" "i" "-g" "pyright"
+74 error node v8.10.0
+75 error npm  v3.5.2
+76 error path /usr/local/lib/node_modules/pyright
+77 error code EACCES
+78 error errno -13
+79 error syscall access
+80 error Error: EACCES: permission denied, access '/usr/local/lib/node_modules/pyright'
+80 error  { Error: EACCES: permission denied, access '/usr/local/lib/node_modules/pyright'
+80 error   errno: -13,
+80 error   code: 'EACCES',
+80 error   syscall: 'access',
+80 error   path: '/usr/local/lib/node_modules/pyright' }
+81 error Please try running this command again as root/Administrator.
+82 verbose exit [ -13, true ]
