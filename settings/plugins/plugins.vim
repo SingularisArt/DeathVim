@@ -10,7 +10,7 @@ Plug 'hrsh7th/nvim-compe'
 
 " Snippets
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Airline
 Plug 'deviantfero/wpgtk.vim'
