@@ -1,0 +1,5 @@
+require('plugins')
+require('settings')
+require('keymappings')
+require('nv-compe')
+require('lsp.lua-ls')
