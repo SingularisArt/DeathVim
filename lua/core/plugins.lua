@@ -30,8 +30,12 @@ return require('packer').startup(function()
 
   -- Completion & Snippets
   use { 'hrsh7th/nvim-compe' }
-  use { 'hrsh7th/vim-vsnip' }
-  use { 'rafamadriz/friendly-snippets' }
+  use { 'SirVer/UltiSnips' }
+  use { 'honza/vim-snippets' }
+  use { 'codota/tabnine-vim' }
+
+  -- Distraction free
+  use { 'junegunn/goyo.vim' }
 
   -- Autopairs
   use { 'windwp/nvim-autopairs' }
@@ -48,20 +52,11 @@ return require('packer').startup(function()
   -- Comments
   use { 'terrortylor/nvim-comment' }
 
-  -- vim-rooter
-  use { 'airblade/vim-rooter' }
-
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
 
-  -- Status Line and Bufferline
+  -- Status Line
   use { 'vim-airline/vim-airline' }
-
-  -- Debugging
-  use { 'mfussenegger/nvim-dap' }
-
-  -- Debugger management
-  use { 'Pocco81/DAPInstall.nvim' }
 
   -- Dashboard
   use { 'glepnir/dashboard-nvim' }
@@ -70,5 +65,35 @@ return require('packer').startup(function()
   use { 'akinsho/nvim-toggleterm.lua' }
 
   -- Shows use indentations
-  use { 'glepnir/indent-guides.nvim' }
+  use { 'Yggdroot/indentLine' }
+
+  -- Translates things
+  use { 'voldikss/vim-translator' }
+  
+  -- Nice for lua development
+  use { 'folke/lua-dev.nvim' }
+
+  -- Shows us any errors
+  use { 'folke/trouble.nvim' }
+
+  -- Shows an outline with symbols
+  use { 'simrat39/symbols-outline.nvim' }
+
+  -- Cooler wildmenu
+  use { 'gelguy/wilder.nvim' }
+
+  -- Lazy stuff
+  use { 'kdheepak/lazygit.nvim' }
+
+  -- Git signs
+  use { 'airblade/vim-gitgutter' }
+
+  -- LaTeX support
+  use { 'lervag/vimtex' }
+
+  -- View markdown
+  use { 'iamcco/markdown-preview.nvim', run = ':mkdp#util#install()' }
+
+  -- Nice multi cursors
+  use { 'terryma/vim-multiple-cursors' }
 end)
