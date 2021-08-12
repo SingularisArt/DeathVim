@@ -22,8 +22,6 @@ vim.o.expandtab=true
 vim.o.smartindent=true
 vim.o.autoindent=true
 vim.o.laststatus=2
-vim.o.number=true
-vim.o.relativenumber=true
 vim.o.background='dark'
 vim.o.showtabline=2
 vim.o.showmode=false
@@ -34,3 +32,6 @@ vim.o.updatetime=300
 vim.o.timeoutlen=100
 vim.o.clipboard='unnamedplus'
 vim.o.incsearch=true
+
+vim.wo.number=true
+vim.wo.relativenumber=true
