@@ -16,6 +16,9 @@ return require('packer').startup(function()
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
 
+  -- Nice syntax
+  use { 'sheerun/vim-polyglot' }
+
   -- Colors
   use { 'norcalli/nvim-colorizer.lua' }
 
@@ -35,7 +38,6 @@ return require('packer').startup(function()
 
   -- NvimTree
   use { 'kyazdani42/nvim-tree.lua' }
-  use { 'lewis6991/gitsigns.nvim' }
 
   -- Colorscheme
   use { 'dylanaraps/wal.vim' }
@@ -54,7 +56,6 @@ return require('packer').startup(function()
 
   -- Status Line and Bufferline
   use { 'vim-airline/vim-airline' }
-  use { 'akinsho/nvim-bufferline.lua' }
 
   -- Debugging
   use { 'mfussenegger/nvim-dap' }
@@ -63,8 +64,11 @@ return require('packer').startup(function()
   use { 'Pocco81/DAPInstall.nvim' }
 
   -- Dashboard
-  use { 'ChristianChiarulli/dashboard-nvim' }
+  use { 'glepnir/dashboard-nvim' }
 
   -- Terminal
   use { 'akinsho/nvim-toggleterm.lua' }
+
+  -- Shows use indentations
+  use { 'glepnir/indent-guides.nvim' }
 end)

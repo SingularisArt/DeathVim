@@ -12,7 +12,7 @@ require('plugin-configs.nv-nvimtree')
 require('plugin-configs.nv-telescope')
 require('plugin-configs.nv-terminal')
 require('plugin-configs.nv-which-key')
-require('plugin-configs.nv-bufferline')
+require('plugin-configs.nv-dashboard')
 
 -- LSP
 require('lsp.lua-ls')
