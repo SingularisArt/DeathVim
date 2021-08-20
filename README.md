@@ -31,49 +31,49 @@ cd ~/.config/nvim && ./script
 ## Keybindings
 
 
-<details><summary>`Basic keybindings`</summary>
+<details><summary>Basic keybindings</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`Editing`</summary>
+<details><summary>Editing</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`Navigation`</summary>
+<details><summary>Navigation</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`coc`</summary>
+<details><summary>coc</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`git`</summary>
+<details><summary>git</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`Translation`</summary>
+<details><summary>Translation</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`LaTeX`</summary>
+<details><summary>LaTeX</summary>
     <p>
     TODO: Add table with info
     </p>
 </details>
 
-<details><summary>`Misc`</summary>
+<details><summary>Misc</summary>
     <p>
     TODO: Add table with info
     </p>
