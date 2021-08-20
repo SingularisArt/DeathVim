@@ -25,6 +25,7 @@ require'compe'.setup {
     tags = true;
     snippets_nvim = true;
     treesitter = true;
+    ultisnips = true;
   };
 }
 

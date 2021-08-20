@@ -32,7 +32,7 @@ return require('packer').startup(function()
   use { 'hrsh7th/nvim-compe' }
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
-  use { 'codota/tabnine-vim' }
+  use { 'gillescastel/latex-snippets' }
 
   -- Distraction free
   use { 'junegunn/goyo.vim' }
@@ -64,9 +64,6 @@ return require('packer').startup(function()
   -- Terminal
   use { 'akinsho/nvim-toggleterm.lua' }
 
-  -- Shows use indentations
-  use { 'Yggdroot/indentLine' }
-
   -- Translates things
   use { 'voldikss/vim-translator' }
   
@@ -88,12 +85,13 @@ return require('packer').startup(function()
   -- Git signs
   use { 'airblade/vim-gitgutter' }
 
-  -- LaTeX support
-  use { 'lervag/vimtex' }
-
   -- View markdown
   use { 'iamcco/markdown-preview.nvim', run = ':mkdp#util#install()' }
 
   -- Nice multi cursors
   use { 'terryma/vim-multiple-cursors' }
+
+  -- For latex
+  use { 'lervag/vimtex' }
+  use { 'KeitaNakamura/tex-conceal.vim' }
 end)

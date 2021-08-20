@@ -13,6 +13,8 @@ require('plugin-configs.nv-telescope')
 require('plugin-configs.nv-terminal')
 require('plugin-configs.nv-which-key')
 require('plugin-configs.nv-dashboard')
+require('plugin-configs.nv-ultisnips')
+require('plugin-configs.nv-vimtex')
 
 -- LSP
 require('lsp.lua-ls')

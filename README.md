@@ -79,7 +79,7 @@ cd ~/.config/nvim && ./script
     </p>
 </details>
 
-check `lua/core/keymappings.lua` for all of the mappings.
+Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ## Dashboard
 
@@ -153,10 +153,13 @@ I am still working on the completion part.
 - [lazygit](https://github.com/kdheepak/lazygit.nvim) - Lazygit within vim (Now that's cool).
 - [markdown](https://github.com/iamcco/markdown-preview.nvim) - Markdown view.
 - [cursors](https://github.com/terryma/vim-multiple-cursors) - Multi cursor (kind of like **atom**)
+- [vimtex](https://github.com/lervag/vimtex) - Makes better highlighting.
+- [conceal](https://github.com/KeitaNakamura/tex-conceal.vim) - Does something.
 
 # TODO
 
 - [x] Add all of my plugins.
+- [ ] Setup neovim for taking notes in **LaTeX**.
 - [ ] Add **features** to **README.md**.
 - [ ] Add **requirements** to **README.md**.
 - [ ] Get completion using either **Native LSP** or **COC**.

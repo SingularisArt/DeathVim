@@ -69,21 +69,33 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["DAPInstall.nvim"] = {
+  UltiSnips = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/UltiSnips"
   },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
-  ["friendly-snippets"] = {
+  ["goyo.vim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/goyo.vim"
   },
-  ["indent-guides.nvim"] = {
+  indentLine = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/indent-guides.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/indentLine"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lazygit.nvim"
+  },
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
@@ -108,10 +120,6 @@ _G.packer_plugins = {
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-compe"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-dap"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -145,6 +153,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
+  },
+  ["tabnine-vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/tabnine-vim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
@@ -153,21 +169,37 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/trouble.nvim"
+  },
   ["vim-airline"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-airline"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+  },
+  ["vim-multiple-cursors"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors"
   },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   },
-  ["vim-rooter"] = {
+  ["vim-snippets"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rooter"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-snippets"
   },
-  ["vim-vsnip"] = {
+  ["vim-translator"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-translator"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vimtex"
   },
   ["wal.vim"] = {
     loaded = true,
@@ -176,6 +208,10 @@ _G.packer_plugins = {
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/which-key.nvim"
+  },
+  ["wilder.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/wilder.nvim"
   }
 }
 
