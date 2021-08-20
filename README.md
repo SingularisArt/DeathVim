@@ -1,130 +1,7 @@
 Death.NeoVim
 ============
 
-# Features
-
-TODO: Must add features
-
-# Overview
-
-I switched from `Vim-Plug` to `Packer`, which was an investment worth doing because when I used `Vim-Plug`, I had like 87 plugins, which took about 4-5 seconds to boot up.
-But now with `Packer`, it only takes 0.5 seconds, but I also lowered the number of plugins down to 29. (My main goal is to have all plugins written in `lua` because I **HATE** `vimscript`)
-
-# Install In Three Lines! :)
-
-> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.5.0)
-
-## Installing
-
-Right now, it only works on linux (32 bit and 64 bit).
-
-But before doing that, make sure you back-up your neovim configuration just in case. You do that with:
-
-```sh
-cp ~/.config/nvim ~/.config/nvim-backup
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
-cd ~/.config/nvim && ./script
-```
-# Usage
-
-## Keybindings
-
-Click to expand
-
-<details><summary><code>Basic keybinds</code> 🔑</summary>
-<p>
-
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Leader Key                              | `SPACE`         |
-
-</p>
-</details>
-
-<details><summary><code>Browser</code> 🧬</summary>
-<p>
-
-| Function        | Keybind      |
-| --------------- | ------------ |
-| :NvimTreeToggle | `<Leader>e`  |
-
-</p>
-</details>
-
-<details><summary><code>Navigation</code> 🚀</summary>
-<p>
-
-| Function                                      | Keybind                   |
-| --------------------------------------------- | ------------------------- |
-| Navigate to left window                       | `Ctrl+h`                  |
-| Navigate to right window                      | `Ctrl+l`                  |
-| Navigate to top window                        | `Ctrl+k`                  |
-| Navigate to bottom window                     | `Ctrl+j`                  |
-| Next tab                                      | `Tab`                     |
-| Previous tab                                  | `Shift+Tab`               |
-| Only window                                   | `<Leader>o`               |
-| New tab                                       | `<Leader>t`               |
-| Horizontal split                              | `<Leader>s`               |
-| Horizontal vsplit                             | `<Leader>v`               |
-| Kill buffer                                   | `<Leader>bk`              |
- 
-</p>
-</details>
-
-<details><summary><code>git</code> 🔀</summary>
-<p>
-
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :Gstatus                                | `<Leader>gs`    |
-| :Gdiffsplit                             | `<Leader>gd`    |
-| :Gcommit                                | `<Leader>gc`    |
-| :Gpush                                  | `<Leader>gp`    |
-| :Gpull                                  | `<Leader>gP`    |
-| :Gmove                                  | `<Leader>gm`    |
-| :Gmerge                                 | `<Leader>gM`    |
-| :Gbrowse                                | `<Leader>gb`    |
-
-</p>
-</details>
-
-<details><summary><code>Translation </code> 🌐</summary>
-<p>
-
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :Translate                              | `<Leader>t`     |
-| :TranslateW                             | `<Leader>tw`    |
-| :TranslateR                             | `<Leader>tr`    |
-
-</p>
-</details>
-
-<details><summary><code>LaTeX </code> 📜</summary>
-<p>
-
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :VimtexCompile                          | `<Leader>lc`    |
-| :VimtexCompileSelected                  | `<Leader>ls`    |
-| :VimtexInfo                             | `<Leader>li`    |
-| :VimtexTocToggle                        | `<Leader>lt`    |
-| :VimtexView                             | `<Leader>lv`    |
-
-</p>
-</details>
-
-<details><summary><code>Misc</code> 🧰</summary>
-<p>
-
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :MarkdownPreview                        | `<Leader>md`    |
-
-</p>
-</details>
-
-Check [here](lua/core/keymappings.lua) for all of the mappings.
+# Gallery
 
 ## Dashboard
 
@@ -158,14 +35,128 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ![pic7](media/translator.png)
 
-## Lazy Git and Lazy Docker
+# Table of Contents
 
-![pic8](media/lazygit-and-lazydocker.png)
+* [Gallery](#gallery)
+    * [Dashboard](#dashboard)
+    * [Nvim-Tree](#system)
+    * [Airline](#airline)
+    * [Markdown](#markdown)
+    * [Statusbar](#statusbar)
+    * [Markdown](#markdown)
+    * [LaTeX](#latex)
+    * [Fuzzy File Finder](#Fuzzy-file-finder)
+    * [Translator](#translator)
+* [Features](#features)
+* [Overview](#overview)
+* [Install In Three Lines](#install-in-three-lines)
+* [Installation](#installation)
+    * [Installing](#installing)
+* [Usage](#usage)
+    * [Keybindings](#keybindings)
+			* [Basic key binds](#basic-key-binds)
+				* [Browser](#browser)
+				* [Git](#git)
+				* [Translation](#translation)
+				* [LaTeX](#latex)
+				* [Misc](#misc)
+    * [All of my plugins](#all-of-my-plugins)
+* [TODO](#todo)
 
-## Completion
+# Features
 
-I am still working on the completion part.
---![pic9](media/completion.png)
+TODO: Must add features
+
+# Overview
+
+I switched from `Vim-Plug` to `Packer`, which was an investment worth doing because when I used `Vim-Plug`, I had like 87 plugins, which took about 4-5 seconds to boot up.
+But now with `Packer`, it only takes 0.5 seconds, but I also lowered the number of plugins down to 29. (My main goal is to have all plugins written in `lua` because I **HATE** `vimscript`)
+
+# Install In Three Lines
+
+> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.5.0)
+
+## Installing
+
+Right now, it only works on linux (32 bit and 64 bit).
+
+But before doing that, make sure you back-up your neovim configuration just in case. You do that with:
+
+```sh
+cp ~/.config/nvim ~/.config/nvim-backup
+git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+cd ~/.config/nvim && ./script
+```
+# Usage
+
+## Keybindings
+
+### Basic key binds
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Leader Key                              | `SPACE`         |
+
+### Browser
+
+| Function        | Keybind      |
+| --------------- | ------------ |
+| :NvimTreeToggle | `<Leader>e`  |
+
+### Navigation
+
+| Function                                      | Keybind                   |
+| --------------------------------------------- | ------------------------- |
+| Navigate to left window                       | `Ctrl+h`                  |
+| Navigate to right window                      | `Ctrl+l`                  |
+| Navigate to top window                        | `Ctrl+k`                  |
+| Navigate to bottom window                     | `Ctrl+j`                  |
+| Next tab                                      | `Tab`                     |
+| Previous tab                                  | `Shift+Tab`               |
+| Only window                                   | `<Leader>o`               |
+| New tab                                       | `<Leader>t`               |
+| Horizontal split                              | `<Leader>s`               |
+| Horizontal vsplit                             | `<Leader>v`               |
+| Kill buffer                                   | `<Leader>bk`              |
+
+### Git
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :Gstatus                                | `<Leader>gs`    |
+| :Gdiffsplit                             | `<Leader>gd`    |
+| :Gcommit                                | `<Leader>gc`    |
+| :Gpush                                  | `<Leader>gp`    |
+| :Gpull                                  | `<Leader>gP`    |
+| :Gmove                                  | `<Leader>gm`    |
+| :Gmerge                                 | `<Leader>gM`    |
+| :Gbrowse                                | `<Leader>gb`    |
+
+### Translation
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :Translate                              | `<Leader>t`     |
+| :TranslateW                             | `<Leader>tw`    |
+| :TranslateR                             | `<Leader>tr`    |
+
+### LaTeX
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :VimtexCompile                          | `<Leader>lc`    |
+| :VimtexCompileSelected                  | `<Leader>ls`    |
+| :VimtexInfo                             | `<Leader>li`    |
+| :VimtexTocToggle                        | `<Leader>lt`    |
+| :VimtexView                             | `<Leader>lv`    |
+
+### Misc
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :MarkdownPreview                        | `<Leader>md`    |
+
+Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ## All of my plugins
 
