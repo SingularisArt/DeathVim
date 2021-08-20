@@ -37,7 +37,7 @@ return require('packer').startup(function()
   -- Distraction free
   use { 'junegunn/goyo.vim' }
 
-  -- Autopairs
+  -- Auto pairs
   use { 'windwp/nvim-autopairs' }
 
   -- NvimTree
@@ -63,9 +63,6 @@ return require('packer').startup(function()
 
   -- Terminal
   use { 'akinsho/nvim-toggleterm.lua' }
-
-  -- Translates things
-  use { 'voldikss/vim-translator' }
   
   -- Nice for lua development
   use { 'folke/lua-dev.nvim' }
@@ -84,6 +81,8 @@ return require('packer').startup(function()
 
   -- Git signs
   use { 'airblade/vim-gitgutter' }
+  use { 'tpope/vim-fugitive' }
+  use { 'tpope/vim-rhubarb' }
 
   -- View markdown
   use { 'iamcco/markdown-preview.nvim', run = ':mkdp#util#install()' }
@@ -94,4 +93,7 @@ return require('packer').startup(function()
   -- For latex
   use { 'lervag/vimtex' }
   use { 'KeitaNakamura/tex-conceal.vim' }
+
+  -- Translator
+  use { 'voldikss/vim-translator' }
 end)

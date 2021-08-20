@@ -5,6 +5,7 @@ require('core.settings')
 require('core.colorscheme')
 
 -- Plugins
+require('plugin-configs.nv-auto-pairs')
 require('plugin-configs.nv-airline')
 require('plugin-configs.nv-compe')
 require('plugin-configs.nv-colorizer')
@@ -18,3 +19,4 @@ require('plugin-configs.nv-vimtex')
 
 -- LSP
 require('lsp.lua-ls')
+

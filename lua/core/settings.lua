@@ -1,10 +1,5 @@
---vim.o.iskeyword='+=-'
---vim.o.shortmess='+=c'
-
---vim.o.formatoptions='-=cro'
 vim.o.hidden=true
 vim.o.wrap=false
---vim.o.whichwrap='+=<,>,[,],h,l'
 vim.o.encoding='utf-8'
 vim.o.pumheight=10
 vim.o.fileencoding='utf-8'
@@ -28,8 +23,7 @@ vim.o.showmode=false
 vim.o.backup=false
 vim.o.writebackup=false
 vim.o.signcolumn='yes'
-vim.o.updatetime=300
-vim.o.timeoutlen=100
+vim.o.updatetime=100
 vim.o.clipboard='unnamedplus'
 vim.o.incsearch=true
 

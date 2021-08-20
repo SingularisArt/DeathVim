@@ -25,58 +25,103 @@ cp ~/.config/nvim ~/.config/nvim-backup
 git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
 cd ~/.config/nvim && ./script
 ```
-
-# Usages
+# Usage
 
 ## Keybindings
 
+Click to expand
 
-<details><summary>Basic keybindings</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>Basic keybinds</code> 🔑</summary>
+<p>
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Leader Key                              | `SPACE`         |
+
+</p>
 </details>
 
-<details><summary>Editing</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>Browser</code> 🧬</summary>
+<p>
+
+| Function        | Keybind      |
+| --------------- | ------------ |
+| :NvimTreeToggle | `<Leader>e`  |
+
+</p>
 </details>
 
-<details><summary>Navigation</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>Navigation</code> 🚀</summary>
+<p>
+
+| Function                                      | Keybind                   |
+| --------------------------------------------- | ------------------------- |
+| Navigate to left window                       | `Ctrl+h`                  |
+| Navigate to right window                      | `Ctrl+l`                  |
+| Navigate to top window                        | `Ctrl+k`                  |
+| Navigate to bottom window                     | `Ctrl+j`                  |
+| Next tab                                      | `Tab`                     |
+| Previous tab                                  | `Shift+Tab`               |
+| Only window                                   | `<Leader>o`               |
+| New tab                                       | `<Leader>t`               |
+| Horizontal split                              | `<Leader>s`               |
+| Horizontal vsplit                             | `<Leader>v`               |
+| Kill buffer                                   | `<Leader>bk`              |
+ 
+</p>
 </details>
 
-<details><summary>coc</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>git</code> 🔀</summary>
+<p>
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :Gstatus                                | `<Leader>gs`    |
+| :Gdiffsplit                             | `<Leader>gd`    |
+| :Gcommit                                | `<Leader>gc`    |
+| :Gpush                                  | `<Leader>gp`    |
+| :Gpull                                  | `<Leader>gP`    |
+| :Gmove                                  | `<Leader>gm`    |
+| :Gmerge                                 | `<Leader>gM`    |
+| :Gbrowse                                | `<Leader>gb`    |
+
+</p>
 </details>
 
-<details><summary>git</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>Translation </code> 🌐</summary>
+<p>
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :Translate                              | `<Leader>t`     |
+| :TranslateW                             | `<Leader>tw`    |
+| :TranslateR                             | `<Leader>tr`    |
+
+</p>
 </details>
 
-<details><summary>Translation</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+<details><summary><code>LaTeX </code> 📜</summary>
+<p>
+
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :VimtexCompile                          | `<Leader>lc`    |
+| :VimtexCompileSelected                  | `<Leader>ls`    |
+| :VimtexInfo                             | `<Leader>li`    |
+| :VimtexTocToggle                        | `<Leader>lt`    |
+| :VimtexView                             | `<Leader>lv`    |
+
+</p>
 </details>
 
-<details><summary>LaTeX</summary>
-    <p>
-    TODO: Add table with info
-    </p>
-</details>
+<details><summary><code>Misc</code> 🧰</summary>
+<p>
 
-<details><summary>Misc</summary>
-    <p>
-    TODO: Add table with info
-    </p>
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| :MarkdownPreview                        | `<Leader>md`    |
+
+</p>
 </details>
 
 Check [here](lua/core/keymappings.lua) for all of the mappings.
