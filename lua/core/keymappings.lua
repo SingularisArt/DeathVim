@@ -65,3 +65,6 @@ vim.api.nvim_set_keymap('n', '<Leader>lv', ':VimtexView<CR>', { noremap = true, 
 
 -- markdown
 vim.api.nvim_set_keymap('n', '<Leader>md', ':MarkdownPreview<CR>', { noremap = true, silent = true })
+
+-- inkscape
+vim.cmd('source ~/.config/nvim/lua/core/keymappings.vim')
