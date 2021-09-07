@@ -81,9 +81,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/goyo.vim"
   },
-  indentLine = {
+  ["latex-snippets"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/indentLine"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/latex-snippets"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -92,10 +92,6 @@ _G.packer_plugins = {
   ["lua-dev.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
-  },
-  ["markdown-preview.nvim"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
@@ -157,10 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
-  ["tabnine-vim"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/tabnine-vim"
-  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
@@ -169,6 +161,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["tex-conceal.vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/tex-conceal.vim"
+  },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/trouble.nvim"
@@ -176,6 +172,10 @@ _G.packer_plugins = {
   ["vim-airline"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-airline"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
@@ -188,6 +188,10 @@ _G.packer_plugins = {
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
   },
   ["vim-snippets"] = {
     loaded = true,

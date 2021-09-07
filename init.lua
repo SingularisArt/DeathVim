@@ -16,7 +16,8 @@ require('plugin-configs.nv-which-key')
 require('plugin-configs.nv-dashboard')
 require('plugin-configs.nv-ultisnips')
 require('plugin-configs.nv-vimtex')
+require('plugin-configs.nv-vim-polyglot')
 
 -- LSP
-require('lsp.lua-ls')
+--require('lsp.lua-ls')
 

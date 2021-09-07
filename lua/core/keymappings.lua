@@ -52,9 +52,9 @@ vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gbrowse<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gbrowse<CR>', { noremap = true, silent = true })
 
 -- translate
-vim.api.nvim_set_keymap('n', '<Leader>t', ':Translate<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>tw', ':TranslateW<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>tr', ':TranslateR<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>rt', ':Translate<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>rw', ':TranslateW<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>rr', ':TranslateR<CR>', { noremap = true, silent = true })
 
 -- vimtex
 vim.api.nvim_set_keymap('n', '<Leader>lc', ':VimtexCompile<CR>', { noremap = true, silent = true })

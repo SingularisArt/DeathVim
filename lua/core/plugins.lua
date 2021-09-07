@@ -19,6 +19,9 @@ return require('packer').startup(function()
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
 
+  -- Markdown preview
+  use { 'iamcco/markdown-preview.nvim'}
+
   -- Colors
   use { 'norcalli/nvim-colorizer.lua' }
 
@@ -83,9 +86,6 @@ return require('packer').startup(function()
   use { 'airblade/vim-gitgutter' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-rhubarb' }
-
-  -- View markdown
-  use { 'iamcco/markdown-preview.nvim', run = ':mkdp#util#install()' }
 
   -- Nice multi cursors
   use { 'terryma/vim-multiple-cursors' }

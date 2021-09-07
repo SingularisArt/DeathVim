@@ -16,7 +16,7 @@ endsnippet
 
 snippet cnt "Center" b
 \begin{center}
-	${1:${VISUAL}}
+	$1
 \end{center}
 endsnippet
 
@@ -28,15 +28,112 @@ endsnippet
 
 snippet desc "Description" b
 \begin{description}
-	\item[$1] $0
+	$1
 \end{description}
 endsnippet
+
+snippet lemma "Lemma" b
+\begin{lemma}
+	$1
+\end{lemma}
+endsnippet
+
+snippet prop "Proposition" b
+\begin{prop}[$1]
+	$2
+\end{prop}
+endsnippet
+
+snippet theorem "Theorem" b
+\begin{theorem}[$1]
+	$2
+\end{theorem}
+endsnippet
+
+snippet postulate "postulate" b
+\begin{postulate}[$1]
+	$2
+\end{postulate}
+endsnippet
+
+snippet myproof "Proof" b
+\begin{myproof}[$1]
+	$2
+\end{myproof}
+endsnippet
+
+snippet definition "Definition" b
+\begin{definition}[$1]
+	$2
+\end{definition}
+endsnippet
+
+snippet note "Note" b
+\begin{note}[$1]
+	$2
+\end{note}
+endsnippet
+
+snippet problem "Problem" b
+\begin{problem}[$1]
+	$2
+\end{problem}
+endsnippet
+
+snippet corollary "Corollary" b
+\begin{corollary}[$1]
+	$2
+\end{corollary}
+endsnippet
+
+snippet example "Example" b
+\begin{example}[$1]
+	$2
+\end{example}
+endsnippet
+
+snippet notation "Notation" b
+\begin{notation}[$1]
+	$2
+\end{notation}
+endsnippet
+
+snippet repetition "Repetition" b
+\begin{repetition}[$1]
+	$2
+\end{repetition}
+endsnippet
+
+snippet property "Property" b
+\begin{property}[$1]
+	$2
+\end{property}
+endsnippet
+
+snippet intuition "Intuition" b
+\begin{intuition}[$1]
+	$2
+\end{intuition}
+endsnippet
+
+snippet observation "Observation" b
+\begin{observation}[$1]
+	$2
+\end{observation}
+endsnippet
+
+snippet conclusion "Conclusion" b
+\begin{conclusion}[$1]
+	$2
+\end{conclusion}
+endsnippet
+
 
 ########
 # MATH #
 ########
 
-snippet km "Inline Math" wA
+snippet im "Inline Math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
@@ -102,11 +199,14 @@ snippet ss "Super Script" i
 ^{$1}$0
 endsnippet
 
-snippet graph "Graph"
-\draw[ultra thin, lightgray] (${1},${2}) grid (${3}, ${4});
-        \draw[<->] (${1}.5,0) -- (${3}.5,0) node[right] {$x$};
-        \draw[<->] (0,${2}.5) -- (0,${4}.5) node[above] {$y$};
-${0}
+snippet les "Lesson"
+\lesson{${1:Lesson Number}}{${2:Class name, time, and date}}{${3:Lesson name}}
+$0
+endsnippet
+
+snippet lec "Lecture"
+\lecture{${1:Lecture Number}}{${2:Class name, time, and date}}{${3:Lesson name}}
+$0
 endsnippet
 
 ###########
@@ -171,14 +271,14 @@ snippet template "Template"
 $1
 
 \newcommand{\incfig}[2][1]{%
-    \def\svgwidth{#1\columnwidth}
-    \import{./figures/}{#2.pdf_tex}
+		\def\svgwidth{#1\columnwidth}
+		\import{./figures/}{#2.pdf_tex}
 }
 $2
 \pdfsuppresswarningpagegroup=1
 
 \begin{document}
-    $0
+		$0
 \end{document}
 endsnippet
 	
