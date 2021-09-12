@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/UltiSnips"
   },
+  ["completion-nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/completion-nvim"
+  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
@@ -93,6 +97,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim"
@@ -112,10 +120,6 @@ _G.packer_plugins = {
   ["nvim-comment"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-comment"
-  },
-  ["nvim-compe"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
