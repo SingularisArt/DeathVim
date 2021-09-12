@@ -33,6 +33,8 @@ return require('packer').startup(function()
 
   -- Completion & Snippets
   use { 'hrsh7th/nvim-compe' }
+  --use { 'nvim-lua/completion-nvim' }
+
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
   use { 'gillescastel/latex-snippets' }
