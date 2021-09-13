@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>bk', ':bdelete<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>k', ':bdelete<CR>', { silent = true })
 
 -- better indenting
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
@@ -40,6 +40,7 @@ vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<Leader>s', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>o', ':only<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>n', ':tabnew<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>d', ':Dashboard<CR>', { noremap = true, silent = true })
   
 -- git
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':Gstatus<CR>', { noremap = true, silent = true })
@@ -51,6 +52,8 @@ vim.api.nvim_set_keymap('n', '<Leader>gm', ':Gmove<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<Leader>gM', ':Gmerge<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gbrowse<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Gbrowse<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gl', ':LazyGit<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gf', ':LazyGitFilter<CR>', { noremap = true, silent = true })
 
 -- translate
 vim.api.nvim_set_keymap('n', '<Leader>rt', ':Translate<CR>', { noremap = true, silent = true })
@@ -83,3 +86,21 @@ vim.api.nvim_set_keymap('v', '<Leader>nc', ':call nerdcommenter#Comment(1, "comm
 
 vim.api.nvim_set_keymap('n', '<Leader>nu', ':call nerdcommenter#Comment(0, "uncomment")<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Leader>nu', ':call nerdcommenter#Comment(1, "uncomment")<CR>', { noremap = true, silent = true })
+
+-- package manager
+vim.api.nvim_set_keymap('n', '<Leader>pi', ':PackerInstall<CR>',  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>pu', ':PackerUpdate<CR>',   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>pc', ':PackerClean<CR>',    { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>pl', ':PackerLoad<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>',     { noremap = true, silent = true })
+
+-- telescope
+vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fc', ':Telescope colorscheme<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope commands<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgs', ':Telescope git_status<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',     { noremap = true, silent = true })

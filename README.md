@@ -7,46 +7,62 @@ Death.NeoVim
 
 ![pic1](media/dashboard.png)
 
+## Completion
+
+![pic2](media/completion.png)
+![gif1](media/completion.gif)
+
+## Snippets
+
+![pic3](media/snippets.png)
+![gif2](media/snippets.gif)
+
 ## Nvim-Tree
 
-![pic2](media/nvim-tree.png)
-
-## Airline
-
-![pic3](media/airline.png)
-
-## Statusbar
-
-![pic3](media/statusbar.png)
+![pic4](media/nvim-tree.png)
 
 ## Markdown
 
-![pic4](media/markdown.png)
+![pic5](media/markdown.png)
+![gif3](media/markdown.gif)
 
 ## LaTeX
 
-![pic5](media/latex.png)
+![pic6](media/latex.png)
+![gif4](media/latex.gif)
 
 ## Fuzzy File Finder
 
-![pic6](media/fuzzy-file-finder.png)
+![pic7](media/fuzzy-file-finder.png)
+![gif5](media/fuzzy-file-finder.gif)
 
 ## Translator
 
-![pic7](media/translator.png)
+![pic8](media/translator.png)
+![gif6](media/translator.gif)
+
+## Lazy Git
+
+![pic9](media/lazy-git-1.png)
+![pic10](media/lazy-git-2.png)
+
+## Which Key
+
+![pic11](media/which-key.png)
 
 # Table of Contents
 
 * [Gallery](#gallery)
   * [Dashboard](#dashboard)
-  * [Nvim-Tree](#system)
-  * [Airline](#airline)
-  * [Markdown](#markdown)
-  * [Statusbar](#statusbar)
+  * [Completion](#completion)
+  * [Snippets](#snippets)
+  * [Nvim Tree](#nvim-tree)
   * [Markdown](#markdown)
   * [LaTeX](#latex)
-  * [Fuzzy File Finder](#Fuzzy-file-finder)
+  * [Fuzzy File Finder](#fuzzy-file-finder)
   * [Translator](#translator)
+  * [Lazy Git](#lazy-git)
+  * [Which Key](#which-key)
 * [Features](#features)
 * [Overview](#overview)
 * [Install In Three Lines](#install-in-three-lines)
@@ -144,6 +160,8 @@ cd ~/.config/nvim && ./script
 | :Gmove          | `<Leader>gm`    |
 | :Gmerge         | `<Leader>gM`    |
 | :Gbrowse        | `<Leader>gb`    |
+| :LazyGit        | `<Leader>gl`    |
+| :LazyGitFilter  | `<Leader>gf`    |
 
 ### Translation
 

@@ -8,7 +8,6 @@ vim.o.cmdheight=2
 vim.o.mouse='a'
 vim.o.splitbelow=true
 vim.o.splitright=true
-vim.o.t_Co='256'
 vim.o.conceallevel=0
 vim.o.tabstop=2
 vim.o.shiftwidth=2
@@ -31,3 +30,4 @@ vim.wo.number=true
 vim.wo.relativenumber=true
 
 vim.cmd('set spell')
+

@@ -51,6 +51,7 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use { 'dylanaraps/wal.vim' }
+  use { 'navarasu/onedark.nvim' }
 
   -- Whichkey
   use { 'folke/which-key.nvim' }
@@ -102,4 +103,7 @@ return require('packer').startup(function()
 
   -- Easy tables
   use { 'dhruvasagar/vim-table-mode' }
+
+  -- Quick navigation
+  use { 'easymotion/vim-easymotion' }
 end)
