@@ -74,6 +74,8 @@ wk.register({
   k = { '<cmd>bdelete<CR>',         'Delete buffer'},
   d = { '<cmd>Dashboard<CR>',       'Toggle Dashboard' },
   h = { '<cmd>nohl<CR>',            'Clear search highlights' },
+  y = { '<Plug>(easymotion-bd-f)',  'Easymotion' },
+  f = "which_key_ignore",
 }, { prefix = "<leader>" })
 
 ------------------
