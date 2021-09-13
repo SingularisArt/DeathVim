@@ -10,12 +10,10 @@ Death.NeoVim
 ## Completion
 
 ![pic2](media/completion.png)
-![gif1](media/completion.gif)
 
 ## Snippets
 
 ![pic3](media/snippets.png)
-![gif2](media/snippets.gif)
 
 ## Nvim-Tree
 
@@ -24,22 +22,18 @@ Death.NeoVim
 ## Markdown
 
 ![pic5](media/markdown.png)
-![gif3](media/markdown.gif)
 
 ## LaTeX
 
 ![pic6](media/latex.png)
-![gif4](media/latex.gif)
 
 ## Fuzzy File Finder
 
 ![pic7](media/fuzzy-file-finder.png)
-![gif5](media/fuzzy-file-finder.gif)
 
 ## Translator
 
 ![pic8](media/translator.png)
-![gif6](media/translator.gif)
 
 ## Lazy Git
 
@@ -233,7 +227,6 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 - [x] Setup neovim for taking notes in **LaTeX**.
 - [x] Add git signs in the gutter area.
 - [x] Add snippets.
-- [ ] Add **gifs** to my **README.md**.
 - [ ] Add **features** to **README.md**.
 - [ ] Add **requirements** to **README.md**.
 - [ ] Get completion using either **Native LSP** or **COC**.
