@@ -66,6 +66,9 @@ Death.NeoVim
   * [Keybindings](#keybindings)
     * [Basic key binds](#basic-key-binds)
     * [Browser](#browser)
+    * [Navigation](#navigation)
+    * [Editing](#editing)
+    * [Telescope](#telescope)
     * [Git](#git)
     * [Translation](#translation)
     * [LaTeX](#latex)
@@ -127,7 +130,8 @@ cd ~/.config/nvim && ./script
 | New tab                       | `<Leader>n`               |
 | Horizontal split              | `<Leader>s`               |
 | Horizontal vsplit             | `<Leader>v`               |
-| Kill buffer                   | `<Leader>bk`              |
+| Kill buffer                   | `<Leader>k`               |
+| Easymotion                    | `<Leader>y`               |
 
 ### Editing
 
@@ -141,6 +145,20 @@ cd ~/.config/nvim && ./script
 | NERDComment toggle       | `<Leader>nc`              |
 | NERDComment un-toggle    | `<Leader>nu`              |
 | Fix misspelled words     | `<C-l> INSERT MODE`       |
+
+### Telescope
+
+| Function                 | Keybind                   |
+| ------------------------ | ------------------------- |
+| :Telescope find_files    | `<Leader>ff`              |
+| :Telescope colorscheme   | `<Leader>fc`              |
+| :Telescope commands      | `<Leader>fo`              |
+| :Telescope quick_fix     | `<Leader>fq`              |
+| :Telescope git_status    | `<Leader>fgs`             |
+| :Telescope git_files     | `<Leader>fgf`             |
+| :Telescope git_commits   | `<Leader>fgc`             |
+| :Telescope git_branches  | `<Leader>fgb`             |
+| :Telescope git_stash     | `<Leader>fgt`             |
 
 ### Git
 
