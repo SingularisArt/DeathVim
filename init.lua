@@ -19,4 +19,6 @@ require('plugin-configs.nv-dashboard')
 require('plugin-configs.nv-ultisnips')
 require('plugin-configs.nv-vimtex')
 require('plugin-configs.nv-vim-polyglot')
+require('plugin-configs.nv-translator')
+require('plugin-configs.nv-table-mode')
 

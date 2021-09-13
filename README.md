@@ -93,74 +93,92 @@ cd ~/.config/nvim && ./script
 
 ### Basic key binds
 
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Leader Key                              | `SPACE`         |
+| Function       | Keybind         |
+| -------------- | --------------- |
+| Leader Key     | `SPACE`         |
 
 ### Browser
 
-| Function        | Keybind      |
-| --------------- | ------------ |
-| :NvimTreeToggle | `<Leader>e`  |
+| Function            | Keybind      |
+| ------------------- | ------------ |
+| :NvimTreeToggle     | `<Leader>e`  |
 
 ### Navigation
 
-| Function                                      | Keybind                   |
-| --------------------------------------------- | ------------------------- |
-| Navigate to left window                       | `Ctrl+h`                  |
-| Navigate to right window                      | `Ctrl+l`                  |
-| Navigate to top window                        | `Ctrl+k`                  |
-| Navigate to bottom window                     | `Ctrl+j`                  |
-| Next tab                                      | `Tab`                     |
-| Previous tab                                  | `Shift+Tab`               |
-| Only window                                   | `<Leader>o`               |
-| New tab                                       | `<Leader>t`               |
-| Horizontal split                              | `<Leader>s`               |
-| Horizontal vsplit                             | `<Leader>v`               |
-| Kill buffer                                   | `<Leader>bk`              |
+| Function                      | Keybind                   |
+| ----------------------------- | ------------------------- |
+| Navigate to left window       | `Ctrl+h`                  |
+| Navigate to right window      | `Ctrl+l`                  |
+| Navigate to top window        | `Ctrl+k`                  |
+| Navigate to bottom window     | `Ctrl+j`                  |
+| Next tab                      | `Tab`                     |
+| Previous tab                  | `Shift+Tab`               |
+| Only window                   | `<Leader>o`               |
+| New tab                       | `<Leader>n`               |
+| Horizontal split              | `<Leader>s`               |
+| Horizontal vsplit             | `<Leader>v`               |
+| Kill buffer                   | `<Leader>bk`              |
+
+### Editing
+
+| Function                 | Keybind                   |
+| ------------------------ | ------------------------- |
+| :TableModeToggle         | `<Leader>ttt`             |
+| :TableAddFormula         | `<Leader>taf`             |
+| Delete Table Row         | `<Leader>tdr`             |
+| Delete Table Column      | `<Leader>tdc`             |
+| Insert Table Column      | `<Leader>tic`             |
+| NERDComment toggle       | `<Leader>nc`              |
+| NERDComment un-toggle    | `<Leader>nu`              |
+| Fix misspelled words     | `<C-l> INSERT MODE`       |
 
 ### Git
 
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :Gstatus                                | `<Leader>gs`    |
-| :Gdiffsplit                             | `<Leader>gd`    |
-| :Gcommit                                | `<Leader>gc`    |
-| :Gpush                                  | `<Leader>gp`    |
-| :Gpull                                  | `<Leader>gP`    |
-| :Gmove                                  | `<Leader>gm`    |
-| :Gmerge                                 | `<Leader>gM`    |
-| :Gbrowse                                | `<Leader>gb`    |
+| Function        | Keybind         |
+| --------------- | --------------- |
+| :Gstatus        | `<Leader>gs`    |
+| :Gdiffsplit     | `<Leader>gd`    |
+| :Gcommit        | `<Leader>gc`    |
+| :Gpush          | `<Leader>gp`    |
+| :Gpull          | `<Leader>gP`    |
+| :Gmove          | `<Leader>gm`    |
+| :Gmerge         | `<Leader>gM`    |
+| :Gbrowse        | `<Leader>gb`    |
 
 ### Translation
 
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :Translate                              | `<Leader>t`     |
-| :TranslateW                             | `<Leader>tw`    |
-| :TranslateR                             | `<Leader>tr`    |
+| Function        | Keybind         |
+| ----------------| --------------- |
+| :Translate      | `<Leader>rt`    |
+| :TranslateW     | `<Leader>rw`    |
+| :TranslateR     | `<Leader>rr`    |
 
 ### LaTeX
 
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :VimtexCompile                          | `<Leader>lc`    |
-| :VimtexCompileSelected                  | `<Leader>ls`    |
-| :VimtexInfo                             | `<Leader>li`    |
-| :VimtexTocToggle                        | `<Leader>lt`    |
-| :VimtexView                             | `<Leader>lv`    |
+| Function                   | Keybind         |
+| -------------------------- | --------------- |
+| :VimtexCompile             | `<Leader>lc`    |
+| :VimtexCompileSelected     | `<Leader>ls`    |
+| :VimtexInfo                | `<Leader>li`    |
+| :VimtexTocToggle           | `<Leader>lt`    |
+| :VimtexView                | `<Leader>lv`    |
 
 ### Misc
 
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| :MarkdownPreview                        | `<Leader>md`    |
+| Function            | Keybind         |
+| ------------------- | --------------- |
+| :MarkdownPreview    | `<Leader>mp`    |
 
 Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ## All of my plugins
 
-- [lspconfig](https://github.com/neovim/nvim-lspconfig) - For lsp stuff.
+- [Plugin Manager](https://github.com/wbthomason/packer.nvim) - For **lsp**.
+- [LSP](https://github.com/neovim/nvim-lspconfig) - For **lsp**.
+- [LSP](https://github.com/tamago324/nlsp-settings.nvim) - For **lsp**.
+- [LSP](https://github.com/jose-elias-alvarez/null-ls.nvim) - For **lsp**.
+- [LSP](https://github.com/kabouzeid/nvim-lspinstall) - For **lsp**.
+- [color](https://github.com/norcalli/nvim-colorizer.lua) - To see **hex colors**.
 - [polyglot](https://github.com/sheerun/vim-polyglot) - Better syntax and easier than **TreeSitter**.
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy file finder.
 - [popup](https://github.com/nvim-lua/popup.nvim) - Needed for **Telescope**.
@@ -168,18 +186,17 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 - [compe](https://github.com/hrsh7th/nvim-compe) - Autosuggestions (very cool).
 - [ultisnips](https://github.com/SirVer/UltiSnips) - Snippet manager.
 - [vim-snippets](https://github.com/honza/vim-snippets) - Snippets.
-- [tabnine](https://github.com/codota/tabnine-vim) - AI Autocomplete.
+- [tabnine](https://github.com/codota/tabnine-vim) - AI Autocomplete (Coming Soon).
 - [goyo](https://github.com/junegunn/goyo.vim) - Goyo is distraction free.
 - [autopairs](https://github.com/windwp/nvim-autopairs) - Auto pairing my brackets.
 - [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua) - File browser.
 - [wal](https://github.com/dylanaraps/wal.vim) - My colorscheme (to go along with my system colorscheme).
 - [which-key](https://github.com/folke/which-key.nvim) - Helps me remember my keys.
-- [comment](https://github.com/terrortylor/nvim-comment) - Comments stuff quickly (I don't know how to use it though).
+- [comment](https://github.com/scrooloose/nerdcommenter) - Comments stuff quickly.
 - [icons](https://github.com/kyazdani42/nvim-web-devicons) - Nice icons for items such as NvimTree.
 - [status bar](https://github.com/vim-airline/vim-airline) - My nice statusbar.
 - [dashboard](https://github.com/glepnir/dashboard-nvim) - Nice startup thing.
-- [terminal](https://github.com/akinsho/nvim-toggleterm.lua) - Quick terminal popup.
-- [show indent](https://github.com/Yggdroot/indentLine) - Shows indentation in a nice way.
+- [terminal](https://github.com/voldikss/vim-floaterm) - Quick terminal popup.
 - [translators](https://github.com/voldikss/vim-translator) - Translats things.
 - [lua dev](https://github.com/folke/lua-dev.nvim) - Nice plugin for lua development.
 - [syntax errors](https://github.com/folke/trouble.nvim) - Kind of like syntastic, but better.
@@ -195,11 +212,12 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 # TODO
 
 - [x] Add all of my plugins.
-- [ ] Setup neovim for taking notes in **LaTeX**.
+- [x] Setup neovim for taking notes in **LaTeX**.
+- [x] Add git signs in the gutter area.
+- [x] Add snippets.
+- [ ] Add **gifs** to my **README.md**.
 - [ ] Add **features** to **README.md**.
 - [ ] Add **requirements** to **README.md**.
 - [ ] Get completion using either **Native LSP** or **COC**.
-- [ ] Add snippets.
 - [ ] Add tabnine.
-- [ ] Add git signs in the gutter area.
 

@@ -26,14 +26,12 @@ return require('packer').startup(function()
   use { 'norcalli/nvim-colorizer.lua' }
 
   -- Telescope
-  use { 'nvim-telescope/telescope.nvim' }
-  use { 'nvim-lua/popup.nvim' }
   use { 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope-media-files.nvim' }
+  use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-fzy-native.nvim' }
 
   -- Completion & Snippets
   use { 'hrsh7th/nvim-compe' }
-  --use { 'nvim-lua/completion-nvim' }
 
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
@@ -41,6 +39,9 @@ return require('packer').startup(function()
 
   -- Distraction free
   use { 'junegunn/goyo.vim' }
+
+  -- Commenting
+  use { 'scrooloose/nerdcommenter' }
 
   -- Auto pairs
   use { 'windwp/nvim-autopairs' }
@@ -67,7 +68,7 @@ return require('packer').startup(function()
   use { 'glepnir/dashboard-nvim' }
 
   -- Terminal
-  use { 'akinsho/nvim-toggleterm.lua' }
+  use { 'voldikss/vim-floaterm' }
   
   -- Nice for lua development
   use { 'folke/lua-dev.nvim' }
@@ -98,4 +99,7 @@ return require('packer').startup(function()
 
   -- Translator
   use { 'voldikss/vim-translator' }
+
+  -- Easy tables
+  use { 'dhruvasagar/vim-table-mode' }
 end)

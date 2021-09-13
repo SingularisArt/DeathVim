@@ -1,9 +1,10 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Enter>', '<NOP>', { noremap = true, silent = true })
+
 vim.g.mapleader = ' '
 
 -- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
 
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -38,7 +39,7 @@ vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>s', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>o', ':only<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>t', ':tabnew<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>n', ':tabnew<CR>', { noremap = true, silent = true })
   
 -- git
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':Gstatus<CR>', { noremap = true, silent = true })
@@ -64,7 +65,21 @@ vim.api.nvim_set_keymap('n', '<Leader>lt', ':VimtexTocToggle<CR>', { noremap = t
 vim.api.nvim_set_keymap('n', '<Leader>lv', ':VimtexView<CR>', { noremap = true, silent = true })
 
 -- markdown
-vim.api.nvim_set_keymap('n', '<Leader>md', ':MarkdownPreview<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>mp', ':MarkdownPreview<CR>', { noremap = true, silent = true })
 
 -- inkscape
 vim.cmd('source ~/.config/nvim/lua/core/keymappings.vim')
+
+-- table
+vim.api.nvim_set_keymap('n', '<Leader>ttt',  ':TableModeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>taf', ':TableAddFormula<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>tdr', '<Leader>tdr', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>tdc', '<Leader>tdc', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>tic', '<Leader>tic', { noremap = true, silent = true })
+
+-- commenting
+vim.api.nvim_set_keymap('n', '<Leader>nc', ':call nerdcommenter#Comment(0, "comment")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>nc', ':call nerdcommenter#Comment(1, "comment")<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>nu', ':call nerdcommenter#Comment(0, "uncomment")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>nu', ':call nerdcommenter#Comment(1, "uncomment")<CR>', { noremap = true, silent = true })
