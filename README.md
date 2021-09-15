@@ -70,7 +70,7 @@ Death.NeoVim
     * [Telescope](#telescope)
     * [Git](#git)
     * [Translation](#translation)
-    * [LaTeX](#latex)
+    * [LaTeX](#latex-1)
     * [Misc](#misc)
   * [All of my plugins](#all-of-my-plugins)
 * [TODO](#todo)
