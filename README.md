@@ -60,7 +60,6 @@ Death.NeoVim
 * [Features](#features)
 * [Overview](#overview)
 * [Install In Three Lines](#install-in-three-lines)
-* [Installation](#installation)
   * [Installing](#installing)
 * [Usage](#usage)
   * [Keybindings](#keybindings)
