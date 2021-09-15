@@ -61,6 +61,7 @@ Death.NeoVim
 * [Overview](#overview)
 * [Install In Three Lines](#install-in-three-lines)
   * [Installing](#installing)
+   * [Requirements](#requirements)
 * [Usage](#usage)
   * [Keybindings](#keybindings)
     * [Basic key binds](#basic-key-binds)
@@ -89,6 +90,8 @@ But now with `Packer`, it only takes 0.5 seconds, but I also lowered the number 
 > ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.5.0)
 
 ## Installing
+
+### Requirements
 
 Right now, it only works on linux (32 bit and 64 bit).
 
@@ -244,8 +247,8 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 - [x] Setup neovim for taking notes in **LaTeX**.
 - [x] Add git signs in the gutter area.
 - [x] Add snippets.
+- [x] Add **requirements** to **README.md**.
 - [ ] Add **features** to **README.md**.
-- [ ] Add **requirements** to **README.md**.
 - [ ] Get completion using either **Native LSP** or **COC**.
 - [ ] Add tabnine.
 
