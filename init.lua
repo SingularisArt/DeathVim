@@ -20,6 +20,7 @@ require('plugin-configs.nv-translator')
 require('plugin-configs.nv-table-mode')
 require('plugin-configs.nv-which-key')
 require('plugin-configs.nv-scrollbar')
+require('plugin-configs.nv-wildmenu')
 
 vim.cmd('color elly')
 

@@ -15,6 +15,7 @@ return require('packer').startup(function()
   use { 'tamago324/nlsp-settings.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
+  use { 'onsails/lspkind-nvim' }
 
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
