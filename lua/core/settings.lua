@@ -1,5 +1,5 @@
 vim.o.hidden=true
-vim.o.wrap=false
+vim.o.wrap=true
 vim.o.encoding='utf-8'
 vim.o.pumheight=10
 vim.o.fileencoding='utf-8'
@@ -25,6 +25,8 @@ vim.o.signcolumn='yes'
 vim.o.updatetime=100
 vim.o.clipboard='unnamedplus'
 vim.o.incsearch=true
+
+vim.opt.termguicolors=true
 
 vim.wo.number=true
 vim.wo.relativenumber=true

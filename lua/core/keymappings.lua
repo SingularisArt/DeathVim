@@ -100,6 +100,7 @@ vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>',     { noremap = tr
 -- telescope
 vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fc', ':Telescope colorscheme<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope commands<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgs', ':Telescope git_status<CR>',     { noremap = true, silent = true })
@@ -107,3 +108,9 @@ vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',     { no
 vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',     { noremap = true, silent = true })
+
+-- minimap
+vim.api.nvim_set_keymap('n', '<Leader>ic', ':MinimapClose<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>io', ':MinimapOpen<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ir', ':MinimapRefresh<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>it', ':MinimapToggle<CR>',     { noremap = true, silent = true })

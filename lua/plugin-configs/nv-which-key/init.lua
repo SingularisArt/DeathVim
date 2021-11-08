@@ -96,6 +96,20 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+----------------------
+-- Minimap Mappings --
+----------------------
+
+wk.register({
+  i = {
+    name = 'Mini Map',
+    c = { '<cmd>MinimapClose<CR>',              'Close Minimap' },
+    o = { '<cmd>MinimapOpen<CR>',               'Open Minimap' },
+    r = { '<cmd>MinimapRefresh<CR>',            'Refresh Minimap' },
+    t = { '<cmd>MinimapToggle<CR>',             'Toggle Minimap' },
+  },
+}, { prefix = "<leader>" })
+
 ---------------------
 -- Plugin Mappings --
 ---------------------
@@ -196,6 +210,7 @@ wk.register({
     name = 'Telescope',
     f = { '<cmd>Telescope find_files<CR>',        'Browse files'},
     c = { '<cmd>Telescope colorscheme<CR>',       'Browse colorschemes'},
+    c = { '<cmd>Telescope buffers<CR>',           'Browse buffers'},
     o = { '<cmd>Telescope commands<CR>',          'Browse commands'},
     q = { '<cmd>Telescope quick_fix<CR>',         'Browse quick fix list'},
     g = {

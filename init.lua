@@ -2,14 +2,12 @@
 require('core.plugins')
 require('core.keymappings')
 require('core.settings')
-require('core.colorscheme')
 require('core.lsp')
 
 -- Plugins
 require('plugin-configs.nv-auto-pairs')
 require('plugin-configs.nv-airline')
 require('plugin-configs.nv-compe')
-require('plugin-configs.nv-colorizer')
 require('plugin-configs.nv-nvimtree')
 require('plugin-configs.nv-telescope')
 require('plugin-configs.nv-terminal')
@@ -21,5 +19,7 @@ require('plugin-configs.nv-vim-polyglot')
 require('plugin-configs.nv-translator')
 require('plugin-configs.nv-table-mode')
 require('plugin-configs.nv-which-key')
+require('plugin-configs.nv-scrollbar')
 
-vim.cmd('color wal')
+vim.cmd('color elly')
+

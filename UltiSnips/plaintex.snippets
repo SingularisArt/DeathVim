@@ -2,154 +2,154 @@
 # ENVIRONMENT #
 ###############
 
-snippet beg "begin{} / end{}" bA
+snippet beg "begin{} / end{}" bAi
 \begin{$1}
-	$0
+	$0${VISUAL}
 \end{$1}
 endsnippet
 
-snippet doc "Document" bA
+snippet doc "Document" bAi
 \begin{document}
-	$0
+	$0${VISUAL}
 \end{document}
 endsnippet
 
-snippet cnt "Center" bA
+snippet cnt "Center" bAi
 \begin{center}
-	$1
+	$0${VISUAL}
 \end{center}
 endsnippet
 
-snippet desc "Description" bA
+snippet desc "Description" bAi
 \begin{description}
-	$1
+	$0${VISUAL}
 \end{description}
 endsnippet
 
-snippet lemma "Lemma" bA
+snippet lemma "Lemma" bAi
 \begin{lemma}
-	$1
+	$0${VISUAL}
 \end{lemma}
 endsnippet
 
-snippet prop "Proposition" bA
+snippet prop "Proposition" bAi
 \begin{prop}[$1]
-	$2
+	$0${VISUAL}
 \end{prop}
 endsnippet
 
-snippet thrm "Theorem" bA
+snippet thrm "Theorem" bAi
 \begin{theorem}[$1]
-	$2
+	$0${VISUAL}
 \end{theorem}
 endsnippet
 
-snippet post "postulate" bA
+snippet post "postulate" bAi
 \begin{postulate}[$1]
-	$2
+	$0${VISUAL}
 \end{postulate}
 endsnippet
 
-snippet myprf "Proof" bA
+snippet prf "Proof" bAi
 \begin{myproof}[$1]
-	$2
+	$0${VISUAL}
 \end{myproof}
 endsnippet
 
-snippet def "Definition" bA
+snippet def "Definition" bAi
 \begin{definition}[$1]
-	$2
+	$0${VISUAL}
 \end{definition}
 endsnippet
 
-snippet nte "Note" bA
+snippet nte "Note" bAi
 \begin{note}[$1]
-	$2
+	$0${VISUAL}
 \end{note}
 endsnippet
 
-snippet prob "Problem" bA
+snippet prob "Problem" bAi
 \begin{problem}[$1]
-	$2
+	$0${VISUAL}
 \end{problem}
 endsnippet
 
-snippet corl "Corollary" bA
+snippet corl "Corollary" bAi
 \begin{corollary}[$1]
-	$2
+	$0${VISUAL}
 \end{corollary}
 endsnippet
 
-snippet exp "Example" bA
+snippet example "Example" bAi
 \begin{example}[$1]
-	$2
+	$0${VISUAL}
 \end{example}
 endsnippet
 
-snippet ntion "Notation" bA
+snippet notion "Notation" bAi
 \begin{notation}[$1]
-	$2
+	$0${VISUAL}
 \end{notation}
 endsnippet
 
-snippet rep "Repetition" bA
+snippet rep "Repetition" bAi
 \begin{repetition}[$1]
-	$2
+	$0${VISUAL}
 \end{repetition}
 endsnippet
 
-snippet prop "Property" bA
+snippet prop "Property" bAi
 \begin{property}[$1]
-	$2
+	$0${VISUAL}
 \end{property}
 endsnippet
 
-snippet int "Intuition" bA
+snippet int "Intuition" bAi
 \begin{intuition}[$1]
-	$2
+	$0${VISUAL}
 \end{intuition}
 endsnippet
 
-snippet obs "Observation" bA
+snippet obs "Observation" bAi
 \begin{observation}[$1]
-	$2
+	$0${VISUAL}
 \end{observation}
 endsnippet
 
-snippet conc "Conclusion" bA
+snippet conc "Conclusion" bAi
 \begin{conclusion}[$1]
-	$2
+	$0${VISUAL}
 \end{conclusion}
 endsnippet
 
-snippet fig "Figure environment" bA
+snippet fig "Figure environment" bAi
 \begin{figure}[${1:htpb}]
-	\centering
+	\centering:${VISUAL}
 	${2:\includegraphics[width=0.8\textwidth]{$3}}
 	\caption{${4:$3}}
 	\label{fig:${5:${3/\W+/-/g}}}
 \end{figure}
 endsnippet
 
-snippet enum "Enumerate" bA
+snippet enum "Enumerate" bAi
 \begin{enumerate}
-	\item $0
+	\item $0${VISUAL}
 \end{enumerate}
 endsnippet
 
-snippet item "Itemize" bA
+snippet item "Itemize" bAi
 \begin{itemize}
-	\item $0
+	\item $0${VISUAL}
 \end{itemize}
 endsnippet
 
-snippet case "cases" bA
+snippet case "cases" bAi
 \begin{cases}
-	$1
+	$0${VISUAL}
 \end{cases}
 endsnippet
 
-snippet ali "Align" bA
+snippet ali "Align" bAi
 \begin{align*}
 	${1:${VISUAL}}
 .\end{align*}
@@ -160,71 +160,109 @@ endsnippet
 # MATH #
 ########
 
-snippet cc "subset" Aw
+snippet "([a-zA-Z])MM"  "^m" wr
+`!p snip.rv = match.group(1)`^{m}
+endsnippet
+
+snippet "([a-zA-Z])NN"  "^n" wr
+`!p snip.rv = match.group(1)`^{n}
+endsnippet
+
+snippet "([a-zA-Z])II"  "^i" wr
+`!p snip.rv = match.group(1)`^{i}
+endsnippet
+
+snippet "([a-zA-Z])KK"  "^k" wr
+`!p snip.rv = match.group(1)`^{k}
+endsnippet
+
+snippet "([a-zA-Z])JJ"  "^j" wr
+`!p snip.rv = match.group(1)`^{j}
+endsnippet
+
+snippet "([a-zA-Z])mm"  "_m" wr
+`!p snip.rv = match.group(1)`_{m}
+endsnippet
+
+snippet "([a-zA-Z])nn"  "_n" wr
+`!p snip.rv = match.group(1)`_{n}
+endsnippet
+
+snippet "([a-zA-Z])ii"  "_i" wr
+`!p snip.rv = match.group(1)`_{i}
+endsnippet
+
+snippet "([a-zA-Z])kk"  "_k" wr
+`!p snip.rv = match.group(1)`_{k}
+endsnippet
+
+snippet "([a-zA-Z])jj"  "_j" wr
+`!p snip.rv = match.group(1)`_{j}
+endsnippet
+
+snippet cc "subset" w
 \subset 
 endsnippet
 
-snippet inn "in " Aw
+snippet inn "in " w
 \in 
 endsnippet
 
-snippet NN "n" Aw
+snippet NN "n" w
 \N
 endsnippet
 
-snippet Nn "cap" Aw
+snippet Nn "cap" w
 \cap 
 endsnippet
 
-snippet UU "cup" Aw
+snippet UU "cup" w
 \cup 
 endsnippet
 
-snippet uuu "bigcup" Aw
+snippet uuu "bigcup" w
 \bigcup_{${1:i \in ${2: I}}} $0
 endsnippet
 
-snippet nnn "bigcap" Aw
+snippet nnn "bigcap" w
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet
 
-snippet OO "emptyset" Aw
+snippet OO "emptyset" w
 \O
 endsnippet
 
-snippet RR "real" Aw
+snippet RR "real" w
 \R
 endsnippet
 
-snippet QQ "Q" Aw
+snippet QQ "Q" w
 \Q
 endsnippet
 
-snippet ZZ "Z" Aw
+snippet ZZ "Z" w
 \Z
 endsnippet
 
-snippet HH "H" Aw
+snippet HH "H" w
 \mathbb{H}
 endsnippet
 
-snippet DD "D" Aw
+snippet DD "D" w
 \mathbb{D}
 endsnippet
 
-snippet im "Inline Math" wA
+snippet im "Inline Math" Aw
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
 else:
 	snip.rv = ''
-`$2
+`$0
 endsnippet
 
-snippet dm "Display Math" wA
-\[
-${1:${VISUAL}}
-.\] $0
+snippet dm "Display Math" Aw
+\[ ${1:${VISUAL}} .\]$0
 endsnippet
 
 snippet ... "ldots" Aw
@@ -232,7 +270,7 @@ snippet ... "ldots" Aw
 endsnippet
 
 snippet * "times" wi
-\times$0
+\times $0
 endsnippet
 
 snippet // "Fraction" Aw
@@ -273,6 +311,18 @@ snippet '([A-Za-z])_\{(\d+)\}(\d)' "Auto subscript 3+" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2) + match.group(3)`}
 endsnippet
 
+snippet '([A-Za-z])\^(\d)' "Auto superscript" wrA
+`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])\^(\d\d)' "Auto superscript 2" wrA
+`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '([A-Za-z])\^\{(\d+)\}(\d)' "Auto superscript 3+" wrA
+`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2) + match.group(3)`}
+endsnippet
+
 snippet sq "Square" i
 ^2
 endsnippet
@@ -297,55 +347,51 @@ snippet __ "subscript" Aw
 _{$1}$0
 endsnippet
 
-snippet bf "Bold" Aw
-\textbf{$1}$0
+snippet srt "Square Root" wi
+\sqrt{${1:${VISUAL}}}$0
 endsnippet
 
-snippet it "Italic" Aw
-\textit{$1}$0
+snippet srto "... Root" wi
+\sqrt[$1]{${2:${VISUAL}}}$0
 endsnippet
 
-snippet itm "Item" Aw
-\item $0
+snippet bf "Bold" wi
+\textbf{${1:${VISUAL}}}$0
 endsnippet
 
-snippet => "Implies" Aw
-\implies
+snippet it "Italic" wi
+\textit{${1:${VISUAL}}}$0
 endsnippet
 
-snippet =< "Implied by" Aw
-\impliedby
+snippet un "Underline" wi
+\underline{${1:${VISUAL}}}$0
 endsnippet
 
-snippet iff "iff" Aw
-\iff
+snippet rm "Text" wi
+\textrm{${1:${VISUAL}}}$0
 endsnippet
 
-snippet == "Equals" Aw
-&= $1 \\\\
+snippet itm "Item" wi
+\item ${0:${VISUAL}}
 endsnippet
 
-snippet != "Equals" Aw
-\neq 
-endsnippet
-
-snippet ceil "Ceil" Aw
+snippet ceil "Ceil" w
 \left\lceil $1 \right\rceil $0
 endsnippet
 
-snippet floor "Floor" Aw
+snippet floor "Floor" w
 \left\lfloor $1 \right\rfloor$0
 endsnippet
 
-snippet pmat "Pmat" Aw
+snippet pmat "Pmat" w
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
 
-snippet bmat "Bmat" Aw
+snippet bmat "Bmat" w
 \begin{bmatrix} $1 \end{bmatrix} $0
 endsnippet
 
-snippet () "Left( right)" Aw
+snippet () "Left( right)" w
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
@@ -373,11 +419,11 @@ snippet lr[ "left[ right]" i
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
-snippet lra "leftangle rightangle" Awi
+snippet lra "leftangle rightangle" wi
 \left<${1:${VISUAL}} \right>$0
 endsnippet
 
-snippet conj "conjugate" Aw
+snippet conj "conjugate" w
 \overline{$1}$0
 endsnippet
 
@@ -405,12 +451,32 @@ snippet part "d/dx" w
 \frac{\partial ${1:V}}{\partial ${2:x}} $0
 endsnippet
 
-snippet ooo "\infty" Aw
+snippet ooo "\infty" w
 \infty
 endsnippet
 
 snippet rij "mrij" i
 (${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
+endsnippet
+
+snippet => "Implies" w
+\implies
+endsnippet
+
+snippet =< "Implied by" w
+\impliedby
+endsnippet
+
+snippet iff "iff" w
+\iff
+endsnippet
+
+snippet == "Equals" w
+&= $1 \\\\
+endsnippet
+
+snippet != "Equals" w
+\neq 
 endsnippet
 
 snippet <= "leq" Aw
@@ -425,40 +491,16 @@ snippet EE "geq" Aw
 \exists 
 endsnippet
 
+snippet -> "to" Aw
+\to 
+endsnippet
+
 snippet AA "forall" Aw
 \forall 
 endsnippet
 
-snippet xnn "xn" Aw
-x_{n}
-endsnippet
-
-snippet ynn "yn" Aw
-y_{n}
-endsnippet
-
-snippet xii "xi" Aw
-x_{i}
-endsnippet
-
-snippet yii "yi" Aw
-y_{i}
-endsnippet
-
-snippet xjj "xj" Aw
-x_{j}
-endsnippet
-
-snippet yjj "yj" Aw
-y_{j}
-endsnippet
-
 snippet xp1 "x" Aw
 x_{n+1}
-endsnippet
-
-snippet xmm "x" Aw
-x_{m}
 endsnippet
 
 snippet R0+ "R0+" Aw
@@ -487,10 +529,6 @@ snippet nn "Tikz node" w
 $0
 endsnippet
 
-snippet mcal "mathcal" Aw
-\mathcal{$1}$0
-endsnippet
-
 snippet lll "l" Aw
 \ell
 endsnippet
@@ -511,7 +549,7 @@ snippet norm "norm" Aw
 \|$1\|$0
 endsnippet
 
-snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rw
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -529,10 +567,6 @@ endsnippet
 
 snippet '(?<!i)sts' "text subscript" irA
 _\text{$1} $0
-endsnippet
-
-snippet tt "text" Aw
-\text{$1}$0
 endsnippet
 
 snippet SI "SI" Aw
@@ -559,12 +593,8 @@ snippet << "<<" Aw
 \ll
 endsnippet
 
-snippet invs "inverse" Aw
-^{-1}
-endsnippet
-
-snippet -> "to" Aw
-\to 
+snippet "(\d|\w)+invs" "inverse" Awr
+`!p snip.rv = match.group(1)`^{-1}
 endsnippet
 
 snippet <-> "leftrightarrow" Aw
@@ -583,7 +613,7 @@ snippet dint "integral" wA
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
 endsnippet
 
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" Awrb
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -592,18 +622,17 @@ endsnippet
 # POSTFIX #
 ###########
 
-
-snippet "bar" "bar" Awr
-\overline{$1}$0
-endsnippet
-
-snippet "\{([a-zA-Z]+)\}bar" "bar" Awr
-\overline{`!p snip.rv = match.group(1)`}$0
+snippet bar "bar" wi
+\bar{${1:${VISUAL}}}$0
 endsnippet
 
 priority 100
 snippet "([a-zA-Z])bar" "bar" Awri
 \overline{`!p snip.rv=match.group(1)`}
+endsnippet
+
+snippet "\{([a-zA-Z]+)\}bar" "bar" Awr
+\overline{`!p snip.rv = match.group(1)`}$0
 endsnippet
 
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" Awri
@@ -671,17 +700,17 @@ Yours sincerely,
 Hashem A. Damrah
 endsnippet
 
-snippet ref "Reference"
-Figure~\ref{fig:$1}$0
+snippet ref "Reference" wi
+Figure~\ref{${1:Fig}:$2:${VISUAL}}$0
 endsnippet
 
 snippet les "Lesson"
-\lesson{${1:LESSON NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LESSON NAME}}
+\lesson{${1:LESSON NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LESSON NAME}}{${4:UNIT NUMEBER}}
 $0
 endsnippet
 
 snippet lec "Lecture"
-\lecture{${1:LECTURE NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LECTURE NAME}}
+\lecture{${1:LECTURE NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LECTURE NAME}}{${4:UNIT NUMEBER}}
 $0
 endsnippet
 
@@ -690,8 +719,8 @@ endsnippet
 # SECTIONS #
 ############
 
-snippet chap "Chapter"
-\chapter{$1}
+snippet chap "Chapter" wi
+\chapter{$1${VISUAL}}
 \label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${3:Some text here}
@@ -699,8 +728,8 @@ ${3:Some text here}
 % chapter $2 (end)
 endsnippet
 
-snippet sec "Subsection"
-\section{$1}
+snippet sec "Subsection" wi
+\section{$1${VISUAL}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${3:Some text here}
@@ -708,8 +737,8 @@ ${3:Some text here}
 % section $2 (end)
 endsnippet
 
-snippet sec* "Subsection"
-\section*{$1}
+snippet sec* "Subsection" wi
+\section*{$1${VISUAL}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${3:Some text here}
@@ -717,8 +746,8 @@ ${3:Some text here}
 % section $2 (end)
 endsnippet
 
-snippet sub "Subsection"
-\subsection{$1}
+snippet sub "Subsection" wi
+\subsection{$1${VISUAL}}
 \label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${3:Some text here}
@@ -726,11 +755,16 @@ ${3:Some text here}
 % subsection $2 (end)
 endsnippet
 
-snippet sub* "Subsection"
-\subsection*{$1}
+snippet sub* "Subsection" wi
+\subsection*{$1${VISUAL}}
 \label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
 ${3:Some text here}
 
 % subsection $2 (end)
 endsnippet
+
+snippet newp "New Page" A
+\newpage
+endsnippet
+

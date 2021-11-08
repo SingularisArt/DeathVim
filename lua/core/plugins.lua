@@ -23,7 +23,7 @@ return require('packer').startup(function()
   use { 'iamcco/markdown-preview.nvim'}
 
   -- Colors
-  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'lilydjwg/colorizer' }
 
   -- Telescope
   use { 'nvim-lua/plenary.nvim' }
@@ -51,13 +51,15 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use { 'dylanaraps/wal.vim' }
+  use { 'ulwlu/elly.vim' }
+  use { 'mangeshrex/uwu.vim' }
   use { 'navarasu/onedark.nvim' }
 
   -- Whichkey
   use { 'folke/which-key.nvim' }
 
   -- Comments
-  use { 'terrortylor/nvim-comment' }
+  --use { 'terrortylor/nvim-comment' }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
@@ -106,4 +108,14 @@ return require('packer').startup(function()
 
   -- Quick navigation
   use { 'easymotion/vim-easymotion' }
+
+  -- Minimap
+  use { 'rinx/nvim-minimap' }
+
+  -- Scrollbar
+  use { 'Xuyuanp/scrollbar.nvim' }
+
+  -- Highlight other words
+  use { 'RRethy/vim-illuminate' }
 end)
+

@@ -1,5 +1,5 @@
 " Main settings
-let g:airline_theme='wal'
+let g:airline_theme='elly'
 let g:airline_powerline_fonts = 1
 let g:airline_symbols = {}
 let g:airline_skip_empty_sections = 1
