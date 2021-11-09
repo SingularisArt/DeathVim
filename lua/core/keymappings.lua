@@ -114,3 +114,6 @@ vim.api.nvim_set_keymap('n', '<Leader>ic', ':MinimapClose<CR>',     { noremap = 
 vim.api.nvim_set_keymap('n', '<Leader>io', ':MinimapOpen<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ir', ':MinimapRefresh<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>it', ':MinimapToggle<CR>',     { noremap = true, silent = true })
+
+--- vim-tex-kawaii
+vim.api.nvim_set_keymap('n', '<Enter>', 'za', { noremap = true, silent = true })

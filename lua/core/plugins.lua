@@ -16,6 +16,7 @@ return require('packer').startup(function()
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
   use { 'onsails/lspkind-nvim' }
+  use { 'folke/lsp-colors.nvim' }
 
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
@@ -40,6 +41,7 @@ return require('packer').startup(function()
 
   -- Distraction free
   use { 'junegunn/goyo.vim' }
+  use { 'Pocco81/TrueZen.nvim' }
 
   -- Commenting
   use { 'scrooloose/nerdcommenter' }
@@ -53,20 +55,21 @@ return require('packer').startup(function()
   -- Colorscheme
   use { 'dylanaraps/wal.vim' }
   use { 'ulwlu/elly.vim' }
-  use { 'mangeshrex/uwu.vim' }
+  use { 'SingularisArt/uwu.vim' }
   use { 'navarasu/onedark.nvim' }
+  use { 'christianchiarulli/nvcode-color-schemes.vim' }
+  use { 'nvim-treesitter/nvim-treesitter' }
 
   -- Whichkey
   use { 'folke/which-key.nvim' }
-
-  -- Comments
-  --use { 'terrortylor/nvim-comment' }
 
   -- Icons
   use { 'kyazdani42/nvim-web-devicons' }
 
   -- Status Line
-  use { 'vim-airline/vim-airline' }
+  --use { 'vim-airline/vim-airline' }
+  use { 'nvim-lualine/lualine.nvim' }
+  use { 'akinsho/bufferline.nvim' }
 
   -- Dashboard
   use { 'glepnir/dashboard-nvim' }
@@ -100,6 +103,9 @@ return require('packer').startup(function()
   -- For latex
   use { 'lervag/vimtex' }
   use { 'KeitaNakamura/tex-conceal.vim' }
+  use { 'anufrievroman/vim-angry-reviewer' }
+  use { 'anufrievroman/vim-tex-kawaii' }
+  --use { 'matze/vim-tex-fold' }
 
   -- Translator
   use { 'voldikss/vim-translator' }
@@ -118,5 +124,25 @@ return require('packer').startup(function()
 
   -- Highlight other words
   use { 'RRethy/vim-illuminate' }
+  use { 'chriskempson/base16-vim' }
+
+  -- Shows indentation
+  use { 'lukas-reineke/indent-blankline.nvim' }
+
+  -- Fancy quick note taking
+  use { 'nvim-neorg/neorg' }
+
+  -- Nice notifications
+  use { 'rcarriga/nvim-notify' }
+
+  -- Brackets rainbow
+  use { 'frazrepo/vim-rainbow' }
+
+  -- Makes neovim faster
+  use { 'lewis6991/impatient.nvim' }
+
+  -- HTML Stuff
+  use { 'Valloric/MatchTagAlways' }
+  use { 'mattn/emmet-vim' }
 end)
 

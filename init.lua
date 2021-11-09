@@ -21,6 +21,14 @@ require('plugin-configs.nv-table-mode')
 require('plugin-configs.nv-which-key')
 require('plugin-configs.nv-scrollbar')
 require('plugin-configs.nv-wildmenu')
+require('plugin-configs.nv-indent-blankline')
+require('plugin-configs.nv-neorg')
+require('bufferline').setup{}
 
-vim.cmd('color elly')
+vim.cmd('color nord')
+vim.cmd('hi Normal ctermfg=None guifg=None guibg=None')
+
+require('lualine').setup{
+  options = { theme = 'pywal' }
+}
 

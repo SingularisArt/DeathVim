@@ -71,155 +71,243 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   UltiSnips = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/UltiSnips"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/UltiSnips",
+    url = "https://github.com/SirVer/UltiSnips"
   },
-  ["completion-nvim"] = {
+  colorizer = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/completion-nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/colorizer",
+    url = "https://github.com/lilydjwg/colorizer"
   },
   ["dashboard-nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
+  ["elly.vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/elly.vim",
+    url = "https://github.com/ulwlu/elly.vim"
   },
   ["goyo.vim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/goyo.vim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/goyo.vim",
+    url = "https://github.com/junegunn/goyo.vim"
   },
   ["latex-snippets"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/latex-snippets"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/latex-snippets",
+    url = "https://github.com/gillescastel/latex-snippets"
   },
   ["lazygit.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lazygit.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lua-dev.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
+    url = "https://github.com/folke/lua-dev.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/scrooloose/nerdcommenter"
   },
   ["nlsp-settings.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
+    url = "https://github.com/tamago324/nlsp-settings.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/null-ls.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-colorizer.lua"] = {
+  ["nvim-compe"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
-  },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-comment"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-compe",
+    url = "https://github.com/hrsh7th/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-lspinstall",
+    url = "https://github.com/kabouzeid/nvim-lspinstall"
   },
-  ["nvim-toggleterm.lua"] = {
+  ["nvim-minimap"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-minimap",
+    url = "https://github.com/rinx/nvim-minimap"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
+  ["scrollbar.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/scrollbar.nvim",
+    url = "https://github.com/Xuyuanp/scrollbar.nvim"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
-  ["telescope-media-files.nvim"] = {
+  ["telescope-fzy-native.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tex-conceal.vim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/tex-conceal.vim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/tex-conceal.vim",
+    url = "https://github.com/KeitaNakamura/tex-conceal.vim"
   },
   ["trouble.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/trouble.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
+  ["uwu.vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/uwu.vim",
+    url = "https://github.com/mangeshrex/uwu.vim"
   },
   ["vim-airline"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-airline"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
+  ["vim-angry-reviewer"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-angry-reviewer",
+    url = "https://github.com/anufrievroman/vim-angry-reviewer"
+  },
+  ["vim-easymotion"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-easymotion",
+    url = "https://github.com/easymotion/vim-easymotion"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-multiple-cursors"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors",
+    url = "https://github.com/terryma/vim-multiple-cursors"
   },
   ["vim-polyglot"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
   },
   ["vim-rhubarb"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-snippets"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-snippets"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
+  },
+  ["vim-table-mode"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
+  },
+  ["vim-tex-fold"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-tex-fold",
+    url = "https://github.com/matze/vim-tex-fold"
   },
   ["vim-translator"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-translator"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-translator",
+    url = "https://github.com/voldikss/vim-translator"
   },
   vimtex = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vimtex"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   },
   ["wal.vim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/wal.vim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/wal.vim",
+    url = "https://github.com/dylanaraps/wal.vim"
   },
   ["which-key.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/which-key.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   },
   ["wilder.nvim"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/wilder.nvim"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 

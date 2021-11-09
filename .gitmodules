@@ -1,3 +1,6 @@
 [submodule "ls/lua-language-server"]
 	path = ls/lua-language-server
 	url = https://github.com/sumneko/lua-language-server
+[submodule "lua/language-servers/lua"]
+	path = lua/language-servers/lua
+	url = https://github.com/sumneko/lua-language-server
