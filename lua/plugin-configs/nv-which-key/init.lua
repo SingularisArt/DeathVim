@@ -68,12 +68,11 @@ local wk = require('which-key')
 wk.register({
   e = { '<cmd>NvimTreeToggle<CR>',  'Toggle NeoVim Tree' },
   v = { '<cmd>vsplit<CR>',          'Vertical Split' },
-  s = { '<cmd>split<CR>',           'Horizontal Split' },
+  h = { '<cmd>split<CR>',           'Horizontal Split' },
   o = { '<cmd>only<CR>',            'Tab only' },
   n = { '<cmd>tabnew<CR>',          'New tab' },
   k = { '<cmd>bdelete<CR>',         'Delete buffer'},
   d = { '<cmd>Dashboard<CR>',       'Toggle Dashboard' },
-  h = { '<cmd>nohl<CR>',            'Clear search highlights' },
   y = { '<Plug>(easymotion-bd-f)',  'Easymotion' },
   f = "which_key_ignore",
 }, { prefix = "<leader>" })
@@ -221,5 +220,32 @@ wk.register({
       b = { '<cmd>Telescope git_branches<CR>',    'Browse git branches'},
       t = { '<cmd>Telescope git_stash<CR>',       'Browse git stash'},
     },
+  },
+}, { prefix = "<leader>" })
+
+---------
+-- LSP --
+---------
+
+wk.register({
+  s = {
+    name = 'LSP',
+    d = {
+      name = 'Definitions',
+      d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                  'Go to Definition' },
+      r = { '<cmd>lua vim.lsp.buf.references()<CR>',                  'Go to Reference' },
+      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',             'Type Definition' },
+    },
+    w = {
+      name = 'Workspace Folders',
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',     'Add workspace'},
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',        'Remove workspace'},
+    },
+    h = { '<cmd>lua vim.lsp.buf.hover()<CR>',                         'Hover' },
+    r = { '<cmd>lua vim.lsp.buf.rename()<CR>',                        'Rename' },
+    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>',                   'Code Action' },
+    e = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',  'Show Diagnostics' },
+    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',            'Local List' },
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>',                    'Format' },
   },
 }, { prefix = "<leader>" })

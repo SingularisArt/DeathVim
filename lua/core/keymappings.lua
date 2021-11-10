@@ -3,9 +3,6 @@ vim.api.nvim_set_keymap('n', '<Enter>', '<NOP>', { noremap = true, silent = true
 
 vim.g.mapleader = ' '
 
--- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
-
 -- easymotion
 vim.api.nvim_set_keymap('n', '<Leader>y', '<Plug>(easymotion-bd-f)', { noremap = true, silent = true })
 
@@ -18,10 +15,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>k', ':bdelete<CR>', { silent = true })
-
--- better indenting
-vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
 -- tab switch buffer
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
@@ -40,7 +33,7 @@ vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = tr
 
 -- windows/panes/tabs/buffers
 vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>s', ':split<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>h', ':split<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>o', ':only<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>n', ':tabnew<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>d', ':Dashboard<CR>', { noremap = true, silent = true })
@@ -109,7 +102,7 @@ vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',     { 
 vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',     { noremap = true, silent = true })
 
--- minimap
+-- mini map
 vim.api.nvim_set_keymap('n', '<Leader>ic', ':MinimapClose<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>io', ':MinimapOpen<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ir', ':MinimapRefresh<CR>',     { noremap = true, silent = true })
@@ -117,3 +110,22 @@ vim.api.nvim_set_keymap('n', '<Leader>it', ':MinimapToggle<CR>',     { noremap =
 
 --- vim-tex-kawaii
 vim.api.nvim_set_keymap('n', '<Enter>', 'za', { noremap = true, silent = true })
+
+-- lsp
+vim.api.nvim_set_keymap('n', '<Leader>sdd', '<cmd>lua vim.lsp.buf.definition()<CR>',                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdr', '<cmd>lua vim.lsp.buf.references()<CR>',                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdt', '<cmd>lua vim.lsp.buf.type_definition()<CR>',                             { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>swa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>swr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>swl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',  { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>sr',  '<cmd>lua vim.lsp.buf.rename()<CR>',                                      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sc',  '<cmd>lua vim.lsp.buf.code_action()<CR>',                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>se',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sq',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',                          { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sf',  '<cmd>lua vim.lsp.buf.formatting()<CR>',                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sh',  '<cmd>lua vim.lsp.buf.hover()<CR>',                                       { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',                            { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',                            { noremap = true, silent = true })

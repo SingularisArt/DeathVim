@@ -26,9 +26,8 @@ require('plugin-configs.nv-neorg')
 require('bufferline').setup{}
 
 vim.cmd('color nord')
-vim.cmd('hi Normal ctermfg=None guifg=None guibg=None')
+vim.cmd('hi Normal ctermfg=None ctermbg=None guifg=None guibg=None')
 
 require('lualine').setup{
   options = { theme = 'pywal' }
 }
-

@@ -69,10 +69,50 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  MatchTagAlways = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/MatchTagAlways",
+    url = "https://github.com/Valloric/MatchTagAlways"
+  },
+  ["TrueZen.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/TrueZen.nvim",
+    url = "https://github.com/Pocco81/TrueZen.nvim"
+  },
   UltiSnips = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/UltiSnips",
     url = "https://github.com/SirVer/UltiSnips"
+  },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   colorizer = {
     loaded = true,
@@ -89,10 +129,25 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/elly.vim",
     url = "https://github.com/ulwlu/elly.vim"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/goyo.vim",
     url = "https://github.com/junegunn/goyo.vim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["latex-snippets"] = {
     loaded = true,
@@ -104,6 +159,11 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
+    url = "https://github.com/folke/lsp-colors.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -114,10 +174,20 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
     url = "https://github.com/folke/lua-dev.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  neorg = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
   },
   nerdcommenter = {
     loaded = true,
@@ -134,15 +204,20 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["nvcode-color-schemes.vim"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim",
+    url = "https://github.com/christianchiarulli/nvcode-color-schemes.vim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-compe",
-    url = "https://github.com/hrsh7th/nvim-compe"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -159,10 +234,20 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-minimap",
     url = "https://github.com/rinx/nvim-minimap"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -217,12 +302,7 @@ _G.packer_plugins = {
   ["uwu.vim"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/uwu.vim",
-    url = "https://github.com/mangeshrex/uwu.vim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
+    url = "https://github.com/SingularisArt/uwu.vim"
   },
   ["vim-angry-reviewer"] = {
     loaded = true,
@@ -264,6 +344,11 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-polyglot",
     url = "https://github.com/sheerun/vim-polyglot"
   },
+  ["vim-rainbow"] = {
+    loaded = true,
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rainbow",
+    url = "https://github.com/frazrepo/vim-rainbow"
+  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
@@ -279,10 +364,10 @@ _G.packer_plugins = {
     path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
   },
-  ["vim-tex-fold"] = {
+  ["vim-tex-kawaii"] = {
     loaded = true,
-    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-tex-fold",
-    url = "https://github.com/matze/vim-tex-fold"
+    path = "/home/hashedupforyou101/.local/share/nvim/site/pack/packer/start/vim-tex-kawaii",
+    url = "https://github.com/anufrievroman/vim-tex-kawaii"
   },
   ["vim-translator"] = {
     loaded = true,

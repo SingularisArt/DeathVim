@@ -11,6 +11,8 @@ end
 return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
   use { 'wbthomason/packer.nvim' }
+
+  -- LSP Stuff
   use { 'neovim/nvim-lspconfig' }
   use { 'tamago324/nlsp-settings.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
@@ -82,6 +84,12 @@ return require('packer').startup(function()
 
   -- Shows us any errors
   use { 'folke/trouble.nvim' }
+  use { 'folke/lsp-colors.nvim',
+    Error = '#db4b4b',
+    Warning = '#e0af68',
+    Information = '#0db9d7',
+    Hint = '#10b981'
+  }
 
   -- Shows an outline with symbols
   use { 'simrat39/symbols-outline.nvim' }
