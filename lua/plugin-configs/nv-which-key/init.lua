@@ -70,11 +70,10 @@ wk.register({
   v = { '<cmd>vsplit<CR>',          'Vertical Split' },
   h = { '<cmd>split<CR>',           'Horizontal Split' },
   o = { '<cmd>only<CR>',            'Tab only' },
-  n = { '<cmd>tabnew<CR>',          'New tab' },
-  k = { '<cmd>bdelete<CR>',         'Delete buffer'},
   d = { '<cmd>Dashboard<CR>',       'Toggle Dashboard' },
   y = { '<Plug>(easymotion-bd-f)',  'Easymotion' },
   f = "which_key_ignore",
+  c = "which_key_ignore",
 }, { prefix = "<leader>" })
 
 ------------------
@@ -233,19 +232,51 @@ wk.register({
     d = {
       name = 'Definitions',
       d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                  'Go to Definition' },
+      f = { '<cmd>Lspsaga lsp_finder<CR>',                            'Find files with definition' },
       r = { '<cmd>lua vim.lsp.buf.references()<CR>',                  'Go to Reference' },
       t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',             'Type Definition' },
+      p = { '<cmd>Lspsaga preview_definition<CR>',                    'Preview Definition' },
     },
     w = {
       name = 'Workspace Folders',
-      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',     'Add workspace'},
-      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',        'Remove workspace'},
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',        'Addworkspace'},
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',     'Remove workspace'},
     },
-    h = { '<cmd>lua vim.lsp.buf.hover()<CR>',                         'Hover' },
+    h = { '<cmd>Lspsaga hover_doc<CR>',                               'Hover' },
     r = { '<cmd>lua vim.lsp.buf.rename()<CR>',                        'Rename' },
-    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>',                   'Code Action' },
-    e = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',  'Show Diagnostics' },
+    c = { '<cmd>Lspsaga code_action<CR>',                             'Code Action' },
+    e = { '<cmd>Lspsaga show_line_diagnostics<CR>',                   'Show Diagnostics' },
     q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',            'Local List' },
-    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>',                    'Format' },
+    f = { '<cmd>Lspsaga format<CR>',                                  'Format' },
+    r = { '<cmd>Lspsaga rename<CR>',                                  'Rename' },
+    i = { '<cmd>Lspsaga implement<CR>',                               'Implement' },
+  },
+}, { prefix = "<leader>" })
+
+-------------
+-- Buffers --
+-------------
+
+wk.register({
+  b = {
+    name = 'Buffers',
+    c = {
+      name = 'Close',
+      l = { '<cmd>BufferLineCloseLeft<CR>',                     'Close all buffers to the Left' },
+      r = { '<cmd>BufferLineCloseRight<CR>',                    'Close all buffers to the Right' },
+    },
+    m = {
+      name = 'Move',
+      f = { '<cmd>BufferLineMoveNext<CR>',                      'Move buffer Forward' },
+      b = { '<cmd>BufferLineMovePrev<CR>',                      'Move buffer Backward' },
+    },
+    s = {
+      name = 'Sort',
+      f = { '<cmd>BufferLineSortByDirectory<CR>',               'Sort by Directory' },
+      e = { '<cmd>BufferLineSortByExtension<CR>',               'Sort by Extension' },
+      r = { '<cmd>BufferLineSortByRelativeDirectory<CR>',       'Sort by Relative Directory' },
+      t = { '<cmd>BufferLineSortByTabs<CR>',                    'Sort by Tabs' },
+    },
+    p = { '<cmd>BufferLinePick<CR>',                            'Pick buffer' },
   },
 }, { prefix = "<leader>" })

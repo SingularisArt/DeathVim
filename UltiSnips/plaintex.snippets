@@ -149,10 +149,16 @@ snippet case "cases" bAi
 \end{cases}
 endsnippet
 
-snippet ali "Align" bAi
+snippet ali "Align*" bAi
 \begin{align*}
 	${1:${VISUAL}}
 .\end{align*}
+endsnippet
+
+snippet ali "Align" bAi
+\begin{align}
+	${1:${VISUAL}}
+.\end{align}
 endsnippet
 
 
@@ -262,7 +268,9 @@ else:
 endsnippet
 
 snippet dm "Display Math" Aw
-\[ ${1:${VISUAL}} .\]$0
+\[
+	${1:${VISUAL}}
+.\]$0
 endsnippet
 
 snippet ... "ldots" Aw
@@ -705,12 +713,12 @@ Figure~\ref{${1:Fig}:$2:${VISUAL}}$0
 endsnippet
 
 snippet les "Lesson"
-\lesson{${1:LESSON NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LESSON NAME}}{${4:UNIT NUMEBER}}
+\lesson{${1:LESSON NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LESSON NAME}}{${4:UNIT NUMBER}}
 $0
 endsnippet
 
 snippet lec "Lecture"
-\lecture{${1:LECTURE NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LECTURE NAME}}{${4:UNIT NUMEBER}}
+\lecture{${1:LECTURE NUMBER}}{`date "+%b %d %Y %a (%H:%M:%S)"`}{${3:LECTURE NAME}}{${4:UNIT NUMBER}}
 $0
 endsnippet
 

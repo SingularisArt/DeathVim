@@ -18,7 +18,15 @@ return require('packer').startup(function()
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
   use { 'onsails/lspkind-nvim' }
-  use { 'folke/lsp-colors.nvim' }
+  use { 'onsails/diaglist.nvim' }
+  use { 'glepnir/lspsaga.nvim' }
+  use { 'folke/trouble.nvim' }
+  use { 'folke/lsp-colors.nvim',
+    Error = '#db4b4b',
+    Warning = '#e0af68',
+    Information = '#0db9d7',
+    Hint = '#10b981'
+  }
 
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
@@ -36,10 +44,18 @@ return require('packer').startup(function()
 
   -- Completion & Snippets
   use { 'hrsh7th/nvim-compe' }
+  --use { 'hrsh7th/cmp-nvim-lsp' }
+  --use { 'hrsh7th/cmp-buffer' }
+  --use { 'hrsh7th/cmp-path' }
+  --use { 'hrsh7th/cmp-cmdline' }
+  --use { 'hrsh7th/nvim-cmp' }
 
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
   use { 'gillescastel/latex-snippets' }
+
+  -- COC
+  --use { 'neoclide/coc.nvim', branch = 'release' }
 
   -- Distraction free
   use { 'junegunn/goyo.vim' }
@@ -51,8 +67,9 @@ return require('packer').startup(function()
   -- Auto pairs
   use { 'windwp/nvim-autopairs' }
 
-  -- NvimTree
+  -- NvimTree and Tagbar
   use { 'kyazdani42/nvim-tree.lua' }
+  use { 'preservim/tagbar' }
 
   -- Colorscheme
   use { 'dylanaraps/wal.vim' }
@@ -81,15 +98,6 @@ return require('packer').startup(function()
   
   -- Nice for lua development
   use { 'folke/lua-dev.nvim' }
-
-  -- Shows us any errors
-  use { 'folke/trouble.nvim' }
-  use { 'folke/lsp-colors.nvim',
-    Error = '#db4b4b',
-    Warning = '#e0af68',
-    Information = '#0db9d7',
-    Hint = '#10b981'
-  }
 
   -- Shows an outline with symbols
   use { 'simrat39/symbols-outline.nvim' }

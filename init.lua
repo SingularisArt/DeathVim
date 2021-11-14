@@ -8,6 +8,7 @@ require('core.lsp')
 require('plugin-configs.nv-auto-pairs')
 require('plugin-configs.nv-airline')
 require('plugin-configs.nv-compe')
+require('plugin-configs.nv-bufferline')
 require('plugin-configs.nv-nvimtree')
 require('plugin-configs.nv-telescope')
 require('plugin-configs.nv-terminal')
@@ -25,8 +26,9 @@ require('plugin-configs.nv-indent-blankline')
 require('plugin-configs.nv-neorg')
 require('bufferline').setup{}
 
-vim.cmd('color nord')
+vim.cmd('color nvcode')
 vim.cmd('hi Normal ctermfg=None ctermbg=None guifg=None guibg=None')
+vim.cmd('hi SignColumn ctermbg=None guibg=None')
 
 require('lualine').setup{
   options = { theme = 'pywal' }

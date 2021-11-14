@@ -1,20 +1,9 @@
-local langservers = {
-  'pylsp',
-  'solargraph',
-  'texlab',
-  'dockerls',
-  'bashls',
-  'sumneko_lua',
-  'html',
-  'cssls'
-}
+--local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
-
-for _, server in ipairs(langservers) do
-  require('lspconfig')[server].setup {
-    capabilities = capabilities
-  }
-end
+--for type, icon in pairs(signs) do
+  --local hl = "DiagnosticSign" .. type
+  --vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+--end
 
 require('lspkind').init({
   -- enables text annotations
@@ -60,10 +49,3 @@ require('lspkind').init({
     TypeParameter = ""
   },
 })
-
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end

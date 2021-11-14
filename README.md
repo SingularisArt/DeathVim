@@ -73,6 +73,7 @@ Death.NeoVim
     * [Translation](#translation)
     * [LaTeX](#latex-1)
     * [Misc](#misc)
+    * [LSP](#lsp)
   * [All of my plugins](#all-of-my-plugins)
 * [TODO](#todo)
 
@@ -117,6 +118,9 @@ cd ~/.config/nvim && ./script
 | Function            | Keybind      |
 | ------------------- | ------------ |
 | :NvimTreeToggle     | `<Leader>e`  |
+| Create new tab      | `<A-t>`      |
+| Remove tab          | `<A-w>`      |
+| Pick Buffer         | `pb`         |
 
 ### Navigation
 
@@ -201,6 +205,28 @@ cd ~/.config/nvim && ./script
 | ------------------- | --------------- |
 | :MarkdownPreview    | `<Leader>mp`    |
 
+### LSP
+
+| Function                   | Keybind         |
+| -------------------------- | --------------- |
+| Hover Doc                  | `<Leader>sh`    |
+| Rename                     | `<Leader>sr`    |
+| Code Action                | `<Leader>sc`    |
+| Show Diagnostics           | `<Leader>se`    |
+| Error Localist             | `<Leader>sq`    |
+| Format                     | `<Leader>sf`    |
+| Implement                  | `<Leader>si`    |
+| Open/Close Terminal        | `<Alt-d>`       |
+| Go to next Diagnostic      | `[d`            |
+| Go to prev Diagnostic      | `]d`            |
+| Go to Definition           | `<Leader>sdd`   |
+| Find files with Definition | `<Leader>sdf`   |
+| Find References            | `<Leader>sdr`   |
+| Type Definition            | `<Leader>sdt`   |
+| Preview Definition         | `<Leader>sdp`   |
+| Add workspace              | `<Leader>swa`   |
+| Remove workspace           | `<Leader>swr`   |
+
 Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ## All of my plugins
@@ -248,7 +274,7 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 - [x] Add git signs in the gutter area.
 - [x] Add snippets.
 - [x] Add **requirements** to **README.md**.
-- [ ] Add **features** to **README.md**.
-- [ ] Get completion using either **Native LSP** or **COC**.
+- [x] Get completion using either **Native LSP** or **COC**.
+- [x] Add **features** to **README.md**.
 - [ ] Add tabnine.
 
