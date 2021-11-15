@@ -28,6 +28,10 @@ require('bufferline').setup{}
 
 vim.cmd('color nvcode')
 vim.cmd('hi Normal ctermfg=None ctermbg=None guifg=None guibg=None')
+vim.cmd('hi LspDiagnosticsFloatError guifg=#db4b4b')
+vim.cmd('hi LspDiagnosticsFloatWarn guifg=#e0af68')
+vim.cmd('hi LspDiagnosticsFloatInfor guifg=#0db9d7')
+vim.cmd('hi LspDiagnosticsFloatHint guifg=#10b981')
 vim.cmd('hi SignColumn ctermbg=None guibg=None')
 
 require('lualine').setup{

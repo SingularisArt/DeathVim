@@ -21,12 +21,8 @@ return require('packer').startup(function()
   use { 'onsails/diaglist.nvim' }
   use { 'glepnir/lspsaga.nvim' }
   use { 'folke/trouble.nvim' }
-  use { 'folke/lsp-colors.nvim',
-    Error = '#db4b4b',
-    Warning = '#e0af68',
-    Information = '#0db9d7',
-    Hint = '#10b981'
-  }
+  use { 'prabirshrestha/vim-lsp' }
+  use { 'mattn/vim-lsp-settings' }
 
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
@@ -44,11 +40,6 @@ return require('packer').startup(function()
 
   -- Completion & Snippets
   use { 'hrsh7th/nvim-compe' }
-  --use { 'hrsh7th/cmp-nvim-lsp' }
-  --use { 'hrsh7th/cmp-buffer' }
-  --use { 'hrsh7th/cmp-path' }
-  --use { 'hrsh7th/cmp-cmdline' }
-  --use { 'hrsh7th/nvim-cmp' }
 
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
