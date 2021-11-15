@@ -8,3 +8,10 @@ UltiSnippets
 Decameter
 Compile/!
 config
+LSP
+submodule
+galaxyline
+bufferline
+keymappings
+lua
+md

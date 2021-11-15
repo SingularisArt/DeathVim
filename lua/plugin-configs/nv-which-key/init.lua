@@ -84,13 +84,14 @@ wk.register({
   g = {
     name = 'Git',
     s = { '<cmd>Git<CR>',               'Status' },
-    a = { '<cmd>Git add .<CR>',         'Add' },
-    g = { '<cmd>Git log<CR>',           'Log' },
-    p = { '<cmd>Git push<CR>',          'Push' },
-    P = { '<cmd>Git pull<CR>',          'Pull' },
-    m = { '<cmd>Git merge<CR>',         'Merge' },
-    l = { '<cmd>LazyGit<CR>',           'LazyGit' },
-    f = { '<cmd>LazyGitFilter<CR>',     'LazyGitFilter' },
+    a = { '<cmd>Git add .<CR>',         'Add'},
+    d = { '<cmd>Git diff<CR>',          'Diff'},
+    c = { '<cmd>Git commit<CR>',        'Commit'},
+    p = { '<cmd>Git push',              'Push'},
+    P = { '<cmd>Git pull',              'Pull'},
+    l = { '<cmd>Git log<CR>',           'Log'},
+    L = { '<cmd>LazyGit<CR>',           'LazyGit'},
+    f = { '<cmd>LazyGitFilter<CR>',     'LazyGitFilter'},
   },
 }, { prefix = "<leader>" })
 

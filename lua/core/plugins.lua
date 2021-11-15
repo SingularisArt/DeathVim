@@ -110,8 +110,8 @@ return require('packer').startup(function()
 
   -- Git signs
   use { 'airblade/vim-gitgutter' }
-  use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-rhubarb' }
+  use { 'tpope/vim-fugitive' }
 
   -- Nice multi cursors
   use { 'terryma/vim-multiple-cursors' }

@@ -66,6 +66,7 @@ Death.NeoVim
   * [Keybindings](#keybindings)
     * [Basic key binds](#basic-key-binds)
     * [Browser](#browser)
+    * [Buffers](#buffers)
     * [Navigation](#navigation)
     * [Editing](#editing)
     * [Telescope](#telescope)
@@ -115,12 +116,27 @@ cd ~/.config/nvim && ./script
 
 ### Browser
 
-| Function            | Keybind      |
-| ------------------- | ------------ |
-| :NvimTreeToggle     | `<Leader>e`  |
-| Create new tab      | `<A-t>`      |
-| Remove tab          | `<A-w>`      |
-| Pick Buffer         | `pb`         |
+| Function              | Keybind      |
+| --------------------- | ------------ |
+| :NvimTreeToggle       | `<Leader>e`  |
+| Create new tab        | `<A-t>`      |
+| Remove tab            | `<A-w>`      |
+| Go to next Diagnostic | `[d`         |
+| Go to prev Diagnostic | `]d`         |
+
+### Buffers
+
+| Function                           | Keybind        |
+| ---------------------------------- | -------------- |
+| :BufferLinePick                    | `<Leader>bp`   |
+| :BufferLineCloseLeft               | `<Leader>bcl`  |
+| :BufferLineCloseRight              | `<Leader>bcr`  |
+| :BufferLineMoveNext                | `<Leader>bmn`  |
+| :BufferLineMovePrev                | `<Leader>bmp`  |
+| :BufferLineSortByDirectory         | `<Leader>bsd`  |
+| :BufferLineSortByExtension         | `<Leader>bse`  |
+| :BufferLineSortByRelativeDirectory | `<Leader>bsr`  |
+| :BufferLineSortByTabs              | `<Leader>bst`  |
 
 ### Navigation
 
@@ -143,7 +159,7 @@ cd ~/.config/nvim && ./script
 
 | Function                 | Keybind                   |
 | ------------------------ | ------------------------- |
-| :TableModeToggle         | `<Leader>ttt`             |
+| :TableModeToggle         | `<Leader>tt`              |
 | :TableAddFormula         | `<Leader>taf`             |
 | Delete Table Row         | `<Leader>tdr`             |
 | Delete Table Column      | `<Leader>tdc`             |
@@ -170,15 +186,14 @@ cd ~/.config/nvim && ./script
 
 | Function        | Keybind         |
 | --------------- | --------------- |
-| :Gstatus        | `<Leader>gs`    |
-| :Gdiffsplit     | `<Leader>gd`    |
-| :Gcommit        | `<Leader>gc`    |
-| :Gpush          | `<Leader>gp`    |
-| :Gpull          | `<Leader>gP`    |
-| :Gmove          | `<Leader>gm`    |
-| :Gmerge         | `<Leader>gM`    |
-| :Gbrowse        | `<Leader>gb`    |
-| :LazyGit        | `<Leader>gl`    |
+| :Git            | `<Leader>gs`    |
+| :Git add .      | `<Leader>ga`    |
+| :Git diff       | `<Leader>gd`    |
+| :Git commit     | `<Leader>gc`    |
+| :Git push       | `<Leader>gp`    |
+| :Git pull       | `<Leader>gP`    |
+| :Git log        | `<Leader>gl`    |
+| :LazyGit        | `<Leader>gL`    |
 | :LazyGitFilter  | `<Leader>gf`    |
 
 ### Translation
@@ -209,6 +224,9 @@ cd ~/.config/nvim && ./script
 
 | Function                   | Keybind         |
 | -------------------------- | --------------- |
+| Go to next Diagnostic      | `[d`            |
+| Go to prev Diagnostic      | `]d`            |
+| Open/Close Terminal        | `<Alt-d>`       |
 | Hover Doc                  | `<Leader>sh`    |
 | Rename                     | `<Leader>sr`    |
 | Code Action                | `<Leader>sc`    |
@@ -216,9 +234,6 @@ cd ~/.config/nvim && ./script
 | Error Localist             | `<Leader>sq`    |
 | Format                     | `<Leader>sf`    |
 | Implement                  | `<Leader>si`    |
-| Open/Close Terminal        | `<Alt-d>`       |
-| Go to next Diagnostic      | `[d`            |
-| Go to prev Diagnostic      | `]d`            |
 | Go to Definition           | `<Leader>sdd`   |
 | Find files with Definition | `<Leader>sdf`   |
 | Find References            | `<Leader>sdr`   |

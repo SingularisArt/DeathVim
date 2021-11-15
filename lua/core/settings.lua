@@ -32,5 +32,6 @@ vim.wo.number=true
 vim.wo.relativenumber=true
 vim.wo.cursorline=true
 
+vim.cmd('au TermOpen * setlocal nospell')
 vim.cmd('set spell')
 
