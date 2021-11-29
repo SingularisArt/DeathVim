@@ -5,29 +5,29 @@ Death.NeoVim
 
 ## Dashboard
 
-![pic1](media/dashboard.png)
+![pic1](media/theme-1/dashboard.png)
 
 ## Completion [check]
 
-![pic2](media/completion-1.png)
-![pic3](media/completion-2.png)
-![pic4](media/completion-3.png)
+![pic2](media/theme-1/completion-1.png)
+![pic3](media/theme-1/completion-2.png)
+![pic4](media/theme-1/completion-3.png)
 
 ## Markdown
 
-![pic5](media/markdown.png)
+![pic5](media/theme-1/markdown.png)
 
 ## LaTeX
 
-![pic6](media/latex.png)
+![pic6](media/theme-1/latex.png)
 
 ## Fuzzy File Finder
 
-![pic7](media/fuzzy-file-finder.png)
+![pic7](media/theme-1/fuzzy-file-finder.png)
 
 ## Which Key
 
-![pic8](media/which-key.png)
+![pic8](media/theme-1/which-key.png)
 
 # Table of Contents
 
