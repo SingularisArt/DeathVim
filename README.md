@@ -7,17 +7,11 @@ Death.NeoVim
 
 ![pic1](media/dashboard.png)
 
-## Completion
+## Completion [check]
 
-![pic2](media/completion.png)
-
-## Snippets
-
-![pic3](media/snippets.png)
-
-## Nvim-Tree
-
-![pic4](media/nvim-tree.png)
+![pic2](media/completion-1.png)
+![pic3](media/completion-2.png)
+![pic4](media/completion-3.png)
 
 ## Markdown
 
@@ -31,31 +25,20 @@ Death.NeoVim
 
 ![pic7](media/fuzzy-file-finder.png)
 
-## Translator
-
-![pic8](media/translator.png)
-
-## Lazy Git
-
-![pic9](media/lazy-git-1.png)
-![pic10](media/lazy-git-2.png)
-
 ## Which Key
 
-![pic11](media/which-key.png)
+![pic8](media/which-key.png)
 
 # Table of Contents
 
 * [Gallery](#gallery)
   * [Dashboard](#dashboard)
   * [Completion](#completion)
-  * [Snippets](#snippets)
   * [Nvim Tree](#nvim-tree)
   * [Markdown](#markdown)
   * [LaTeX](#latex)
   * [Fuzzy File Finder](#fuzzy-file-finder)
   * [Translator](#translator)
-  * [Lazy Git](#lazy-git)
   * [Which Key](#which-key)
 * [Features](#features)
 * [Overview](#overview)

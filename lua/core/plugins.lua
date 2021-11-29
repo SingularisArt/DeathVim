@@ -15,17 +15,20 @@ return require('packer').startup(function()
   -- LSP Stuff
   use { 'neovim/nvim-lspconfig' }
   use { 'tamago324/nlsp-settings.nvim' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
+  --use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'kabouzeid/nvim-lspinstall' }
   use { 'onsails/lspkind-nvim' }
-  use { 'onsails/diaglist.nvim' }
-  use { 'glepnir/lspsaga.nvim' }
-  use { 'folke/trouble.nvim' }
-  use { 'prabirshrestha/vim-lsp' }
-  use { 'mattn/vim-lsp-settings' }
+  --use { 'onsails/diaglist.nvim' }
+  use { 'tami5/lspsaga.nvim', branch='nvim51' }
+  --use { 'folke/trouble.nvim' }
+  --use { 'prabirshrestha/vim-lsp' }
+  --use { 'mattn/vim-lsp-settings' }
 
   -- Nice syntax
   use { 'sheerun/vim-polyglot' }
+  use { 'numirias/semshi' }
+  use { 'bfrg/vim-cpp-modern' }
+  use { 'billyvg/tigris.nvim' }
 
   -- Markdown preview
   use { 'iamcco/markdown-preview.nvim'}
@@ -38,18 +41,21 @@ return require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-fzy-native.nvim' }
 
-  -- Completion & Snippets
-  use { 'hrsh7th/nvim-compe' }
+  -- Completion
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-cmdline' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  --use { 'hrsh7th/cmp-nvim-lua' }
+  --use { 'tamago324/cmp-zsh' }
 
+  -- Snippets
   use { 'SirVer/UltiSnips' }
   use { 'honza/vim-snippets' }
   use { 'gillescastel/latex-snippets' }
 
-  -- COC
-  --use { 'neoclide/coc.nvim', branch = 'release' }
-
   -- Distraction free
-  use { 'junegunn/goyo.vim' }
   use { 'Pocco81/TrueZen.nvim' }
 
   -- Commenting
@@ -63,12 +69,8 @@ return require('packer').startup(function()
   use { 'preservim/tagbar' }
 
   -- Colorscheme
-  use { 'dylanaraps/wal.vim' }
-  use { 'ulwlu/elly.vim' }
-  use { 'SingularisArt/uwu.vim' }
-  use { 'navarasu/onedark.nvim' }
-  use { 'christianchiarulli/nvcode-color-schemes.vim' }
   use { 'nvim-treesitter/nvim-treesitter' }
+  use { 'EdenEast/nightfox.nvim' }
 
   -- Whichkey
   use { 'folke/which-key.nvim' }
@@ -77,42 +79,25 @@ return require('packer').startup(function()
   use { 'kyazdani42/nvim-web-devicons' }
 
   -- Status Line
-  --use { 'vim-airline/vim-airline' }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'akinsho/bufferline.nvim' }
 
   -- Dashboard
   use { 'glepnir/dashboard-nvim' }
 
-  -- Terminal
-  use { 'voldikss/vim-floaterm' }
-  
-  -- Nice for lua development
-  use { 'folke/lua-dev.nvim' }
-
   -- Shows an outline with symbols
   use { 'simrat39/symbols-outline.nvim' }
-
-  -- Cooler wildmenu
-  use { 'gelguy/wilder.nvim' }
-
-  -- Lazy stuff
-  use { 'kdheepak/lazygit.nvim' }
 
   -- Git signs
   use { 'airblade/vim-gitgutter' }
   use { 'tpope/vim-rhubarb' }
   use { 'tpope/vim-fugitive' }
 
-  -- Nice multi cursors
-  use { 'terryma/vim-multiple-cursors' }
-
   -- For latex
   use { 'lervag/vimtex' }
   use { 'KeitaNakamura/tex-conceal.vim' }
   use { 'anufrievroman/vim-angry-reviewer' }
   use { 'anufrievroman/vim-tex-kawaii' }
-  --use { 'matze/vim-tex-fold' }
 
   -- Translator
   use { 'voldikss/vim-translator' }
@@ -126,27 +111,11 @@ return require('packer').startup(function()
   -- Minimap
   use { 'rinx/nvim-minimap' }
 
-  -- Scrollbar
-  use { 'Xuyuanp/scrollbar.nvim' }
-
   -- Highlight other words
   use { 'RRethy/vim-illuminate' }
-  use { 'chriskempson/base16-vim' }
 
   -- Shows indentation
   use { 'lukas-reineke/indent-blankline.nvim' }
-
-  -- Fancy quick note taking
-  use { 'nvim-neorg/neorg' }
-
-  -- Nice notifications
-  use { 'rcarriga/nvim-notify' }
-
-  -- Brackets rainbow
-  use { 'frazrepo/vim-rainbow' }
-
-  -- Makes neovim faster
-  use { 'lewis6991/impatient.nvim' }
 
   -- HTML Stuff
   use { 'Valloric/MatchTagAlways' }
