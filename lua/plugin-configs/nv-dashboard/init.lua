@@ -10,16 +10,16 @@ vim.g.dashboard_custom_section = {
 		description = {' Vim buffers'},
 		command = 'Telescope buffers'},
 	help_tags = {
-		description = {' Help tags'},
+		description = {'📄 Help tags'},
 		command = 'Telescope help_tags'},
 	man_pages = {
-		description = {' Man pages'},
-		command = 'Telescope vim_options'},
+		description = {'👨 Man pages'},
+		command = 'Telescope man_pages'},
 	key_maps = {
-		description = {' Key maps'},
+		description = {'🔑 Key maps'},
 		command = 'Telescope key_maps'},
 	git_status = {
-		description = {' Git status'},
+		description = {'🔨 Git status'},
 		command = 'Telescope git_status'},
 }
 

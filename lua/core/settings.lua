@@ -25,6 +25,7 @@ vim.o.signcolumn='yes'
 vim.o.updatetime=100
 vim.o.clipboard='unnamedplus'
 vim.o.incsearch=true
+vim.o.scrolloff=999
 
 vim.opt.termguicolors=true
 

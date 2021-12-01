@@ -1,10 +1,16 @@
--- Core Settings
+-------------------
+-- Core Settings --
+-------------------
+
 require('core.plugins')
 require('core.keymappings')
 require('core.settings')
 require('core.lsp')
 
--- Plugins
+-------------
+-- Plugins --
+-------------
+
 require('plugin-configs.nv-auto-pairs')
 require('plugin-configs.nv-airline')
 --require('plugin-configs.nv-compe') -- In case you want to use compe instead of cmp
@@ -22,6 +28,14 @@ require('plugin-configs.nv-translator')
 require('plugin-configs.nv-table-mode')
 require('plugin-configs.nv-which-key')
 require('plugin-configs.nv-indent-blankline')
+require('neoscroll').setup()
+require('lualine').setup{
+  options = { theme = 'nightfox' }
+}
+
+------------------
+-- Colorscheme --
+------------------
 
 local nightfox = require('nightfox')
 
@@ -52,24 +66,14 @@ nightfox.setup({
 -- Load the configuration set above and apply the colorscheme
 nightfox.load()
 
-vim.cmd [[
-  hi LspDiagnosticsFloatError guifg=#db4b4b
+------------------
+-- Vim commands --
+------------------
 
-  hi LspDiagnosticsFloatWarn guifg=#e0af68
+vim.cmd('hi LspDiagnosticsVirtualTextError          guifg=#db4b4b')
+vim.cmd('hi LspDiagnosticsVirtualTextWarning        guifg=#e0af68')
+vim.cmd('hi LspDiagnosticsVirtualTextInformation    guifg=#0db9d7')
+vim.cmd('hi LspDiagnosticsVirtualTextHint           guifg=#10b981')
+vim.cmd('hi SignColumn ctermbg=None                 guibg=None')
+vim.cmd('hi Normal ctermfg=None guifg=None          guibg=None')
 
-  hi LspDiagnosticsFloatInfor guifg=#0db9d7
-
-  hi LspDiagnosticsFloatHint guifg=#10b981
-
-  hi SignColumn ctermbg=None guibg=None
-  hi Normal ctermfg=None guifg=None guibg=None
-]]
-
-require('lualine').setup{
-  options = { theme = 'nightfox' }
-}
-
-  --hi LspDiagnosticsUnderlineError guifg=#db4b4b
-  --hi LspDiagnosticsUnderlineWarning guifg=#e0af68
-  --hi LspDiagnosticsUnderlineInformation guifg=#0db9d7
-  --hi LspDiagnosticsUnderlineHint guifg=#10b981

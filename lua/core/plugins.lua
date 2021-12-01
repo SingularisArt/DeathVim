@@ -8,117 +8,136 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-return require('packer').startup(function()
-  -- Packer can manage itself as an optional plugin
-  use { 'wbthomason/packer.nvim' }
+return require('packer').startup({
+  function()
+    -- Packer can manage itself as an optional plugin
+    use { 'wbthomason/packer.nvim' }
 
-  -- LSP Stuff
-  use { 'neovim/nvim-lspconfig' }
-  use { 'tamago324/nlsp-settings.nvim' }
-  --use { 'jose-elias-alvarez/null-ls.nvim' }
-  use { 'kabouzeid/nvim-lspinstall' }
-  use { 'onsails/lspkind-nvim' }
-  --use { 'onsails/diaglist.nvim' }
-  use { 'tami5/lspsaga.nvim', branch='nvim51' }
-  --use { 'folke/trouble.nvim' }
-  --use { 'prabirshrestha/vim-lsp' }
-  --use { 'mattn/vim-lsp-settings' }
+    -- LSP Stuff
+    use { 'neovim/nvim-lspconfig' }
+    use { 'tamago324/nlsp-settings.nvim' }
+    use { 'williamboman/nvim-lsp-installer' }
+    use { 'onsails/lspkind-nvim' }
+    use { 'tami5/lspsaga.nvim', branch='nvim51' }
+    use { 'ray-x/lsp_signature.nvim' }
+    use { 'mfussenegger/nvim-dap' }
+    use { 'folke/trouble.nvim' }
 
-  -- Nice syntax
-  use { 'sheerun/vim-polyglot' }
-  use { 'numirias/semshi' }
-  use { 'bfrg/vim-cpp-modern' }
-  use { 'billyvg/tigris.nvim' }
+    -- Language specific tools
+    use { 'simrat39/rust-tools.nvim' }  -- For Rust
+    use { 'tpope/vim-jdaddy' }          -- For Json
+    use { 'chrisbra/csv.vim' }          -- For CSV
 
-  -- Markdown preview
-  use { 'iamcco/markdown-preview.nvim'}
+    -- Nice syntax
+    use { 'sheerun/vim-polyglot' }
+    use { 'numirias/semshi' }
+    use { 'bfrg/vim-cpp-modern' }
+    use { 'billyvg/tigris.nvim' }
 
-  -- Colors
-  use { 'lilydjwg/colorizer' }
+    -- Markdown preview
+    use { 'iamcco/markdown-preview.nvim'}
 
-  -- Telescope
-  use { 'nvim-lua/plenary.nvim' }
-  use { 'nvim-telescope/telescope.nvim' }
-  use { 'nvim-telescope/telescope-fzy-native.nvim' }
+    -- Colors
+    use { 'lilydjwg/colorizer' }
 
-  -- Completion
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-cmdline' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  --use { 'hrsh7th/cmp-nvim-lua' }
-  --use { 'tamago324/cmp-zsh' }
+    -- Telescope
+    use { 'nvim-lua/plenary.nvim' }
+    use { 'nvim-telescope/telescope.nvim' }
+    use { 'nvim-telescope/telescope-fzy-native.nvim' }
 
-  -- Snippets
-  use { 'SirVer/UltiSnips' }
-  use { 'honza/vim-snippets' }
-  use { 'gillescastel/latex-snippets' }
+    -- Completion
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'quangnguyen30192/cmp-nvim-ultisnips' }
+    --use { 'hrsh7th/cmp-nvim-lua' }
+    --use { 'tamago324/cmp-zsh' }
 
-  -- Distraction free
-  use { 'Pocco81/TrueZen.nvim' }
+    -- Snippets
+    use { 'SirVer/UltiSnips' }
+    use { 'honza/vim-snippets' }
+    use { 'gillescastel/latex-snippets' }
 
-  -- Commenting
-  use { 'scrooloose/nerdcommenter' }
+    -- Distraction free
+    use { 'Pocco81/TrueZen.nvim' }
 
-  -- Auto pairs
-  use { 'windwp/nvim-autopairs' }
+    -- Commenting
+    use { 'scrooloose/nerdcommenter' }
 
-  -- NvimTree and Tagbar
-  use { 'kyazdani42/nvim-tree.lua' }
-  use { 'preservim/tagbar' }
+    -- Auto pairs
+    use { 'windwp/nvim-autopairs' }
 
-  -- Colorscheme
-  use { 'nvim-treesitter/nvim-treesitter' }
-  use { 'EdenEast/nightfox.nvim' }
+    -- NvimTree and Tagbar
+    use { 'kyazdani42/nvim-tree.lua' }
+    use { 'preservim/tagbar' }
 
-  -- Whichkey
-  use { 'folke/which-key.nvim' }
+    -- Colorscheme
+    use { 'nvim-treesitter/nvim-treesitter' }
+    use { 'EdenEast/nightfox.nvim' }
 
-  -- Icons
-  use { 'kyazdani42/nvim-web-devicons' }
+    -- Whichkey
+    use { 'folke/which-key.nvim' }
 
-  -- Status Line
-  use { 'nvim-lualine/lualine.nvim' }
-  use { 'akinsho/bufferline.nvim' }
+    -- Icons
+    use { 'kyazdani42/nvim-web-devicons' }
 
-  -- Dashboard
-  use { 'glepnir/dashboard-nvim' }
+    -- Status Line
+    use { 'nvim-lualine/lualine.nvim' }
+    use { 'akinsho/bufferline.nvim' }
 
-  -- Shows an outline with symbols
-  use { 'simrat39/symbols-outline.nvim' }
+    -- Dashboard
+    use { 'glepnir/dashboard-nvim' }
 
-  -- Git signs
-  use { 'airblade/vim-gitgutter' }
-  use { 'tpope/vim-rhubarb' }
-  use { 'tpope/vim-fugitive' }
+    -- Shows an outline with symbols
+    use { 'simrat39/symbols-outline.nvim' }
 
-  -- For latex
-  use { 'lervag/vimtex' }
-  use { 'KeitaNakamura/tex-conceal.vim' }
-  use { 'anufrievroman/vim-angry-reviewer' }
-  use { 'anufrievroman/vim-tex-kawaii' }
+    -- Git signs
+    use { 'airblade/vim-gitgutter' }
+    use { 'tpope/vim-rhubarb' }
+    use { 'tpope/vim-fugitive' }
 
-  -- Translator
-  use { 'voldikss/vim-translator' }
+    -- For latex
+    use { 'lervag/vimtex' }
+    use { 'KeitaNakamura/tex-conceal.vim' }
+    use { 'anufrievroman/vim-angry-reviewer' }
+    use { 'anufrievroman/vim-tex-kawaii' }
 
-  -- Easy tables
-  use { 'dhruvasagar/vim-table-mode' }
+    -- Translator
+    use { 'voldikss/vim-translator' }
 
-  -- Quick navigation
-  use { 'easymotion/vim-easymotion' }
+    -- Easy tables
+    use { 'dhruvasagar/vim-table-mode' }
 
-  -- Minimap
-  use { 'rinx/nvim-minimap' }
+    -- Quick navigation
+    use { 'easymotion/vim-easymotion' }
 
-  -- Highlight other words
-  use { 'RRethy/vim-illuminate' }
+    -- Minimap
+    use { 'rinx/nvim-minimap' }
 
-  -- Shows indentation
-  use { 'lukas-reineke/indent-blankline.nvim' }
+    -- Highlight other words
+    use { 'RRethy/vim-illuminate' }
 
-  -- HTML Stuff
-  use { 'Valloric/MatchTagAlways' }
-  use { 'mattn/emmet-vim' }
-end)
+    -- Shows indentation
+    use { 'lukas-reineke/indent-blankline.nvim' }
+
+    -- HTML Stuff
+    use { 'Valloric/MatchTagAlways' }
+    use { 'mattn/emmet-vim' }
+
+    -- Nicer scrolling
+    use { 'karb94/neoscroll.nvim' }
+
+    -- Easier to surround items with (), {}, [], <>, '', "", ``
+    use { 'tpope/vim-surround' }
+  end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
+  }
+})
 

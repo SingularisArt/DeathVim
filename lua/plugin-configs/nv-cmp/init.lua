@@ -39,14 +39,14 @@ cmp.setup {
       c = cmp.mapping.close(),
     }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = function(fallback)
+    ["<C-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
     end,
-    ["<S-Tab>"] = function(fallback)
+    ["<S-p>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
@@ -57,7 +57,6 @@ cmp.setup {
 
   sources = {
     { name = "gh_issues" },
-    { name = "tn" },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
@@ -99,7 +98,6 @@ cmp.setup {
         path = "[Path]",
         ultisnips = "[UltiSnips]",
         gh_issues = "[Issues]",
-        tn = "[TabNine]",
       },
     },
   },
@@ -140,18 +138,4 @@ cmp.setup.cmdline(":", {
     },
   }),
 })
-
-_ = vim.cmd [[
-  augroup DadbodSql
-    au!
-    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
-  augroup END
-]]
-
-_ = vim.cmd [[
-  augroup CmpZsh
-    au!
-    autocmd Filetype zsh lua require'cmp'.setup.buffer { sources = { { name = "zsh" }, } }
-  augroup END
-]]
 
