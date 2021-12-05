@@ -10,127 +10,89 @@ end
 
 return require('packer').startup({
   function()
-    -- Packer can manage itself as an optional plugin
-    use { 'wbthomason/packer.nvim' }
+    -- Plugin Manager
+    use { 'wbthomason/packer.nvim' } -- Packer is smart enough to manage itself
 
     -- LSP Stuff
-    use { 'neovim/nvim-lspconfig' }
-    use { 'tamago324/nlsp-settings.nvim' }
-    use { 'williamboman/nvim-lsp-installer' }
-    use { 'onsails/lspkind-nvim' }
-    use { 'tami5/lspsaga.nvim', branch='nvim51' }
-    use { 'ray-x/lsp_signature.nvim' }
-    use { 'mfussenegger/nvim-dap' }
-    use { 'folke/trouble.nvim' }
-
-    -- Language specific tools
-    use { 'simrat39/rust-tools.nvim' }  -- For Rust
-    use { 'tpope/vim-jdaddy' }          -- For Json
-    use { 'chrisbra/csv.vim' }          -- For CSV
-
-    -- Nice syntax
-    use { 'sheerun/vim-polyglot' }
-    use { 'numirias/semshi' }
-    use { 'bfrg/vim-cpp-modern' }
-    use { 'billyvg/tigris.nvim' }
-
-    -- Markdown preview
-    use { 'iamcco/markdown-preview.nvim'}
-
-    -- Colors
-    use { 'lilydjwg/colorizer' }
-
-    -- Telescope
-    use { 'nvim-lua/plenary.nvim' }
-    use { 'nvim-telescope/telescope.nvim' }
-    use { 'nvim-telescope/telescope-fzy-native.nvim' }
+    use { 'neovim/nvim-lspconfig' } -- Main lsp plugin
+    use { 'tamago324/nlsp-settings.nvim' } -- Some default lsp settings
+    use { 'williamboman/nvim-lsp-installer' } -- Installs lsp servers
+    use { 'onsails/lspkind-nvim' } -- Gives us icons
+    use { 'tami5/lspsaga.nvim', branch="nvim51" }
+    use { 'ray-x/lsp_signature.nvim' } -- Shows function signatures
+    use { 'mfussenegger/nvim-dap' } -- Debug
+    use { 'folke/trouble.nvim' } -- Shows all errors/warnings/infos/hints
 
     -- Completion
-    use { 'hrsh7th/nvim-cmp' }
-    use { 'hrsh7th/cmp-cmdline' }
-    use { 'hrsh7th/cmp-buffer' }
-    use { 'hrsh7th/cmp-path' }
-    use { 'hrsh7th/cmp-nvim-lsp' }
-    use { 'quangnguyen30192/cmp-nvim-ultisnips' }
-    --use { 'hrsh7th/cmp-nvim-lua' }
-    --use { 'tamago324/cmp-zsh' }
+    use { 'hrsh7th/nvim-cmp' } -- Autocomplete engine
+    use { 'hrsh7th/cmp-cmdline' } -- Autocompletes when in command mode
+    use { 'hrsh7th/cmp-buffer' } -- Autocompletes other words in other buffers
+    use { 'hrsh7th/cmp-path' } -- Autocompletes path
+    use { 'hrsh7th/cmp-nvim-lsp' } -- Autocompletes for lsp
+    use { 'quangnguyen30192/cmp-nvim-ultisnips' } -- Autocompletes when in command mode
+
+    -- Language specific tools
+    use { 'simrat39/rust-tools.nvim' } -- For Rust
+    use { 'tpope/vim-jdaddy' } -- For Json
+    use { 'chrisbra/csv.vim' } -- For CSV
+    use { 'lervag/vimtex' } -- For latex (You can compile, run, view, debug, etc)
+    use { 'KeitaNakamura/tex-conceal.vim' } -- For latex (Shows math)
+    use { 'anufrievroman/vim-angry-reviewer' } -- For latex (Reviews your code)
+    use { 'anufrievroman/vim-tex-kawaii' } -- For latex (Gives you headers)
+    use { 'Valloric/MatchTagAlways' } -- HTML Stuff (Highlights other tag)
+    use { 'mattn/emmet-vim' } -- HTML Stuff (Quick writing)
+
+    -- Colors
+    use { 'sheerun/vim-polyglot' } -- Better syntax highlighting
+    use { 'numirias/semshi' } -- Better syntax highlighting for python
+    use { 'bfrg/vim-cpp-modern' } -- Better syntax highlighting for C++ and C
+    use { 'billyvg/tigris.nvim' } -- Better syntax highlighting for JS and TS
+    use { 'lilydjwg/colorizer' } -- Shows hex, rgb, and other colors
+
+    -- Telescope
+    use { 'nvim-telescope/telescope.nvim' } -- Main plugin
+    use { 'nvim-telescope/telescope-fzy-native.nvim' } -- Allows for fzf kinda feeling
+    use { 'nvim-lua/plenary.nvim' } -- Needed for Telescope
 
     -- Snippets
-    use { 'SirVer/UltiSnips' }
-    use { 'honza/vim-snippets' }
-    use { 'gillescastel/latex-snippets' }
-
-    -- Distraction free
-    use { 'Pocco81/TrueZen.nvim' }
-
-    -- Commenting
-    use { 'scrooloose/nerdcommenter' }
-
-    -- Auto pairs
-    use { 'windwp/nvim-autopairs' }
-
+    use { 'SirVer/UltiSnips' } -- Snippet engine
+    use { 'honza/vim-snippets' } -- Some snippets
+    use { 'gillescastel/latex-snippets' } -- LaTeX snippets
+    
     -- NvimTree and Tagbar
-    use { 'kyazdani42/nvim-tree.lua' }
-    use { 'preservim/tagbar' }
+    use { 'kyazdani42/nvim-tree.lua' } -- See outline of directory
+    use { 'preservim/tagbar' } -- See outline of file
+    use { 'kyazdani42/nvim-web-devicons' } -- Icons for NvimTree
+    use { 'glepnir/dashboard-nvim' } -- Cool startup
+    use { 'simrat39/symbols-outline.nvim' } -- Shows an outline with symbols
+    use { 'Pocco81/TrueZen.nvim' } -- Distraction free
 
-    -- Colorscheme
-    use { 'nvim-treesitter/nvim-treesitter' }
-    use { 'EdenEast/nightfox.nvim' }
-
-    -- Whichkey
-    use { 'folke/which-key.nvim' }
-
-    -- Icons
-    use { 'kyazdani42/nvim-web-devicons' }
+    -- Colorschemes
+    use { 'nvim-treesitter/nvim-treesitter' } -- Highlights special words
+    use { 'EdenEast/nightfox.nvim' } -- Best colorscheme
 
     -- Status Line
-    use { 'nvim-lualine/lualine.nvim' }
-    use { 'akinsho/bufferline.nvim' }
+    use { 'nvim-lualine/lualine.nvim' } -- Best Status Line
+    use { 'akinsho/bufferline.nvim' } -- Best Buffer Line
 
-    -- Dashboard
-    use { 'glepnir/dashboard-nvim' }
+    -- Git
+    use { 'airblade/vim-gitgutter' } -- Git signs
+    use { 'tpope/vim-rhubarb' } -- Git commands
+    use { 'tpope/vim-fugitive' } -- Git commands
 
-    -- Shows an outline with symbols
-    use { 'simrat39/symbols-outline.nvim' }
-
-    -- Git signs
-    use { 'airblade/vim-gitgutter' }
-    use { 'tpope/vim-rhubarb' }
-    use { 'tpope/vim-fugitive' }
-
-    -- For latex
-    use { 'lervag/vimtex' }
-    use { 'KeitaNakamura/tex-conceal.vim' }
-    use { 'anufrievroman/vim-angry-reviewer' }
-    use { 'anufrievroman/vim-tex-kawaii' }
-
-    -- Translator
-    use { 'voldikss/vim-translator' }
-
-    -- Easy tables
-    use { 'dhruvasagar/vim-table-mode' }
-
-    -- Quick navigation
-    use { 'easymotion/vim-easymotion' }
-
-    -- Minimap
-    use { 'rinx/nvim-minimap' }
-
-    -- Highlight other words
-    use { 'RRethy/vim-illuminate' }
-
-    -- Shows indentation
-    use { 'lukas-reineke/indent-blankline.nvim' }
-
-    -- HTML Stuff
-    use { 'Valloric/MatchTagAlways' }
-    use { 'mattn/emmet-vim' }
-
-    -- Nicer scrolling
-    use { 'karb94/neoscroll.nvim' }
-
-    -- Easier to surround items with (), {}, [], <>, '', "", ``
-    use { 'tpope/vim-surround' }
+    -- Other
+    use { 'scrooloose/nerdcommenter' } -- Commenting
+    use { 'windwp/nvim-autopairs' } -- Auto pairs
+    use { 'iamcco/markdown-preview.nvim'} -- Markdown preview
+    use { 'folke/which-key.nvim' } -- Whichkey
+    use { 'voldikss/vim-translator' } -- Translator
+    use { 'dhruvasagar/vim-table-mode' } -- Easy tables
+    use { 'easymotion/vim-easymotion' } -- Quick navigation
+    use { 'rinx/nvim-minimap' } -- Minimap
+    use { 'RRethy/vim-illuminate' } -- Highlight other words
+    use { 'lukas-reineke/indent-blankline.nvim' } -- Shows indentation
+    use { 'karb94/neoscroll.nvim' } -- Nicer scrolling
+    use { 'tpope/vim-surround' } -- Easier to surround items with (), {}, [], <>, '', "", ``
   end,
   config = {
     display = {

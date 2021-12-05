@@ -9,6 +9,7 @@ local langservers = {
   'cmake',
   'rust_analyzer',
   'tsserver',
+  'yamlls',
 }
 
 for _, server in ipairs(langservers) do
