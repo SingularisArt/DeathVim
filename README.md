@@ -203,7 +203,7 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 ## All of my plugins
 
-[Here are all of my plugins][plugins.md]
+[Here are all of my plugins](plugins.md)
 
 # TODO
 
