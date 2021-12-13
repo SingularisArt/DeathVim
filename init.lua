@@ -12,10 +12,10 @@ require('core.lsp')
 -------------
 
 require('plugin-configs.nv-auto-pairs')
-require('plugin-configs.nv-airline')
 --require('plugin-configs.nv-compe') -- In case you want to use compe instead of cmp
 require('plugin-configs.nv-cmp')
 require('plugin-configs.nv-bufferline')
+require('plugin-configs.nv-dim-in-active')
 require('plugin-configs.nv-nvimtree')
 require('plugin-configs.nv-telescope')
 require('plugin-configs.nv-terminal')
@@ -32,6 +32,7 @@ require('neoscroll').setup()
 require('lualine').setup{
   options = { theme = 'nightfox' }
 }
+require('nvim-treesitter.configs').setup{}
 
 ------------------
 -- Colorscheme --
@@ -39,31 +40,25 @@ require('lualine').setup{
 
 local nightfox = require('nightfox')
 
--- This function set the configuration of nightfox. If a value is not passed in the setup function
--- it will be taken from the default configuration above
 nightfox.setup({
-  fox = "duskfox",              -- change the colorscheme to use duskfox
+  fox = 'duskfox',
+  transparent = true,
+  terminal_colors = true,
   styles = {
-    comments = "italic",        -- change style of comments to be italic
-    keywords = "bold",          -- change style of keywords to be bold
-    functions = "italic,bold",  -- styles can be a comma separated list
-    strings = "italic",         -- change style of strings to be bold
-    variables = "bold",         -- change style of variables to be italic
-  },
-  inverse = {
-    match_paren = false, -- inverse the highlighting of match_parens
+    comments = 'italic',
+    keywords = 'bold',
+    functions = 'italic,bold'
   },
   colors = {
-    red = "#FF000", -- Override the red color for MAX POWER
-    bg_alt = "#000000",
+    bg_alt = '#FF0000',
   },
-  hlgroups = {
-    TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red
-    LspCodeLens = { bg = "#000000", style = "italic" },
-  }
+  inverse = {
+    match_paren = true,
+    visual = false,
+    search = false
+  },
 })
 
--- Load the configuration set above and apply the colorscheme
 nightfox.load()
 
 ------------------
@@ -71,9 +66,11 @@ nightfox.load()
 ------------------
 
 vim.cmd('hi LspDiagnosticsVirtualTextError          guifg=#db4b4b')
-vim.cmd('hi LspDiagnosticsVirtualTextWarning        guifg=#e0af68')
+vim.cmd('hi LspDiagnosticsVirtualTextWarning        guifg=#e0af60')
 vim.cmd('hi LspDiagnosticsVirtualTextInformation    guifg=#0db9d7')
 vim.cmd('hi LspDiagnosticsVirtualTextHint           guifg=#10b981')
 vim.cmd('hi SignColumn ctermbg=None                 guibg=None')
 vim.cmd('hi Normal ctermfg=None guifg=None          guibg=None')
+vim.cmd('hi NormalNC ctermfg=None guifg=None        guibg=None')
+vim.cmd('hi NvimTreeNormal guibg=None')
 

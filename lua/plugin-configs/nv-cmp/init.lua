@@ -38,15 +38,15 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-n>"] = function(fallback)
+    ['<A-j>'] = cmp.mapping.confirm({ select = true }),
+    ["<A-n>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
     end,
-    ["<S-p>"] = function(fallback)
+    ["<A-p>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else

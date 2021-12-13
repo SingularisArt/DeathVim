@@ -43,11 +43,12 @@ return require('packer').startup({
     use { 'mattn/emmet-vim' } -- HTML Stuff (Quick writing)
 
     -- Colors
-    use { 'sheerun/vim-polyglot' } -- Better syntax highlighting
     use { 'numirias/semshi' } -- Better syntax highlighting for python
     use { 'bfrg/vim-cpp-modern' } -- Better syntax highlighting for C++ and C
     use { 'billyvg/tigris.nvim' } -- Better syntax highlighting for JS and TS
     use { 'lilydjwg/colorizer' } -- Shows hex, rgb, and other colors
+    use { 'nvim-treesitter/nvim-treesitter' } -- Highlights special words
+    use { 'nvim-treesitter/playground' } -- Highlights special words
 
     -- Telescope
     use { 'nvim-telescope/telescope.nvim' } -- Main plugin
@@ -68,8 +69,8 @@ return require('packer').startup({
     use { 'Pocco81/TrueZen.nvim' } -- Distraction free
 
     -- Colorschemes
-    use { 'nvim-treesitter/nvim-treesitter' } -- Highlights special words
     use { 'EdenEast/nightfox.nvim' } -- Best colorscheme
+    use { 'overcache/NeoSolarized' } -- Best theme
 
     -- Status Line
     use { 'nvim-lualine/lualine.nvim' } -- Best Status Line
@@ -93,6 +94,9 @@ return require('packer').startup({
     use { 'lukas-reineke/indent-blankline.nvim' } -- Shows indentation
     use { 'karb94/neoscroll.nvim' } -- Nicer scrolling
     use { 'tpope/vim-surround' } -- Easier to surround items with (), {}, [], <>, '', "", ``
+    use { 'blueyed/vim-diminactive' } -- Dims the inactive panes
+    use { 'folke/twilight.nvim' } -- Turns off syntax
+    use { 'junegunn/limelight.vim' } -- Turns off syntax
   end,
   config = {
     display = {

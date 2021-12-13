@@ -1,37 +1,49 @@
-vim.o.hidden=true
-vim.o.wrap=true
-vim.o.encoding='utf-8'
-vim.o.pumheight=10
-vim.o.fileencoding='utf-8'
-vim.o.ruler=true
-vim.o.cmdheight=2
-vim.o.mouse='a'
-vim.o.splitbelow=true
-vim.o.splitright=true
-vim.o.conceallevel=0
-vim.o.tabstop=2
-vim.o.shiftwidth=2
-vim.o.smarttab=true
-vim.o.expandtab=true
-vim.o.smartindent=true
-vim.o.autoindent=true
-vim.o.laststatus=2
-vim.o.background='dark'
-vim.o.showtabline=2
-vim.o.showmode=false
-vim.o.backup=false
-vim.o.writebackup=false
-vim.o.signcolumn='yes'
-vim.o.updatetime=100
-vim.o.clipboard='unnamedplus'
-vim.o.incsearch=true
-vim.o.scrolloff=999
+vim.opt.encoding          = 'utf-8'
+vim.opt.fileencoding      = 'utf-8'
+vim.opt.mouse             = 'a'
+vim.opt.background        = 'dark'
+vim.opt.signcolumn        = 'yes'
+vim.opt.clipboard         = 'unnamedplus'
+vim.opt.undodir           = '~/.vim/undodir'
+vim.opt.colorcolumn       = '80'
+vim.o.shortmess           = vim.o.shortmess .. 'c'
 
-vim.opt.termguicolors=true
+vim.opt.pumheight         = 10
+vim.opt.cmdheight         = 2
+vim.opt.conceallevel      = 0
+vim.opt.tabstop           = 2
+vim.opt.shiftwidth        = 2
+vim.opt.laststatus        = 2
+vim.opt.showtabline       = 2
+vim.opt.updatetime        = 50
+vim.opt.scrolloff         = 999
 
-vim.wo.number=true
-vim.wo.relativenumber=true
-vim.wo.cursorline=true
+vim.opt.hidden            = true
+vim.opt.wrap              = true
+vim.opt.ruler             = true
+vim.opt.splitbelow        = true
+vim.opt.splitright        = true
+vim.opt.smarttab          = true
+vim.opt.expandtab         = true
+vim.opt.smartindent       = true
+vim.opt.autoindent        = true
+vim.opt.smartcase         = true
+vim.opt.ignorecase        = true
+vim.opt.showmode          = false
+vim.opt.writebackup       = false
+vim.opt.incsearch         = true
+vim.opt.hlsearch          = false
+vim.opt.errorbells        = false
+vim.opt.wrap              = false
+vim.opt.swapfile          = false
+vim.opt.undofile          = true
+vim.opt.backup            = false
+
+vim.opt.termguicolors   = true
+
+vim.wo.number           = true
+vim.wo.relativenumber   = true
+vim.wo.cursorline       = true
 
 vim.cmd('au TermOpen * setlocal nospell')
 vim.cmd('set spell')
