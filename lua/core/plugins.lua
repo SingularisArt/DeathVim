@@ -30,6 +30,7 @@ return require('packer').startup({
     use { 'hrsh7th/cmp-path' } -- Autocompletes path
     use { 'hrsh7th/cmp-nvim-lsp' } -- Autocompletes for lsp
     use { 'quangnguyen30192/cmp-nvim-ultisnips' } -- Autocompletes when in command mode
+    use { 'github/copilot.vim' } -- Autocompletes based on an AI
 
     -- Language specific tools
     use { 'simrat39/rust-tools.nvim' } -- For Rust
@@ -94,14 +95,13 @@ return require('packer').startup({
     use { 'lukas-reineke/indent-blankline.nvim' } -- Shows indentation
     use { 'karb94/neoscroll.nvim' } -- Nicer scrolling
     use { 'tpope/vim-surround' } -- Easier to surround items with (), {}, [], <>, '', "", ``
-    use { 'blueyed/vim-diminactive' } -- Dims the inactive panes
     use { 'folke/twilight.nvim' } -- Turns off syntax
     use { 'junegunn/limelight.vim' } -- Turns off syntax
   end,
   config = {
     display = {
       open_fn = function()
-        return require('packer.util').float({ border = 'single' })
+        return require('packer.util').float({ border = 'rounded' })
       end
     }
   }
