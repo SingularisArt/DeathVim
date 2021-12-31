@@ -4,7 +4,7 @@ vim.opt.mouse             = 'a'
 vim.opt.background        = 'dark'
 vim.opt.signcolumn        = 'yes'
 vim.opt.clipboard         = 'unnamedplus'
-vim.opt.undodir           = '~/.vim/undodir'
+--vim.opt.undodir           = '~/.vim/undodir'
 vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
 
@@ -36,7 +36,7 @@ vim.opt.hlsearch          = false
 vim.opt.errorbells        = false
 vim.opt.wrap              = false
 vim.opt.swapfile          = false
-vim.opt.undofile          = true
+vim.opt.undofile          = false
 vim.opt.backup            = false
 
 vim.opt.termguicolors   = true
