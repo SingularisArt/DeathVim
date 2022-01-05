@@ -230,28 +230,8 @@ wk.register({
 wk.register({
   s = {
     name = 'LSP',
-    d = {
-      name = 'Definitions',
-      d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                  'Go to Definition' },
-      f = { '<cmd>Lspsaga lsp_finder<CR>',                            'Find files with definition' },
-      r = { '<cmd>lua vim.lsp.buf.references()<CR>',                  'Go to Reference' },
-      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',             'Type Definition' },
-      p = { '<cmd>Lspsaga preview_definition<CR>',                    'Preview Definition' },
-    },
-    w = {
-      name = 'Workspace Folders',
-      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',        'Addworkspace'},
-      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',     'Remove workspace'},
-    },
-    h = { '<cmd>Lspsaga hover_doc<CR>',                               'Hover' },
-    r = { '<cmd>lua vim.lsp.buf.rename()<CR>',                        'Rename' },
-    c = { '<cmd>Lspsaga code_action<CR>',                             'Code Action' },
-    e = { '<cmd>Lspsaga show_line_diagnostics<CR>',                   'Show Diagnostics' },
-    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',            'Local List' },
-    f = { '<cmd>Lspsaga format<CR>',                                  'Format' },
-    r = { '<cmd>Lspsaga rename<CR>',                                  'Rename' },
-    i = { '<cmd>Lspsaga implement<CR>',                               'Implement' },
-  },
+
+  }
 }, { prefix = "<leader>" })
 
 -------------

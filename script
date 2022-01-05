@@ -7,4 +7,3 @@ log_info "Installing neovim"
 
 ln -sf ${ASPECTS}/nvim ~/.config
 
-

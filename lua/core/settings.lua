@@ -4,7 +4,6 @@ vim.opt.mouse             = 'a'
 vim.opt.background        = 'dark'
 vim.opt.signcolumn        = 'yes'
 vim.opt.clipboard         = 'unnamedplus'
---vim.opt.undodir           = '~/.vim/undodir'
 vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
 
@@ -39,12 +38,13 @@ vim.opt.swapfile          = false
 vim.opt.undofile          = false
 vim.opt.backup            = false
 
-vim.opt.termguicolors   = true
+vim.opt.termguicolors     = true
 
-vim.wo.number           = true
-vim.wo.relativenumber   = true
-vim.wo.cursorline       = true
+vim.wo.number             = true
+vim.wo.relativenumber     = true
+vim.wo.cursorline         = true
 
 vim.cmd('au TermOpen * setlocal nospell')
 vim.cmd('set spell')
-
+vim.cmd('if !has("nvim") | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif')
+--vim.cmd('set completeopt=preview,menuone')

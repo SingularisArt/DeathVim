@@ -15,13 +15,9 @@ return require('packer').startup({
 
     -- LSP Stuff
     use { 'neovim/nvim-lspconfig' } -- Main lsp plugin
-    use { 'tamago324/nlsp-settings.nvim' } -- Some default lsp settings
-    use { 'williamboman/nvim-lsp-installer' } -- Installs lsp servers
     use { 'onsails/lspkind-nvim' } -- Gives us icons
     use { 'tami5/lspsaga.nvim', branch="nvim51" }
-    use { 'ray-x/lsp_signature.nvim' } -- Shows function signatures
-    use { 'mfussenegger/nvim-dap' } -- Debug
-    use { 'folke/trouble.nvim' } -- Shows all errors/warnings/infos/hints
+    use { 'neoclide/coc.nvim', branch="release" }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp' } -- Autocomplete engine
