@@ -118,3 +118,25 @@ vim.api.nvim_set_keymap('n', '<Leader>io', ':MinimapOpen<CR>',      { noremap = 
 vim.api.nvim_set_keymap('n', '<Leader>ir', ':MinimapRefresh<CR>',   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>it', ':MinimapToggle<CR>',    { noremap = true, silent = true })
 
+-- lsp
+vim.api.nvim_set_keymap('n', '<Leader>sdd', '<cmd>lua vim.lsp.buf.definition()<CR>',                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdf', ':Lspsaga lsp_finder<CR>',                              { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdr', '<cmd>lua vim.lsp.buf.references()<CR>',                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdt', '<cmd>lua vim.lsp.buf.type_definition()<CR>',           { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sdp', ':Lspsaga preview_definition<CR>',                      { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>swa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>swr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',   { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>sh',  ':Lspsaga hover_doc<CR>',                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sc',  ':Lspsaga code_action<CR>',                             { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>se',  ':Lspsaga show_line_diagnostics<CR>',                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sq',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sf',  ':Lspsaga format<CR>',                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sr',  ':Lspsaga rename<CR>',                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>si',  ':Lspsaga implement<CR>',                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-d>',       ':Lspsaga open_floaterm<CR>',                           { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',          { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',          { noremap = true, silent = true })
+

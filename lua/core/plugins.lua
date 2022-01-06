@@ -17,7 +17,7 @@ return require('packer').startup({
     use { 'neovim/nvim-lspconfig' } -- Main lsp plugin
     use { 'onsails/lspkind-nvim' } -- Gives us icons
     use { 'tami5/lspsaga.nvim', branch="nvim51" }
-    use { 'neoclide/coc.nvim', branch="release" }
+    --use { 'neoclide/coc.nvim', branch="release" }
 
     -- Completion
     use { 'hrsh7th/nvim-cmp' } -- Autocomplete engine
