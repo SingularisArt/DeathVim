@@ -6,33 +6,35 @@ require('core.plugins')
 require('core.keymappings')
 require('core.settings')
 require('core.lsp')
+require('core.tree-sitter')
+vim.cmd('source ~/.config/nvim/lua/core/folds.vim')
 
 -------------
 -- Plugins --
 -------------
 
-require('plugin-configs.nv-auto-pairs')
---require('plugin-configs.nv-compe') -- In case you want to use compe instead of cmp
-require('plugin-configs.nv-cmp')
-require('plugin-configs.nv-bufferline')
-require('plugin-configs.nv-dim-in-active')
-require('plugin-configs.nv-nvimtree')
-require('plugin-configs.nv-telescope')
-require('plugin-configs.nv-terminal')
-require('plugin-configs.nv-which-key')
-require('plugin-configs.nv-dashboard')
-require('plugin-configs.nv-ultisnips')
-require('plugin-configs.nv-vimtex')
-require('plugin-configs.nv-vim-polyglot')
-require('plugin-configs.nv-translator')
-require('plugin-configs.nv-table-mode')
-require('plugin-configs.nv-which-key')
-require('plugin-configs.nv-indent-blankline')
-require('neoscroll').setup()
+require('plugin-configs.airline')
+require('plugin-configs.bufferline')
+require('plugin-configs.cmp')
+require('plugin-configs.nvimtree')
+require('plugin-configs.telescope')
+require('plugin-configs.terminal')
+require('plugin-configs.dashboard')
+require('plugin-configs.which-key')
+require('plugin-configs.ultisnips')
+require('plugin-configs.vimtex')
+require('plugin-configs.translator')
+require('plugin-configs.table-mode')
+require('plugin-configs.which-key')
+require('plugin-configs.indent-blankline')
+require('plugin-configs.toggleterm')
+require('plugin-configs.auto-pairs')
+require('plugin-configs.emmet')
+
+require('nvim-treesitter.configs').setup{}
 require('lualine').setup{
   options = { theme = 'nightfox' }
 }
-require('nvim-treesitter.configs').setup{}
 
 ------------------
 -- Colorscheme --
@@ -60,6 +62,7 @@ nightfox.setup({
 })
 
 nightfox.load()
+vim.cmd('color duskfox')
 
 ------------------
 -- Vim commands --
@@ -74,3 +77,15 @@ vim.cmd('hi Normal ctermfg=None guifg=None          guibg=None')
 vim.cmd('hi NormalNC ctermfg=None guifg=None        guibg=None')
 vim.cmd('hi NvimTreeNormal guibg=None')
 
+vim.api.nvim_exec([[
+set foldtext=folds#foldtext()
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+]], true)
+vim.cmd[[
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+]]

@@ -1,20 +1,40 @@
 -- LSP Servers to install
 
 local langservers = {
-  'sumneko_lua',
-  'vimls',
-  'texlab',
-  'pylsp',
-  'bashls',
-  'clangd',
-  'cmake',
-  'rust_analyzer',
-  'tsserver',
-  'yamlls',
+  'sumneko_lua',      -- Lua
+  'vimls',            -- Vim
+  'texlab',           -- LaTeX
+  'pylsp',            -- Python
+  'bashls',           -- Bash
+  'clangd',           -- C++,C
+  'cmake',            -- CMake
+  'html',             -- HTML
+  'cssls',            -- CSS
+  'rust_analyzer',    -- Rust
+  'tsserver',         -- Typescript/Javascript
+  'yamlls',           -- Yaml
+  'solidity_ls',      -- Solidity
 }
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for _, server in ipairs(langservers) do
-    require('lspconfig')[server].setup {}
+  if server == 'sumneko_lua' then
+    require('lspconfig')[server].setup {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim', 'use' }
+          }
+        }
+      }
+    }
+  else
+    require('lspconfig')[server].setup {
+      capabilities = capabilities
+    }
+  end
 end
 
 ------------------------
@@ -27,7 +47,7 @@ require('rust-tools').setup {
     autoSetHints = true,
 
     -- Whether to show hover actions inside the hover window
-    -- This overrides the default hover handler 
+    -- This overrides the default hover handler
     hover_with_actions = true,
 
     -- how to execute terminal commands

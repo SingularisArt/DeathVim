@@ -159,11 +159,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/limelight.vim",
     url = "https://github.com/junegunn/limelight.vim"
   },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -199,11 +194,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
-  ["nlsp-settings.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
-    url = "https://github.com/tamago324/nlsp-settings.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -213,11 +203,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -269,10 +254,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
-  semshi = {
+  ["shade.nvim"] = {
     loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/semshi",
-    url = "https://github.com/numirias/semshi"
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/shade.nvim",
+    url = "https://github.com/sunjon/shade.nvim"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,
@@ -299,15 +284,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/tex-conceal.vim",
     url = "https://github.com/KeitaNakamura/tex-conceal.vim"
   },
-  ["tigris.nvim"] = {
+  ["toggleterm.nvim"] = {
     loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/tigris.nvim",
-    url = "https://github.com/billyvg/tigris.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["twilight.nvim"] = {
     loaded = true,
@@ -319,10 +299,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-angry-reviewer",
     url = "https://github.com/anufrievroman/vim-angry-reviewer"
   },
-  ["vim-cpp-modern"] = {
+  ["vim-closetag"] = {
     loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-cpp-modern",
-    url = "https://github.com/bfrg/vim-cpp-modern"
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-closetag",
+    url = "https://github.com/alvan/vim-closetag"
   },
   ["vim-easymotion"] = {
     loaded = true,
@@ -358,6 +338,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
+  },
+  ["vim-solidity"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-solidity",
+    url = "https://github.com/tomlion/vim-solidity"
   },
   ["vim-surround"] = {
     loaded = true,

@@ -149,16 +149,23 @@ snippet case "cases" bAi
 \end{cases}
 endsnippet
 
+snippet ali "Align" bAi
+\begin{align}
+	${1:${VISUAL}}
+.\end{align}
+endsnippet
+
 snippet ali "Align*" bAi
 \begin{align*}
 	${1:${VISUAL}}
 .\end{align*}
 endsnippet
 
-snippet ali "Align" bAi
-\begin{align}
-	${1:${VISUAL}}
-.\end{align}
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
 endsnippet
 
 
@@ -364,19 +371,19 @@ snippet srto "... Root" wi
 endsnippet
 
 snippet bf "Bold" wi
-\textbf{${1:${VISUAL}}}$0
+\bf{${1:${VISUAL}}}$0
 endsnippet
 
 snippet it "Italic" wi
-\textit{${1:${VISUAL}}}$0
+\it{${1:${VISUAL}}}$0
 endsnippet
 
 snippet un "Underline" wi
-\underline{${1:${VISUAL}}}$0
+\un{${1:${VISUAL}}}$0
 endsnippet
 
 snippet rm "Text" wi
-\textrm{${1:${VISUAL}}}$0
+\rm{${1:${VISUAL}}}$0
 endsnippet
 
 snippet itm "Item" wi
@@ -729,47 +736,46 @@ endsnippet
 
 snippet chap "Chapter" wi
 \chapter{$1${VISUAL}}
-\label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${3:Some text here}
-
-% chapter $2 (end)
 endsnippet
 
-snippet sec "Subsection" wi
+snippet sec "Section" wi
 \section{$1${VISUAL}}
-\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${3:Some text here}
-
-% section $2 (end)
 endsnippet
 
-snippet sec* "Subsection" wi
+snippet sec "Section" wi
 \section*{$1${VISUAL}}
-\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${3:Some text here}
-
-% section $2 (end)
 endsnippet
 
 snippet sub "Subsection" wi
 \subsection{$1${VISUAL}}
-\label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${3:Some text here}
-
-% subsection $2 (end)
 endsnippet
 
-snippet sub* "Subsection" wi
+snippet sub "Subsection" wi
 \subsection*{$1${VISUAL}}
-\label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+endsnippet
 
-${3:Some text here}
+snippet subsub "Subsection" wi
+\subsubsection{$1${VISUAL}}
+endsnippet
 
-% subsection $2 (end)
+snippet subsub "Subsection" wi
+\subsubsection*{$1${VISUAL}}
+endsnippet
+
+snippet par "Paragraph" wi
+\paragraph{$1${VISUAL}}
+endsnippet
+
+snippet par "Paragraph" wi
+\paragraph*{$1${VISUAL}}
+endsnippet
+
+snippet subpar "Subparagraph" wi
+\subparagraph{$1${VISUAL}}
+endsnippet
+
+snippet subpar "Subparagraph" wi
+\subparagraph*{$1${VISUAL}}
 endsnippet
 
 snippet newp "New Page" A

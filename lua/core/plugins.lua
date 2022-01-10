@@ -17,7 +17,7 @@ return require('packer').startup({
     use { 'neovim/nvim-lspconfig' } -- Main lsp plugin
     use { 'onsails/lspkind-nvim' } -- Gives us icons
     use { 'tami5/lspsaga.nvim', branch="nvim51" }
-    --use { 'neoclide/coc.nvim', branch="release" }
+    use { 'williamboman/nvim-lsp-installer' } -- Installs lsp servers
 
     -- Completion
     use { 'hrsh7th/nvim-cmp' } -- Autocomplete engine
@@ -38,11 +38,10 @@ return require('packer').startup({
     use { 'anufrievroman/vim-tex-kawaii' } -- For latex (Gives you headers)
     use { 'Valloric/MatchTagAlways' } -- HTML Stuff (Highlights other tag)
     use { 'mattn/emmet-vim' } -- HTML Stuff (Quick writing)
+    use { 'alvan/vim-closetag' } -- Closes tags for html
 
     -- Colors
-    use { 'numirias/semshi' } -- Better syntax highlighting for python
-    use { 'bfrg/vim-cpp-modern' } -- Better syntax highlighting for C++ and C
-    use { 'billyvg/tigris.nvim' } -- Better syntax highlighting for JS and TS
+    use { 'tomlion/vim-solidity' } -- Better syntax highlighting for solidity
     use { 'lilydjwg/colorizer' } -- Shows hex, rgb, and other colors
     use { 'nvim-treesitter/nvim-treesitter' } -- Highlights special words
     use { 'nvim-treesitter/playground' } -- Highlights special words
@@ -56,7 +55,7 @@ return require('packer').startup({
     use { 'SirVer/UltiSnips' } -- Snippet engine
     use { 'honza/vim-snippets' } -- Some snippets
     use { 'gillescastel/latex-snippets' } -- LaTeX snippets
-    
+
     -- NvimTree and Tagbar
     use { 'kyazdani42/nvim-tree.lua' } -- See outline of directory
     use { 'preservim/tagbar' } -- See outline of file
@@ -93,6 +92,8 @@ return require('packer').startup({
     use { 'tpope/vim-surround' } -- Easier to surround items with (), {}, [], <>, '', "", ``
     use { 'folke/twilight.nvim' } -- Turns off syntax
     use { 'junegunn/limelight.vim' } -- Turns off syntax
+    use { 'akinsho/toggleterm.nvim' } -- Cool Terminal
+    use { 'sunjon/shade.nvim' } -- Makes inactive panes dim
   end,
   config = {
     display = {

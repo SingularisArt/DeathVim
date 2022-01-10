@@ -2,8 +2,7 @@ vim.opt.encoding          = 'utf-8'
 vim.opt.fileencoding      = 'utf-8'
 vim.opt.mouse             = 'a'
 vim.opt.background        = 'dark'
-vim.opt.signcolumn        = 'yes'
-vim.opt.clipboard         = 'unnamedplus'
+vim.opt.signcolumn        = 'yes' vim.opt.clipboard         = 'unnamedplus'
 vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
 
@@ -16,6 +15,7 @@ vim.opt.laststatus        = 2
 vim.opt.showtabline       = 2
 vim.opt.updatetime        = 50
 vim.opt.scrolloff         = 999
+vim.opt.textwidth         = 80
 
 vim.opt.hidden            = true
 vim.opt.wrap              = true
@@ -47,4 +47,4 @@ vim.wo.cursorline         = true
 vim.cmd('au TermOpen * setlocal nospell')
 vim.cmd('set spell')
 vim.cmd('if !has("nvim") | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif')
---vim.cmd('set completeopt=preview,menuone')
+
