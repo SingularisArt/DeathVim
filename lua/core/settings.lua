@@ -8,7 +8,7 @@ vim.o.shortmess           = vim.o.shortmess .. 'c'
 
 vim.opt.pumheight         = 10
 vim.opt.cmdheight         = 2
-vim.opt.conceallevel      = 0
+vim.opt.conceallevel      = 2
 vim.opt.tabstop           = 2
 vim.opt.shiftwidth        = 2
 vim.opt.laststatus        = 2

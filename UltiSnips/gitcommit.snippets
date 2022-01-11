@@ -8,24 +8,24 @@ def complete(t, opts):
 endglobal
 
 snippet status "Status" bA
-status $1`!p snip.rv = complete(t[1], ['new', 'incomplete', 'invalid', 'wontfix', 'confirmed', 'traiged', 'inprogress', 'fixcommitted', 'fixreleased'])`
+status $1`!p snip.rv = complete(t[1], ['build', 'ci', 'test', 'refactor',
+																			 'perf', 'improvement', 'docs', 'chore',
+																			 'feat', 'fix'])`
 endsnippet
 
 snippet sign "Signature"
 -------------------------------------------------------------------------------
 ${1:Company Name}
 
-${2:Hashem A. Damrah}
+${2:Author Name}
 
 ${3:Streetname 21}
 ${4:City and Area}
 
 ${5:Tel: 						+44 (0)987 / 888 8888}
 ${6:Fax: 						+44 (0)987 / 888 8882}
-${7:Mail: 					dermdorm2@gmail.com}
-${8:Web: 						https://damrah.netlify.app}
-${9:Dotfiles: 			https://github.com/SingularisArt/Singularis}
-${10:NeoVim Config: 	https://github.com/SingularisArt/Death.NeoVim}
+${7:Mail: 					Email}
+${8:Web: 						https://}
 -------------------------------------------------------------------------------
 $0
 endsnippet
