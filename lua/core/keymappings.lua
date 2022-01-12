@@ -49,8 +49,11 @@ vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>ggVG',  { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>',    { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>h', ':split<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>o', ':only<CR>',      { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>d', ':Dashboard<CR>', { noremap = true, silent = true })
-  
+
+-- dashbaord
+vim.api.nvim_set_keymap('n', '<Leader>dd', ':Dashboard<CR>',        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>dn', ':DashboardNewFile<CR>', { noremap = true, silent = true })
+
 -- git
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':Git<CR>',              { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ga', ':Git add .<CR>',        { noremap = true, silent = true })
@@ -102,10 +105,14 @@ vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>',     { noremap = tr
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fc', ':Telescope colorscheme<CR>',    { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>',        { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope commands<CR>',       { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fm', ':Telescope commands<CR>',       { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fl', ':Telescope live_grep<CR>',      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope marks<CR>',      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fp', ':Telescope projects<CR>',      { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgs', ':Telescope git_status<CR>',    { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',   { noremap = true, silent = true })
@@ -135,7 +142,7 @@ vim.api.nvim_set_keymap('n', '<Leader>sq',  '<cmd>lua vim.lsp.diagnostic.set_loc
 vim.api.nvim_set_keymap('n', '<Leader>sf',  ':Lspsaga format<CR>',                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sr',  ':Lspsaga rename<CR>',                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>si',  ':Lspsaga implement<CR>',                               { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-d>',       ':Lspsaga open_floaterm<CR>',                           { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-d>',       ':ToggleTerm<CR>',                                      { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',          { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',          { noremap = true, silent = true })

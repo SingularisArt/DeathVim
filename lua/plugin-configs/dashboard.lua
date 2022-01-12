@@ -1,62 +1,35 @@
-local home = os.getenv('HOME')
+local g = vim.g
 
-vim.g.dashboard_footer_icon = '🐬 '
-vim.g.dashboard_default_executive = 'telescope'
-vim.g.dashboard_custom_section = {
-	find_file  = {
-		description = {' Find file'},
-		command = 'Telescope find_files'},
-	buffers = {
-		description = {' Vim buffers'},
-		command = 'Telescope buffers'},
-	help_tags = {
-		description = {'📄 Help tags'},
-		command = 'Telescope help_tags'},
-	man_pages = {
-		description = {'👨 Man pages'},
-		command = 'Telescope man_pages'},
-	key_maps = {
-		description = {'🔑 Key maps'},
-		command = 'Telescope key_maps'},
-	git_status = {
-		description = {'🔨 Git status'},
-		command = 'Telescope git_status'},
+g.dashboard_disable_at_vimenter = 0
+g.dashboard_disable_statusline = 1
+g.dashboard_default_executive = "telescope"
+g.dashboard_custom_header = {
+   "                                   ",
+   "                                   ",
+   "                                   ",
+   "   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ",
+   "    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ",
+   "          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ",
+   "           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ",
+   "          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ",
+   "   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ",
+   "  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ",
+   " ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ",
+   " ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ",
+   "      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ",
+   "       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ",
+   "                                   ",
 }
 
-vim.g.dashboard_custom_header = {
-       "            :h-                                  Nhy`               ",
-       "           -mh.                           h.    `Ndho               ",
-       "           hmh+                          oNm.   oNdhh               ",
-       "          `Nmhd`                        /NNmd  /NNhhd               ",
-       "          -NNhhy                      `hMNmmm`+NNdhhh               ",
-       "          .NNmhhs              ```....`..-:/./mNdhhh+               ",
-       "           mNNdhhh-     `.-::///+++////++//:--.`-/sd`               ",
-       "           oNNNdhhdo..://++//++++++/+++//++///++/-.`                ",
-       "      y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:       ",
-       " .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+        ",
-       " h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`         ",
-       " hd+` -NNNy`./dNNNNNhhhh+-://///   -+ooo:`  ::-:+////++///:`        ",
-       " /Nmhs+oss-:++/dNNNmhho:--::///   /mmmmmmo  ../-///++///////.       ",
-       "  oNNdhhhhhhhs//osso/:---:::///   /myyyyso  ..o+-//////////:/.      ",
-       "   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.     ",
-       "     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`    ",
-       "       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:    ",
-       "       -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`   ",
-       "       /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:   ",
-       "       //+++//++++++////+++///::--                 .::::-------::   ",
-       "       :/++++///////////++++//////.                -:/:----::../-   ",
-       "       -/++++//++///+//////////////               .::::---:::-.+`   ",
-       "       `////////////////////////////:.            --::-----...-/    ",
-       "        -///://////////////////////::::-..      :-:-:-..-::.`.+`    ",
-       "         :/://///:///::://::://::::::/:::::::-:---::-.-....``/mm`   ",
-       "           ::::://::://::::::::::::::----------..-:....`.../Nmhd+o/ ",
-       "            -/:::-:::::---://:-::-::::----::---.-.......`-/oNN   `` ",
-       "           s-`::--:::------:////----:---.-:::...-.....`./:          ",
-       "          yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`           ",
-       "         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-              ",
-       "        :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                ",
-       "                        .-:mNdhh:.......--::::-`                    ",
-       "                           yNh/..------..`                          ",
-       "                                                                    ",
-       "                             N E O V I M                             ",
+g.dashboard_custom_section = {
+   a = { description = { "  Find File                 SPC f f" }, command = "Telescope find_files" },
+   b = { description = { "  Recents                   SPC f o" }, command = "Telescope oldfiles" },
+   c = { description = { "  Find Word                 SPC f l" }, command = "Telescope live_grep" },
+   d = { description = { "洛 New File                  SPC d n" }, command = "DashboardNewFile" },
+   e = { description = { "  Bookmarks                 SPC f r" }, command = "Telescope marks" },
+   f = { description = { "  Load Projects             SPC f p" }, command = "Telescope projects" },
+}
+
+g.dashboard_custom_footer = {
+   "   ",
 }

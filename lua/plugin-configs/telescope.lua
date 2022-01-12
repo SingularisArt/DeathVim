@@ -48,3 +48,6 @@ require('telescope').setup {
     }
 }
 
+-- Load all extensions
+require('telescope').load_extension('projects')
+

@@ -22,10 +22,10 @@ local cmp = require "cmp"
 cmp.setup {
   snippet = {
     expand = function(args)
-       vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      --require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      --require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end,
   },
 

@@ -18,24 +18,26 @@ def parse_plugins_file(plugins_file, header_list, plugin_data):
             except Exception:
                 pass
 
-            try:
-                line_regex = re.match('.+{ \'(.+)\' } -- (.+)', line)
-                plugin_link = 'https://github.com/{}'.format(
-                    line_regex.group(1))
-                plugin_name = re.match(r'.+/(.+)', line_regex.group(1))
-                note = line_regex.group(2)
-                plugin_quick_data = [plugin_link, header_name,
-                                     plugin_name.group(1),
-                                     note]
-                plugin_data.append(plugin_quick_data)
-            except Exception:
-                line_regex = re.match('.+{ \'(.+)\' }', line)
-                plugin_link = 'https://github.com/{}'.format(
-                    line_regex.group(1))
-                plugin_name = re.match(r'.+/(.+)', line_regex.group(1))
-                plugin_quick_data = [plugin_link, header_name,
-                                     plugin_name.group(1)]
-                plugin_data.append(plugin_quick_data)
+            print(line)
+            line_regex = re.match("( )+use { '(.)+'(,| )(,| )config=require\((.)+( |)} -- ([a-zA-Z0-9!@#$%^&*()_+=\\|/.,`~ ])+", line)
+            print(line_regex.group(1))
+            # try:
+                # plugin_link = 'https://github.com/{}'.format(
+                    # line_regex.group(1))
+                # plugin_name = re.match(r'.+/(.+)', line_regex.group(1))
+                # note = line_regex.group(2)
+                # plugin_quick_data = [plugin_link, header_name,
+                                     # plugin_name.group(1),
+                                     # note]
+                # plugin_data.append(plugin_quick_data)
+            # except Exception:
+                # line_regex = re.match('.+{ \'(.+)\' }', line)
+                # plugin_link = 'https://github.com/{}'.format(
+                    # line_regex.group(1))
+                # plugin_name = re.match(r'.+/(.+)', line_regex.group(1))
+                # plugin_quick_data = [plugin_link, header_name,
+                                     # plugin_name.group(1)]
+                # plugin_data.append(plugin_quick_data)
         except Exception:
             pass
 
