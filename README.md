@@ -35,17 +35,15 @@ Death.NeoVim
     * [LSP](#lsp)
 * [TODO](#todo)
 
-# Features
-
-## LSP
+# Install Language support
 
 You can find a list of supported languages
 [here](https://github.com/kabouzeid/nvim-lspinstall/tree/main/lua/lspinstall/servers).
+
 To install any of them run
 
-```viml
-:LspInstall <language server name>
-```
+* Enter `:LspInstall` followed by <TAB> to see your options for LSP
+* Enter `:TSInstall` followed by <TAB> to see your options for syntax highlighting
 
 # Overview
 
@@ -230,3 +228,4 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 - [x] Add **features** to **README.md**.
 - [x] Add tabnine.
 - [ ] Make my own executable called **dvim**.
+

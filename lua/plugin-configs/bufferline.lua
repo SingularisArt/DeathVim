@@ -7,7 +7,14 @@ end
 
 bufferline.setup {
    options = {
-      offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+      offsets = {
+        {
+          filetype = "NvimTree",
+          text = "Explorer",
+          highlight = "Directory",
+          text_align = "center"
+        },
+      },
       buffer_close_icon = "",
       modified_icon = "",
       close_icon = "",
