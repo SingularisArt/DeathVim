@@ -5,6 +5,7 @@ vim.opt.background        = 'dark'
 vim.opt.signcolumn        = 'yes' vim.opt.clipboard         = 'unnamedplus'
 vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
+vim.opt.spelllang         = { 'en_us' }
 
 vim.opt.pumheight         = 10
 vim.opt.cmdheight         = 2
@@ -37,6 +38,8 @@ vim.opt.wrap              = false
 vim.opt.swapfile          = false
 vim.opt.undofile          = false
 vim.opt.backup            = false
+vim.opt.spell             = true
+
 
 vim.opt.termguicolors     = true
 

@@ -26,7 +26,7 @@ require('telescope').setup {
         borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
         color_devicons = true,
         use_less = true,
-        set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
+        set_env = {['COLORTERM'] = 'truecolor'},  default = nil,
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
         qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
@@ -50,4 +50,4 @@ require('telescope').setup {
 
 -- Load all extensions
 require('telescope').load_extension('projects')
-
+require("telescope").load_extension "file_browser"

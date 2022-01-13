@@ -71,7 +71,7 @@ packer.init({
   --    auto_reload_compiled = true
 })
 
-return require('packer').startup({
+require('packer').startup({
   function()
     --------------------
     -- Plugin Manager --
@@ -87,12 +87,13 @@ return require('packer').startup({
     use { 'onsails/lspkind-nvim' }
     use { 'tami5/lspsaga.nvim' }
     use { 'williamboman/nvim-lsp-installer' }
-    use { 'folke/trouble.nvim', config=require(config.trouble) }
+    use { 'folke/trouble.nvim' }
 
     ----------------
     -- Completion --
     ----------------
 
+    use { 'hrsh7th/nvim-cmp' }
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
@@ -100,7 +101,19 @@ return require('packer').startup({
     use { 'quangnguyen30192/cmp-nvim-ultisnips' }
     use { 'github/copilot.vim' }
     use { 'saadparwaiz1/cmp_luasnip' }
-    use { 'hrsh7th/nvim-cmp', config=require(config.nvim_cmp) }
+    use { 'kdheepak/cmp-latex-symbols' }
+    use { 'petertriho/cmp-git' }
+    use { 'hrsh7th/cmp-emoji' }
+    use { 'hrsh7th/cmp-calc' }
+    use { 'pontusk/cmp-vimwiki-tags' }
+    use { 'fiorematteo/cmp-katex' }
+    use { 'max397574/cmp-greek' }
+    use { 'dmitmel/cmp-cmdline-history' }
+    use { 'aspeddro/cmp-pandoc.nvim' }
+    use { 'tamago324/cmp-zsh' }
+    use { 'quangnguyen30192/cmp-nvim-tags' }
+    use { 'tzachar/cmp-tabnine', run='./install.sh' }
+    use { 'f3fora/cmp-spell' }
 
     -----------------------------
     -- Language specific tools --
@@ -112,9 +125,8 @@ return require('packer').startup({
     use { 'anufrievroman/vim-tex-kawaii' }
     use { 'Valloric/MatchTagAlways' }
     use { 'alvan/vim-closetag' }
-    use { 'lervag/vimtex', config=require(config.vimtex) }
-    use { 'mattn/emmet-vim', config=require(config.emmet_vim) }
-
+    use { 'lervag/vimtex' }
+    use { 'mattn/emmet-vim' }
     ------------
     -- Colors --
     ------------
@@ -122,22 +134,27 @@ return require('packer').startup({
     use { 'tomlion/vim-solidity' }
     use { 'lilydjwg/colorizer' }
     use { 'nvim-treesitter/playground' }
-    use { 'nvim-treesitter/nvim-treesitter', config=require(config.nvim_treesitter) }
+    use { 'Shatur/neovim-ayu' }
+    use { 'ray-x/aurora' }
+    use { 'tomasiser/vim-code-dark' }
+    use { 'nvim-treesitter/nvim-treesitter' }
+    use { 'tjdevries/colorbuddy.nvim' }
 
     ---------------
     -- Telescope --
     ---------------
 
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     use { 'nvim-telescope/telescope-fzy-native.nvim' }
     use { 'nvim-lua/plenary.nvim' }
-    use { 'nvim-telescope/telescope.nvim', config=require(config.telescope_nvim) }
+    use { 'nvim-telescope/telescope.nvim' }
 
     --------------
     -- Snippets --
     --------------
 
     use { 'honza/vim-snippets' }
-    use { 'SirVer/UltiSnips', config=require(config.UltiSnips) }
+    use { 'SirVer/UltiSnips' }
 
     -------------------------
     -- NvimTree and Tagbar --
@@ -147,28 +164,28 @@ return require('packer').startup({
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'simrat39/symbols-outline.nvim' }
     use { 'Pocco81/TrueZen.nvim' }
-    use { 'kyazdani42/nvim-tree.lua', config=require(config.nvim_tree_lua) }
-    use { 'glepnir/dashboard-nvim', config=require(config.dashboard_nvim) }
+    use { 'kyazdani42/nvim-tree.lua' }
+    use { 'glepnir/dashboard-nvim' }
 
     ------------------
     -- Colorschemes --
     ------------------
 
     use { 'overcache/NeoSolarized' }
-    use { 'EdenEast/nightfox.nvim', config=require(config.nightfox_nvim) }
+    use { 'EdenEast/nightfox.nvim' }
 
     -----------------
     -- Status Line --
     -----------------
 
-    use { 'feline-nvim/feline.nvim', config=require(config.feline_nvim) }
-    use { 'akinsho/bufferline.nvim', config=require(config.bufferline_nvim) }
+    use { 'feline-nvim/feline.nvim' }
+    use { 'akinsho/bufferline.nvim' }
 
     ---------
     -- Git --
     ---------
 
-    use { 'lewis6991/gitsigns.nvim', config=require(config.gitsigns) }
+    use { 'lewis6991/gitsigns.nvim' }
     use { 'tpope/vim-rhubarb' }
     use { 'tpope/vim-fugitive' }
 
@@ -179,24 +196,51 @@ return require('packer').startup({
     use { 'scrooloose/nerdcommenter' }
     use { 'iamcco/markdown-preview.nvim' }
     use { 'easymotion/vim-easymotion' }
-    --use { 'rinx/nvim-minimap' }
-    --use { 'RRethy/vim-illuminate' }
-    --use { 'karb94/neoscroll.nvim' }
+    use { 'RRethy/vim-illuminate' }
     use { 'tpope/vim-surround' }
-    --use { 'folke/twilight.nvim' }
-    --use { 'junegunn/limelight.vim' }
     use { 'NvChad/nvim-base16.lua' }
     use { 'kdheepak/lazygit.nvim' }
-    use { 'ahmedkhalf/project.nvim', config=require(config.project_nvim) }
-    use { 'folke/which-key.nvim', config=require(config.which_key_nvim) }
-    use { 'voldikss/vim-translator', config=require(config.vim_translator) }
-    use { 'dhruvasagar/vim-table-mode', config=require(config.vim_table_mode) }
-    use { 'lukas-reineke/indent-blankline.nvim', config=require(config.indent_blankline_nvim) }
-    use { 'windwp/nvim-autopairs', config=require(config.nvim_autopairs) }
-    use { 'akinsho/toggleterm.nvim', config=require(config.toggleterm_nvim) }
-    use { 'rcarriga/nvim-notify', config=require(config.nvim_notify) }
-    use { 'p00f/nvim-ts-rainbow', config=require(config.ts_rainbow) }
-    use { 'max397574/better-escape.nvim', config=require(config.better_escape_nvim) }
+    use { 'mortepau/codicons.nvim' }
+    use { 'ahmedkhalf/project.nvim' }
+    use { 'folke/which-key.nvim' }
+    use { 'voldikss/vim-translator' }
+    use { 'dhruvasagar/vim-table-mode' }
+    use { 'lukas-reineke/indent-blankline.nvim' }
+    use { 'windwp/nvim-autopairs' }
+    use { 'akinsho/toggleterm.nvim' }
+    use { 'rcarriga/nvim-notify' }
+    use { 'p00f/nvim-ts-rainbow' }
+    use { 'max397574/better-escape.nvim' }
+    use { 'kkoomen/vim-doge', run='call doge#install()' }
   end,
 })
+
+
+---------------------------
+-- Require plugin config --
+---------------------------
+
+require(config.nvim_cmp)
+require(config.trouble)
+require(config.emmet_vim)
+require(config.vimtex)
+require(config.nvim_treesitter)
+require(config.telescope_nvim)
+require(config.UltiSnips)
+require(config.nvim_tree_lua)
+require(config.dashboard_nvim)
+require(config.nightfox_nvim)
+require(config.feline_nvim)
+require(config.bufferline_nvim)
+require(config.gitsigns)
+require(config.project_nvim)
+require(config.which_key_nvim)
+require(config.vim_translator)
+require(config.vim_table_mode)
+require(config.indent_blankline_nvim)
+require(config.nvim_autopairs)
+require(config.toggleterm_nvim)
+require(config.nvim_notify)
+require(config.ts_rainbow)
+require(config.better_escape_nvim)
 
