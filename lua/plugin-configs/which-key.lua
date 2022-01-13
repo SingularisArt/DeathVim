@@ -5,12 +5,12 @@ local wk = require('which-key')
 -------------------------
 
 wk.register({
-  e = { '<cmd>NvimTreeToggle<CR>',  'Toggle NeoVim Tree' },
-  v = { '<cmd>vsplit<CR>',          'Vertical Split' },
-  h = { '<cmd>split<CR>',           'Horizontal Split' },
-  o = { '<cmd>only<CR>',            'Tab only' },
-  d = { '<cmd>Dashboard<CR>',       'Toggle Dashboard' },
-  y = { '<Plug>(easymotion-bd-f)',  'Easymotion' },
+  e = { '<cmd>NvimTreeToggle<CR>',  'Toggle NeoVim Tree'                        },
+  v = { '<cmd>vsplit<CR>',          'Vertical Split'                            },
+  h = { '<cmd>split<CR>',           'Horizontal Split'                          },
+  o = { '<cmd>only<CR>',            'Tab only'                                  },
+  d = { '<cmd>Dashboard<CR>',       'Toggle Dashboard'                          },
+  y = { '<Plug>(easymotion-bd-f)',  'Easymotion'                                },
   f = "which_key_ignore",
   c = "which_key_ignore",
 }, { prefix = "<leader>" })
@@ -22,15 +22,15 @@ wk.register({
 wk.register({
   g = {
     name = 'Git',
-    s = { '<cmd>Git<CR>',               'Status' },
-    a = { '<cmd>Git add .<CR>',         'Add'},
-    d = { '<cmd>Git diff<CR>',          'Diff'},
-    c = { '<cmd>Git commit<CR>',        'Commit'},
-    p = { '<cmd>Git push<CR>',          'Push'},
-    P = { '<cmd>Git pull<CR>',          'Pull'},
-    l = { '<cmd>Git log<CR>',           'Log'},
-    L = { '<cmd>LazyGit<CR>',           'LazyGit'},
-    f = { '<cmd>LazyGitFilter<CR>',     'LazyGitFilter'},
+    s = { '<cmd>Git<CR>',               'Status'                                },
+    a = { '<cmd>Git add .<CR>',         'Add'                                   },
+    d = { '<cmd>Git diff<CR>',          'Diff'                                  },
+    c = { '<cmd>Git commit<CR>',        'Commit'                                },
+    p = { '<cmd>Git push<CR>',          'Push'                                  },
+    P = { '<cmd>Git pull<CR>',          'Pull'                                  },
+    l = { '<cmd>Git log<CR>',           'Log'                                   },
+    L = { '<cmd>LazyGit<CR>',           'LazyGit'                               },
+    f = { '<cmd>LazyGitFilter<CR>',     'LazyGitFilter'                         },
   },
 }, { prefix = "<leader>" })
 
@@ -41,10 +41,10 @@ wk.register({
 wk.register({
   i = {
     name = 'Mini Map',
-    c = { '<cmd>MinimapClose<CR>',              'Close Minimap' },
-    o = { '<cmd>MinimapOpen<CR>',               'Open Minimap' },
-    r = { '<cmd>MinimapRefresh<CR>',            'Refresh Minimap' },
-    t = { '<cmd>MinimapToggle<CR>',             'Toggle Minimap' },
+    c = { '<cmd>MinimapClose<CR>',              'Close Minimap'                 },
+    o = { '<cmd>MinimapOpen<CR>',               'Open Minimap'                  },
+    r = { '<cmd>MinimapRefresh<CR>',            'Refresh Minimap'               },
+    t = { '<cmd>MinimapToggle<CR>',             'Toggle Minimap'                },
   },
 }, { prefix = "<leader>" })
 
@@ -55,12 +55,12 @@ wk.register({
 wk.register({
   p = {
     name = 'Packer',
-    i = { '<cmd>PackerInstall<CR>',   'Install  plugins'},
-    u = { '<cmd>PackerUpdate<CR>',    'Update   plugins'},
-    c = { '<cmd>PackerClean<CR>',     'Clean    plugins'},
-    l = { '<cmd>PackerLoad<CR>',      'Load     plugins'},
-    s = { '<cmd>PackerSync<CR>',      'Sync     plugins'},
-    p = { '<cmd>PackerProfile<CR>',   'Profile  plugins'},
+    i = { '<cmd>PackerInstall<CR>',   'Install Plugins'                         },
+    u = { '<cmd>PackerUpdate<CR>',    'Update Plugins'                          },
+    c = { '<cmd>PackerClean<CR>',     'Clean Plugins'                           },
+    l = { '<cmd>PackerLoad<CR>',      'Load Plugins'                            },
+    s = { '<cmd>PackerSync<CR>',      'Sync Plugins'                            },
+    p = { '<cmd>PackerProfile<CR>',   'Profile  Plugins'                        },
   },
 }, { prefix = "<leader>" })
 
@@ -71,9 +71,9 @@ wk.register({
 wk.register({
   r = {
     name = 'Translator',
-    t = { '<cmd>Translate<CR>',      'Translate'},
-    w = { '<cmd>TranslateW<CR>',     'Translate output to screen'},
-    r = { '<cmd>TranslateR<CR>',     'Translate output to file'},
+    t = { '<cmd>Translate<CR>',      'Translate'                                },
+    w = { '<cmd>TranslateW<CR>',     'Translate output to screen'               },
+    r = { '<cmd>TranslateR<CR>',     'Translate output to file'                 },
   },
 }, { prefix = "<leader>" })
 
@@ -84,7 +84,7 @@ wk.register({
 wk.register({
   m = {
     name = 'Markdown',
-    p = { '<cmd>MarkdownPreview<CR>',      'View Markdown'},
+    p = { '<cmd>MarkdownPreview<CR>',      'View Markdown'                      },
   },
 }, { prefix = "<leader>" })
 
@@ -95,19 +95,19 @@ wk.register({
 wk.register({
   t = {
     name = 'Table',
-    t = { '<cmd>TableModeToggle<CR>',      'Toggle Table Mode' },
+    t = { '<cmd>TableModeToggle<CR>',      'Toggle Table Mode'                  },
     a = {
       name = 'Add',
-      f = { '<cmd>TableAddFormula<CR>',    'Add formula' },
+      f = { '<cmd>TableAddFormula<CR>',    'Add formula'                        },
     },
     d = {
       name = 'Delete',
-      r = { '<Leader>tdr',                 'Delete Table Row' },
-      c = { '<Leader>tdc',                 'Delete Table Column' },
+      r = { '<Leader>tdr',                 'Delete Table Row'                   },
+      c = { '<Leader>tdc',                 'Delete Table Column'                },
     },
     i = {
       name = 'Insert',
-      c = { '<Leader>tic',                 'Insert Table Column' },
+      c = { '<Leader>tic',                 'Insert Table Column'                },
     },
   },
 }, { prefix = "<leader>" })
@@ -119,11 +119,41 @@ wk.register({
 wk.register({
   l = {
     name = 'VimTex',
-    c = { '<cmd>VimtexCompile<CR>',               'Compile VimTex File'},
-    s = { '<cmd>VimtexCompileSelected<CR>',       'Compile selected'},
-    i = { '<cmd>VimtexInfo<CR>',                  'Show VimTex info'},
-    t = { '<cmd>VimtexTocToggle<CR>',             'Show VimTex table of content'},
-    v = { '<cmd>VimtexView<CR>',                  'Show VimTex compiled using zahtura'},
+    m = { '<cmd>VimtexContextMenu<CR>',         'Open Context Menu'               },
+    u = { '<cmd>VimtexCountLetters<CR>',        'Count Letters'                   },
+    w = { '<cmd>VimtexCountWords<CR>',          'Count Words'                     },
+    d = { '<cmd>VimtexDocPackage<CR>',          'Open Doc for package'            },
+    e = { '<cmd>VimtexErrors<CR>',              'Look at the errors'              },
+    s = { '<cmd>VimtexStatus<CR>',              'Look at the status'              },
+    a = { '<cmd>VimtexToggleMain<CR>',          'Toggle Main'                     },
+    v = { '<cmd>VimtexView<CR>',                'View pdf'                        },
+    l = {
+      name = 'Clean',
+      l = { '<cmd>VimtexClean<CR>',             'Clean Project'                   },
+      c = { '<cmd>VimtexClean<CR>',             'Clean Cache'                     },
+    },
+    c = {
+      name = 'Compile',
+      c = { '<cmd>VimtexCompile<CR>',           'Compile Project'                 },
+      o = { '<cmd>VimtexCompileOutput<CR>',     'Compile Project and Show Output' },
+      s = { '<cmd>VimtexCompileSS<CR>',         'Compile project super fast'      },
+      e = { '<cmd>VimtexCompileSelected<CR>',   'Compile Selected'                },
+    },
+    r = {
+      name = 'Reload',
+      r = { '<cmd>VimtexReload<CR>',            'Reload'                          },
+      s = { '<cmd>VimtexReloadState<CR>',       'Reload State'                    },
+    },
+    o = {
+      name = 'Stop',
+      p = { '<cmd>VimtexStop<CR>',              'Stop'                            },
+      a = { '<cmd>VimtexStopAll<CR>',           'Stop All'                        },
+    },
+    t = {
+      name = 'TOC',
+      o = { '<cmd>VimtexTocOpen<CR>',           'Open TOC'                        },
+      t = { '<cmd>VimtexTocToggle<CR>',         'Toggle TOC'                      },
+    },
   },
 }, { prefix = "<leader>" })
 
@@ -136,16 +166,16 @@ wk.register({
     name = 'Telescope',
     f = {
       name = 'Find',
-      f = { '<cmd>Telescope find_files<CR>',                                              'Fuzzy Find Files' },
-      b = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>',   'Browser Find Files' },
+      f = { '<cmd>Telescope find_files<CR>',                                              'Fuzzy Find Files'      },
+      b = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>',   'Browser Find Files'    },
     },
     g = {
       name = 'Git',
-      s = { '<cmd>Telescope git_status<CR>',                                              'Git Status' },
-      f = { '<cmd>Telescope git_files<CR>',                                               'Git Files' },
-      c = { '<cmd>Telescope git_commits<CR>',                                             'Commits' },
-      b = { '<cmd>Telescope git_branches<CR>',                                            'Branches' },
-      t = { '<cmd>Telescope git_stash<CR>',                                               'Stash' },
+      s = { '<cmd>Telescope git_status<CR>',                                              'Git Status'            },
+      f = { '<cmd>Telescope git_files<CR>',                                               'Git Files'             },
+      c = { '<cmd>Telescope git_commits<CR>',                                             'Commits'               },
+      b = { '<cmd>Telescope git_branches<CR>',                                            'Branches'              },
+      t = { '<cmd>Telescope git_stash<CR>',                                               'Stash'                 },
     },
   },
 }, { prefix = "<leader>" })
@@ -170,21 +200,21 @@ wk.register({
     name = 'Buffers',
     c = {
       name = 'Close',
-      l = { '<cmd>BufferLineCloseLeft<CR>',                     'Close all buffers to the Left' },
-      r = { '<cmd>BufferLineCloseRight<CR>',                    'Close all buffers to the Right' },
+      l = { '<cmd>BufferLineCloseLeft<CR>',                     'Close all buffers to the Left'       },
+      r = { '<cmd>BufferLineCloseRight<CR>',                    'Close all buffers to the Right'      },
     },
     m = {
       name = 'Move',
-      f = { '<cmd>BufferLineMoveNext<CR>',                      'Move buffer Forward' },
-      b = { '<cmd>BufferLineMovePrev<CR>',                      'Move buffer Backward' },
+      f = { '<cmd>BufferLineMoveNext<CR>',                      'Move buffer Forward'                 },
+      b = { '<cmd>BufferLineMovePrev<CR>',                      'Move buffer Backward'                },
     },
     s = {
       name = 'Sort',
-      f = { '<cmd>BufferLineSortByDirectory<CR>',               'Sort by Directory' },
-      e = { '<cmd>BufferLineSortByExtension<CR>',               'Sort by Extension' },
-      r = { '<cmd>BufferLineSortByRelativeDirectory<CR>',       'Sort by Relative Directory' },
-      t = { '<cmd>BufferLineSortByTabs<CR>',                    'Sort by Tabs' },
+      f = { '<cmd>BufferLineSortByDirectory<CR>',               'Sort by Directory'                   },
+      e = { '<cmd>BufferLineSortByExtension<CR>',               'Sort by Extension'                   },
+      r = { '<cmd>BufferLineSortByRelativeDirectory<CR>',       'Sort by Relative Directory'          },
+      t = { '<cmd>BufferLineSortByTabs<CR>',                    'Sort by Tabs'                        },
     },
-    p = { '<cmd>BufferLinePick<CR>',                            'Pick buffer' },
+    p = { '<cmd>BufferLinePick<CR>',                            'Pick buffer'                         },
   },
 }, { prefix = "<leader>" })
