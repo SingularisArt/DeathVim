@@ -1,5 +1,4 @@
--- Unmap space and enter
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
+-- Unmap space and enter vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Enter>', '<NOP>', { noremap = true, silent = true })
 
 -- Leader key
@@ -81,7 +80,8 @@ vim.api.nvim_set_keymap('n', '<Leader>lv', ':VimtexView<CR>',             { nore
 vim.api.nvim_set_keymap('n', '<Leader>mp', ':MarkdownPreview<CR>', { noremap = true, silent = true })
 
 -- inkscape
-vim.cmd('source ~/.config/nvim/lua/core/keymappings.vim')
+vim.api.nvim_set_keymap('i', '<C-f>', '<Esc>:silent exec \'.!inkscape-figures create "\'.getline(\'.\').\'" "\'.b:vimtex.root.\'/figures/"\'<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':silent exec \'!inkscape-figures edit "\'.b:vimtex.root.\'/figures/" > /dev/null 2>&1 &\'<CR><CR>:redraw!<CR>', { noremap = true, silent = true })
 
 -- table
 vim.api.nvim_set_keymap('n', '<Leader>tt',  ':TableModeToggle<CR>',  { noremap = true, silent = true })
@@ -89,12 +89,6 @@ vim.api.nvim_set_keymap('n', '<Leader>taf', ':TableAddFormula<CR>',   { noremap 
 vim.api.nvim_set_keymap('n', '<Leader>tdr', '<Leader>tdr',            { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>tdc', '<Leader>tdc',            { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>tic', '<Leader>tic',            { noremap = true, silent = true })
-
--- commenting
-vim.api.nvim_set_keymap('n', '<Leader>nc', ':call nerdcommenter#Comment(0, "comment")<CR>',   { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<Leader>nc', ':call nerdcommenter#Comment(1, "comment")<CR>',   { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>nu', ':call nerdcommenter#Comment(0, "uncomment")<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<Leader>nu', ':call nerdcommenter#Comment(1, "uncomment")<CR>', { noremap = true, silent = true })
 
 -- package manager
 vim.api.nvim_set_keymap('n', '<Leader>pi', ':PackerInstall<CR>',  { noremap = true, silent = true })
@@ -104,21 +98,21 @@ vim.api.nvim_set_keymap('n', '<Leader>pl', ':PackerLoad<CR>',     { noremap = tr
 vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>',     { noremap = true, silent = true })
 
 -- telescope
---vim.api.nvim_set_keymap('n', '<Leader>fff', ':Telescope find_files<CR>',                                                { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>ffb', ':lua require("telescope").extensions.file_browser.file_browser()<CR>',     { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>',                                                   { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fc', ':Telescope colorscheme<CR>',                                                { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>',                                                    { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fm', ':Telescope commands<CR>',                                                   { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',                                                  { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fl', ':Telescope live_grep<CR>',                                                  { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope marks<CR>',                                                      { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fp', ':Telescope projects<CR>',                                                   { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgs', ':Telescope git_status<CR>',                                                { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',                                                 { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',                                               { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',                                              { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',                                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fff', ':Telescope find_files<CR>',                                                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ffb', ':lua require("telescope").extensions.file_browser.file_browser()<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>',                                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fc', ':Telescope colorscheme<CR>',                                                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>',                                                    { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fm', ':Telescope commands<CR>',                                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',                                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fl', ':Telescope live_grep<CR>',                                                  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope marks<CR>',                                                      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fp', ':Telescope projects<CR>',                                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgs', ':Telescope git_status<CR>',                                                { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',                                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',                                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',                                              { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',                                                 { noremap = true, silent = true })
 
 -- mini map
 vim.api.nvim_set_keymap('n', '<Leader>ic', ':MinimapClose<CR>',     { noremap = true, silent = true })
@@ -144,6 +138,7 @@ vim.api.nvim_set_keymap('n', '<Leader>sf',  ':Lspsaga format<CR>',              
 vim.api.nvim_set_keymap('n', '<Leader>sr',  ':Lspsaga rename<CR>',                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>si',  ':Lspsaga implement<CR>',                               { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-d>',       ':ToggleTerm<CR>',                                      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-d>',       '<C-\\><C-n>:ToggleTerm<CR>',                                      { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',          { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',          { noremap = true, silent = true })

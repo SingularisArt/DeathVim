@@ -25,7 +25,8 @@ local config = {
   trouble =                   "plugin-configs.trouble",
   gitsigns =                  "plugin-configs.gitsigns",
   ts_rainbow =                "plugin-configs.ts-rainbow",
-  better_escape_nvim =        "plugin-configs.better-escape"
+  better_escape_nvim =        "plugin-configs.better-escape",
+  comment_nvim =              "plugin-configs.comment-nvim",
 }
 
 if not present then
@@ -163,7 +164,8 @@ require('packer').startup({
     use { 'preservim/tagbar' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'simrat39/symbols-outline.nvim' }
-    use { 'Pocco81/TrueZen.nvim' }
+    use { 'folke/zen-mode.nvim' }
+    use { 'folke/twilight.nvim' }
     use { 'kyazdani42/nvim-tree.lua' }
     use { 'glepnir/dashboard-nvim' }
 
@@ -211,6 +213,8 @@ require('packer').startup({
     use { 'rcarriga/nvim-notify' }
     use { 'p00f/nvim-ts-rainbow' }
     use { 'max397574/better-escape.nvim' }
+    use { 'numToStr/Comment.nvim' }
+    use { 'rinx/nvim-minimap' }
     use { 'kkoomen/vim-doge', run='call doge#install()' }
   end,
 })
@@ -243,4 +247,7 @@ require(config.toggleterm_nvim)
 require(config.nvim_notify)
 require(config.ts_rainbow)
 require(config.better_escape_nvim)
+require(config.comment_nvim)
+require('zen-mode')
+require('twilight')
 

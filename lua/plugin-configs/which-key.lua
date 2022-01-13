@@ -64,18 +64,6 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
-----------------
--- Commenting --
-----------------
-
-wk.register({
-  n = {
-    name = 'Nerd Commenter',
-    c = { '<cmd>call nerdcommenter#Comment(0, "comment")<CR>',      'Comment'},
-    u = { '<cmd>call nerdcommenter#Comment(0, "uncomment")<CR>',    'Un-Comment'},
-  },
-}, { prefix = "<leader>" })
-
 ---------------
 -- Translate --
 ---------------
