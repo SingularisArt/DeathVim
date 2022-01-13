@@ -5,6 +5,6 @@ let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 let g:UltiSnipsEditSplit='vertical'
 
-let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips/']
+let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips/']
 ]]
 

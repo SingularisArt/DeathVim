@@ -156,6 +156,7 @@ require('packer').startup({
 
     use { 'honza/vim-snippets' }
     use { 'SirVer/UltiSnips' }
+    use { 'SingularisArt/custom-snippets' }
 
     -------------------------
     -- NvimTree and Tagbar --
