@@ -1,4 +1,4 @@
-vim.notify = require("notify").setup({
+local notify = require("notify").setup({
   -- Animation style (see below for details)
   stages = "fade_in_slide_out",
 
@@ -23,10 +23,11 @@ vim.notify = require("notify").setup({
 
   -- Icons for the different levels
   icons = {
-    ERROR = "",
-    WARN = "",
-    INFO = "",
-    DEBUG = "",
+    ERROR = '';
+    WARN = '' ,
+    HINT = '' ,
+    INFO = '',
+    DEBUG = '',
     TRACE = "✎",
   },
 })

@@ -13,7 +13,9 @@ local langservers = {
   'rust_analyzer',    -- Rust
   'tsserver',         -- Typescript/Javascript
   'yamlls',           -- Yaml
-  'solidity_ls',      -- Solidity
+  'solc',             -- Solidity
+  'solang',             -- Solidity
+  'solidity_ls',             -- Solidity
 }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

@@ -3,25 +3,48 @@ vim.cmd [[set completeopt=menuone,noinsert,noselect]]
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
+kind_icons = {
+  Class = " ",
+  Color = " ",
+  Constant = "ﲀ ",
+  Constructor = " ",
+  Enum = "練",
+  EnumMember = " ",
+  Event = " ",
+  Field = " ",
+  File = "",
+  Folder = " ",
+  Function = " ",
+  Interface = "ﰮ ",
+  Keyword = " ",
+  Method = " ",
+  Module = " ",
+  Operator = "",
+  Property = " ",
+  Reference = " ",
+  Snippet = " ",
+  Struct = " ",
+  Text = " ",
+  TypeParameter = " ",
+  Unit = "塞",
+  Value = " ",
+  Variable = " ",
+}
+
 Vscode = vim.lsp.protocol.make_client_capabilities()
 
 local source_mapping = {
-  nvim_lsp        = '[LSP]',
-  nvim_lua        = '[api]',
-  latex_symbols   = '[latex]',
-  ultisnips       = '[snip]',
-  cmp_tabnine     = '[tab]',
-  calc            = '[calc]',
-  gh_issues       = '[issues]',
-  path            = '[path]',
-  buffer          = '[buf]',
-  emoji           = '[emoji]',
-  tags            = '[tag]',
-  cmp_pandoc      = '[pandoc]',
-  greek           = '[greek]',
-  vimwiki_tags    = '[wiki]',
-  spell           = '[spell]',
-  zsh             = '[zsh]',
+  nvim_lsp        = '(LSP)',
+  nvim_lua        = '(Lua)',
+  latex_symbols   = '(LaTeX)',
+  ultisnips       = '(Snippet)',
+  cmp_tabnine     = '(TabNine)',
+  calc            = '(Calculator)',
+  gh_issues       = '(Issues)',
+  path            = '(Path)',
+  buffer          = '(Buffer)',
+  emoji           = '(Emoji)',
+  spell           = '(Spell)',
 }
 
 Capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -38,12 +61,14 @@ cmp.setup({
   },
 
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-x>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<A-p>"] = cmp.mapping.scroll_docs(-4),
+    ["<A-n>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+-- 
+    ["<C-b>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -51,6 +76,10 @@ cmp.setup({
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = true },
+  },
+
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
 
   sources = cmp.config.sources({
@@ -64,12 +93,7 @@ cmp.setup({
     { name = 'path'           },
     { name = 'buffer'         },
     { name = 'emoji'          },
-    { name = 'tags'           },
-    { name = 'cmp_pandoc'     },
-    { name = 'greek'          },
-    { name = 'vimwiki_tags'   },
     { name = 'spell'          },
-    { name = 'zsh'            },
   }),
 
   experimental = {
@@ -79,7 +103,7 @@ cmp.setup({
 
   formatting = {
     format = function(entry, vim_item)
-        vim_item.kind = lspkind.presets.default[vim_item.kind]
+        vim_item.kind = kind_icons[vim_item.kind]
         local menu = source_mapping[entry.source.name]
         if entry.source.name == 'cmp_tabnine' then
           if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
@@ -91,24 +115,14 @@ cmp.setup({
         return vim_item
       end
   },
-
-  sorting = {
-      comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.score,
-          cmp.config.compare.recently_used,
-          cmp.config.compare.kind,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
-      },
-  },
 })
 
-require('cmp_git').setup({})
-require('cmp_pandoc').setup({})
-require('cmp_zsh').setup { zshrc = true }
+cmp.setup.cmdline(':', {
+  sources = {
+    { name = 'cmdline' }
+  }
+})
+
 require('plugin-configs.cmp_gh')
 --require('plugin-configs.cmp_tn')
 

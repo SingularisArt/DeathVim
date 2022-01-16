@@ -1,10 +1,75 @@
-local wk = require('which-key')
+local which_key = require('which-key')
+which_key.setup {
+    plugins = {
+    marks = true, -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    spelling = {
+      enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      suggestions = 20, -- how many suggestions should be shown in the list?
+    },
+    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+    -- No actual key bindings are created
+    presets = {
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true, -- bindings for prefixed with g
+    },
+  },
+  -- add operators that will trigger motion and text object completion
+  -- to enable all native operators, set the preset / operators plugin above
+  operators = { gc = "Comments" },
+  key_labels = {
+    -- override the label used to display some keys. It doesn't effect WK in any other way.
+    -- For example:
+    -- ["<space>"] = "SPC",
+    -- ["<cr>"] = "RET",
+    -- ["<tab>"] = "TAB",
+  },
+  icons = {
+    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+    separator = "➜", -- symbol used between a key and it's label
+    group = "+", -- symbol prepended to a group
+  },
+  popup_mappings = {
+    scroll_down = '<c-d>', -- binding to scroll down inside the popup
+    scroll_up = '<c-u>', -- binding to scroll up inside the popup
+  },
+  window = {
+    border = "double", -- none, single, double, shadow
+    position = "bottom", -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    winblend = 0
+  },
+  layout = {
+    height = { min = 4, max = 25 }, -- min and max height of the columns
+    width = { min = 20, max = 50 }, -- min and max width of the columns
+    spacing = 3, -- spacing between columns
+    align = "left", -- align columns left, center or right
+  },
+  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+  show_help = true, -- show help message on the command line when the popup is visible
+  triggers = "auto", -- automatically setup triggers
+  -- triggers = {"<leader>"} -- or specify a list manually
+  triggers_blacklist = {
+    -- list of mode / prefixes that should never be hooked by WhichKey
+    -- this is mostly relevant for key maps that start with a native binding
+    -- most people should not need to change this
+    i = { "j", "k" },
+    v = { "j", "k" },
+  },
+}
 
 -------------------------
 -- Single key mappings --
 -------------------------
 
-wk.register({
+which_key.register({
   e = { '<cmd>NvimTreeToggle<CR>',  'Toggle NeoVim Tree'                        },
   v = { '<cmd>vsplit<CR>',          'Vertical Split'                            },
   h = { '<cmd>split<CR>',           'Horizontal Split'                          },
@@ -19,7 +84,7 @@ wk.register({
 -- Git Mappings --
 ------------------
 
-wk.register({
+which_key.register({
   g = {
     name = 'Git',
     s = { '<cmd>Git<CR>',               'Status'                                },
@@ -38,7 +103,7 @@ wk.register({
 -- Minimap Mappings --
 ----------------------
 
-wk.register({
+which_key.register({
   i = {
     name = 'Mini Map',
     c = { '<cmd>MinimapClose<CR>',              'Close Minimap'                 },
@@ -52,7 +117,7 @@ wk.register({
 -- Plugin Mappings --
 ---------------------
 
-wk.register({
+which_key.register({
   p = {
     name = 'Packer',
     i = { '<cmd>PackerInstall<CR>',   'Install Plugins'                         },
@@ -68,7 +133,7 @@ wk.register({
 -- Translate --
 ---------------
 
-wk.register({
+which_key.register({
   r = {
     name = 'Translator',
     t = { '<cmd>Translate<CR>',      'Translate'                                },
@@ -81,7 +146,7 @@ wk.register({
 -- Markdown --
 --------------
 
-wk.register({
+which_key.register({
   m = {
     name = 'Markdown',
     p = { '<cmd>MarkdownPreview<CR>',      'View Markdown'                      },
@@ -92,7 +157,7 @@ wk.register({
 -- Table --
 -----------
 
-wk.register({
+which_key.register({
   t = {
     name = 'Table',
     t = { '<cmd>TableModeToggle<CR>',      'Toggle Table Mode'                  },
@@ -116,7 +181,7 @@ wk.register({
 -- VimTex --
 ------------
 
-wk.register({
+which_key.register({
   l = {
     name = 'VimTex',
     m = { '<cmd>VimtexContextMenu<CR>',         'Open Context Menu'               },
@@ -161,7 +226,7 @@ wk.register({
 -- Telescope --
 ---------------
 
-wk.register({
+which_key.register({
   f = {
     name = 'Telescope',
     f = {
@@ -184,18 +249,35 @@ wk.register({
 -- LSP --
 ---------
 
-wk.register({
+which_key.register({
   s = {
     name = 'LSP',
-
-  }
+    j = { ':lua vim.lsp.diagnostic.goto_next()<CR>',                'Go to next diagnostic'         },
+    k = { ':lua vim.lsp.diagnostic.goto_prev()<CR>',                'Go to previous diagnostic'     },
+    d = {
+      name = 'Definitions',
+      d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                  'Go to Definition'            },
+      r = { '<cmd>lua vim.lsp.buf.references()<CR>',                  'Go to Reference'             },
+      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',             'Type Definition'             },
+    },
+    w = {
+      name = 'Workspace Folders',
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',     'Add workspace'               },
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',        'Remove workspace'            },
+    },
+    h = { '<cmd>lua vim.lsp.buf.hover()<CR>',                         'Hover'                       },
+    r = { '<cmd>Lspsaga rename<CR>',                                  'Rename'                      },
+    c = { '<cmd>lua vim.lsp.buf.code_action()<CR>',                   'Code Action'                 },
+    e = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',  'Show Diagnostics'            },
+    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',            'Local List'                  },
+    f = { '<cmd>lua vim.lsp.buf.formatting()<CR>',                    'Format'                      },
+  },
 }, { prefix = "<leader>" })
-
 -------------
 -- Buffers --
 -------------
 
-wk.register({
+which_key.register({
   b = {
     name = 'Buffers',
     c = {
@@ -216,5 +298,19 @@ wk.register({
       t = { '<cmd>BufferLineSortByTabs<CR>',                    'Sort by Tabs'                        },
     },
     p = { '<cmd>BufferLinePick<CR>',                            'Pick buffer'                         },
+  },
+}, { prefix = "<leader>" })
+
+------------
+-- Config --
+------------
+
+which_key.register({
+  D = {
+    name = 'DeathVim',
+    c = { '<cmd>e ~/.config/nvim/init.lua<CR>', 'Open DeathVim config'          },
+    f = { '<cmd>e ~/.config/nvim/init.lua<CR>', 'Open DeathVim config'          },
+    g = { '<cmd>e ~/.config/nvim/init.lua<CR>', 'Open DeathVim config'          },
+    k = { '<cmd>e ~/.config/nvim/init.lua<CR>', 'Open DeathVim config'          },
   },
 }, { prefix = "<leader>" })

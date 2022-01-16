@@ -15,7 +15,7 @@ vim.opt.shiftwidth        = 2
 vim.opt.laststatus        = 2
 vim.opt.showtabline       = 2
 vim.opt.updatetime        = 50
-vim.opt.scrolloff         = 999
+vim.opt.scrolloff         = 8
 vim.opt.textwidth         = 80
 
 vim.opt.hidden            = true

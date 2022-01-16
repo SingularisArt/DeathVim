@@ -2,33 +2,6 @@ local cmd = vim.cmd
 
 local present, packer = pcall(require, "packer")
 
-local config = {
-  nvim_cmp =                  "plugin-configs.cmp",
-  vimtex =                    "plugin-configs.vimtex",
-  emmet_vim =                 "plugin-configs.emmet",
-  telescope_nvim =            "plugin-configs.telescope",
-  UltiSnips =                 "plugin-configs.ultisnips",
-  nvim_tree_lua =             "plugin-configs.nvimtree",
-  dashboard_nvim =            "plugin-configs.dashboard",
-  bufferline_nvim =           "plugin-configs.bufferline",
-  nvim_autopairs =            "plugin-configs.auto-pairs",
-  which_key_nvim =            "plugin-configs.which-key",
-  vim_translator =            "plugin-configs.translator",
-  vim_table_mode =            "plugin-configs.table-mode",
-  indent_blankline_nvim =     "plugin-configs.indent-blankline",
-  toggleterm_nvim =           "plugin-configs.toggleterm",
-  nvim_notify =               "plugin-configs.notify",
-  nightfox_nvim =             "plugin-configs.nightfox",
-  nvim_treesitter =           "plugin-configs.nvim-treesitter",
-  feline_nvim =               "plugin-configs.statusbar",
-  project_nvim =              "plugin-configs.project",
-  trouble =                   "plugin-configs.trouble",
-  gitsigns =                  "plugin-configs.gitsigns",
-  ts_rainbow =                "plugin-configs.ts-rainbow",
-  better_escape_nvim =        "plugin-configs.better-escape",
-  comment_nvim =              "plugin-configs.comment-nvim",
-}
-
 if not present then
   local packer_path = vim.fn.stdpath("data")
     .. "/site/pack/packer/opt/packer.nvim"
@@ -51,9 +24,7 @@ if not present then
   if present then
     print("Packer cloned successfully.")
   else
-    error(
-      "Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer
-    )
+    error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
   end
 end
 
@@ -84,6 +55,7 @@ require('packer').startup({
     -- LSP Stuff --
     ---------------
 
+    use { 'jose-elias-alvarez/null-ls.nvim' }
     use { 'neovim/nvim-lspconfig' }
     use { 'onsails/lspkind-nvim' }
     use { 'tami5/lspsaga.nvim' }
@@ -101,17 +73,11 @@ require('packer').startup({
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'quangnguyen30192/cmp-nvim-ultisnips' }
     use { 'github/copilot.vim' }
-    use { 'saadparwaiz1/cmp_luasnip' }
     use { 'kdheepak/cmp-latex-symbols' }
     use { 'petertriho/cmp-git' }
     use { 'hrsh7th/cmp-emoji' }
     use { 'hrsh7th/cmp-calc' }
-    use { 'pontusk/cmp-vimwiki-tags' }
-    use { 'fiorematteo/cmp-katex' }
-    use { 'max397574/cmp-greek' }
     use { 'dmitmel/cmp-cmdline-history' }
-    use { 'aspeddro/cmp-pandoc.nvim' }
-    use { 'tamago324/cmp-zsh' }
     use { 'quangnguyen30192/cmp-nvim-tags' }
     use { 'tzachar/cmp-tabnine', run='./install.sh' }
     use { 'f3fora/cmp-spell' }
@@ -132,7 +98,8 @@ require('packer').startup({
     -- Colors --
     ------------
 
-    use { 'tomlion/vim-solidity' }
+    -- use { 'tomlion/vim-solidity' }
+    use { 'TovarishFin/vim-solidity' }
     use { 'lilydjwg/colorizer' }
     use { 'nvim-treesitter/playground' }
     use { 'Shatur/neovim-ayu' }
@@ -169,6 +136,7 @@ require('packer').startup({
     use { 'folke/twilight.nvim' }
     use { 'kyazdani42/nvim-tree.lua' }
     use { 'glepnir/dashboard-nvim' }
+    use { 'sidebar-nvim/sidebar.nvim' }
 
     ------------------
     -- Colorschemes --
@@ -176,6 +144,7 @@ require('packer').startup({
 
     use { 'overcache/NeoSolarized' }
     use { 'EdenEast/nightfox.nvim' }
+    use { 'LunarVim/onedarker.nvim' }
 
     -----------------
     -- Status Line --
@@ -220,11 +189,40 @@ require('packer').startup({
   end,
 })
 
+local config = {
+  nvim_cmp =                  "plugin-configs.cmp",
+  vimtex =                    "plugin-configs.vimtex",
+  emmet_vim =                 "plugin-configs.emmet",
+  telescope_nvim =            "plugin-configs.telescope",
+  UltiSnips =                 "plugin-configs.ultisnips",
+  nvim_tree_lua =             "plugin-configs.nvimtree",
+  dashboard_nvim =            "plugin-configs.dashboard",
+  bufferline_nvim =           "plugin-configs.bufferline",
+  nvim_autopairs =            "plugin-configs.auto-pairs",
+  which_key_nvim =            "plugin-configs.which-key",
+  vim_translator =            "plugin-configs.translator",
+  vim_table_mode =            "plugin-configs.table-mode",
+  indent_blankline_nvim =     "plugin-configs.indent-blankline",
+  toggleterm_nvim =           "plugin-configs.toggleterm",
+  nvim_notify =               "plugin-configs.notify",
+  nightfox_nvim =             "plugin-configs.nightfox",
+  nvim_treesitter =           "plugin-configs.nvim-treesitter",
+  feline_nvim =               "plugin-configs.statusbar",
+  project_nvim =              "plugin-configs.project",
+  trouble =                   "plugin-configs.trouble",
+  gitsigns =                  "plugin-configs.gitsigns",
+  ts_rainbow =                "plugin-configs.ts-rainbow",
+  better_escape_nvim =        "plugin-configs.better-escape",
+  comment_nvim =              "plugin-configs.comment-nvim",
+  lsp_installer_lua =         "plugin-configs.lsp-installer",
+  null_ls_lua =               "plugin-configs.null-ls",
+}
 
 ---------------------------
 -- Require plugin config --
 ---------------------------
 
+require(config.nvim_notify)
 require(config.nvim_cmp)
 require(config.trouble)
 require(config.emmet_vim)
@@ -245,10 +243,11 @@ require(config.vim_table_mode)
 require(config.indent_blankline_nvim)
 require(config.nvim_autopairs)
 require(config.toggleterm_nvim)
-require(config.nvim_notify)
 require(config.ts_rainbow)
 require(config.better_escape_nvim)
 require(config.comment_nvim)
+require(config.null_ls_lua)
+require(config.lsp_installer_lua)
 require('zen-mode')
 require('twilight')
 

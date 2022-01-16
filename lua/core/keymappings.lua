@@ -50,8 +50,7 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':split<CR>',     { noremap = true, si
 vim.api.nvim_set_keymap('n', '<Leader>o', ':only<CR>',      { noremap = true, silent = true })
 
 -- dashbaord
-vim.api.nvim_set_keymap('n', '<Leader>dd', ':Dashboard<CR>',        { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>dn', ':DashboardNewFile<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>d', ':Dashboard<CR>',        { noremap = true, silent = true })
 
 -- git
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':Git<CR>',              { noremap = true, silent = true })
@@ -147,12 +146,26 @@ vim.api.nvim_set_keymap('n', '<Leader>swr', '<cmd>lua vim.lsp.buf.remove_workspa
 vim.api.nvim_set_keymap('n', '<Leader>sh',  ':Lspsaga hover_doc<CR>',                               { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sc',  ':Lspsaga code_action<CR>',                             { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>se',  ':Lspsaga show_line_diagnostics<CR>',                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>sq',  '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sq',  ':lua vim.lsp.diagnostic.set_loclist()<CR>',        { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sf',  ':Lspsaga format<CR>',                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sr',  ':Lspsaga rename<CR>',                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>si',  ':Lspsaga implement<CR>',                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sk',  ':lua vim.lsp.diagnostic.goto_prev()<CR>',          { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>sj',  ':lua vim.lsp.diagnostic.goto_next()<CR>',          { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-d>',       ':ToggleTerm<CR>',                                      { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<A-d>',       '<C-\\><C-n>:ToggleTerm<CR>',                           { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '[d',          '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',          { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ']d',          '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',          { noremap = true, silent = true })
 
+-- misc
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true })
+
+-- Resize with arrows
+vim.api.nvim_set_keymap('n', '<C-Up>',      ':resize -2<CR>',           { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Down>',    ':resize +2<CR>',           { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Left>',    ':vertical resize -2<CR>',  { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Right>',   ':vertical resize +2<CR>',  { noremap = true })
+
+-- config
+vim.api.nvim_set_keymap('n', '<Leader>Dc',   ':e ~/.config/nvim/init.lua<CR>',  { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>Df',   ':vertical resize +2<CR>',  { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>Dg',   ':vertical resize +2<CR>',  { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>Dk',   ':vertical resize +2<CR>',  { noremap = true })
