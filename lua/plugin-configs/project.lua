@@ -1,4 +1,11 @@
-require('project_nvim').setup {
+local project_nvim_status, project_nvim = pcall(require, "null-ls")
+
+if not project_nvim_status then
+	vim.notify("Please Install 'project-nvim'")
+	return
+end
+
+project_nvim.setup({
   -- Manual mode doesn't automatically change your root directory, so you have
   -- the option to manually do so using `:ProjectRoot` command.
   manual_mode = false,
@@ -31,4 +38,4 @@ require('project_nvim').setup {
   -- Path where project.nvim will store the project history for use in
   -- telescope
   datapath = vim.fn.stdpath("data"),
-}
+})

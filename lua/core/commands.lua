@@ -3,9 +3,9 @@ hi LspDiagnosticsVirtualTextError          guifg=#db4b4b
 hi LspDiagnosticsVirtualTextWarning        guifg=#e0af60
 hi LspDiagnosticsVirtualTextInformation    guifg=#0db9d7
 hi LspDiagnosticsVirtualTextHint           guifg=#10b981
-hi SignColumn ctermbg=None                 guibg=None
-hi NormalNC ctermfg=None guifg=None        guibg=None
-hi NvimTreeNormal guibg=None'
+" hi SignColumn ctermbg=None                 guibg=None
+" hi NormalNC ctermfg=None guifg=None        guibg=None
+" hi NvimTreeNormal guibg=None'
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()

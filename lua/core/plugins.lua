@@ -22,7 +22,7 @@ if not present then
   present, packer = pcall(require, "packer")
 
   if present then
-    print("Packer cloned successfully.")
+    vim.notify("Packer cloned successfully.")
   else
     error("Couldn't clone packer !\nPacker path: " .. packer_path .. "\n" .. packer)
   end
@@ -81,6 +81,13 @@ require('packer').startup({
     use { 'quangnguyen30192/cmp-nvim-tags' }
     use { 'tzachar/cmp-tabnine', run='./install.sh' }
     use { 'f3fora/cmp-spell' }
+    ---------------
+    -- Debugging --
+    ---------------
+
+    use({ "mfussenegger/nvim-dap" })
+    use({ "rcarriga/nvim-dap-ui" })
+    use({ "Pocco81/DAPInstall.nvim" })
 
     -----------------------------
     -- Language specific tools --
@@ -93,7 +100,9 @@ require('packer').startup({
     use { 'Valloric/MatchTagAlways' }
     use { 'alvan/vim-closetag' }
     use { 'lervag/vimtex' }
+    use { 'jalvesaq/zotcite' }
     use { 'mattn/emmet-vim' }
+
     ------------
     -- Colors --
     ------------
@@ -186,6 +195,10 @@ require('packer').startup({
     use { 'numToStr/Comment.nvim' }
     use { 'rinx/nvim-minimap' }
     use { 'kkoomen/vim-doge', run='call doge#install()' }
+    use { 'machakann/vim-highlightedyank' }
+    use { 'MunifTanjim/nui.nvim' }
+    use { 'VonHeikemen/fine-cmdline.nvim' }
+    use { 'Shougo/unite.vim' }
   end,
 })
 
@@ -216,13 +229,16 @@ local config = {
   comment_nvim =              "plugin-configs.comment-nvim",
   lsp_installer_lua =         "plugin-configs.lsp-installer",
   null_ls_lua =               "plugin-configs.null-ls",
+  sidebar_nvim =              "plugin-configs.sidebar",
+  fine =                      "plugin-configs.fine",
+  zen_mode =                  "zen-mode",
+  twilight =                  "twilight",
 }
 
 ---------------------------
 -- Require plugin config --
 ---------------------------
 
-require(config.nvim_notify)
 require(config.nvim_cmp)
 require(config.trouble)
 require(config.emmet_vim)
@@ -243,11 +259,15 @@ require(config.vim_table_mode)
 require(config.indent_blankline_nvim)
 require(config.nvim_autopairs)
 require(config.toggleterm_nvim)
+require(config.nvim_notify)
 require(config.ts_rainbow)
 require(config.better_escape_nvim)
 require(config.comment_nvim)
 require(config.null_ls_lua)
 require(config.lsp_installer_lua)
-require('zen-mode')
-require('twilight')
+require(config.sidebar_nvim)
+require(config.fine)
+require(config.zen_mode)
+require(config.twilight)
 
+vim.cmd("let g:highlightedyank_highlight_duration = 250")

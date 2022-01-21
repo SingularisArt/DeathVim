@@ -1,8 +1,14 @@
-require('nvim-autopairs').setup{}
+local airline_status, autopairs = pcall(require, "nvim-autopairs")
 
-local Rule = require('nvim-autopairs.rule')
-local npairs = require('nvim-autopairs')
+if not airline_status then
+	vim.notify("Please Install 'nvim-autopairs'")
+	return
+end
 
-npairs.add_rule(Rule("$","$","tex"))
-npairs.add_rule(Rule("\\[","\n\\].","tex"))
+autopairs.setup({})
 
+local Rule = require("nvim-autopairs.rule")
+local npairs = require("nvim-autopairs")
+
+npairs.add_rule(Rule("$", "$", "tex"))
+npairs.add_rule(Rule("\\[", "\n\\].", "tex"))
