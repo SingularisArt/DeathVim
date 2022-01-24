@@ -29,10 +29,9 @@ nvim_treesitter.setup({
       node_decremental = "grm",
     },
   },
-
-  indent = {
-    enable = true,
-  },
+  -- indent = {
+  --   enable = true,
+  -- },
 })
 
 nvim_treesitter.setup({

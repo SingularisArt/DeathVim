@@ -178,8 +178,8 @@ map { 'n', '<Leader>sq',  ':lua vim.lsp.diagnostic.set_loclist()<CR>'           
 map { 'n', '<Leader>sf',  ':Lspsaga format<CR>'                                   }
 map { 'n', '<Leader>sr',  ':Lspsaga rename<CR>'                                   }
 map { 'n', '<Leader>si',  ':Lspsaga implement<CR>'                                }
-map { 'n', '<Leader>sk',  ':lua vim.lsp.diagnostic.goto_prev()<CR>'               }
-map { 'n', '<Leader>sj',  ':lua vim.lsp.diagnostic.goto_next()<CR>'               }
+map { 'n', '<Leader>sj',  ':Lspsaga diagnostic_jump_prev'                         }
+map { 'n', '<Leader>sk',  ':Lspsaga diagnostic_jump_next'                         }
 map { 'n', '<A-d>',       ':ToggleTerm<CR>'                                       }
 map { 't', '<A-d>',       '<C-\\><C-n>:ToggleTerm<CR>'                            }
 

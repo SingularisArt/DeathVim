@@ -281,27 +281,31 @@ which_key.register({
 which_key.register({
 	s = {
 		name = "LSP",
-		j = { ":lua vim.lsp.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-		k = { ":lua vim.lsp.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-		d = {
-			name = "Definitions",
-			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to Definition" },
-			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Go to Reference" },
-			t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
-		},
-		w = {
-			name = "Workspace Folders",
-			r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Add workspace" },
-			a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Remove workspace" },
-		},
-		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-		r = { "<cmd>Lspsaga rename<CR>", "Rename" },
-		c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-		e = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", "Show Diagnostics" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Local List" },
-		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+    h = { '<cmd>Lspsaga hover_doc<CR>',                             'Show Documentation'              },
+    c = { '<cmd>Lspsaga code_action<CR>',                           'List Code Actions'               },
+    e = { '<cmd>Lspsaga show_line_diagnostics<CR>',                 'Show Diagnostics'                },
+    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',          'Show List of Diagnostics'        },
+    f = { '<cmd>Lspsaga format<CR>',                                'Format'                          },
+    r = { '<cmd>Lspsaga rename<CR>',                                'Rename'                          },
+    i = { '<cmd>Lspsaga implement<CR>',                             'Show the Implementation'         },
+    j = { '<cmd>Lspsaga diagnostic_jump_prev<CR>',                  'Go to Previous Diagnostic'       },
+    k = { '<cmd>Lspsaga diagnostic_jump_next<CR>',                  'Go to Next Diagnostic'           },
+    d = {
+      name = "Defintions",
+      d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                'Go To Definition'                },
+      f = { '<cmd>Lspsaga lsp_finder<CR>',                          'Find all definitions/refrences'  },
+      r = { '<cmd>lua vim.lsp.buf.references()<CR>',                'Find refrences'                  },
+      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',           'Find the type'                   },
+      p = { '<cmd>Lspsaga preview_definition<CR>',                  'Preview Definition'              },
+    },
+    w = {
+      name = "Workspace",
+      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',      'Add Workspace'                   },
+      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',   'Remove Workspace'                },
+    },
 	},
 }, { prefix = "<leader>" })
+
 -------------
 -- Buffers --
 -------------

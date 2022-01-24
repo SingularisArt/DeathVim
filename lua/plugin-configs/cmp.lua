@@ -62,6 +62,17 @@ cmp.setup({
       --require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
     end,
+
+  enabled = function()
+    local lnum, col = vim.fn.line('.'), math.min(vim.fn.col('.'), #vim.fn.getline('.'))
+    for _, syn_id in ipairs(vim.fn.synstack(lnum, col)) do
+      syn_id = vim.fn.synIDtrans(syn_id) -- Resolve :highlight links
+      if vim.fn.synIDattr(syn_id, 'name') == 'Comment' then
+        return false
+      end
+    end
+    return true
+  end,
   },
 
   mapping = {

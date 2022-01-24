@@ -199,6 +199,7 @@ require('packer').startup({
     use { 'MunifTanjim/nui.nvim' }
     use { 'VonHeikemen/fine-cmdline.nvim' }
     use { 'Shougo/unite.vim' }
+    use { 'vigoux/LanguageTool.nvim' }
   end,
 })
 

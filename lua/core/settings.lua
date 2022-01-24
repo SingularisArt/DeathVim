@@ -7,6 +7,7 @@ vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
 vim.opt.spelllang         = { 'en_us' }
 
+vim.cmd("set timeoutlen=1")
 vim.opt.pumheight         = 10
 vim.opt.cmdheight         = 2
 vim.opt.conceallevel      = 2

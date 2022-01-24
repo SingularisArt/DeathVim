@@ -8,3 +8,4 @@ require("core.plugins")
 require("core.lsp")
 require("core.commands")
 require("core.keymappings")
+
