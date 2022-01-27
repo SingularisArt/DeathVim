@@ -12,6 +12,7 @@ nvim_treesitter.setup({
     disable = {
       "latex",
       "markdown",
+      "phpdoc",
     },
     enable = true,
     custom_captures = {

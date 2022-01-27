@@ -40,7 +40,7 @@ packer.init({
   },
   auto_clean = true,
   compile_on_sync = true,
-  --    auto_reload_compiled = true
+  auto_reload_compiled = true
 })
 
 require('packer').startup({
@@ -61,6 +61,8 @@ require('packer').startup({
     use { 'tami5/lspsaga.nvim' }
     use { 'williamboman/nvim-lsp-installer' }
     use { 'folke/trouble.nvim' }
+    use { 'j-hui/fidget.nvim' }
+    use { 'tamago324/nlsp-settings.nvim' }
 
     ----------------
     -- Completion --
@@ -74,20 +76,10 @@ require('packer').startup({
     use { 'quangnguyen30192/cmp-nvim-ultisnips' }
     use { 'github/copilot.vim' }
     use { 'kdheepak/cmp-latex-symbols' }
-    use { 'petertriho/cmp-git' }
     use { 'hrsh7th/cmp-emoji' }
     use { 'hrsh7th/cmp-calc' }
-    use { 'dmitmel/cmp-cmdline-history' }
-    use { 'quangnguyen30192/cmp-nvim-tags' }
     use { 'tzachar/cmp-tabnine', run='./install.sh' }
     use { 'f3fora/cmp-spell' }
-    ---------------
-    -- Debugging --
-    ---------------
-
-    use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui" })
-    use({ "Pocco81/DAPInstall.nvim" })
 
     -----------------------------
     -- Language specific tools --
@@ -95,25 +87,18 @@ require('packer').startup({
 
     use { 'simrat39/rust-tools.nvim' }
     use { 'KeitaNakamura/tex-conceal.vim' }
-    use { 'anufrievroman/vim-angry-reviewer' }
     use { 'anufrievroman/vim-tex-kawaii' }
     use { 'Valloric/MatchTagAlways' }
     use { 'alvan/vim-closetag' }
-    use { 'lervag/vimtex' }
-    use { 'jalvesaq/zotcite' }
     use { 'mattn/emmet-vim' }
+    use { 'lervag/vimtex' }
+    use { 'TovarishFin/vim-solidity' }
 
     ------------
     -- Colors --
     ------------
-
-    -- use { 'tomlion/vim-solidity' }
-    use { 'TovarishFin/vim-solidity' }
     use { 'lilydjwg/colorizer' }
     use { 'nvim-treesitter/playground' }
-    use { 'Shatur/neovim-ayu' }
-    use { 'ray-x/aurora' }
-    use { 'tomasiser/vim-code-dark' }
     use { 'nvim-treesitter/nvim-treesitter' }
     use { 'tjdevries/colorbuddy.nvim' }
 
@@ -138,9 +123,7 @@ require('packer').startup({
     -- NvimTree and Tagbar --
     -------------------------
 
-    use { 'preservim/tagbar' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'simrat39/symbols-outline.nvim' }
     use { 'folke/zen-mode.nvim' }
     use { 'folke/twilight.nvim' }
     use { 'kyazdani42/nvim-tree.lua' }
@@ -151,15 +134,14 @@ require('packer').startup({
     -- Colorschemes --
     ------------------
 
-    use { 'overcache/NeoSolarized' }
     use { 'EdenEast/nightfox.nvim' }
-    use { 'LunarVim/onedarker.nvim' }
 
     -----------------
     -- Status Line --
     -----------------
 
     use { 'feline-nvim/feline.nvim' }
+    use { 'nvim-lua/lsp-status.nvim' }
     use { 'akinsho/bufferline.nvim' }
 
     ---------
@@ -181,7 +163,6 @@ require('packer').startup({
     use { 'tpope/vim-surround' }
     use { 'NvChad/nvim-base16.lua' }
     use { 'kdheepak/lazygit.nvim' }
-    use { 'mortepau/codicons.nvim' }
     use { 'ahmedkhalf/project.nvim' }
     use { 'folke/which-key.nvim' }
     use { 'voldikss/vim-translator' }
@@ -191,15 +172,11 @@ require('packer').startup({
     use { 'akinsho/toggleterm.nvim' }
     use { 'rcarriga/nvim-notify' }
     use { 'p00f/nvim-ts-rainbow' }
-    use { 'max397574/better-escape.nvim' }
     use { 'numToStr/Comment.nvim' }
-    use { 'rinx/nvim-minimap' }
     use { 'kkoomen/vim-doge', run='call doge#install()' }
     use { 'machakann/vim-highlightedyank' }
-    use { 'MunifTanjim/nui.nvim' }
-    use { 'VonHeikemen/fine-cmdline.nvim' }
-    use { 'Shougo/unite.vim' }
-    use { 'vigoux/LanguageTool.nvim' }
+    use { 'marcushwz/nvim-workbench' }
+    use { 'wakatime/vim-wakatime' }
   end,
 })
 
@@ -231,9 +208,6 @@ local config = {
   lsp_installer_lua =         "plugin-configs.lsp-installer",
   null_ls_lua =               "plugin-configs.null-ls",
   sidebar_nvim =              "plugin-configs.sidebar",
-  fine =                      "plugin-configs.fine",
-  zen_mode =                  "zen-mode",
-  twilight =                  "twilight",
 }
 
 ---------------------------
@@ -267,8 +241,5 @@ require(config.comment_nvim)
 require(config.null_ls_lua)
 require(config.lsp_installer_lua)
 require(config.sidebar_nvim)
-require(config.fine)
-require(config.zen_mode)
-require(config.twilight)
 
 vim.cmd("let g:highlightedyank_highlight_duration = 250")

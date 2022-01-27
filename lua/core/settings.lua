@@ -2,7 +2,8 @@ vim.opt.encoding          = 'utf-8'
 vim.opt.fileencoding      = 'utf-8'
 vim.opt.mouse             = 'a'
 vim.opt.background        = 'dark'
-vim.opt.signcolumn        = 'yes' vim.opt.clipboard         = 'unnamedplus'
+vim.opt.signcolumn        = 'yes'
+vim.opt.clipboard         = 'unnamedplus'
 vim.opt.colorcolumn       = '80'
 vim.o.shortmess           = vim.o.shortmess .. 'c'
 vim.opt.spelllang         = { 'en_us' }
@@ -51,4 +52,3 @@ vim.wo.cursorline         = true
 vim.cmd('au TermOpen * setlocal nospell')
 vim.cmd('set spell')
 vim.cmd('if !has("nvim") | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif')
-

@@ -2,6 +2,7 @@
 -- Core Settings --
 -------------------
 
+require("core.variables")
 require("core.bootstrap")
 require("core.settings")
 require("core.plugins")
