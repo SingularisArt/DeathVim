@@ -300,7 +300,7 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load('vim-easymotion')
   SingularisArt.plugin.load('vim-fugitive')
   SingularisArt.plugin.load('vim-highlightedyank')
-  SingularisArt.plugin.load('vim-illuminate')
+  -- SingularisArt.plugin.load('vim-illuminate')
   SingularisArt.plugin.load('vim-log-highlighting')
   SingularisArt.plugin.load('vim-rhubarb')
   SingularisArt.plugin.load('vim-snippets')
