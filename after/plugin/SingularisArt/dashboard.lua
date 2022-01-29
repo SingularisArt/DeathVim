@@ -35,7 +35,3 @@ g.dashboard_custom_section = {
 
 local home = os.getenv("HOME") .. "/.config/nvim/init.vim"
 
-vim.cmd[[
-  let g:total_plugins = trim(system("fd -d 2 . $HOME'/.local/share/nvim/site/pack/packer' | head -n -2 | wc -l"))
-  let g:dashboard_custom_footer = [' Packer loaded '. g:total_plugins . ' plugins']
-]]

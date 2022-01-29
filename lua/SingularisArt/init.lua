@@ -10,7 +10,7 @@ local SingularisArt = autoload('SingularisArt')
 -- in `SingularisArt.g`) survives even after the last reference to it goes away.
 _G.SingularisArt = SingularisArt
 
-require("SingularisArt.core.settings")
+-- require("SingularisArt.core.settings")
 require("SingularisArt.core.commands")
 require("SingularisArt.core.keymappings")
 

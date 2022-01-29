@@ -1,9 +1,9 @@
--- vim.opt.signcolumn        = 'yes' vim.opt.clipboard         = 'unnamedplus'
 local home = vim.env.HOME
 local config = home .. '/.config/nvim'
 local root = vim.env.USER == 'root'
 local vi = vim.v.progname == 'vi'
 
+vim.opt.clipboard      = 'unnamedplus'                      -- let vim use the clipboard
 vim.opt.autoindent     = true                               -- maintain indent of current line
 vim.opt.backspace      = 'indent,start,eol'                 -- allow unrestricted backspacing in insert mode
 vim.opt.backup         = false                              -- don't make backups before writing

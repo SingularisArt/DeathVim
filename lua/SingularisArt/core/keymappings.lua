@@ -21,6 +21,7 @@ map { 'n', '<Space>', '<NOP>' }
 map { 'n', '<Enter>', '<NOP>' }
 map { 'n', '<C-y>', '<NOP>' }
 map { 'n', '<C-e>', '<NOP>' }
+map { 'n', '<C-b>', '<NOP>' }
 map { 'n', '<C-Space>', '<NOP>' }
 map { 'n', '<C-s>', '<NOP>' }
 
