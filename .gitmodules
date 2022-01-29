@@ -1,3 +1,0 @@
-[submodule "${name}"]
-	path = pack/bundle/opt/load-all.nvim
-	url = https://github.com/mrjones2014/load-all.nvim
