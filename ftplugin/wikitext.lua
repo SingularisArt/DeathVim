@@ -1,0 +1,1 @@
+SingularisArt.vim.plaintext()

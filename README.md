@@ -33,6 +33,7 @@ Death.NeoVim
     * [LaTeX](#latex-1)
     * [Misc](#misc)
     * [LSP](#lsp)
+* [Contributing](#contributing)
 * [TODO](#todo)
 
 # Install Language support
@@ -217,6 +218,12 @@ git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
 | Remove workspace           | `<Leader>swr`   |
 
 Check [here](lua/core/keymappings.lua) for all of the mappings.
+
+# Contributing
+
+If you would like to contribute, you just simply create a folder within the
+`lua` folder. Then, you go ahead and create a folder that's named your username
+and place your config there.
 
 # TODO
 
