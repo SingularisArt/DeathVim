@@ -267,7 +267,6 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load('nvim-dap-virtual-text')
   SingularisArt.plugin.load('nvim-gomove')
   SingularisArt.plugin.load('nvim-notify')
-  SingularisArt.plugin.load('nvim-lspconfig')
   SingularisArt.plugin.load('nvim-lsp-installer')
   SingularisArt.plugin.load('nvim-scrollbar')
   SingularisArt.plugin.load('nvim-treesitter')
@@ -314,117 +313,11 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load('vim-visual-multi')
   SingularisArt.plugin.load('vim-wakatime')
   SingularisArt.plugin.load('which-key.nvim')
-
-  -- Lazy because I rarely use it.
-  SingularisArt.plugin.lazy('zen-mode.nvim', {
-    afterload = function ()
-      local matchadd = nil
-
-      vim.cmd [[
-        augroup SingularisArtAutocmds
-          autocmd!
-        augroup END
-        augroup! SingularisArtAutocmds
-      ]]
-
-      require('zen-mode').setup {
-        on_close = function ()
-          local is_last_buffer = #vim.fn.filter(
-            vim.fn.range(1, vim.fn.bufnr('$')),
-            'buflisted(v:val)'
-          ) == 1
-
-          if vim.api.nvim_buf_get_var(0, 'quitting') == 1 and is_last_buffer then
-            if vim.api.nvim_buf_get_var(0, 'quitting_bang') == 1 then
-              vim.cmd 'qa!'
-            else
-              vim.cmd 'qa'
-            end
-          else
-            if matchadd ~= nil then
-              vim.cmd [[
-                try
-                  call matchdelete(matchadd)
-                catch /./
-                  " Swallow.
-                endtry
-              ]]
-              matchadd = nil
-            end
-
-            local augroup = SingularisArt.g.augroup_callbacks['SingularisArtAutocmds']
-            if augroup ~= nil then
-              SingularisArt.vim.augroup('SingularisArtAutocmds', augroup)
-            end
-          end
-        end,
-
-        on_open = function ()
-          local nbsp=' '
-          matchadd = vim.fn.matchadd('Error', nbsp)
-          vim.api.nvim_buf_set_var(0, 'quitting', 0)
-          vim.api.nvim_buf_set_var(0, 'quitting_bang', 0)
-          SingularisArt.vim.autocmd('QuitPre', '<buffer>', 'let b:quitting = 1')
-          vim.cmd 'cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!'
-        end,
-
-        plugins = {
-          options = {
-            showbreak = '',
-            showmode = false,
-          },
-          tmux = {
-            enabled = true,
-          },
-        },
-        window = {
-          height = .9, -- Could also make this a function...
-          options = {
-            cursorline = false,
-            number = false,
-            relativenumber = false,
-          },
-          width = 80,
-        },
-      }
-    end,
-    commands = {
-      'ZenMode',
-    },
-  })
-
-  -- Lazy because it adds a slow BufEnter autocmd.
-  SingularisArt.plugin.lazy('nvim-tree.lua', {
-    commands = {
-      'NvimTreeFindFile',
-      'NvimTreeToggle',
-      'NvimTreeOpen',
-    },
-    nnoremap = {
-      ['<LocalLeader>f'] = {':NvimTreeFindFile<CR>', {silent = true}},
-      ['<LocalLeader>t'] = {':NvimTreeToggle<CR>', {silent = true}},
-    },
-  })
-
-  -- Lazy because you don't need it until you need it.
-  SingularisArt.plugin.lazy('undotree', {
-    beforeload = function()
-      vim.g.undotree_HighlightChangedText = 0
-      vim.g.undotree_SetFocusWhenToggle = 1
-      vim.g.undotree_WindowLayout = 2
-      vim.g.undotree_DiffCommand = 'diff -u'
-
-      -- Mappings to emulate Gundo behavior.
-      vim.cmd [[
-        function! g:Undotree_CustomMap() abort
-          lua SingularisArt.plugins.undotree.custom_map()
-        endfunction
-      ]]
-    end,
-    nnoremap = {
-      ['<Leader>u'] = {':UndotreeToggle<CR>', {silent = true}},
-    },
-  })
+  SingularisArt.plugin.load('nvim-tree.lua')
+  SingularisArt.plugin.load('nvim-lspconfig')
+  SingularisArt.plugin.load('zen-mode.nvim')
+  SingularisArt.plugin.load('undotree')
+  SingularisArt.plugin.load('pywal.nvim')
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
@@ -434,24 +327,38 @@ end
 -- package "ftdetect" directories won't be evaluated.
 vim.cmd('filetype indent plugin on')
 vim.cmd('syntax on')
+vim.cmd('color pywal')
 
--------------------------------------------------------------------------------
--- Footer {{{1 ----------------------------------------------------------------
--------------------------------------------------------------------------------
+-- Require the lsp config
+require("SingularisArt.lsp")
+-- Get the theme
+-- require("SingularisArt.theme")
 
---[[
-After this file is sourced, plugin code will be evaluated (eg.
-~/.config/nvim/plugin/* and so on ). See ~/.config/nvim/after for files
-evaluated after that.  See `:scriptnames` for a list of all scripts, in
-evaluation order.
-Launch Neovim with `nvim --startuptime nvim.log` for profiling info.
-To see all leader mappings, including those from plugins:
-    nvim -c 'map <Leader>'
-    nvim -c 'map <LocalLeader>'
---]]
-
--------------------------------------------------------------------------------
--- Modeline {{{1 --------------------------------------------------------------
--------------------------------------------------------------------------------
-
--- vim: foldmethod=marker
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'pywal',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}

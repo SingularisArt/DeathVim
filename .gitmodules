@@ -280,3 +280,6 @@
 [submodule "command-t"]
 	path = pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t
+[submodule "pywal.nvim"]
+	path = pack/bundle/opt/pywal.nvim
+	url = https://github.com/AlphaTechnolog/pywal.nvim

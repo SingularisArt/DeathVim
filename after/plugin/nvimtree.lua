@@ -1,7 +1,7 @@
 local nvim_tree_status, tree = pcall(require, "nvim-tree")
 
 if not nvim_tree_status then
-	vim.notify("Please Install 'nvim-treesitter'")
+	vim.notify("Please Install 'nvim-tree'")
 	return
 end
 

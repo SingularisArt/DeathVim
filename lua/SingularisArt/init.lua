@@ -14,7 +14,4 @@ _G.SingularisArt = SingularisArt
 require("SingularisArt.core.commands")
 require("SingularisArt.core.keymappings")
 
-require("SingularisArt.theme")
-require("SingularisArt.lsp")
-
 return SingularisArt

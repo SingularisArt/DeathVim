@@ -1,26 +1,26 @@
+local pywal_core = require('pywal.core')
+local colors = pywal_core.get_colors()
+
 local color_palette = {
-  rosewater = "#F5E0DC", -- Rosewater
-  flamingo = "#F2CDCD", -- Flamingo
-  mauve = "#DDB6F2", -- Mauve
-  pink = "#F5C2E7", -- Pink
-  red = "#F28FAD", -- Red
-  maroon = "#E8A2AF", -- Maroon
-  peach = "#F8BD96", -- Peach
-  yellow = "#FAE3B0", -- Yellow
-  green = "#ABE9B3", -- Green
-  blue = "#96CDFB", -- Blue
-  sky = "#89DCEB", -- Sky
-  teal = "#B5E8E0", -- Teal
-  lavender = "#C9CBFF", -- Lavender
-  white = "#c5c8c9",
-  black0 = "#0d1416",
-  black1 = "#111719",
-  black2 = "#131a1c",
-  black3 = "#192022",
-  black4 = "#202729",
-  gray0 = "#363D3E",
-  gray1 = "#4A5051",
-  gray2 = "#5C6262",
+  background = colors.background,
+  foreground = colors.foreground,
+  cursor     = colors.cursor,
+  color0  = colors.color0,
+  color1  = colors.color1,
+  color2  = colors.color2,
+  color3  = colors.color3,
+  color4  = colors.color4,
+  color5  = colors.color5,
+  color6  = colors.color6,
+  color7  = colors.color7,
+  color8  = colors.color8,
+  color9  = colors.color9,
+  color10 = colors.color10,
+  color11 = colors.color11,
+  color12 = colors.color12,
+  color13 = colors.color13,
+  color14 = colors.color14,
+  color15 = colors.color15,
 }
 
 return color_palette
