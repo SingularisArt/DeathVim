@@ -1,8 +1,14 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = {
+local ts_rainbow_status, ts_rainbow = pcall(require, "nvim-treesitter.configs")
+
+if not ts_rainbow_status then
+	vim.notify("Please Install 'nvim-treesitter'")
+	return
+end
+
+ts_rainbow.setup {
+  rainbow = {
     enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+  }
 }
 

@@ -1,6 +1,157 @@
 require('SingularisArt')
 
 -------------------------------------------------------------------------------
+-- Plugins {{{1 ---------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+if vim.o.loadplugins then
+  SingularisArt.plugin.load('bracey.vim')
+  SingularisArt.plugin.load('bufferline.nvim')
+  SingularisArt.plugin.load('cmp-buffer')
+  SingularisArt.plugin.load('cmp-calc')
+  SingularisArt.plugin.load('cmp-cmdline')
+  SingularisArt.plugin.load('cmp-emoji')
+  SingularisArt.plugin.load('cmp-latex-symbols')
+  SingularisArt.plugin.load('cmp-nvim-lsp')
+  SingularisArt.plugin.load('cmp-nvim-ultisnips')
+  SingularisArt.plugin.load('cmp-path')
+  SingularisArt.plugin.load('cmp-spell')
+  SingularisArt.plugin.load('cmp-tabnine')
+  SingularisArt.plugin.load('colorbuddy.nvim')
+  SingularisArt.plugin.load('colorizer')
+  SingularisArt.plugin.load('command-t')
+  SingularisArt.plugin.load('Comment.nvim')
+  SingularisArt.plugin.load('copilot.vim')
+  SingularisArt.plugin.load('custom-snippets')
+  SingularisArt.plugin.load('dashboard-nvim')
+  SingularisArt.plugin.load('emmet-vim')
+  SingularisArt.plugin.load('fidget.nvim')
+  SingularisArt.plugin.load('gitsigns.nvim')
+  SingularisArt.plugin.load('indent-blankline.nvim')
+  SingularisArt.plugin.load('lazygit.nvim')
+  SingularisArt.plugin.load('load-all.nvim')
+  SingularisArt.plugin.load('lspkind-nvim')
+  SingularisArt.plugin.load('lspsaga.nvim')
+  SingularisArt.plugin.load('lsp-status.nvim')
+  SingularisArt.plugin.load('lua-dev.nvim')
+  SingularisArt.plugin.load('lualine.nvim')
+  SingularisArt.plugin.load('markdown-preview.nvim')
+  SingularisArt.plugin.load('MatchTagAlways')
+  SingularisArt.plugin.load('nerdcommenter')
+  SingularisArt.plugin.load('nightfox.nvim')
+  SingularisArt.plugin.load('nlsp-settings.nvim')
+  SingularisArt.plugin.load('nui.nvim')
+  SingularisArt.plugin.load('null-ls.nvim')
+  SingularisArt.plugin.load('nvim-autopairs')
+  SingularisArt.plugin.load('nvim-base16.lua')
+  SingularisArt.plugin.load('nvim-cmp')
+  SingularisArt.plugin.load('nvim-dap')
+  SingularisArt.plugin.load('nvim-dap-ui')
+  SingularisArt.plugin.load('nvim-dap-virtual-text')
+  SingularisArt.plugin.load('nvim-gomove')
+  SingularisArt.plugin.load('nvim-notify')
+  SingularisArt.plugin.load('nvim-lsp-installer')
+  SingularisArt.plugin.load('nvim-scrollbar')
+  SingularisArt.plugin.load('nvim-treesitter')
+  SingularisArt.plugin.load('nvim-ts-autotag')
+  SingularisArt.plugin.load('nvim-ts-rainbow')
+  SingularisArt.plugin.load('nvim-web-devicons')
+  SingularisArt.plugin.load('nvim-workbench')
+  SingularisArt.plugin.load('pinnacle')
+  SingularisArt.plugin.load('playground')
+  SingularisArt.plugin.load('plenary.nvim')
+  SingularisArt.plugin.load('project.nvim')
+  SingularisArt.plugin.load('refactoring.nvim')
+  SingularisArt.plugin.load('rust-tools.nvim')
+  -- SingularisArt.plugin.load('sidebar.nvim')
+  SingularisArt.plugin.load('splitjoin.vim')
+  SingularisArt.plugin.load('symbols-outline.nvim')
+  SingularisArt.plugin.load('telescope-file-browser.nvim')
+  SingularisArt.plugin.load('telescope-fzy-native.nvim')
+  SingularisArt.plugin.load('telescope-media-files.nvim')
+  SingularisArt.plugin.load('telescope.nvim')
+  SingularisArt.plugin.load('telescope-ui-select.nvim')
+  SingularisArt.plugin.load('tex-conceal.vim')
+  SingularisArt.plugin.load('toggleterm.nvim')
+  SingularisArt.plugin.load('trouble.nvim')
+  SingularisArt.plugin.load('twilight.nvim')
+  SingularisArt.plugin.load('UltiSnips')
+  SingularisArt.plugin.load('undotree')
+  SingularisArt.plugin.load('vim-closetag')
+  SingularisArt.plugin.load('vim-easymotion')
+  SingularisArt.plugin.load('vim-fugitive')
+  SingularisArt.plugin.load('vim-highlightedyank')
+  SingularisArt.plugin.load('vim-log-highlighting')
+  SingularisArt.plugin.load('vim-rhubarb')
+  SingularisArt.plugin.load('vim-snippets')
+  SingularisArt.plugin.load('vim-solidity')
+  SingularisArt.plugin.load('vim-surround')
+  SingularisArt.plugin.load('vim-table-mode')
+  SingularisArt.plugin.load('vimtex')
+  SingularisArt.plugin.load('vim-tex-kawaii')
+  SingularisArt.plugin.load('vim-translator')
+  SingularisArt.plugin.load('vim-visual-multi')
+  SingularisArt.plugin.load('vim-wakatime')
+  SingularisArt.plugin.load('which-key.nvim')
+  SingularisArt.plugin.load('nvim-tree.lua')
+  SingularisArt.plugin.load('nvim-lspconfig')
+  SingularisArt.plugin.load('zen-mode.nvim')
+  SingularisArt.plugin.load('undotree')
+  SingularisArt.plugin.load('pywal.nvim')
+  SingularisArt.plugin.load('neogen')
+end
+
+-- Automatic, language-dependent indentation, syntax coloring and other
+-- functionality.
+--
+-- Must come *after* the `:packadd!` calls above otherwise the contents of
+-- package "ftdetect" directories won't be evaluated.
+vim.cmd('filetype indent plugin on')
+vim.cmd('syntax on')
+
+vim.cmd[[
+color pywal
+highlight ColorColumn    ctermbg=235 guibg=#262626
+highlight Cursor guifg=none guibg=Gray40
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
+]]
+
+-- Require the lsp config
+require("SingularisArt.lsp")
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'pywal',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+-------------------------------------------------------------------------------
 -- Options {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
 
@@ -23,7 +174,7 @@ vim.opt.completeopt    = vim.opt.completeopt + 'menuone'   -- show menu even if 
 vim.opt.completeopt    = vim.opt.completeopt + 'noselect'  -- don't automatically select canditate (for nvim-cmp)
 vim.opt.cursorline     = true                              -- highlight current line
 vim.opt.diffopt        = vim.opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff view
-vim.opt.directory      = config .. '/nvim/swap//'          -- keep swap files out of the way
+vim.opt.directory      = config .. '/nvim/swap/'           -- keep swap files out of the way
 vim.opt.directory      = vim.opt.directory + '.'           -- fallback
 vim.opt.emoji          = false                             -- don't assume all emoji are double width
 vim.opt.expandtab      = true                              -- always use spaces instead of tabs
@@ -45,7 +196,7 @@ vim.opt.joinspaces     = false                             -- don't autoinsert t
 vim.opt.laststatus     = 2                                 -- always show status line
 vim.opt.lazyredraw     = true                              -- don't bother updating screen during macro playback
 vim.opt.linebreak      = true                              -- wrap long lines at characters in 'breakat'
-vim.opt.list           = true                              -- show whitespace
+-- vim.opt.list           = true                              -- show whitespace
 vim.opt.listchars      = {
   nbsp                 = '⦸',                              -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
   extends              = '»',                              -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
@@ -154,28 +305,6 @@ SingularisArt.vim.setlocal(
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
--- Extension -> filetype mappings.
-vim.g.filetype_m = 'objc'
-vim.g.filetype_pl = 'prolog'
-
-vim.g.CorpusBangCreation = 1
-vim.g.CorpusDirectories = {
-  ['~/Documents/Corpus'] = {
-    autocommit = true,
-    autoreference = 1,
-    autotitle = 1, base = './',
-    transform = 'local',
-  },
-  ['~/code/masochist/content/content/wiki'] = {
-    autocommit = false,
-    autoreference = 1,
-    autotitle = 1,
-    base = '/wiki/',
-    tags = {'wiki'},
-    transform = 'web',
-  },
-}
-
 -- Stark highlighting is enough to see the current match; don't need the
 -- centering, which can be annoying.
 vim.g.LoupeCenterResults = 0
@@ -217,148 +346,3 @@ for _, override in ipairs(overrides) do
   end
 end
 
--------------------------------------------------------------------------------
--- Plugins {{{1 ---------------------------------------------------------------
--------------------------------------------------------------------------------
-
-if vim.o.loadplugins then
-  SingularisArt.plugin.load('bracey.vim')
-  SingularisArt.plugin.load('bufferline.nvim')
-  SingularisArt.plugin.load('cmp-buffer')
-  SingularisArt.plugin.load('cmp-calc')
-  SingularisArt.plugin.load('cmp-cmdline')
-  SingularisArt.plugin.load('cmp-emoji')
-  SingularisArt.plugin.load('cmp-latex-symbols')
-  SingularisArt.plugin.load('cmp-nvim-lsp')
-  SingularisArt.plugin.load('cmp-nvim-ultisnips')
-  SingularisArt.plugin.load('cmp-path')
-  SingularisArt.plugin.load('cmp-spell')
-  SingularisArt.plugin.load('cmp-tabnine')
-  SingularisArt.plugin.load('colorbuddy.nvim')
-  SingularisArt.plugin.load('colorizer')
-  SingularisArt.plugin.load('command-t')
-  SingularisArt.plugin.load('Comment.nvim')
-  SingularisArt.plugin.load('copilot.vim')
-  SingularisArt.plugin.load('custom-snippets')
-  SingularisArt.plugin.load('dashboard-nvim')
-  SingularisArt.plugin.load('emmet-vim')
-  SingularisArt.plugin.load('fidget.nvim')
-  SingularisArt.plugin.load('gitsigns.nvim')
-  SingularisArt.plugin.load('indent-blankline.nvim')
-  SingularisArt.plugin.load('lazygit.nvim')
-  SingularisArt.plugin.load('load-all.nvim')
-  SingularisArt.plugin.load('lspkind-nvim')
-  SingularisArt.plugin.load('lspsaga.nvim')
-  SingularisArt.plugin.load('lsp-status.nvim')
-  SingularisArt.plugin.load('lua-dev.nvim')
-  SingularisArt.plugin.load('lualine.nvim')
-  SingularisArt.plugin.load('markdown-preview.nvim')
-  SingularisArt.plugin.load('MatchTagAlways')
-  SingularisArt.plugin.load('nerdcommenter')
-  SingularisArt.plugin.load('nightfox.nvim')
-  SingularisArt.plugin.load('nlsp-settings.nvim')
-  SingularisArt.plugin.load('nui.nvim')
-  SingularisArt.plugin.load('null-ls.nvim')
-  SingularisArt.plugin.load('nvim-autopairs')
-  SingularisArt.plugin.load('nvim-base16.lua')
-  SingularisArt.plugin.load('nvim-cmp')
-  SingularisArt.plugin.load('nvim-dap')
-  SingularisArt.plugin.load('nvim-dap-ui')
-  SingularisArt.plugin.load('nvim-dap-virtual-text')
-  SingularisArt.plugin.load('nvim-gomove')
-  SingularisArt.plugin.load('nvim-notify')
-  SingularisArt.plugin.load('nvim-lsp-installer')
-  SingularisArt.plugin.load('nvim-scrollbar')
-  SingularisArt.plugin.load('nvim-treesitter')
-  SingularisArt.plugin.load('nvim-ts-autotag')
-  SingularisArt.plugin.load('nvim-ts-rainbow')
-  SingularisArt.plugin.load('nvim-web-devicons')
-  SingularisArt.plugin.load('nvim-workbench')
-  SingularisArt.plugin.load('pinnacle')
-  SingularisArt.plugin.load('playground')
-  SingularisArt.plugin.load('plenary.nvim')
-  SingularisArt.plugin.load('pretty-fold.nvim')
-  SingularisArt.plugin.load('project.nvim')
-  SingularisArt.plugin.load('refactoring.nvim')
-  SingularisArt.plugin.load('rust-tools.nvim')
-  SingularisArt.plugin.load('sidebar.nvim')
-  SingularisArt.plugin.load('splitjoin.vim')
-  SingularisArt.plugin.load('symbols-outline.nvim')
-  SingularisArt.plugin.load('telescope-file-browser.nvim')
-  SingularisArt.plugin.load('telescope-fzy-native.nvim')
-  SingularisArt.plugin.load('telescope-media-files.nvim')
-  SingularisArt.plugin.load('telescope.nvim')
-  SingularisArt.plugin.load('telescope-ui-select.nvim')
-  SingularisArt.plugin.load('tex-conceal.vim')
-  SingularisArt.plugin.load('toggleterm.nvim')
-  SingularisArt.plugin.load('trouble.nvim')
-  SingularisArt.plugin.load('twilight.nvim')
-  SingularisArt.plugin.load('UltiSnips')
-  SingularisArt.plugin.load('undotree')
-  SingularisArt.plugin.load('vim-closetag')
-  SingularisArt.plugin.load('vim-doge')
-  SingularisArt.plugin.load('vim-easymotion')
-  SingularisArt.plugin.load('vim-fugitive')
-  SingularisArt.plugin.load('vim-highlightedyank')
-  -- SingularisArt.plugin.load('vim-illuminate')
-  SingularisArt.plugin.load('vim-log-highlighting')
-  SingularisArt.plugin.load('vim-rhubarb')
-  SingularisArt.plugin.load('vim-snippets')
-  SingularisArt.plugin.load('vim-solidity')
-  SingularisArt.plugin.load('vim-surround')
-  SingularisArt.plugin.load('vim-table-mode')
-  SingularisArt.plugin.load('vimtex')
-  SingularisArt.plugin.load('vim-tex-kawaii')
-  SingularisArt.plugin.load('vim-translator')
-  SingularisArt.plugin.load('vim-visual-multi')
-  SingularisArt.plugin.load('vim-wakatime')
-  SingularisArt.plugin.load('which-key.nvim')
-  SingularisArt.plugin.load('nvim-tree.lua')
-  SingularisArt.plugin.load('nvim-lspconfig')
-  SingularisArt.plugin.load('zen-mode.nvim')
-  SingularisArt.plugin.load('undotree')
-  SingularisArt.plugin.load('pywal.nvim')
-end
-
--- Automatic, language-dependent indentation, syntax coloring and other
--- functionality.
---
--- Must come *after* the `:packadd!` calls above otherwise the contents of
--- package "ftdetect" directories won't be evaluated.
-vim.cmd('filetype indent plugin on')
-vim.cmd('syntax on')
-vim.cmd('color pywal')
-
--- Require the lsp config
-require("SingularisArt.lsp")
--- Get the theme
--- require("SingularisArt.theme")
-
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'pywal',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}

@@ -39,7 +39,6 @@ map { 'n', '<Leader>y', '<Plug>(easymotion-bd-f)' }
 
 -- explorer
 map { 'n', '<Leader>e', ':NvimTreeToggle<CR>' }
-map { 'n', '<Leader>S', ':SidebarNvimToggle<CR>' }
 
 -- better window movement
 map { 'n', '<C-h>',     '<C-w>h' }

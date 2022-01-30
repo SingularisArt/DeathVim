@@ -184,9 +184,6 @@
 [submodule "vim-easymotion"]
 	path = pack/bundle/opt/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion
-[submodule "vim-illuminate"]
-	path = pack/bundle/opt/vim-illuminate
-	url = https://github.com/RRethy/vim-illuminate
 [submodule "vim-surround"]
 	path = pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround
@@ -226,9 +223,6 @@
 [submodule "Comment.nvim"]
 	path = pack/bundle/opt/Comment.nvim
 	url = https://github.com/numToStr/Comment.nvim
-[submodule "vim-doge"]
-	path = pack/bundle/opt/vim-doge
-	url = https://github.com/kkoomen/vim-doge
 [submodule "vim-highlightedyank"]
 	path = pack/bundle/opt/vim-highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank
@@ -283,3 +277,6 @@
 [submodule "pywal.nvim"]
 	path = pack/bundle/opt/pywal.nvim
 	url = https://github.com/AlphaTechnolog/pywal.nvim
+[submodule "neogen"]
+	path = pack/bundle/opt/neogen
+	url = https://github.com/danymat/neogen
