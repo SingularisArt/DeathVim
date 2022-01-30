@@ -184,6 +184,7 @@ vim.opt.fillchars      = {
   fold                 = '·',                              -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   vert                 = '┃',                              -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 }
+vim.opt.mouse          = 'a'                               -- use mouse in all modes
 vim.opt.foldlevelstart = 99                                -- start unfolded
 vim.opt.foldmethod     = 'indent'                          -- not as cool as syntax, but faster
 vim.opt.foldtext       = 'v:lua.SingularisArt.foldtext()'

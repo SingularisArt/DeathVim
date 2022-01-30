@@ -1,3 +1,32 @@
+* [Install Language support](#s1)
+* [Installation](#s2)
+  * [Requirements](#s2-1)
+* [Usage](#s3)
+  * [Package Managers](#s3-1)
+      * [Adding plugins](#s3-1-1)
+      * [Remove/Disable plugins](#s3-1-2)
+  * [Colorscheme](#s3-2)
+  * [Keybindings](#s3-3)
+      * [Basic key binds](#s3-3-1)
+      * [Browser](#s3-3-2)
+      * [Buffers](#s3-3-3)
+      * [Navigation](#s3-3-4)
+      * [Editing](#s3-3-5)
+      * [Telescope](#s3-3-6)
+      * [Git](#s3-3-7)
+      * [Translation](#s3-3-8)
+      * [Dashbaord](#s3-3-9)
+      * [LaTeX](#s3-3-10)
+      * [Misc](#s3-3-11)
+      * [LSP](#s3-3-12)
+* [Showcase](#s4)
+  * [Theme Showcase](#s4-1)
+  * [Very useful plugins used](#s4-2)
+* [Contributing](#s5)
+* [TODO](#s6)
+  * [Completed](#s6-1)
+  * [Working on](#s6-2)
+  * [Need to do](#s6-3)
 Death.NeoVim
 ============
 
@@ -5,69 +34,7 @@ This is a simple, but yet, elegant neovim setup.
 
 ![pic1](media/main.png)
 
-Table of Contents
-=================
-
-* [Death.NeoVim](#deathneovim)
-* [Install Language support](#install-language-support)
-* [Installation](#installation)
-   * [Requirements](#requirements)
-* [Usage](#usage)
-   * [Package Managers](#package-managers)
-      * [Adding plugins](#adding-plugins)
-      * [Remove/Disable plugins](#removedisable-plugins)
-   * [Colorscheme](#colorscheme)
-   * [Keybindings](#keybindings)
-      * [Basic key binds](#basic-key-binds)
-      * [Browser](#browser)
-      * [Buffers](#buffers)
-      * [Navigation](#navigation)
-      * [Editing](#editing)
-      * [Telescope](#telescope)
-      * [Git](#git)
-      * [Translation](#translation)
-      * [Dashbaord](#dashbaord)
-      * [LaTeX](#latex)
-      * [Misc](#misc)
-      * [LSP](#lsp)
-* [Showcase](#showcase)
-   * [Theme Showcase](#theme-showcase)
-   * [Very useful plugins used](#very-useful-plugins-used)
-      * [Nvim Tree](#nvim-tree)
-      * [Telescope-nvim](#telescope-nvim)
-      * [Indent-blankline.nvim](#indent-blanklinenvim)
-      * [Lualine](#lualine)
-      * [Nvim-bufferline.lua](#nvim-bufferlinelua)
-      * [Nvim-web-devicons](#nvim-web-devicons)
-      * [Vim-Copilot](#vim-copilot)
-      * [Nvim-treesitter](#nvim-treesitter)
-   * [Filetypes](#filetypes)
-      * [Python](#python)
-      * [C++](#c)
-      * [C#](#c-1)
-      * [C](#c-2)
-      * [MySQL](#mysql)
-      * [HTML](#html)
-      * [CSS](#css)
-      * [JavaScript](#javascript)
-      * [TypeScript](#typescript)
-      * [Php](#php)
-      * [Ruby](#ruby)
-      * [Perl](#perl)
-      * [Java](#java)
-      * [Rust](#rust)
-      * [Lua](#lua)
-      * [VimScript](#vimscript)
-      * [Solidity](#solidity)
-      * [Bash](#bash)
-      * [Zsh](#zsh)
-* [Contributing](#contributing)
-* [TODO](#todo)
-   * [Completed](#completed)
-   * [Working on](#working-on)
-   * [Need to do](#need-to-do)
-
-# Install Language support
+# <a id='s1' />Install Language support
 
 You can find a list of supported languages
 [here](https://github.com/kabouzeid/nvim-lspinstall/tree/main/lua/lspinstall/servers).
@@ -75,20 +42,17 @@ You can find a list of supported languages
 To install any of them run
 
 * Enter `:LspInstall` followed by <TAB> to see your options for LSP
-* Enter `:TSInstall` followed by <TAB> to see your options for syntax
-  highlighting
+* Enter `:TSInstall` followed by <TAB> to see your options for syntax highlighting
 
-# Installation
+# <a id='s2' />Installation
 
-> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
-> that is 0.6.1)
+> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.6.1)
 
-## Requirements
+## <a id='s2-1' />Requirements
 
 Right now, it only works on Linux (32 bit and 64 bit).
 
-But before doing that, make sure you back-up your NeoVim configuration just
-in case. You do that with:
+But before doing that, make sure you back-up your NeoVim configuration just in case. You do that with:
 
 ```sh
 cp ~/.config/nvim ~/.config/nvim-backup
@@ -96,15 +60,13 @@ git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim &
 git submodule update --init --recursive
 ```
 
-# Usage
+# <a id='s3' />Usage
 
-## Package Managers
+## <a id='s3-1' />Package Managers
 
-This NeoVim config doesn't use any plugin managers. I use `git submodules`.
-You can view all of the plugins [here](pack/bundle/opt) and I source theme in
-my [init.lua](./init.lua).
+This NeoVim config doesn't use any plugin managers. I use `git submodules`. You can view all of the plugins [here](pack/bundle/opt) and I source theme in my [init.lua](./init.lua).
 
-### Adding plugins
+### <a id='s3-1-1' />Adding plugins
 
 Here's how you add a plugin:
 
@@ -112,17 +74,15 @@ Here's how you add a plugin:
 git submodule --name PLUGIN-NAME https://github.com/USER/PLUGIN-NAME pack/bundle/opt/PLUGIN-NAME
 ```
 
-After you've add the submodule, add this to the `init.lua` file in the
-section for the plugins:
+After you've add the submodule, add this to the `init.lua` file in the section for the plugins:
 
 ```lua
 SingularisArt.plugin.load('PLUGIN-NAME')
 ```
 
-### Remove/Disable plugins
+### <a id='s3-1-2' />Remove/Disable plugins
 
-All you have to do to disable a plugin is to remove the calling the
-`init.lua`
+All you have to do to disable a plugin is to remove the calling the `init.lua`
 file. If you want to permanently remove a plugin, remove it's submodule using
 the following command:
 
@@ -131,25 +91,23 @@ git rm --cached pack/bundle/opt/PLUGIN-NAME
 rm -rf pack/bundle/opt/PLUGIN-NAME
 ```
 
-## Colorscheme
+## <a id='s3-2' />Colorscheme
 
 I use the `pywal` colorscheme, which uses the colors from the `wal` command.
-[Here's](https://github.com/SingularisArt/Chameleon) a script that I made
-that
-will change your computer's entire system colorscheme based on your
-wallpaper.
+[Here's](https://github.com/SingularisArt/Chameleon) a script that I made that
+will change your computer's entire system colorscheme based on your wallpaper.
 
 ![colorscheme](media/colorscheme.mp4)
 
-## Keybindings
+## <a id='s3-3' />Keybindings
 
-### Basic key binds
+### <a id='s3-3-1' />Basic key binds
 
 | Function       | Keybind         |
 | -------------- | --------------- |
 | Leader Key     | `SPACE`         |
 
-### Browser
+### <a id='s3-3-2' />Browser
 
 | Function              | Keybind      |
 | --------------------- | ------------ |
@@ -159,7 +117,7 @@ wallpaper.
 | Go to next Diagnostic | `[d`         |
 | Go to prev Diagnostic | `]d`         |
 
-### Buffers
+### <a id='s3-3-3' />Buffers
 
 | Function                           | Keybind        |
 | ---------------------------------- | -------------- |
@@ -173,7 +131,7 @@ wallpaper.
 | :BufferLineSortByRelativeDirectory | `<Leader>bsr`  |
 | :BufferLineSortByTabs              | `<Leader>bst`  |
 
-### Navigation
+### <a id='s3-3-4' />Navigation
 
 | Function                      | Keybind                   |
 | ----------------------------- | ------------------------- |
@@ -190,7 +148,7 @@ wallpaper.
 | Horizontal vsplit             | `<Leader>v`               |
 | Easymotion                    | `<Leader>y`               |
 
-### Editing
+### <a id='s3-3-5' />Editing
 
 | Function                 | Keybind                   |
 | ------------------------ | ------------------------- |
@@ -203,7 +161,7 @@ wallpaper.
 | NERDComment un-toggle    | `<Leader>nu`              |
 | Fix misspelled words     | `<C-l> INSERT MODE`       |
 
-### Telescope
+### <a id='s3-3-6' />Telescope
 
 | Function                 | Keybind                   |
 | ------------------------ | ------------------------- |
@@ -222,7 +180,7 @@ wallpaper.
 | :Telescope git_branches  | `<Leader>fgb`             |
 | :Telescope git_stash     | `<Leader>fgt`             |
 
-### Git
+### <a id='s3-3-7' />Git
 
 | Function        | Keybind         |
 | --------------- | --------------- |
@@ -236,7 +194,7 @@ wallpaper.
 | :LazyGit        | `<Leader>gL`    |
 | :LazyGitFilter  | `<Leader>gf`    |
 
-### Translation
+### <a id='s3-3-8' />Translation
 
 | Function        | Keybind         |
 | ----------------| --------------- |
@@ -244,14 +202,14 @@ wallpaper.
 | :TranslateW     | `<Leader>rw`    |
 | :TranslateR     | `<Leader>rr`    |
 
-### Dashbaord
+### <a id='s3-3-9' />Dashbaord
 
 | Function          | Keybind         |
 | ----------------- | --------------- |
 | :Dashbaord        | `<Leader>dd`    |
 | :DashboardNewFile | `<Leader>dn`    |
 
-### LaTeX
+### <a id='s3-3-10' />LaTeX
 
 | Function                   | Keybind         |
 | -------------------------- | --------------- |
@@ -261,13 +219,13 @@ wallpaper.
 | :VimtexTocToggle           | `<Leader>lt`    |
 | :VimtexView                | `<Leader>lv`    |
 
-### Misc
+### <a id='s3-3-11' />Misc
 
 | Function            | Keybind         |
 | ------------------- | --------------- |
 | :MarkdownPreview    | `<Leader>mp`    |
 
-### LSP
+### <a id='s3-3-12' />LSP
 
 | Function                   | Keybind         |
 | -------------------------- | --------------- |
@@ -291,134 +249,71 @@ wallpaper.
 
 Check [here](lua/core/keymappings.lua) for all of the mappings.
 
-# Showcase
+# <a id='s4' />Showcase
 
-<img src="media/showcase/dashboard.png">
-<img src="media/showcase/layout.png">
-<img src="media/showcase/completion.png">
+<img src="media/dashboard.png">
+<img src="media/layout.png">
+<img src="media/completion.png">
 
-## Theme Showcase
+## <a id='s4-1' />Theme Showcase
 
 <details><summary>Images</summary>
-  <img src="media/themes/theme-1.png">
-  <img src="media/themes/theme-2.png">
-  <img src="media/themes/theme-3.png">
-  <img src="media/themes/theme-4.png">
-  <img src="media/themes/theme-5.png">
-  <img src="media/themes/theme-6.png">
+  <img src="media/theme-1.png">
+  <img src="media/theme-2.png">
+  <img src="media/theme-3.png">
+  <img src="media/theme-4.png">
+  <img src="media/theme-5.png">
+  <img src="media/theme-6.png">
 </details>
 
-## Very useful plugins used
+## <a id='s4-2' />Very useful plugins used
 
 <details><summary>Images</summary>
   <h3>Nvim Tree</h3>
   Fast file tree:
 
-  <img src="media/plugins/nvim-tree.png">
+  <img src="media/nvim-tree.png">
 
   <h3>Telescope-nvim</h3>
   A fuzzy file finder, picker, sorter, previewer and much more:
-  <img src="media/plugins/telescope.png">
+  <img src="media/telescope.png">
 
   <h3>Indent-blankline.nvim</h3>
   Adds indentline:
-  <img src="media/plugins/indent-blankline.png">
+  <img src="media/indent-blankline.png">
 
   <h3>Lualine</h3>
   Highly configurable statusline plugin:
-  <img src="media/plugins/lualine.png">
+  <img src="media/lualine.png">
 
   <h3>Nvim-bufferline.lua</h3>
   Better tab implementation:
-  <img src="media/plugins/nvim-bufferline.png">
+  <img src="media/nvim-bufferline.png">
 
   <h3>Nvim-web-devicons</h3>
   Lua fork of Vim Devicons which offers more file icon customisability:
-  <img src="media/plugins/nvim-webdevicons.png">
+  <img src="media/nvim-webdevicons.png">
 
   <h3>Vim-Copilot</h3>
   An AI assistant that gives you suggestions:
-  <img src="media/plugins/vim-copilot.png">
+  <img src="media/vim-copilot.png">
 
   <h3>Nvim-treesitter</h3>
   Better syntax highlighting for programming languages
 
   Without/with Treesitter:
-  <img src="media/plugins/nvim-treesitter.png">
+  <img src="media/nvim-treesitter.png">
 </details>
 
-## Filetypes
-
-These are all languages that I use on a day-to-day basis:
-
-<details><summary>Images</summary>
-  <h3>Python</h3>
-  <img src="media/filetypes/python.png">
-
-  <h3>C++</h3>
-  <img src="media/filetypes/cpp.png">
-
-  <h3>C#</h3>
-  <img src="media/filetypes/cs.png">
-
-  <h3>C</h3>
-  <img src="media/filetypes/c.png">
-
-  <h3>MySQL</h3>
-  <img src="media/filetypes/sql.png">
-
-  <h3>HTML</h3>
-  <img src="media/filetypes/html.png">
-
-  <h3>CSS</h3>
-  <img src="media/filetypes/css.png">
-
-  <h3>JavaScript</h3>
-  <img src="media/filetypes/js.png">
-
-  <h3>TypeScript</h3>
-  <img src="media/filetypes/ts.png">
-
-  <h3>Php</h3>
-  <img src="media/filetypes/php.png">
-
-  <h3>Ruby</h3>
-  <img src="media/filetypes/rb.png">
-
-  <h3>Perl</h3>
-  <img src="media/filetypes/perl.png">
-
-  <h3>Java</h3>
-  <img src="media/filetypes/java.png">
-
-  <h3>Rust</h3>
-  <img src="media/filetypes/rs.png">
-
-  <h3>Lua</h3>
-  <img src="media/filetypes/lua.png">
-
-  <h3>VimScript</h3>
-  <img src="media/filetypes/vim.png">
-
-  <h3>Solidity</h3>
-  <img src="media/filetypes/sol.png">
-
-  <h3>Bash</h3>
-  <img src="media/filetypes/sh.png">
-
-  <h3>Zsh</h3>
-  <img src="media/filetypes/zsh.png">
-</details>
-
-# Contributing
+# <a id='s5' />Contributing
 
 If you would like to contribute, you just simply create a folder within the
 `lua` folder. Then, you go ahead and create a folder that's named your username
 and place your config there.
 
-# TODO
+# <a id='s6' />TODO
 
-## Completed
+## <a id='s6-1' />Completed
 
 - [x] Setup NeoVim for taking notes in **LaTeX**.
 - [x] Add git signs in the gutter area.
@@ -429,9 +324,9 @@ and place your config there.
 - [x] Add TabNine.
 - [x] Add GitHub copilot.
 
-## Working on
+## <a id='s6-2' />Working on
 
-## Need to do
+## <a id='s6-3' />Need to do
 
 - [ ] Make my own executable called **dvim**.
 
