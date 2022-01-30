@@ -1,40 +1,9 @@
 Death.NeoVim
 ============
 
-# Screenshots
+This is a simple, but yet, elegant neovim setup.
 
-![pic1](media/theme-1/dashboard.png)
-![pic2](media/theme-1/completion-1.png)
-![pic3](media/theme-1/completion-2.png)
-![pic4](media/theme-1/completion-3.png)
-![pic5](media/theme-1/markdown.png)
-![pic6](media/theme-1/latex.png)
-![pic7](media/theme-1/fuzzy-file-finder.png)
-![pic8](media/theme-1/which-key.png)
-
-* [Screenshots](#screenshots)
-* [Features](#features)
-  * [LSP](#lsp)
-* [Overview](#overview)
-* [Install In Three Lines](#install-in-three-lines)
-  * [Installing](#installing)
-   * [Requirements](#requirements)
-* [Usage](#usage)
-  * [Keybindings](#keybindings)
-    * [Basic key binds](#basic-key-binds)
-    * [Browser](#browser)
-    * [Buffers](#buffers)
-    * [Navigation](#navigation)
-    * [Editing](#editing)
-    * [Telescope](#telescope)
-    * [Git](#git)
-    * [Translation](#translation)
-    * [Dashboard](#dashboard)
-    * [LaTeX](#latex-1)
-    * [Misc](#misc)
-    * [LSP](#lsp)
-* [Contributing](#contributing)
-* [TODO](#todo)
+![pic1](media/main.png)
 
 # Install Language support
 
@@ -46,28 +15,60 @@ To install any of them run
 * Enter `:LspInstall` followed by <TAB> to see your options for LSP
 * Enter `:TSInstall` followed by <TAB> to see your options for syntax highlighting
 
-# Overview
+# Installation
 
-I switched from `Vim-Plug` to `Packer`, which was an investment worth doing because when I used `Vim-Plug`, I had like 87 plugins, which took about 4-5 seconds to boot up.
-But now with `Packer`, it only takes 0.5 seconds, but I also lowered the number of plugins down to 29. (My main goal is to have all plugins written in `lua` because I **HATE** `vimscript`)
+> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.6.1)
 
-# Install In Three Lines
+## Requirements
 
-> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time, that is 0.5.0)
+Right now, it only works on Linux (32 bit and 64 bit).
 
-## Installing
-
-### Requirements
-
-Right now, it only works on linux (32 bit and 64 bit).
-
-But before doing that, make sure you back-up your neovim configuration just in case. You do that with:
+But before doing that, make sure you back-up your NeoVim configuration just in case. You do that with:
 
 ```sh
 cp ~/.config/nvim ~/.config/nvim-backup
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim && cd ~/.config/nvim
+git submodule update --init --recursive
 ```
+
 # Usage
+
+## Package Managers
+
+This NeoVim config doesn't use any plugin managers. I use `git submodules`. You can view all of the plugins [here](pack/bundle/opt) and I source theme in my [init.lua](./init.lua).
+
+### Adding plugins
+
+Here's how you add a plugin:
+
+```bash
+git submodule --name PLUGIN-NAME https://github.com/USER/PLUGIN-NAME pack/bundle/opt/PLUGIN-NAME
+```
+
+After you've add the submodule, add this to the `init.lua` file in the section for the plugins:
+
+```lua
+SingularisArt.plugin.load('PLUGIN-NAME')
+```
+
+### Remove/Disable plugins
+
+All you have to do to disable a plugin is to remove the calling the `init.lua`
+file. If you want to permanently remove a plugin, remove it's submodule using
+the following command:
+
+```bash
+git rm --cached pack/bundle/opt/PLUGIN-NAME
+rm -rf pack/bundle/opt/PLUGIN-NAME
+```
+
+## Colorscheme
+
+I use the `pywal` colorscheme, which uses the colors from the `wal` command.
+[Here's](https://github.com/SingularisArt/Chameleon) a script that I made that
+will change your computer's entire system colorscheme based on your wallpaper.
+
+![colorscheme](media/colorscheme.mp4)
 
 ## Keybindings
 
@@ -219,6 +220,62 @@ git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
 
 Check [here](lua/core/keymappings.lua) for all of the mappings.
 
+# Showcase
+
+<img src="media/dashboard.png">
+<img src="media/layout.png">
+<img src="media/completion.png">
+
+## Theme Showcase
+
+<details><summary>Images</summary>
+  <img src="media/theme-1.png">
+  <img src="media/theme-2.png">
+  <img src="media/theme-3.png">
+  <img src="media/theme-4.png">
+  <img src="media/theme-5.png">
+  <img src="media/theme-6.png">
+</details>
+
+## Very useful plugins used
+
+<details><summary>Images</summary>
+  <h3>Nvim Tree</h3>
+  Fast file tree:
+
+  <img src="media/nvim-tree.png">
+
+  <h3>Telescope-nvim</h3>
+  A fuzzy file finder, picker, sorter, previewer and much more:
+  <img src="media/telescope.png">
+
+  <h3>Indent-blankline.nvim</h3>
+  Adds indentline:
+  <img src="media/indent-blankline.png">
+
+  <h3>Lualine</h3>
+  Highly configurable statusline plugin:
+  <img src="media/lualine.png">
+
+  <h3>Nvim-bufferline.lua</h3>
+  Better tab implementation:
+  <img src="media/nvim-bufferline.png">
+
+  <h3>Nvim-web-devicons</h3>
+  Lua fork of Vim Devicons which offers more file icon customisability:
+  <img src="media/nvim-webdevicons.png">
+
+  <h3>Vim-Copilot</h3>
+  An AI assistant that gives you suggestions:
+  <img src="media/vim-copilot.png">
+
+  <h3>Nvim-treesitter</h3>
+  Better syntax highlighting for programming languages
+
+  Without/with Treesitter:
+  <img src="media/nvim-treesitter.png">
+</details>
+
 # Contributing
 
 If you would like to contribute, you just simply create a folder within the
@@ -227,12 +284,20 @@ and place your config there.
 
 # TODO
 
-- [x] Setup neovim for taking notes in **LaTeX**.
+## Completed
+
+- [x] Setup NeoVim for taking notes in **LaTeX**.
 - [x] Add git signs in the gutter area.
 - [x] Add snippets.
 - [x] Add **requirements** to **README.md**.
 - [x] Get completion using either **Native LSP** or **COC**.
 - [x] Add **features** to **README.md**.
-- [x] Add tabnine.
+- [x] Add TabNine.
+- [x] Add GitHub copilot.
+
+## Working on
+
+## Need to do
+
 - [ ] Make my own executable called **dvim**.
 
