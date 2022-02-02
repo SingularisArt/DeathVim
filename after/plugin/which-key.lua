@@ -81,7 +81,6 @@ which_key.register({
 	v = { "<cmd>vsplit<CR>", "Vertical Split" },
 	h = { "<cmd>split<CR>", "Horizontal Split" },
 	o = { "<cmd>only<CR>", "Tab only" },
-	d = { "<cmd>Dashboard<CR>", "Toggle Dashboard" },
 	y = { "<Plug>(easymotion-bd-f)", "Easymotion" },
 	f = "which_key_ignore",
 	c = "which_key_ignore",
@@ -275,34 +274,80 @@ which_key.register({
 }, { prefix = "<leader>" })
 
 ---------
+-- DAP --
+---------
+
+which_key.register({
+	d = {
+		name = "Debug",
+		s = {
+			name = "Step",
+			c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
+			v = { "<cmd>lua require('dap').step_over()<CR>", "Step Over" },
+			i = { "<cmd>lua require('dap').step_into()<CR>", "Step Into" },
+			o = { "<cmd>lua require('dap').step_out()<CR>", "Step Out" },
+		},
+		h = {
+			name = "Hover",
+			h = { "<cmd>lua require('dap.ui.variables').hover()<CR>", "Hover" },
+			v = { "<cmd>lua require('dap.ui.variables').visual_hover()<CR>", "Visual Hover" },
+		},
+		u = {
+			name = "UI",
+			h = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Hover" },
+			f = { "local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", "Float" },
+		},
+		r = {
+			name = "Repl",
+			o = { "<cmd>lua require('dap').repl.open()<CR>", "Open" },
+			l = { "<cmd>lua require('dap').repl.run_last()<CR>", "Run Last" },
+		},
+		b = {
+			name = "Breakpoints",
+			c = {
+				"<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+				"Breakpoint Condition",
+			},
+			m = {
+				"<cmd>lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>",
+				"Log Point Message",
+			},
+			t = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Create" },
+		},
+		c = { "<cmd>lua require('dap').scopes()<CR>", "Scopes" },
+		i = { "<cmd>lua require('dap').toggle()<CR>", "Toggle" },
+	},
+}, { prefix = "<leader>" })
+
+---------
 -- LSP --
 ---------
 
 which_key.register({
 	s = {
 		name = "LSP",
-    h = { '<cmd>Lspsaga hover_doc<CR>',                             'Show Documentation'              },
-    c = { '<cmd>Lspsaga code_action<CR>',                           'List Code Actions'               },
-    e = { '<cmd>Lspsaga show_line_diagnostics<CR>',                 'Show Diagnostics'                },
-    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',          'Show List of Diagnostics'        },
-    f = { '<cmd>Lspsaga format<CR>',                                'Format'                          },
-    r = { '<cmd>Lspsaga rename<CR>',                                'Rename'                          },
-    i = { '<cmd>Lspsaga implement<CR>',                             'Show the Implementation'         },
-    j = { '<cmd>Lspsaga diagnostic_jump_prev<CR>',                  'Go to Previous Diagnostic'       },
-    k = { '<cmd>Lspsaga diagnostic_jump_next<CR>',                  'Go to Next Diagnostic'           },
-    d = {
-      name = "Defintions",
-      d = { '<cmd>lua vim.lsp.buf.definition()<CR>',                'Go To Definition'                },
-      f = { '<cmd>Lspsaga lsp_finder<CR>',                          'Find all definitions/refrences'  },
-      r = { '<cmd>lua vim.lsp.buf.references()<CR>',                'Find refrences'                  },
-      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>',           'Find the type'                   },
-      p = { '<cmd>Lspsaga preview_definition<CR>',                  'Preview Definition'              },
-    },
-    w = {
-      name = "Workspace",
-      a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',      'Add Workspace'                   },
-      r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',   'Remove Workspace'                },
-    },
+		h = { "<cmd>Lspsaga hover_doc<CR>", "Show Documentation" },
+		c = { "<cmd>Lspsaga code_action<CR>", "List Code Actions" },
+		e = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Show Diagnostics" },
+		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show List of Diagnostics" },
+		f = { "<cmd>Lspsaga format<CR>", "Format" },
+		r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+		i = { "<cmd>Lspsaga implement<CR>", "Show the Implementation" },
+		j = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Go to Previous Diagnostic" },
+		k = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Go to Next Diagnostic" },
+		d = {
+			name = "Defintions",
+			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
+			f = { "<cmd>Lspsaga lsp_finder<CR>", "Find all definitions/refrences" },
+			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Find refrences" },
+			t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Find the type" },
+			p = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
+		},
+		w = {
+			name = "Workspace",
+			a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace" },
+			r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace" },
+		},
 	},
 }, { prefix = "<leader>" })
 

@@ -14,53 +14,12 @@ Table of Contents
    * [Requirements](#requirements)
 * [Usage](#usage)
    * [Package Managers](#package-managers)
-      * [Adding plugins](#adding-plugins)
-      * [Remove/Disable plugins](#removedisable-plugins)
    * [Colorscheme](#colorscheme)
    * [Keybindings](#keybindings)
-      * [Basic key binds](#basic-key-binds)
-      * [Browser](#browser)
-      * [Buffers](#buffers)
-      * [Navigation](#navigation)
-      * [Editing](#editing)
-      * [Telescope](#telescope)
-      * [Git](#git)
-      * [Translation](#translation)
-      * [Dashbaord](#dashbaord)
-      * [LaTeX](#latex)
-      * [Misc](#misc)
-      * [LSP](#lsp)
 * [Showcase](#showcase)
    * [Theme Showcase](#theme-showcase)
    * [Very useful plugins used](#very-useful-plugins-used)
-      * [Nvim Tree](#nvim-tree)
-      * [Telescope-nvim](#telescope-nvim)
-      * [Indent-blankline.nvim](#indent-blanklinenvim)
-      * [Lualine](#lualine)
-      * [Nvim-bufferline.lua](#nvim-bufferlinelua)
-      * [Nvim-web-devicons](#nvim-web-devicons)
-      * [Vim-Copilot](#vim-copilot)
-      * [Nvim-treesitter](#nvim-treesitter)
    * [Filetypes](#filetypes)
-      * [Python](#python)
-      * [C++](#c)
-      * [C#](#c-1)
-      * [C](#c-2)
-      * [MySQL](#mysql)
-      * [HTML](#html)
-      * [CSS](#css)
-      * [JavaScript](#javascript)
-      * [TypeScript](#typescript)
-      * [Php](#php)
-      * [Ruby](#ruby)
-      * [Perl](#perl)
-      * [Java](#java)
-      * [Rust](#rust)
-      * [Lua](#lua)
-      * [VimScript](#vimscript)
-      * [Solidity](#solidity)
-      * [Bash](#bash)
-      * [Zsh](#zsh)
 * [Contributing](#contributing)
 * [TODO](#todo)
    * [Completed](#completed)
@@ -74,8 +33,8 @@ You can find a list of supported languages
 
 To install any of them run
 
-* Enter `:LspInstall` followed by <TAB> to see your options for LSP
-* Enter `:TSInstall` followed by <TAB> to see your options for syntax
+* Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
+* Enter `:TSInstall` followed by `<TAB>` to see your options for syntax
   highlighting
 
 # Installation
@@ -91,9 +50,7 @@ But before doing that, make sure you back-up your NeoVim configuration just
 in case. You do that with:
 
 ```sh
-cp ~/.config/nvim ~/.config/nvim-backup
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim && cd ~/.config/nvim
-git submodule update --init --recursive
+git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim && cd ~/.config/nvim && ./script
 ```
 
 # Usage
@@ -121,10 +78,10 @@ SingularisArt.plugin.load('PLUGIN-NAME')
 
 ### Remove/Disable plugins
 
-All you have to do to disable a plugin is to remove the calling the
-`init.lua`
-file. If you want to permanently remove a plugin, remove it's submodule using
-the following command:
+All you have to do to disable a plugin is to remove the calling from the
+`init.lua` file.
+If you want to permanently remove a plugin, remove it's submodule using the
+following command:
 
 ```bash
 git rm --cached pack/bundle/opt/PLUGIN-NAME
@@ -134,12 +91,9 @@ rm -rf pack/bundle/opt/PLUGIN-NAME
 ## Colorscheme
 
 I use the `pywal` colorscheme, which uses the colors from the `wal` command.
-[Here's](https://github.com/SingularisArt/Chameleon) a script that I made
-that
-will change your computer's entire system colorscheme based on your
+[Here's](https://github.com/SingularisArt/Chameleon) a script that I forked
+that will change your computer's entire system colorscheme based on your
 wallpaper.
-
-![colorscheme](media/colorscheme.mp4)
 
 ## Keybindings
 
@@ -267,6 +221,26 @@ wallpaper.
 | ------------------- | --------------- |
 | :MarkdownPreview    | `<Leader>mp`    |
 
+### Debugging
+
+| Function                      | Keybind       |
+|-------------------------------|---------------|
+| Continue                      | `<Leader>dsc` |
+| Step Over                     | `<Leader>dsv` |
+| Step Into                     | `<Leader>dsi` |
+| Step Out                      | `<Leader>dso` |
+| Hover                         | `<Leader>dhh` |
+| Visual Hover                  | `<Leader>dhv` |
+| UI Hover                      | `<Leader>duh` |
+| Float                         | `<Leader>duf` |
+| Repl Open                     | `<Leader>dro` |
+| Repl Last                     | `<Leader>drl` |
+| Create Breakpoint             | `<Leader>dbt` |
+| Create Breakpoint Condition   | `<Leader>dbc` |
+| Create Breakpoint Log Message | `<Leader>dbm` |
+| Scopes                        | `<Leader>dc`  |
+| Toggle UI                     | `<Leader>di`  |
+
 ### LSP
 
 | Function                   | Keybind         |
@@ -303,53 +277,40 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
   <img src="media/themes/theme-1.png">
   <img src="media/themes/theme-2.png">
   <img src="media/themes/theme-3.png">
-  <img src="media/themes/theme-4.png">
-  <img src="media/themes/theme-5.png">
-  <img src="media/themes/theme-6.png">
 </details>
 
 ## Very useful plugins used
 
 <details><summary>Images</summary>
   <h3>Nvim Tree</h3>
-  Fast file tree:
+  Fast file tree:<br>
 
   <img src="media/plugins/nvim-tree.png">
 
   <h3>Telescope-nvim</h3>
-  A fuzzy file finder, picker, sorter, previewer and much more:
-  <img src="media/plugins/telescope.png">
+  A fuzzy file finder, picker, sorter, previewer and much more:<br>
 
-  <h3>Indent-blankline.nvim</h3>
-  Adds indentline:
-  <img src="media/plugins/indent-blankline.png">
-
-  <h3>Lualine</h3>
-  Highly configurable statusline plugin:
-  <img src="media/plugins/lualine.png">
+  <img src="media/plugins/nvim-telescope.png">
 
   <h3>Nvim-bufferline.lua</h3>
-  Better tab implementation:
+  Better tab implementation:<br>
+
   <img src="media/plugins/nvim-bufferline.png">
 
   <h3>Nvim-web-devicons</h3>
-  Lua fork of Vim Devicons which offers more file icon customisability:
-  <img src="media/plugins/nvim-webdevicons.png">
+  Lua fork of Vim Devicons which offers more file icon customisability:<br>
 
-  <h3>Vim-Copilot</h3>
-  An AI assistant that gives you suggestions:
-  <img src="media/plugins/vim-copilot.png">
+  <img src="media/plugins/nvim-web-devicons.png">
 
   <h3>Nvim-treesitter</h3>
   Better syntax highlighting for programming languages
 
-  Without/with Treesitter:
+  Without/with TreeSitter:<br>
+
   <img src="media/plugins/nvim-treesitter.png">
 </details>
 
 ## Filetypes
-
-These are all languages that I use on a day-to-day basis:
 
 <details><summary>Images</summary>
   <h3>Python</h3>
@@ -394,20 +355,31 @@ These are all languages that I use on a day-to-day basis:
   <h3>Rust</h3>
   <img src="media/filetypes/rs.png">
 
-  <h3>Lua</h3>
-  <img src="media/filetypes/lua.png">
-
-  <h3>VimScript</h3>
-  <img src="media/filetypes/vim.png">
-
   <h3>Solidity</h3>
   <img src="media/filetypes/sol.png">
 
   <h3>Bash</h3>
   <img src="media/filetypes/sh.png">
 
-  <h3>Zsh</h3>
-  <img src="media/filetypes/zsh.png">
+  <h3>Lua</h3>
+  <img src="media/filetypes/lua.png">
+
+  <h3>VimScript</h3>
+  <img src="media/filetypes/vim.png">
+
+  <h3>LaTeX</h3>
+  <img src="media/filetypes/latex.png">
+
+  <h3>Markdown</h3>
+  <img src="media/filetypes/md.png">
+</details>
+
+## Debugging
+
+<details><summary>Images</summary>
+  <img src="media/debugging/debugging-1.png">
+  <img src="media/debugging/debugging-2.png">
+  <img src="media/debugging/debugging-3.png">
 </details>
 
 # Contributing
@@ -430,6 +402,8 @@ and place your config there.
 - [x] Add GitHub copilot.
 
 ## Working on
+
+- [ ] Add images
 
 ## Need to do
 

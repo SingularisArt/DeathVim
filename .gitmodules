@@ -205,9 +205,6 @@
 [submodule "vim-table-mode"]
 	path = pack/bundle/opt/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode
-[submodule "indent-blankline.nvim"]
-	path = pack/bundle/opt/indent-blankline.nvim
-	url = https://github.com/lukas-reineke/indent-blankline.nvim
 [submodule "nvim-autopairs"]
 	path = pack/bundle/opt/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs
@@ -280,3 +277,18 @@
 [submodule "neogen"]
 	path = pack/bundle/opt/neogen
 	url = https://github.com/danymat/neogen
+[submodule "vimade"]
+	path = pack/bundle/opt/vimade
+	url = https://github.com/TaDaa/vimade
+[submodule "DAPInstall"]
+	path = pack/bundle/opt/dapinstall
+	url = https://github.com/Pocco81/DAPInstall.nvim
+[submodule "nvim-dap-python"]
+	path = pack/bundle/opt/nvim-dap-python
+	url = https://github.com/mfussenegger/nvim-dap-python
+[submodule "vim-test"]
+	path = pack/bundle/opt/vim-test
+	url = https://github.com/vim-test/vim-test
+[submodule "vim-ultest"]
+	path = pack/bundle/opt/vim-ultest
+	url = https://github.com/rcarriga/vim-ultest

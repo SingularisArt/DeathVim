@@ -29,9 +29,9 @@ nvim_treesitter.setup({
       node_decremental = "grm",
     },
   },
-  -- indent = {
-  --   enable = true,
-  -- },
+  indent = {
+    enable = true,
+  },
 })
 
 nvim_treesitter.setup({
@@ -41,3 +41,5 @@ nvim_treesitter.setup({
     additional_vim_regex_highlighting = true,
   },
 })
+
+vim.cmd('hi CursorLine ctermbg=235 guibg=#262626')
