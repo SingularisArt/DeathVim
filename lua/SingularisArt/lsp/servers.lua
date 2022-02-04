@@ -20,6 +20,7 @@ local langservers = {
   'solc',             -- Solidity
   'solang',           -- Solidity
   'solidity_ls',      -- Solidity
+  'dockerls',         -- Docker
 }
 
 for _, server in ipairs(langservers) do

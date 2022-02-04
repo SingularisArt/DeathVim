@@ -292,3 +292,9 @@
 [submodule "vim-ultest"]
 	path = pack/bundle/opt/vim-ultest
 	url = https://github.com/rcarriga/vim-ultest
+[submodule "vim-docker-tools"]
+	path = pack/bundle/opt/vim-docker-tools
+	url = https://github.com/kkvh/vim-docker-tools
+[submodule "nvim-remote-containers"]
+	path = pack/bundle/opt/nvim-remote-containers
+	url = https://github.com/jamestthompson3/nvim-remote-containers

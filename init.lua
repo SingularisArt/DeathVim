@@ -102,6 +102,8 @@ if vim.o.loadplugins then
 	SingularisArt.plugin.load("nvim-dap-virtual-text")
 	SingularisArt.plugin.load("vim-test")
 	SingularisArt.plugin.load("vim-ultest")
+  SingularisArt.plugin.load("vim-docker-tools")
+  SingularisArt.plugin.load("nvim-remote-containers")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
