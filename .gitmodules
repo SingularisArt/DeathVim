@@ -1,3 +1,6 @@
+[submodule "my-custom-snippets"]
+	path = UltiSnips
+	url = https://github.com/SingularisArt/snippets
 [submodule "null-ls.nvim"]
 	path = pack/bundle/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim
