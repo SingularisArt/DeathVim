@@ -79,7 +79,7 @@ if vim.o.loadplugins then
 	SingularisArt.plugin.load("vim-highlightedyank")
 	SingularisArt.plugin.load("vim-log-highlighting")
 	SingularisArt.plugin.load("vim-rhubarb")
-	SingularisArt.plugin.load("vim-snippets")
+	-- SingularisArt.plugin.load("vim-snippets")
 	SingularisArt.plugin.load("vim-solidity")
 	SingularisArt.plugin.load("vim-surround")
 	SingularisArt.plugin.load("vim-table-mode")
