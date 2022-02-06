@@ -110,6 +110,8 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("is.vim")
   SingularisArt.plugin.load("ripgrep")
   SingularisArt.plugin.load("vim-grepper")
+  SingularisArt.plugin.load("replay")
+  SingularisArt.plugin.load("ferret")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other

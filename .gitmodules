@@ -319,3 +319,9 @@
 [submodule "vim-visual-star-search"]
 	path = pack/bundle/opt/vim-visual-star-search
 	url = https://github.com/nelstrom/vim-visual-star-search
+[submodule "replay"]
+	path = pack/bundle/opt/replay
+	url = https://github.com/wincent/replay
+[submodule "ferret"]
+	path = pack/bundle/opt/ferret
+	url = https://github.com/wincent/ferret
