@@ -30,6 +30,46 @@ map({ "n", "<C-s>", "<NOP>" })
 -- leader key
 vim.g.mapleader = " "
 
+-- better window movement
+map({ "n", "<C-h>", "<C-w>h" })
+map({ "n", "<C-j>", "<C-w>j" })
+map({ "n", "<C-k>", "<C-w>k" })
+map({ "n", "<C-l>", "<C-w>l" })
+
+-- keep cursor centered when searching and joining lines
+map({ "n", "n", "nzzzv" })
+map({ "n", "N", "Nzzzv" })
+map({ "n", "J", "mzJ`z" })
+
+-- undo break points
+map({ "i", ",", ",<c-g>u"})
+map({ "i", ".", ".<c-g>u"})
+map({ "i", "!", "!<c-g>u"})
+map({ "i", "?", "?<c-g>u"})
+
+-- misc
+map({ "i", "<C-H>", "<C-W>" })
+
+-- resize with arrows
+map({ "n", "<C-Up>", ":resize -2<CR>" })
+map({ "n", "<C-Down>", ":resize +2<CR>" })
+map({ "n", "<C-Left>", ":vertical resize -2<CR>" })
+map({ "n", "<C-Right>", ":vertical resize +2<CR>" })
+
+-- cnext and cprev
+map({ "n", "<Up>", ":cnext<CR>zzzv" })
+map({ "n", "<Right>", ":cnext<CR>zzzv" })
+map({ "n", "<Down>", ":cprev<CR>zzzv" })
+map({ "n", "<Left>", ":cprev<CR>zzzv" })
+
+-- moving text
+map({ "v", "J", ":m '>+1<CR>gv=gv" })
+map({ "v", "K", ":m '<-2<CR>gv=gv" })
+map({ "i", "<C-j>", "<Esc>:m . +1<CR>==a"})
+map({ "i", "<C-k>", "<Esc>:m . -2<CR>==a"})
+map({ "n", "<Leader>j", ":m . +1<CR>=="})
+map({ "n", "<Leader>k", ":m . -2<CR>=="})
+
 -- format on save
 map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
 
@@ -38,12 +78,6 @@ map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
 
 -- explorer
 map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
-
--- better window movement
-map({ "n", "<C-h>", "<C-w>h" })
-map({ "n", "<C-j>", "<C-w>j" })
-map({ "n", "<C-k>", "<C-w>k" })
-map({ "n", "<C-l>", "<C-w>l" })
 
 -- tab switch buffer and tab edit
 map({ "n", "<Tab>", ":BufferLineCycleNext<CR>" })
@@ -62,10 +96,6 @@ map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
 map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
 map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
 map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
-
--- move selected line / block of text in visual mode
-map({ "v", "K", ":move '<-2<CR>gv-gv" })
-map({ "v", "J", ":move '>+1<CR>gv-gv" })
 
 -- spell correction
 map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" })
@@ -207,21 +237,6 @@ map({ "n", "<Leader>sj", ":Lspsaga diagnostic_jump_prev" })
 map({ "n", "<Leader>sk", ":Lspsaga diagnostic_jump_next" })
 map({ "n", "<A-d>", ":ToggleTerm<CR>" })
 map({ "t", "<A-d>", "<C-\\><C-n>:ToggleTerm<CR>" })
-
--- misc
-map({ "i", "<C-H>", "<C-W>" })
-
--- resize with arrows
-map({ "n", "<C-Up>", ":resize -2<CR>" })
-map({ "n", "<C-Down>", ":resize +2<CR>" })
-map({ "n", "<C-Left>", ":vertical resize -2<CR>" })
-map({ "n", "<C-Right>", ":vertical resize +2<CR>" })
-
--- cnext and cprev
-map({ "n", "<Up>", ":cnext<CR>" })
-map({ "n", "<Right>", ":cnext<CR>" })
-map({ "n", "<Down>", ":cprev<CR>" })
-map({ "n", "<Left>", ":cprev<CR>" })
 
 -- config
 map({ "n", "<Leader>Dc", ":e ~/.config/nvim/init.lua<CR>" })
