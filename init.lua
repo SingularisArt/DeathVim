@@ -94,7 +94,7 @@ if vim.o.loadplugins then
 	SingularisArt.plugin.load("undotree")
 	SingularisArt.plugin.load("pywal.nvim")
 	SingularisArt.plugin.load("neogen")
-	-- SingularisArt.plugin.load("vimade")
+	SingularisArt.plugin.load("vimade")
 	SingularisArt.plugin.load("nvim-dap")
 	SingularisArt.plugin.load("nvim-dap-ui")
 	SingularisArt.plugin.load("dapinstall")
@@ -102,8 +102,10 @@ if vim.o.loadplugins then
 	SingularisArt.plugin.load("nvim-dap-virtual-text")
 	SingularisArt.plugin.load("vim-test")
 	SingularisArt.plugin.load("vim-ultest")
-  SingularisArt.plugin.load("vim-docker-tools")
-  SingularisArt.plugin.load("nvim-remote-containers")
+	SingularisArt.plugin.load("vim-docker-tools")
+	SingularisArt.plugin.load("nvim-remote-containers")
+	SingularisArt.plugin.load("corpus")
+  SingularisArt.plugin.load("base16-vim")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
@@ -115,11 +117,19 @@ vim.cmd("filetype indent plugin on")
 vim.cmd("syntax on")
 
 vim.cmd([[
-color duskfox
+color nightfox
+]])
+
+require("SingularisArt.core.statusline")
+
+vim.cmd([[
 color pywal
-highlight ColorColumn     ctermbg=235 guibg=#262626
-highlight EndOfBuffer     ctermbg=235 guibg=#262626
-highlight Cursor                      guifg=none    guibg=Gray40
+highlight ColorColumn     ctermbg=235   guibg=#262626 guifg=None
+highlight EndOfBuffer     ctermbg=235   guibg=#262626 guifg=None
+highlight SignColumn      ctermbg=235   guibg=#262626 guifg=None
+highlight LineNr          ctermbg=235   guibg=#262626 guifg=None
+highlight CursorLineNr    ctermbg=None  guibg=#262626 guifg=bold
+highlight Cursor          ctermbg=None  guibg=Gray40  guifg=bold
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
