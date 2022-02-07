@@ -310,9 +310,6 @@
 [submodule "is.vim"]
 	path = pack/bundle/opt/is.vim
 	url = https://github.com/haya14busa/is.vim
-[submodule "ripgrep"]
-	path = pack/bundle/opt/ripgrep
-	url = https://github.com/BurntSushi/ripgrep
 [submodule "vim-grepper"]
 	path = pack/bundle/opt/vim-grepper
 	url = https://github.com/mhinz/vim-grepper
@@ -325,3 +322,6 @@
 [submodule "ferret"]
 	path = pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret
+[submodule "nvim-rg"]
+	path = pack/bundle/opt/nvim-rg
+	url = https://github.com/duane9/nvim-rg

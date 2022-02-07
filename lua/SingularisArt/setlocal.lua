@@ -78,7 +78,7 @@ local setlocal = function(name, ...)
     local new = vim.tbl_filter(function(item)
       return item ~= value
     end, current)
-    set(0, name, wincent.util.join(new, ','))
+    set(0, name, SingularisArt.util.join(new, ','))
   else
     return bail('setlocal(): unsupported operator: ' .. operator)
   end

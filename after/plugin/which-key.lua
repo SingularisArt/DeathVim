@@ -1,74 +1,74 @@
 local which_key_status, which_key = pcall(require, "which-key")
 
 if not which_key_status then
-	vim.notify("Please Install 'which-key'")
-	return
+  vim.notify("Please Install 'which-key'")
+  return
 end
 
 which_key.setup({
-	plugins = {
-		marks = true, -- shows a list of your marks on ' and `
-		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-		spelling = {
-			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-			suggestions = 100, -- how many suggestions should be shown in the list?
-		},
-		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
-		-- No actual key bindings are created
-		presets = {
-			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = true, -- adds help for motions
-			text_objects = true, -- help for text objects triggered after entering an operator
-			windows = true, -- default bindings on <c-w>
-			nav = true, -- misc bindings to work with windows
-			z = true, -- bindings for folds, spelling and others prefixed with z
-			g = true, -- bindings for prefixed with g
-		},
-	},
-	-- add operators that will trigger motion and text object completion
-	-- to enable all native operators, set the preset / operators plugin above
-	operators = { gc = "Comments" },
-	key_labels = {
-		-- override the label used to display some keys. It doesn't effect WK in any other way.
-		-- For example:
-		-- ["<space>"] = "SPC",
-		-- ["<cr>"] = "RET",
-		-- ["<tab>"] = "TAB",
-	},
-	icons = {
-		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-		separator = "➜", -- symbol used between a key and it's label
-		group = "+", -- symbol prepended to a group
-	},
-	popup_mappings = {
-		scroll_down = "<c-d>", -- binding to scroll down inside the popup
-		scroll_up = "<c-u>", -- binding to scroll up inside the popup
-	},
-	window = {
-		border = "double", -- none, single, double, shadow
-		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
-	},
-	layout = {
-		height = { min = 4, max = 25 }, -- min and max height of the columns
-		width = { min = 20, max = 50 }, -- min and max width of the columns
-		spacing = 3, -- spacing between columns
-		align = "center", -- align columns left, center or right
-	},
-	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-	show_help = true, -- show help message on the command line when the popup is visible
-	triggers = "auto", -- automatically setup triggers
-	-- triggers = {"<leader>"} -- or specify a list manually
-	triggers_blacklist = {
-		-- list of mode / prefixes that should never be hooked by WhichKey
-		-- this is mostly relevant for key maps that start with a native binding
-		-- most people should not need to change this
-		i = { "j", "k" },
-		v = { "j", "k" },
-	},
+  plugins = {
+    marks = true, -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    spelling = {
+      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      suggestions = 100, -- how many suggestions should be shown in the list?
+    },
+    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+    -- No actual key bindings are created
+    presets = {
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true, -- bindings for prefixed with g
+    },
+  },
+  -- add operators that will trigger motion and text object completion
+  -- to enable all native operators, set the preset / operators plugin above
+  operators = { gc = "Comments" },
+  key_labels = {
+    -- override the label used to display some keys. It doesn't effect WK in any other way.
+    -- For example:
+    -- ["<space>"] = "SPC",
+    -- ["<cr>"] = "RET",
+    -- ["<tab>"] = "TAB",
+  },
+  icons = {
+    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+    separator = "➜", -- symbol used between a key and it's label
+    group = "+", -- symbol prepended to a group
+  },
+  popup_mappings = {
+    scroll_down = "<c-d>", -- binding to scroll down inside the popup
+    scroll_up = "<c-u>", -- binding to scroll up inside the popup
+  },
+  window = {
+    border = "double", -- none, single, double, shadow
+    position = "bottom", -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    winblend = 0,
+  },
+  layout = {
+    height = { min = 4, max = 25 }, -- min and max height of the columns
+    width = { min = 20, max = 50 }, -- min and max width of the columns
+    spacing = 3, -- spacing between columns
+    align = "center", -- align columns left, center or right
+  },
+  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+  show_help = true, -- show help message on the command line when the popup is visible
+  triggers = "auto", -- automatically setup triggers
+  -- triggers = {"<leader>"} -- or specify a list manually
+  triggers_blacklist = {
+    -- list of mode / prefixes that should never be hooked by WhichKey
+    -- this is mostly relevant for key maps that start with a native binding
+    -- most people should not need to change this
+    i = { "j", "k" },
+    v = { "j", "k" },
+  },
 })
 
 -------------------------
@@ -76,14 +76,18 @@ which_key.setup({
 -------------------------
 
 which_key.register({
-	e = { "<cmd>NvimTreeToggle<CR>", "Toggle NeoVim Tree" },
-	S = { "<cmd>SidebarNvimToggle<CR>", "Toggle SidebarNvim" },
-	v = { "<cmd>vsplit<CR>", "Vertical Split" },
-	h = { "<cmd>split<CR>", "Horizontal Split" },
-	o = { "<cmd>only<CR>", "Tab only" },
-	y = { "<Plug>(easymotion-bd-f)", "Easymotion" },
-	f = "which_key_ignore",
-	c = "which_key_ignore",
+  e = { "<cmd>NvimTreeToggle<CR>", "Toggle NeoVim Tree" },
+  S = { "<cmd>SidebarNvimToggle<CR>", "Toggle SidebarNvim" },
+  v = { "<cmd>vsplit<CR>", "Vertical Split" },
+  h = { "<cmd>split<CR>", "Horizontal Split" },
+  o = { "<cmd>only<CR>", "Tab only" },
+  y = { "<Plug>(easymotion-bd-f)", "Easymotion" },
+  f = "which_key_ignore",
+  c = "which_key_ignore",
+  a = "which_key_ignore",
+  j = "which_key_ignore",
+  k = "which_key_ignore",
+  r = "which_key_ignore",
 }, { prefix = "<leader>" })
 
 ------------------
@@ -140,7 +144,7 @@ which_key.register({
 ---------------
 
 which_key.register({
-	r = {
+	R = {
 		name = "Translator",
 		t = { "<cmd>Translate<CR>", "Translate" },
 		w = { "<cmd>TranslateW<CR>", "Translate output to screen" },
@@ -356,27 +360,27 @@ which_key.register({
 -------------
 
 which_key.register({
-	b = {
-		name = "Buffers",
-		c = {
-			name = "Close",
-			l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffers to the Left" },
-			r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffers to the Right" },
-		},
-		m = {
-			name = "Move",
-			f = { "<cmd>BufferLineMoveNext<CR>", "Move buffer Forward" },
-			b = { "<cmd>BufferLineMovePrev<CR>", "Move buffer Backward" },
-		},
-		s = {
-			name = "Sort",
-			f = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by Directory" },
-			e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by Extension" },
-			r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by Relative Directory" },
-			t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by Tabs" },
-		},
-		p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
-	},
+  b = {
+    name = "Buffers",
+    c = {
+      name = "Close",
+      l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffers to the Left" },
+      r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffers to the Right" },
+    },
+    m = {
+      name = "Move",
+      f = { "<cmd>BufferLineMoveNext<CR>", "Move buffer Forward" },
+      b = { "<cmd>BufferLineMovePrev<CR>", "Move buffer Backward" },
+    },
+    s = {
+      name = "Sort",
+      f = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by Directory" },
+      e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by Extension" },
+      r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by Relative Directory" },
+      t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by Tabs" },
+    },
+    p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+  },
 }, { prefix = "<leader>" })
 
 ------------
@@ -384,11 +388,11 @@ which_key.register({
 ------------
 
 which_key.register({
-	D = {
-		name = "DeathVim",
-		c = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
-		f = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
-		g = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
-		k = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
-	},
+  D = {
+    name = "DeathVim",
+    c = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
+    f = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
+    g = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
+    k = { "<cmd>e ~/.config/nvim/init.lua<CR>", "Open DeathVim config" },
+  },
 }, { prefix = "<leader>" })

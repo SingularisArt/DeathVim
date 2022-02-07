@@ -13,11 +13,8 @@ nvim_treesitter.setup({
       "latex",
       "markdown",
     },
+    additional_vim_regex_highlighting = true,
     enable = true,
-    custom_captures = {
-      ["<capture group>"] = "<highlight group>",
-      ["keyword"] = "TSString",
-    },
   },
 
   incremental_selection = {
@@ -29,17 +26,9 @@ nvim_treesitter.setup({
       node_decremental = "grm",
     },
   },
+
   indent = {
-    enable = true,
+    enable = false,
   },
 })
 
-nvim_treesitter.setup({
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true,
-  },
-})
-
-vim.cmd('hi CursorLine ctermbg=235 guibg=#262626')

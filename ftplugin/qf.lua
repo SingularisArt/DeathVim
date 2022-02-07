@@ -4,4 +4,3 @@ local setlocal = SingularisArt.vim.setlocal
 vim.b.did_ftplugin = 1
 
 setlocal('colorcolumn', '')
-setlocal('statusline', vim.g.SingularisArtQuickfixStatusline)

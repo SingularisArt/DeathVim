@@ -4,7 +4,7 @@ endif
 
 let s:lint='eslint\ --format\ stylish'
 
-let s:package_path=wincent#compiler#find('package.json')
+let s:package_path=SingularisArt#compiler#find('package.json')
 
 if len(s:package_path) > 1
   try

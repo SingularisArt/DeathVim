@@ -84,8 +84,8 @@ function! s:get_custom_statusline(action) abort
   elseif &ft == 'qf'
     if a:action == 'blur'
       return 'Quickfix'
-    else
-      return g:SingularisArtQuickfixStatusline
+    " else
+    "   return g:SingularisArtQuickfixStatusline
     endif
   endif
 

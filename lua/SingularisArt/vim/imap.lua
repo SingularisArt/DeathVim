@@ -1,4 +1,4 @@
-local map = wincent.vim.map
+local map = SingularisArt.vim.map
 
 local imap = function (lhs, rhs, opts)
   opts = opts or {}

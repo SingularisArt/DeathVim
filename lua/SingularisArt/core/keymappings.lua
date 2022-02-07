@@ -20,7 +20,7 @@ end
 
 -- Unmap a couple of mappings
 map({ "n", "<Space>", "<NOP>" })
-map({ "n", "<Enter>", "<NOP>" })
+-- map({ "n", "<Enter>", "<NOP>" })
 map({ "n", "<C-y>", "<NOP>" })
 map({ "n", "<C-e>", "<NOP>" })
 map({ "n", "<C-b>", "<NOP>" })
@@ -41,11 +41,18 @@ map({ "n", "n", "nzzzv" })
 map({ "n", "N", "Nzzzv" })
 map({ "n", "J", "mzJ`z" })
 
+-- better searching
+map({ "n", "<Leader>r", ":%s///g<Left><Left>" })
+map({ "n", "<Leader>rc", ":%s///gc<Left><Left><Left>" })
+
+map({ "x", "<Leader>r", ":s///g<Left><Left>" })
+map({ "x", "<Leader>rc", ":s///gc<Left><Left><Left>" })
+
 -- undo break points
-map({ "i", ",", ",<c-g>u"})
-map({ "i", ".", ".<c-g>u"})
-map({ "i", "!", "!<c-g>u"})
-map({ "i", "?", "?<c-g>u"})
+map({ "i", ",", ",<c-g>u" })
+map({ "i", ".", ".<c-g>u" })
+map({ "i", "!", "!<c-g>u" })
+map({ "i", "?", "?<c-g>u" })
 
 -- misc
 map({ "i", "<C-H>", "<C-W>" })
@@ -65,10 +72,10 @@ map({ "n", "<Left>", ":cprev<CR>zzzv" })
 -- moving text
 map({ "v", "J", ":m '>+1<CR>gv=gv" })
 map({ "v", "K", ":m '<-2<CR>gv=gv" })
-map({ "i", "<C-j>", "<Esc>:m . +1<CR>==a"})
-map({ "i", "<C-k>", "<Esc>:m . -2<CR>==a"})
-map({ "n", "<Leader>j", ":m . +1<CR>=="})
-map({ "n", "<Leader>k", ":m . -2<CR>=="})
+map({ "i", "<C-j>", "<Esc>:m . +1<CR>==a" })
+map({ "i", "<C-k>", "<Esc>:m . -2<CR>==a" })
+map({ "n", "<Leader>j", ":m . +1<CR>==" })
+map({ "n", "<Leader>k", ":m . -2<CR>==" })
 
 -- format on save
 map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
@@ -82,8 +89,8 @@ map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
 -- tab switch buffer and tab edit
 map({ "n", "<Tab>", ":BufferLineCycleNext<CR>" })
 map({ "n", "<S-Tab>", ":BufferLineCyclePrev<CR>" })
-map({ "n", "<A-w>", ":bdelete<CR>" })
-map({ "n", "<A-t>", ":tabnew<CR>" })
+map({ "n", "<C-w>", ":bdelete<CR>" })
+map({ "n", "<C-t>", ":tabnew<CR>" })
 
 -- buffers
 map({ "n", "<Leader>bp", ":BufferLinePick<CR>" })
@@ -121,9 +128,9 @@ map({ "n", "<Leader>gL", ":LazyGit<CR>" })
 map({ "n", "<Leader>gf", ":LazyGitFilter<CR>" })
 
 -- translate
-map({ "n", "<Leader>rt", ":Translate<CR>" })
-map({ "n", "<Leader>rw", ":TranslateW<CR>" })
-map({ "n", "<Leader>rr", ":TranslateR<CR>" })
+map({ "n", "<Leader>Rt", ":Translate<CR>" })
+map({ "n", "<Leader>Rw", ":TranslateW<CR>" })
+map({ "n", "<Leader>Rr", ":TranslateR<CR>" })
 
 -- vimtex
 map({ "n", "<Leader>lll", ":VimtexClean<CR>" })
@@ -237,6 +244,12 @@ map({ "n", "<Leader>sj", ":Lspsaga diagnostic_jump_prev" })
 map({ "n", "<Leader>sk", ":Lspsaga diagnostic_jump_next" })
 map({ "n", "<A-d>", ":ToggleTerm<CR>" })
 map({ "t", "<A-d>", "<C-\\><C-n>:ToggleTerm<CR>" })
+
+-- github copilot
+vim.cmd([[
+  imap <silent><script><expr> <Right> copilot#Accept("\<CR>")                                                                                                                
+  let g:copilot_no_tab_map = v:true                                                                                                                                        
+]])
 
 -- config
 map({ "n", "<Leader>Dc", ":e ~/.config/nvim/init.lua<CR>" })
