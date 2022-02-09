@@ -20,7 +20,7 @@ end
 
 -- Unmap a couple of mappings
 map({ "n", "<Space>", "<NOP>" })
--- map({ "n", "<Enter>", "<NOP>" })
+map({ "n", "<Tab>", "<NOP>" })
 map({ "n", "<C-y>", "<NOP>" })
 map({ "n", "<C-e>", "<NOP>" })
 map({ "n", "<C-b>", "<NOP>" })
@@ -87,8 +87,6 @@ map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
 map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
 
 -- tab switch buffer and tab edit
-map({ "n", "<Tab>", ":BufferLineCycleNext<CR>" })
-map({ "n", "<S-Tab>", ":BufferLineCyclePrev<CR>" })
 map({ "n", "<C-w>", ":bdelete<CR>" })
 map({ "n", "<C-t>", ":tabnew<CR>" })
 

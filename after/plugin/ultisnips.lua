@@ -6,8 +6,8 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<Enter>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 " open the file in a vertical split
 let g:UltiSnipsEditSplit='vertical'
@@ -15,3 +15,4 @@ let g:UltiSnipsEditSplit='vertical'
 " the location of the snippets
 let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips/"]
 ]])
+
