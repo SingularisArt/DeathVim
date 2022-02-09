@@ -5,3 +5,7 @@ if not dap_install_status then
   return
 end
 
+dap_install.adapters.cpptools = {
+  type = 'executable',
+  command = os.getenv('HOME') .. '/workspace/tmp/cpptools-linux/extension/debugAdapters/OpenDebugAD7',
+}

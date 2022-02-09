@@ -325,3 +325,12 @@
 [submodule "nvim-rg"]
 	path = pack/bundle/opt/nvim-rg
 	url = https://github.com/duane9/nvim-rg
+[submodule "luasnip"]
+	path = pack/bundle/opt/luasnip
+	url = https://github.com/L3MON4D3/LuaSnip
+[submodule "cmp-luasnip"]
+	path = pack/bundle/opt/cmp-luasnip
+	url = https://github.com/saadparwaiz1/cmp_luasnip
+[submodule "friendly-snippets"]
+	path = pack/bundle/opt/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets

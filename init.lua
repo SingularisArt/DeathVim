@@ -72,6 +72,9 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("trouble.nvim")
   SingularisArt.plugin.load("twilight.nvim")
   SingularisArt.plugin.load("UltiSnips")
+  -- SingularisArt.plugin.load("vim-snippets")
+  -- SingularisArt.plugin.load("luasnip")
+  -- SingularisArt.plugin.load("friendly-snippets")
   SingularisArt.plugin.load("undotree")
   SingularisArt.plugin.load("vim-closetag")
   SingularisArt.plugin.load("vim-easymotion")
@@ -79,7 +82,6 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("vim-highlightedyank")
   SingularisArt.plugin.load("vim-log-highlighting")
   SingularisArt.plugin.load("vim-rhubarb")
-  -- SingularisArt.plugin.load("vim-snippets")
   SingularisArt.plugin.load("vim-solidity")
   SingularisArt.plugin.load("vim-surround")
   SingularisArt.plugin.load("vim-table-mode")
@@ -130,12 +132,14 @@ require("SingularisArt.core.statusline")
 
 vim.cmd([[
 color pywal
-highlight ColorColumn     ctermbg=235   guibg=#262626 guifg=None
-highlight EndOfBuffer     ctermbg=235   guibg=#262626 guifg=None
-highlight SignColumn      ctermbg=235   guibg=#262626 guifg=None
-highlight LineNr          ctermbg=235   guibg=#262626 guifg=None
-highlight CursorLineNr    ctermbg=None  guibg=#262626 guifg=bold
 highlight Cursor          ctermbg=None  guibg=Gray40  guifg=bold
+highlight CursorLine      ctermbg=None  guibg=#262626 guifg=None
+highlight CursorLineNr    ctermbg=None  guibg=#262626 guifg=bold
+highlight SignColumn      ctermbg=235   guibg=#262626 guifg=None
+highlight EndOfBuffer     ctermbg=235   guibg=#262626 guifg=None
+highlight ColorColumn     ctermbg=235   guibg=#262626 guifg=None
+highlight LineNr          ctermbg=235   guibg=#262626 guifg=None
+
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
@@ -339,3 +343,4 @@ for _, override in ipairs(overrides) do
 		vim.cmd("source " .. override)
 	end
 end
+

@@ -72,8 +72,8 @@ map({ "n", "<Left>", ":cprev<CR>zzzv" })
 -- moving text
 map({ "v", "J", ":m '>+1<CR>gv=gv" })
 map({ "v", "K", ":m '<-2<CR>gv=gv" })
-map({ "i", "<C-j>", "<Esc>:m . +1<CR>==a" })
-map({ "i", "<C-k>", "<Esc>:m . -2<CR>==a" })
+map({ "i", "<A-j>", "<Esc>:m . +1<CR>==a" })
+map({ "i", "<A-k>", "<Esc>:m . -2<CR>==a" })
 map({ "n", "<Leader>j", ":m . +1<CR>==" })
 map({ "n", "<Leader>k", ":m . -2<CR>==" })
 
