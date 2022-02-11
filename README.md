@@ -209,11 +209,26 @@ wallpaper.
 
 | Function                   | Keybind         |
 | -------------------------- | --------------- |
-| :VimtexCompile             | `<Leader>lc`    |
-| :VimtexCompileSelected     | `<Leader>ls`    |
-| :VimtexInfo                | `<Leader>li`    |
-| :VimtexTocToggle           | `<Leader>lt`    |
+| :VimtexCache               | `<Leader>llc`   |
+| :VimtexCompile             | `<Leader>lcc`   |
+| :VimtexCompileOutput       | `<Leader>lco`   |
+| :VimtexCompileSS           | `<Leader>lcs`   |
+| :VimtexCompileSelected     | `<Leader>lce`   |
+| :VimtexReload              | `<Leader>lrr`   |
+| :VimtexReloadState         | `<Leader>lrs`   |
+| :VimtexStop                | `<Leader>lop`   |
+| :VimtexStopAll             | `<Leader>loa`   |
+| :VimtexTocOpen             | `<Leader>lto`   |
+| :VimtexTocToggle           | `<Leader>ltt`   |
+| :VimtexContextMenu         | `<Leader>lm`    |
+| :VimtexCountLetters        | `<Leader>lu`    |
+| :VimtexCountWords          | `<Leader>lw`    |
+| :VimtexDocPackage          | `<Leader>ld`    |
+| :VimtexErrors              | `<Leader>le`    |
+| :VimtexStatus              | `<Leader>ls`    |
+| :VimtexToggleMain          | `<Leader>la`    |
 | :VimtexView                | `<Leader>lv`    |
+| :VimtexInfo                | `<Leader>li`    |
 
 ### Misc
 
