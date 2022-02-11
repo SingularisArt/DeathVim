@@ -334,3 +334,9 @@
 [submodule "friendly-snippets"]
 	path = pack/bundle/opt/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets
+[submodule "gruvbox-nvim"]
+	path = pack/bundle/opt/gruvbox-nvim
+	url = https://github.com/ellisonleao/gruvbox.nvim
+[submodule "vim-tmux-navigator"]
+	path = pack/bundle/opt/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator

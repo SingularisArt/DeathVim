@@ -108,12 +108,14 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("nvim-remote-containers")
   SingularisArt.plugin.load("corpus")
   SingularisArt.plugin.load("base16-vim")
+  SingularisArt.plugin.load("gruvbox-nvim")
   SingularisArt.plugin.load("vim-visual-star-search")
   SingularisArt.plugin.load("is.vim")
   SingularisArt.plugin.load("nvim-rg")
   SingularisArt.plugin.load("vim-grepper")
   SingularisArt.plugin.load("replay")
   SingularisArt.plugin.load("ferret")
+  SingularisArt.plugin.load("vim-tmux-navigator")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
@@ -132,13 +134,9 @@ require("SingularisArt.core.statusline")
 
 vim.cmd([[
 color pywal
-highlight Cursor          ctermbg=None  guibg=Gray40  guifg=bold
-highlight CursorLine      ctermbg=None  guibg=#262626 guifg=None
-highlight CursorLineNr    ctermbg=None  guibg=#262626 guifg=bold
-highlight SignColumn      ctermbg=235   guibg=#262626 guifg=None
-highlight EndOfBuffer     ctermbg=235   guibg=#262626 guifg=None
-highlight ColorColumn     ctermbg=235   guibg=#262626 guifg=None
-highlight LineNr          ctermbg=235   guibg=#262626 guifg=None
+highlight Cursor guifg=#192330 guibg=None
+highlight Visual ctermbg=11 guibg=#504945
+highlight Normal guibg=NONE ctermbg=NONE
 
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
@@ -213,7 +211,7 @@ vim.opt.modelines = 5 -- scan this many lines looking for modeline
 vim.opt.number = true -- show line numbers in gutter
 vim.opt.pumblend = 10 -- pseudo-transparency for popup-menu
 vim.opt.relativenumber = true -- show relative numbers in gutter
-vim.opt.scrolloff = 3 -- start scrolling 3 lines before edge of viewport
+vim.opt.scrolloff = 8 -- start scrolling 8 lines before edge of viewport
 vim.g.nohlsearch = false -- highlight search results
 
 if root then
@@ -294,7 +292,8 @@ vim.opt.winblend = 10 -- psuedo-transparency for floating windows
 vim.opt.writebackup = false -- don't keep backups after writing
 
 -- Highlight up to 255 columns (this is the current Vim max) beyond 'textwidth'
-SingularisArt.vim.setlocal("colorcolumn", "+" .. SingularisArt.util.join(SingularisArt.util.range(0, 254), ",+"))
+--SingularisArt.vim.setlocal("colorcolumn", "+" .. SingularisArt.util.join(SingularisArt.util.range(0, 254), ",+"))
+
 
 -------------------------------------------------------------------------------
 -- Globals {{{1 ---------------------------------------------------------------
@@ -344,3 +343,12 @@ for _, override in ipairs(overrides) do
 	end
 end
 
+
+vim.cmd[[
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+]]

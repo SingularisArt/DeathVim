@@ -24,8 +24,13 @@ map({ "n", "<Tab>", "<NOP>" })
 map({ "n", "<C-y>", "<NOP>" })
 map({ "n", "<C-e>", "<NOP>" })
 map({ "n", "<C-b>", "<NOP>" })
+map({ "n", "<C-j>", "<NOP>" })
+map({ "n", "<C-k>", "<NOP>" })
 map({ "n", "<C-Space>", "<NOP>" })
 map({ "n", "<C-s>", "<NOP>" })
+
+-- everytime I move, I remove the highlight after searching
+map({ "n", ";", ":nohl<CR>" })
 
 -- leader key
 vim.g.mapleader = " "
