@@ -267,7 +267,6 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
 
 # Showcase
 
-<img src="media/showcase/dashboard.png">
 <img src="media/showcase/layout.png">
 <img src="media/showcase/completion.png">
 
