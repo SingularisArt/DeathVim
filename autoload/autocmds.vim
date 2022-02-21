@@ -91,4 +91,3 @@ function! s:get_custom_statusline(action) abort
 
   return 1 " Use default.
 endfunction
-

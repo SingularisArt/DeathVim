@@ -24,11 +24,6 @@ if has('autocmd')
       autocmd FocusLost,WinLeave * call autocmds#blur_statusline()
     endif
 
-    if exists('*matchaddpos')
-      autocmd BufEnter,FocusGained,VimEnter,WinEnter * TSBufEnable highlight | syntax on
-      autocmd FocusLost,WinLeave * TSBufDisable highlight | syntax off
-    endif
-
     if has('mksession')
       " Save/restore folds and cursor position.
       autocmd BufWritePost,BufLeave,WinLeave ?* if autocmds#should_mkview() | call autocmds#mkview() | endif

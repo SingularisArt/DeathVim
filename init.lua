@@ -116,6 +116,8 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("replay")
   SingularisArt.plugin.load("ferret")
   SingularisArt.plugin.load("vim-tmux-navigator")
+  SingularisArt.plugin.load("vscode_sidebar.nvim")
+  -- SingularisArt.plugin.load("kite")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
@@ -258,6 +260,7 @@ if not vi then
 	vim.opt.softtabstop = -1 -- use 'shiftwidth' for tab/bs at end of line
 end
 
+vim.opt.spell = true -- spell checking
 vim.opt.spellcapcheck = "" -- don't check for capital letters at start of sentence
 vim.opt.splitbelow = true -- open horizontal splits below current window
 vim.opt.splitright = true -- open vertical splits to the right of the current window
@@ -352,3 +355,6 @@ highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
 highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
 highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 ]]
+
+require'lspconfig'.pylsp.setup{}
+

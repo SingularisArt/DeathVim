@@ -340,3 +340,9 @@
 [submodule "vim-tmux-navigator"]
 	path = pack/bundle/opt/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "kite"]
+	path = pack/bundle/opt/kite
+	url = https://github.com/kiteco/vim-plugin
+[submodule "vscode_sidebar.nvim"]
+	path = pack/bundle/opt/vscode_sidebar.nvim
+	url = https://github.com/SingularisArt/vscode_sidebar.nvim
