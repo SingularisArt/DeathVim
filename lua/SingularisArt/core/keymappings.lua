@@ -70,9 +70,9 @@ map({ "n", "<C-Right>", ":vertical resize +2<CR>" })
 
 -- cnext and cprev
 map({ "n", "<Up>", ":cnext<CR>zzzv" })
-map({ "n", "<Right>", ":cnext<CR>zzzv" })
+map({ "n", "<Right>", ":copen<CR>" })
 map({ "n", "<Down>", ":cprev<CR>zzzv" })
-map({ "n", "<Left>", ":cprev<CR>zzzv" })
+map({ "n", "<Left>", ":cclose<CR>" })
 
 -- moving text
 map({ "v", "J", ":m '>+1<CR>gv=gv" })

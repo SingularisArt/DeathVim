@@ -72,9 +72,6 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("trouble.nvim")
   SingularisArt.plugin.load("twilight.nvim")
   SingularisArt.plugin.load("UltiSnips")
-  -- SingularisArt.plugin.load("vim-snippets")
-  -- SingularisArt.plugin.load("luasnip")
-  -- SingularisArt.plugin.load("friendly-snippets")
   SingularisArt.plugin.load("undotree")
   SingularisArt.plugin.load("vim-closetag")
   SingularisArt.plugin.load("vim-easymotion")
@@ -106,7 +103,7 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("vim-ultest")
   SingularisArt.plugin.load("vim-docker-tools")
   SingularisArt.plugin.load("nvim-remote-containers")
-  SingularisArt.plugin.load("corpus")
+  -- SingularisArt.plugin.load("corpus")
   SingularisArt.plugin.load("base16-vim")
   SingularisArt.plugin.load("gruvbox-nvim")
   SingularisArt.plugin.load("vim-visual-star-search")
@@ -117,6 +114,7 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("ferret")
   SingularisArt.plugin.load("vim-tmux-navigator")
   SingularisArt.plugin.load("vscode_sidebar.nvim")
+  SingularisArt.plugin.load("xresources-nvim")
   -- SingularisArt.plugin.load("kite")
 end
 
@@ -130,12 +128,11 @@ vim.cmd("syntax on")
 
 vim.cmd([[
 color nightfox
-]])
 
-require("SingularisArt.core.statusline")
+lua require("SingularisArt.core.statusline")
 
-vim.cmd([[
 color pywal
+
 highlight Cursor guifg=#192330 guibg=None
 highlight Visual ctermbg=11 guibg=#504945
 highlight Normal guibg=NONE ctermbg=NONE

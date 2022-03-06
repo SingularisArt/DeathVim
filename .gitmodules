@@ -346,3 +346,6 @@
 [submodule "vscode_sidebar.nvim"]
 	path = pack/bundle/opt/vscode_sidebar.nvim
 	url = https://github.com/SingularisArt/vscode_sidebar.nvim
+[submodule "xresources-nvim"]
+	path = pack/bundle/opt/xresources-nvim
+	url = https://github.com/nekonako/xresources-nvim
