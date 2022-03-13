@@ -164,7 +164,7 @@ map({ "n", "<Leader>mp", ":MarkdownPreview<CR>" })
 
 -- inkscape
 map({
-	"i",
+  "i",
 	"<C-f>",
 	"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>",
 })
@@ -250,8 +250,8 @@ map({ "t", "<A-d>", "<C-\\><C-n>:ToggleTerm<CR>" })
 
 -- github copilot
 vim.cmd([[
-  imap <silent><script><expr> <Right> copilot#Accept("\<CR>")                                                                                                                
-  let g:copilot_no_tab_map = v:true                                                                                                                                        
+  imap <silent><script><expr> <Right> copilot#Accept("\<CR>")
+  let g:copilot_no_tab_map = v:true
 ]])
 
 -- config
@@ -259,3 +259,4 @@ map({ "n", "<Leader>Dc", ":e ~/.config/nvim/init.lua<CR>" })
 map({ "n", "<Leader>Df", ":vertical resize +2<CR>" })
 map({ "n", "<Leader>Dg", ":vertical resize +2<CR>" })
 map({ "n", "<Leader>Dk", ":vertical resize +2<CR>" })
+

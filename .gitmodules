@@ -349,3 +349,18 @@
 [submodule "xresources-nvim"]
 	path = pack/bundle/opt/xresources-nvim
 	url = https://github.com/nekonako/xresources-nvim
+[submodule "cmp-nvim-lua"]
+	path = pack/bundle/opt/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua
+[submodule "indent-blankline"]
+	path = pack/bundle/opt/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
+[submodule "todo-comments.nvim"]
+	path = pack/bundle/opt/todo-comments.nvim
+	url = https://github.com/folke/todo-comments.nvim
+[submodule "dim.lua"]
+	path = pack/bundle/opt/dim.lua
+	url = https://github.com/narutoxy/dim.lua
+[submodule "firenvim"]
+	path = pack/bundle/opt/firenvim
+	url = https://github.com/glacambre/firenvim

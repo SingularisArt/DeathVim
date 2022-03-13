@@ -38,14 +38,16 @@ vim.opt.inccommand     = 'split'                            -- live preview of :
 vim.opt.joinspaces     = false                              -- don't autoinsert two spaces after '.', '?', '!' for join command
 vim.opt.laststatus     = 2                                  -- always show status line
 vim.opt.lazyredraw     = true                               -- don't bother updating screen during macro playback
-vim.opt.linebreak      = true                                 -- wrap long lines at characters in 'breakat'
-vim.opt.list           = false                                -- don't show whitespace
+vim.opt.linebreak      = true                               -- wrap long lines at characters in 'breakat'
+vim.opt.list           = true                               -- show whitespace
 vim.opt.listchars      = {
   nbsp                 = '⦸',                              -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
   extends              = '»',                              -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
   precedes             = '«',                              -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
   tab                  = '▷⋯',                             -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF)
   trail                = '•',                              -- BULLET (U+2022, UTF-8: E2 80 A2)
+  space                = '⋅',                              -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  eol                  = '↴',                              -- BLACK RIGHT-POINTING TRIANGLE (U+25B6, UTF-8: E2 96 B6)
 }
 
 if vi then
