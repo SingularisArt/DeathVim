@@ -18,6 +18,9 @@ local map = function(key)
 	end
 end
 
+-- leader key
+vim.g.mapleader = " "
+
 -- Unmap a couple of mappings
 map({ "n", "<Space>", "<NOP>" })
 map({ "n", "<Tab>", "<NOP>" })
@@ -32,8 +35,8 @@ map({ "n", "<C-s>", "<NOP>" })
 -- everytime I move, I remove the highlight after searching
 map({ "n", ";", ":nohl<CR>" })
 
--- leader key
-vim.g.mapleader = " "
+-- delete an entire word using Ctrl-Backspace
+map({ "i", "<C-BS>", "<C-W>" })
 
 -- better window movement
 map({ "n", "<C-h>", "<C-w>h" })
@@ -95,18 +98,6 @@ map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
 map({ "n", "<C-w>", ":bdelete<CR>" })
 map({ "n", "<C-t>", ":tabnew<CR>" })
 
--- buffers
-map({ "n", "<Leader>bp", ":BufferLinePick<CR>" })
-map({ "n", "<Leader>bcl", ":BufferLineCloseLeft<CR>" })
-map({ "n", "<Leader>bcr", ":BufferLineCloseRight<CR>" })
-map({ "n", "<Leader>bmn", ":BufferLineMoveNext<CR>" })
-map({ "n", "<Leader>bmp", ":BufferLineMovePrev<CR>" })
-map({ "n", "<Leader>bsd", ":BufferLineSortByDirectory<CR>" })
-map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
-map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
-map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
-map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
-
 -- spell correction
 map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" })
 
@@ -118,6 +109,18 @@ map({ "i", "<C-a>", "<Esc>ggVG" })
 map({ "n", "<Leader>v", ":vsplit<CR>" })
 map({ "n", "<Leader>h", ":split<CR>" })
 map({ "n", "<Leader>o", ":only<CR>" })
+
+-- buffers
+map({ "n", "<Leader>bp", ":BufferLinePick<CR>" })
+map({ "n", "<Leader>bcl", ":BufferLineCloseLeft<CR>" })
+map({ "n", "<Leader>bcr", ":BufferLineCloseRight<CR>" })
+map({ "n", "<Leader>bmn", ":BufferLineMoveNext<CR>" })
+map({ "n", "<Leader>bmp", ":BufferLineMovePrev<CR>" })
+map({ "n", "<Leader>bsd", ":BufferLineSortByDirectory<CR>" })
+map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
+map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
+map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
+map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
 
 -- git
 map({ "n", "<Leader>gs", ":Git<CR>" })
@@ -164,7 +167,7 @@ map({ "n", "<Leader>mp", ":MarkdownPreview<CR>" })
 
 -- inkscape
 map({
-  "i",
+	"i",
 	"<C-f>",
 	"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>",
 })
@@ -229,22 +232,23 @@ map({ "n", "<Leader>dc", ":lua require('dap.ui.variables').scopes()<CR>" })
 map({ "n", "<Leader>di", ":lua require('dapui').toggle()<CR>" })
 
 -- lsp
-map({ "n", "<Leader>sdd", "<cmd>lua vim.lsp.buf.definition()<CR>" })
+map({ "n", "<Leader>sdd", ":lua vim.lsp.buf.definition()<CR>" })
 map({ "n", "<Leader>sdf", ":Lspsaga lsp_finder<CR>" })
-map({ "n", "<Leader>sdr", "<cmd>lua vim.lsp.buf.references()<CR>" })
-map({ "n", "<Leader>sdt", "<cmd>lua vim.lsp.buf.type_definition()<CR>" })
-map({ "n", "<Leader>sdp", ":Lspsaga preview_definition<CR>" })
-map({ "n", "<Leader>swa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" })
-map({ "n", "<Leader>swr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" })
-map({ "n", "<Leader>sh", ":Lspsaga hover_doc<CR>" })
-map({ "n", "<Leader>sc", ":Lspsaga code_action<CR>" })
-map({ "n", "<Leader>se", ":Lspsaga show_line_diagnostics<CR>" })
+map({ "n", "<Leader>sdr", ":lua vim.lsp.buf.references()<CR>" })
+map({ "n", "<Leader>sdt", ":lua vim.lsp.buf.type_definition()<CR>" })
+map({ "n", "<Leader>sdp", ":lua require('goto-preview').goto_preview_definition()<CR>" })
+map({ "n", "<Leader>swa", ":lua vim.lsp.buf.add_workspace_folder()<CR>" })
+map({ "n", "<Leader>swr", ":lua vim.lsp.buf.remove_workspace_folder()<CR>" })
+map({ "n", "<Leader>sh", ":lua vim.lsp.buf.hover()<CR>" })
+map({ "n", "<Leader>sc", ":lua vim.lsp.buf.code_action()<CR>" })
+map({ "n", "<Leader>se", ":lua vim.diagnostic.open_float()<CR>" })
 map({ "n", "<Leader>sq", ":lua vim.lsp.diagnostic.set_loclist()<CR>" })
-map({ "n", "<Leader>sf", ":Lspsaga format<CR>" })
+map({ "n", "<Leader>sf", ":lua vim.lsp.buf.formatting()<CR>" })
 map({ "n", "<Leader>sr", ":Lspsaga rename<CR>" })
-map({ "n", "<Leader>si", ":Lspsaga implement<CR>" })
-map({ "n", "<Leader>sj", ":Lspsaga diagnostic_jump_prev" })
-map({ "n", "<Leader>sk", ":Lspsaga diagnostic_jump_next" })
+map({ "n", "<Leader>si", ":lua require('goto-preview').goto_preview_implementation()<CR>" })
+map({ "n", "<Leader>sj", ":lua vim.diagnostic.goto_prev()<CR>" })
+map({ "n", "<Leader>sk", ":lua vim.diagnostic.goto_next()<CR>" })
+map({ "n", "<Leader>sC", ":lua require('goto-preview').close_all_win()<CR>" })
 map({ "n", "<A-d>", ":ToggleTerm<CR>" })
 map({ "t", "<A-d>", "<C-\\><C-n>:ToggleTerm<CR>" })
 
@@ -259,4 +263,3 @@ map({ "n", "<Leader>Dc", ":e ~/.config/nvim/init.lua<CR>" })
 map({ "n", "<Leader>Df", ":vertical resize +2<CR>" })
 map({ "n", "<Leader>Dg", ":vertical resize +2<CR>" })
 map({ "n", "<Leader>Dk", ":vertical resize +2<CR>" })
-

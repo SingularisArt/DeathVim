@@ -38,5 +38,27 @@ for _, server in ipairs(langservers) do
   else
     require('lspconfig')[server].setup { capabilities = capabilities }
   end
+
+  require('lsp_signature').on_attach()
 end
 
+require('goto-preview').setup {}
+-- require("lsp_lines").register_lsp_virtual_lines()
+-- require('navigator').setup()
+
+require('litee.lib').setup({})
+require('litee.bookmarks').setup({})
+require('litee.filetree').setup({})
+require('litee.symboltree').setup({})
+require('litee.calltree').setup({})
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
+require("lsp-colors").setup({
+  Error = "#db4b4b",
+  Warning = "#e0af68",
+  Information = "#0db9d7",
+  Hint = "#10B981"
+})

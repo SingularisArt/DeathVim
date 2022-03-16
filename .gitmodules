@@ -364,3 +364,42 @@
 [submodule "firenvim"]
 	path = pack/bundle/opt/firenvim
 	url = https://github.com/glacambre/firenvim
+[submodule "lsp_signature.nvim"]
+	path = pack/bundle/opt/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim
+[submodule "goto-preview"]
+	path = pack/bundle/opt/goto-preview
+	url = https://github.com/rmagatti/goto-preview
+[submodule "virtual-types.nvim"]
+	path = pack/bundle/opt/virtual-types.nvim
+	url = https://github.com/jubnzv/virtual-types.nvim
+[submodule "litee.nvim"]
+	path = pack/bundle/opt/litee.nvim
+	url = https://github.com/ldelossa/litee.nvim
+[submodule "litee-bookmarks.nvim"]
+	path = pack/bundle/opt/litee-bookmarks.nvim
+	url = https://github.com/ldelossa/litee-bookmarks.nvim
+[submodule "litee-filetree.nvim"]
+	path = pack/bundle/opt/litee-filetree.nvim
+	url = https://github.com/ldelossa/litee-filetree.nvim
+[submodule "litee-calltree.nvim"]
+	path = pack/bundle/opt/litee-calltree.nvim
+	url = https://github.com/ldelossa/litee-calltree.nvim
+[submodule "litee-symboltree.nvim"]
+	path = pack/bundle/opt/litee-symboltree.nvim
+	url = https://github.com/ldelossa/litee-symboltree.nvim
+[submodule "lsp_lines.nvim"]
+	path = pack/bundle/opt/lsp_lines.nvim
+	url = https://git.sr.ht/~whynothugo/lsp_lines.nvim
+[submodule "navigator.lua"]
+	path = pack/bundle/opt/navigator.lua
+	url = https://github.com/ray-x/navigator.lua
+[submodule "guihua.lua"]
+	path = pack/bundle/opt/guihua.lua
+	url = https://github.com/ray-x/guihua.lua
+[submodule "lsp-colors.nvim"]
+	path = pack/bundle/opt/lsp-colors.nvim
+	url = https://github.com/folke/lsp-colors.nvim
+[submodule "nvim-lightbulb"]
+	path = pack/bundle/opt/nvim-lightbulb
+	url = https://github.com/kosayoda/nvim-lightbulb
