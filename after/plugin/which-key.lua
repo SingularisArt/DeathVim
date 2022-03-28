@@ -338,8 +338,8 @@ which_key.register({
 		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
 		r = { "<cmd>Lspsaga rename<CR>", "Rename" },
 		i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Show the Implementation" },
-		j = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to Previous Diagnostic" },
-		k = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to Next Diagnostic" },
+		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to Previous Diagnostic" },
+		k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to Next Diagnostic" },
 		d = {
 			name = "Defintions",
 			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },

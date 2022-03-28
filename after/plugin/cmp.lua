@@ -15,31 +15,31 @@ end
 -- end
 
 local kind_icons = {
-	Class = " ",
-	Color = " ",
-	Constant = "ﲀ ",
-	Constructor = " ",
-	Enum = "練",
-	EnumMember = " ",
-	Event = " ",
-	Field = " ",
-	File = "",
-	Folder = " ",
-	Function = " ",
-	Interface = "ﰮ ",
-	Keyword = " ",
-	Method = " ",
-	Module = " ",
-	Operator = "",
-	Property = " ",
-	Reference = " ",
-	Snippet = " ",
-	Struct = " ",
-	Text = " ",
-	TypeParameter = " ",
-	Unit = "塞",
-	Value = " ",
-	Variable = " ",
+	Class = " Class",
+	Color = " Color",
+	Constant = "ﲀ Constant",
+	Constructor = " Constructor",
+	Enum = "練Enum",
+	EnumMember = " Enum Member",
+	Event = " Event",
+	Field = " Field",
+	File = " File",
+	Folder = " Folder",
+	Function = " Function",
+	Interface = "ﰮ Interface",
+	Keyword = " Keyword",
+	Method = " Method",
+	Module = " Module",
+	Operator = " Operator",
+	Property = " Property",
+	Reference = " Reference",
+	Snippet = " Snippet",
+	Struct = " Struct",
+	Text = " Text",
+	TypeParameter = " Type Parameter",
+	Unit = "塞 Unit",
+	Value = " Value",
+	Variable = " Variable",
 }
 
 Vscode = vim.lsp.protocol.make_client_capabilities()
@@ -92,8 +92,6 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
 
-    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
-    -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ['<A-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<A-k>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 
@@ -132,7 +130,7 @@ cmp.setup({
 				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
 					menu = entry.completion_item.data.detail .. " " .. menu
 				end
-				vim_item.kind = ""
+				vim_item.kind = " TabNine"
 			end
 			vim_item.menu = menu
 			return vim_item
@@ -215,3 +213,63 @@ source.is_available = function()
 end
 
 require("cmp").register_source("gh_issues", source.new())
+
+vim.cmd[[
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#fff700
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#fff700
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+
+highlight! CmpItemKindEnum          guibg=NONE guifg=#7D8471
+highlight! CmpItemKindInterface     guibg=NONE guifg=#252850
+highlight! CmpItemKindFile          guibg=NONE guifg=#015D52
+highlight! CmpItemKindText          guibg=NONE guifg=#781F19
+highlight! CmpItemKindUnit          guibg=NONE guifg=#6C6874
+highlight! CmpItemKindClass         guibg=NONE guifg=#282828
+highlight! CmpItemKindColor         guibg=NONE guifg=#587246
+highlight! CmpItemKindEvent         guibg=NONE guifg=#6C7059
+highlight! CmpItemKindField         guibg=NONE guifg=#6F4F28
+highlight! CmpItemKindValue         guibg=NONE guifg=#E7EBDA
+highlight! CmpItemKindFolder        guibg=NONE guifg=#F3DA0B
+highlight! CmpItemKindMethod        guibg=NONE guifg=#1E1E1E
+highlight! CmpItemKindModule        guibg=NONE guifg=#CFD3CD
+highlight! CmpItemKindStruct        guibg=NONE guifg=#A18594
+highlight! CmpItemKindDefault       guibg=NONE guifg=#4C9141
+highlight! CmpItemKindKeyword       guibg=NONE guifg=#CB3234
+highlight! CmpItemKindSnippet       guibg=NONE guifg=#4E5754
+highlight! CmpItemKindConstant      guibg=NONE guifg=#FF7514
+highlight! CmpItemKindFunction      guibg=NONE guifg=#025669
+highlight! CmpItemKindOperator      guibg=NONE guifg=#686C5E
+highlight! CmpItemKindProperty      guibg=NONE guifg=#F4F4F4
+highlight! CmpItemKindVariable      guibg=NONE guifg=#6D3F5B
+highlight! CmpItemKindReference     guibg=NONE guifg=#474B4E
+highlight! CmpItemKindEnumMember    guibg=NONE guifg=#193737
+
+highlight! CmpItemKindEnumDefault          guibg=NONE guifg=#7D8471
+highlight! CmpItemKindInterfaceDefault     guibg=NONE guifg=#252850
+highlight! CmpItemKindFileDefault          guibg=NONE guifg=#015D52
+highlight! CmpItemKindTextDefault          guibg=NONE guifg=#781F19
+highlight! CmpItemKindUnitDefault          guibg=NONE guifg=#6C6874
+highlight! CmpItemKindClassDefault         guibg=NONE guifg=#282828
+highlight! CmpItemKindColorDefault         guibg=NONE guifg=#587246
+highlight! CmpItemKindEventDefault         guibg=NONE guifg=#6C7059
+highlight! CmpItemKindFieldDefault         guibg=NONE guifg=#6F4F28
+highlight! CmpItemKindValueDefault         guibg=NONE guifg=#E7EBDA
+highlight! CmpItemKindFolderDefault        guibg=NONE guifg=#F3DA0B
+highlight! CmpItemKindMethodDefault        guibg=NONE guifg=#1E1E1E
+highlight! CmpItemKindModuleDefault        guibg=NONE guifg=#CFD3CD
+highlight! CmpItemKindStructDefault        guibg=NONE guifg=#A18594
+highlight! CmpItemKindDefaultDefault       guibg=NONE guifg=#4C9141
+highlight! CmpItemKindKeywordDefault       guibg=NONE guifg=#CB3234
+highlight! CmpItemKindSnippetDefault       guibg=NONE guifg=#4E5754
+highlight! CmpItemKindConstantDefault      guibg=NONE guifg=#FF7514
+highlight! CmpItemKindFunctionDefault      guibg=NONE guifg=#025669
+highlight! CmpItemKindOperatorDefault      guibg=NONE guifg=#686C5E
+highlight! CmpItemKindPropertyDefault      guibg=NONE guifg=#F4F4F4
+highlight! CmpItemKindVariableDefault      guibg=NONE guifg=#6D3F5B
+highlight! CmpItemKindReferenceDefault     guibg=NONE guifg=#474B4E
+highlight! CmpItemKindEnumMemberDefault    guibg=NONE guifg=#193737
+]]
+

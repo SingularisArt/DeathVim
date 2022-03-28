@@ -33,10 +33,18 @@ saga.init_lsp_saga {
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
+    signs = true,
+    update_in_insert = false,
+    severity_sort = true,
     -- This sets the spacing and the prefix, obviously.
     virtual_text = {
+      source = 'if_many',
       spacing = 10,
       prefix = ' '
-    }
+    },
+    float = {
+      source = 'if_many',
+      border = 'rounded',
+    },
   }
 )

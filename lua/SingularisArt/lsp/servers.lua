@@ -21,6 +21,7 @@ local langservers = {
   'solang',           -- Solidity
   'solidity_ls',      -- Solidity
   'dockerls',         -- Docker
+  'sqlls',            -- SQL
 }
 
 for _, server in ipairs(langservers) do
@@ -39,7 +40,8 @@ for _, server in ipairs(langservers) do
     require('lspconfig')[server].setup { capabilities = capabilities }
   end
 
-  require('lsp_signature').on_attach()
+  -- require('lsp_signature').on_attach()
+  require('lsp_signature').setup({ hi_parameter = "IncSearch" })
 end
 
 require('goto-preview').setup {}
@@ -62,3 +64,9 @@ require("lsp-colors").setup({
   Information = "#0db9d7",
   Hint = "#10B981"
 })
+
+require('lspconfig').sqls.setup{
+    on_attach = function(client, bufnr)
+        require('sqls').on_attach(client, bufnr)
+    end
+}

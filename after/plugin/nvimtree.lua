@@ -28,7 +28,6 @@ local icons = {
 local g = vim.g
 g.nvim_tree_icons = icons
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_disable_window_picker = 1
 g.nvim_tree_highlight_opened_files = 2
 g.nvim_tree_show_icons = { git = 1, folder_arrows = 1, folders = 1, files = 1 }
 
@@ -51,7 +50,7 @@ local mappings = {
 }
 
 tree.setup {
-  auto_open = true,
+  open_on_setup = true,
   update_cwd = true,
   auto_close = true,
   disable_netrw = true,

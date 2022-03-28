@@ -50,7 +50,7 @@ if vim.o.loadplugins then
   -- SingularisArt.plugin.load("nvim-lightbulb")
   SingularisArt.plugin.load("lsp-colors.nvim")
   SingularisArt.plugin.load("lua-dev.nvim")
-  -- SingularisArt.plugin.load("lualine.nvim")
+  SingularisArt.plugin.load("lualine.nvim")
   SingularisArt.plugin.load("markdown-preview.nvim")
   SingularisArt.plugin.load("MatchTagAlways")
   SingularisArt.plugin.load("nerdcommenter")
@@ -117,6 +117,10 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("nvim-dap-virtual-text")
   SingularisArt.plugin.load("vim-test")
   SingularisArt.plugin.load("vim-ultest")
+  SingularisArt.plugin.load("sqls.nvim")
+  -- SingularisArt.plugin.load("vim-dadbod")
+  -- SingularisArt.plugin.load("vim-dadbod-ui")
+  -- SingularisArt.plugin.load("vim-dadbod-completion")
   -- SingularisArt.plugin.load("vim-docker-tools")
   -- SingularisArt.plugin.load("nvim-remote-containers")
   -- SingularisArt.plugin.load("corpus")
@@ -145,17 +149,12 @@ vim.cmd("filetype indent plugin on")
 vim.cmd("syntax on")
 
 vim.cmd([[
-color nightfox
-
-lua require("SingularisArt.core.statusline")
-
 color pywal
 
-" highlight Cursor guifg=#192330 guibg=None
 highlight Cursor guifg=#F8F8F8 guibg=#A7A7A7
 highlight Visual ctermbg=11 guibg=#504945
 highlight Normal guibg=NONE ctermbg=NONE
-highlight EndOfBuffer guibg=#07090F
+highlight FloatBorder guibg=#504945
 
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver100-iCursor
@@ -165,6 +164,7 @@ set guicursor+=i:blinkwait10
 
 -- Require the lsp config
 require("SingularisArt.lsp")
+require('SingularisArt.lualine').setup()
 
 -------------------------------------------------------------------------------
 -- Options {{{1 ---------------------------------------------------------------
@@ -362,16 +362,3 @@ for _, override in ipairs(overrides) do
 		vim.cmd("source " .. override)
 	end
 end
-
-
-vim.cmd[[
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-]]
-
-require'lspconfig'.pylsp.setup{}
-

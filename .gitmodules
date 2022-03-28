@@ -403,3 +403,18 @@
 [submodule "nvim-lightbulb"]
 	path = pack/bundle/opt/nvim-lightbulb
 	url = https://github.com/kosayoda/nvim-lightbulb
+[submodule "deoplete-mssql"]
+	path = pack/bundle/opt/deoplete-mssql
+	url = https://github.com/jjohnson338/deoplete-mssql
+[submodule "vim-dadbod-ui"]
+	path = pack/bundle/opt/vim-dadbod-ui
+	url = https://github.com/kristijanhusak/vim-dadbod-ui
+[submodule "vim-dadbod"]
+	path = pack/bundle/opt/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "vim-dadbod-completion"]
+	path = pack/bundle/opt/vim-dadbod-completion
+	url = https://github.com/kristijanhusak/vim-dadbod-completion
+[submodule "sqls.nvim"]
+	path = pack/bundle/opt/sqls.nvim
+	url = https://github.com/nanotee/sqls.nvim
