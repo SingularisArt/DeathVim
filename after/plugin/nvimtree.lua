@@ -52,7 +52,7 @@ local mappings = {
 tree.setup {
   open_on_setup = true,
   update_cwd = true,
-  auto_close = true,
+  -- auto_close = true,
   disable_netrw = true,
   hijack_cursor = true,
   diagnostics = { enable = true },
