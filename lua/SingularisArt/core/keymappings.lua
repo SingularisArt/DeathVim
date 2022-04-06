@@ -92,7 +92,8 @@ map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
 map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
 
 -- explorer
-map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
+-- map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
+map({ "n", "<Leader>e", ":NeoTreeShow<CR>" })
 
 -- tab switch buffer and tab edit
 map({ "n", "<C-w>", ":bdelete<CR>" })

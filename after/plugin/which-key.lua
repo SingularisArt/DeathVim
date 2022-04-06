@@ -76,7 +76,7 @@ which_key.setup({
 -------------------------
 
 which_key.register({
-  e = { "<cmd>NvimTreeToggle<CR>", "Toggle NeoVim Tree" },
+  e = { "<cmd>NeoTreeShow<CR>", "Toggle NeoTree" },
   S = { "<cmd>SidebarNvimToggle<CR>", "Toggle SidebarNvim" },
   v = { "<cmd>vsplit<CR>", "Vertical Split" },
   h = { "<cmd>split<CR>", "Horizontal Split" },

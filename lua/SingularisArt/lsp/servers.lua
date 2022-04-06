@@ -24,6 +24,26 @@ local langservers = {
   'sqlls',            -- SQL
 }
 
+local config = {
+  -- disable virtual text
+  virtual_text = false,
+  -- show signs
+  signs = {
+    active = signs,
+  },
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+
 for _, server in ipairs(langservers) do
   if server == 'sumneko_lua' then
     require('lspconfig')[server].setup {
@@ -37,26 +57,20 @@ for _, server in ipairs(langservers) do
       }
     }
   else
-    require('lspconfig')[server].setup { capabilities = capabilities }
+    require('lspconfig')[server].setup {
+      capabilities = capabilities,
+    }
   end
 
-  -- require('lsp_signature').on_attach()
   require('lsp_signature').setup({ hi_parameter = "IncSearch" })
 end
 
 require('goto-preview').setup {}
--- require("lsp_lines").register_lsp_virtual_lines()
--- require('navigator').setup()
-
 require('litee.lib').setup({})
 require('litee.bookmarks').setup({})
 require('litee.filetree').setup({})
 require('litee.symboltree').setup({})
 require('litee.calltree').setup({})
-
-vim.diagnostic.config({
-  virtual_text = false,
-})
 
 require("lsp-colors").setup({
   Error = "#db4b4b",
@@ -70,3 +84,24 @@ require('lspconfig').sqls.setup{
         require('sqls').on_attach(client, bufnr)
     end
 }
+
+vim.diagnostic.config(config)
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = "rounded",
+})
+
+local signs = {
+  { name = "DiagnosticSignError", text = "" },
+  { name = "DiagnosticSignWarn", text = "" },
+  { name = "DiagnosticSignHint", text = "" },
+  { name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end

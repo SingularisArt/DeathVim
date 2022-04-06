@@ -418,3 +418,9 @@
 [submodule "sqls.nvim"]
 	path = pack/bundle/opt/sqls.nvim
 	url = https://github.com/nanotee/sqls.nvim
+[submodule "neo-tree.nvim"]
+	path = pack/bundle/opt/neo-tree.nvim
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim
+[submodule "nvim-gps"]
+	path = pack/bundle/opt/nvim-gps
+	url = https://github.com/SmiteshP/nvim-gps

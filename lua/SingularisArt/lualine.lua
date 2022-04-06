@@ -1,9 +1,14 @@
 local M = {}
 
 function M.setup()
-  local status_ok, lualine = pcall(require, "lualine")
-  if not status_ok then
-    return
+  local lualine_status, lualine = pcall(require, "lualine")
+  if not lualine_status then
+    vim.notify('Please install "lualine"')
+  end
+
+  local gps_status, gps = pcall(require, "nvim-gps")
+  if not gps_status then
+    vim.notify('Please install "nvim-gps"')
   end
 
   local colors = {
@@ -51,16 +56,19 @@ function M.setup()
       lualine_y = {},
       lualine_z = {},
       lualine_c = {},
+      lualine_d = {
+        { gps.get_location, cond = gps.is_available }
+      },
       lualine_x = {},
     },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_y = {},
-      lualine_z = {},
-      lualine_c = {},
-      lualine_x = {},
-    },
+    -- inactive_sections = {
+    --   lualine_a = {},
+    --   lualine_b = {},
+    --   lualine_y = {},
+    --   lualine_z = {},
+    --   lualine_c = {},
+    --   lualine_x = {},
+    -- },
   }
 
   local function ins_left(component)
