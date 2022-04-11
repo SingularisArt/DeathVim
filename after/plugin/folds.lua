@@ -1,5 +1,9 @@
-local present, fold = pcall(require, 'pretty-fold')
-if not present then return end
+local pretty_fold_status, fold = pcall(require, 'pretty-fold')
+
+if not pretty_fold_status then
+	vim.notify("Please Install 'pretty-fold'")
+	return
+end
 
 local preview = require('pretty-fold.preview')
 
@@ -13,4 +17,3 @@ fold.setup({
 })
 
 preview.setup_keybinding('h')
-

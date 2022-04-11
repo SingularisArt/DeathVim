@@ -9,10 +9,10 @@ nvim_treesitter.setup({
   ensure_installed = "all",
 
   highlight = {
-    -- disable = {
-    --   "latex",
-    --   "markdown",
-    -- },
+    disable = {
+      "latex",
+      "markdown",
+    },
     additional_vim_regex_highlighting = true,
     enable = true,
   },

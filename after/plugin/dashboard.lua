@@ -34,4 +34,3 @@ g.dashboard_custom_section = {
 }
 
 local home = os.getenv("HOME") .. "/.config/nvim/init.vim"
-

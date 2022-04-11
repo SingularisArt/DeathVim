@@ -1,18 +1,11 @@
 vim.cmd([[set completeopt=menuone,noinsert,noselect]])
 
 local cmp_status, cmp = pcall(require, "cmp")
--- local cmp_ultisnips_status, cmp_ultisnips_mappings = pcall(require, "cmp_ultisnips_mapping")
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
 if not cmp_status then
 	vim.notify("Please Install 'cmp'")
 	return
 end
-
--- if not cmp_ultisnips_status then
--- 	vim.notify("Please Install 'cmp-ultisnips'")
--- 	return
--- end
 
 local kind_icons = {
 	Class = " Class",
