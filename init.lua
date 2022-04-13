@@ -29,7 +29,7 @@ if vim.o.loadplugins then
   -- SingularisArt.plugin.load("dapinstall")
   -- SingularisArt.plugin.load("dashboard-nvim")
   -- SingularisArt.plugin.load("deoplete-mssql")
-  -- SingularisArt.plugin.load("dim.lua")
+  SingularisArt.plugin.load("dim.lua")
   SingularisArt.plugin.load("emmet-vim")
   SingularisArt.plugin.load("ferret")
   -- SingularisArt.plugin.load("fidget.nvim")
