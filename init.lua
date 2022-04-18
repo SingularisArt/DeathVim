@@ -1,5 +1,7 @@
 require("SingularisArt")
 
+vim.cmd('set rtp+=~/Documents/school-notes/current-course')
+
 -------------------------------------------------------------------------------
 -- Plugins {{{1 ---------------------------------------------------------------
 -------------------------------------------------------------------------------
@@ -39,7 +41,7 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("goto-preview")
   -- SingularisArt.plugin.load("gruvbox-nvim")
   SingularisArt.plugin.load("guihua.lua")
-  SingularisArt.plugin.load("indent-blankline.nvim")
+  -- SingularisArt.plugin.load("indent-blankline.nvim")
   SingularisArt.plugin.load("is.vim")
   -- SingularisArt.plugin.load("kite")
   -- SingularisArt.plugin.load("lazygit.nvim")

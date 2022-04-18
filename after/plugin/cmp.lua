@@ -74,7 +74,7 @@ cmp.setup({
 		end,
 	},
 
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-y>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -90,11 +90,15 @@ cmp.setup({
 
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-	},
+	}),
 
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	},
+	-- documentation = {
+	-- },
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    }
+  },
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
