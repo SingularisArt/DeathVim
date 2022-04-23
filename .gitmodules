@@ -424,3 +424,9 @@
 [submodule "nvim-gps"]
 	path = pack/bundle/opt/nvim-gps
 	url = https://github.com/SmiteshP/nvim-gps
+[submodule "nvim-jdtls"]
+	path = pack/bundle/opt/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
+[submodule "one-small-step-for-vimkind"]
+	path = pack/bundle/opt/one-small-step-for-vimkind
+	url = https://github.com/jbyuki/one-small-step-for-vimkind

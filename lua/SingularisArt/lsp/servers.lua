@@ -16,6 +16,7 @@ local langservers = {
   'jsonls',           -- JSON
   'rust_analyzer',    -- Rust
   'tsserver',         -- Typescript/Javascript
+  'jdtls',            -- Java
   'yamlls',           -- Yaml
   'solc',             -- Solidity
   'solang',           -- Solidity
