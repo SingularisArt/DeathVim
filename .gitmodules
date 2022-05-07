@@ -430,3 +430,6 @@
 [submodule "one-small-step-for-vimkind"]
 	path = pack/bundle/opt/one-small-step-for-vimkind
 	url = https://github.com/jbyuki/one-small-step-for-vimkind
+[submodule "snippet-converter.nvim"]
+	path = pack/bundle/opt/snippet-converter.nvim
+	url = https://github.com/smjonas/snippet-converter.nvim
