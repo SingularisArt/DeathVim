@@ -1,11 +1,5 @@
-local actions_status, actions = pcall(require, "telescope.actions")
-
-if not actions_status then
-	vim.notify("Please Install 'telescope'")
-	return
-end
-
-local telescope = require('telescope')
+local actions = SingularisArt.call('telescope.actions', 'Telescope')
+local telescope = SingularisArt.call('telescope', 'Telescope')
 
 telescope.setup {
   defaults = {

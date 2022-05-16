@@ -1,4 +1,6 @@
-require('todo-comments').setup {
+local todo = SingularisArt.call('todo-comments', 'Todo Comments')
+
+todo.setup {
   -- PERF: Fully Optimized.
   -- HACK: Hmm, this looks a little bit funny.
   -- TODO: What else?

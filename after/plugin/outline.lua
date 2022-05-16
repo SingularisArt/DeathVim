@@ -1,9 +1,4 @@
-local outline_status, outline = pcall(require, "symbols-outline")
-
-if not outline_status then
-	vim.notify("Please Install 'symbols-outline'")
-	return
-end
+local outline = SingularisArt.call('symbols-outline', 'Symbols Outline')
 
 outline.setup({
   width = 35,

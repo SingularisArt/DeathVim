@@ -1,9 +1,4 @@
--- local scrollbar_status, scrollbar = pcall(require, "scrollbar")
---
--- if not scrollbar_status then
--- 	vim.notify("Please Install 'nvim-scrollbar'")
--- 	return
--- end
+-- local scrollbar = SingularisArt.call('scrollbar', 'ScrollBar')
 --
 -- local handle = { text = " ", color = "white" }
 -- local marks = {

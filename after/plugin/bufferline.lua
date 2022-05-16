@@ -1,9 +1,4 @@
-local bufferline_status, bufferline = pcall(require, "bufferline")
-
-if not bufferline_status then
-	vim.notify("Please Install 'bufferline'")
-	return
-end
+local bufferline = SingularisArt.call('bufferline', 'Buffer Line')
 
 bufferline.setup {
   options = {

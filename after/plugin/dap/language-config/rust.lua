@@ -1,9 +1,4 @@
-local dap_status, dap = pcall(require, "dap")
-
-if not dap_status then
-	vim.notify("Please Install 'nvim-dap'")
-	return
-end
+local dap = SingularisArt.call('dap', 'DAP')
 
 dap.adapters.lldb = {
 	type = "executable",

@@ -1,9 +1,4 @@
-local toggleterm_status, toggleterm = pcall(require, "toggleterm")
-
-if not toggleterm_status then
-	vim.notify("Please Install 'toggleterm'")
-	return
-end
+local toggleterm = SingularisArt.call('toggleterm', 'Toggle Terminal')
 
 toggleterm.setup({
 	size = 20,

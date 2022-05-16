@@ -1,9 +1,4 @@
-local project_nvim_status, project_nvim = pcall(require, "null-ls")
-
-if not project_nvim_status then
-	vim.notify("Please Install 'project-nvim'")
-	return
-end
+local project_nvim = SingularisArt.call('project_nvim', 'Project Nvim')
 
 project_nvim.setup({
   -- Manual mode doesn't automatically change your root directory, so you have

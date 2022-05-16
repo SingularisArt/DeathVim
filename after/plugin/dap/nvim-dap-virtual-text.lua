@@ -1,9 +1,4 @@
-local nvim_dap_virtual_text_status, nvim_dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
-
-if not nvim_dap_virtual_text_status then
-	vim.notify("Please Install 'nvim-dap-virtual-text'")
-	return
-end
+local nvim_dap_virtual_text = SingularisArt.call('nvim-dap-virtual-text', 'DAP Virtual Text')
 
 nvim_dap_virtual_text.setup({
 	enabled = true, -- enable this plugin (the default)

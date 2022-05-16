@@ -1,9 +1,4 @@
--- local rust_tools_status, rust_tools = pcall(require, "rust-tools")
---
--- if not rust_tools_status then
--- 	vim.notify("Please Install 'rust-tools'")
--- 	return
--- end
+-- local rust_tools = SingularisArt.call('rust-tools', 'Rust Tools')
 --
 -- local opts = {
 -- 	tools = { -- rust-tools options

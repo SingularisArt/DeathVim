@@ -1,9 +1,4 @@
-local comment_status, comment = pcall(require, "Comment")
-
-if not comment_status then
-	vim.notify("Please Install 'Comment'")
-	return
-end
+local comment = SingularisArt.call('Comment', 'Comment')
 
 comment.setup({
   -- Add a space b/w comment and the line

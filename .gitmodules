@@ -433,3 +433,15 @@
 [submodule "snippet-converter.nvim"]
 	path = pack/bundle/opt/snippet-converter.nvim
 	url = https://github.com/smjonas/snippet-converter.nvim
+[submodule "vim-javascript"]
+	path = pack/bundle/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "typescript-vim"]
+	path = pack/bundle/opt/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "vim-jsx-pretty"]
+	path = pack/bundle/opt/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule "vim-jsx-typescript"]
+	path = pack/bundle/opt/vim-jsx-typescript
+	url = https://github.com/peitalin/vim-jsx-typescript

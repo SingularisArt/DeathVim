@@ -1,9 +1,4 @@
-local ts_rainbow_status, ts_rainbow = pcall(require, "nvim-treesitter.configs")
-
-if not ts_rainbow_status then
-	vim.notify("Please Install 'nvim-treesitter'")
-	return
-end
+local ts_rainbow = SingularisArt.call('nvim-treesitter.configs', 'Tree Sitter')
 
 ts_rainbow.setup {
   rainbow = {

@@ -1,9 +1,4 @@
-local nvim_lsp_installer_status, lsp_installer = pcall(require, "nvim-lsp-installer")
-
-if not nvim_lsp_installer_status then
-	vim.notify("Please Install 'nvim-lsp-installer'")
-	return
-end
+local lsp_installer = SingularisArt.call('nvim-lsp-installer', 'LSP Installer')
 
 lsp_installer.settings({
   ui = {

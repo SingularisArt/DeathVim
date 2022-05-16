@@ -1,8 +1,3 @@
-local nvim_dap_ui_status, dapui = pcall(require, "dapui")
+local dap_ui = SingularisArt.call('dapui', 'DAP UI')
 
-if not nvim_dap_ui_status then
-	vim.notify("Please Install 'nvim-dap-ui'")
-	return
-end
-
-dapui.setup()
+dap_ui.setup()

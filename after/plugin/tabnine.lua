@@ -1,9 +1,4 @@
-local tabnine_status, tabnine = pcall(require, "cmp_tabnine.config")
-
-if not tabnine_status then
-	vim.notify("Please Install 'tabnine'")
-	return
-end
+local tabnine = SingularisArt.call('cmp_tabnine.config', 'Tabnine')
 
 tabnine:setup({
 	max_lines = 1000,

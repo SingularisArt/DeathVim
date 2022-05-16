@@ -1,9 +1,4 @@
-local tree_sitter_status, nvim_treesitter = pcall(require, "nvim-treesitter.configs")
-
-if not tree_sitter_status then
-	vim.notify("Please Install 'nvim-treesitter'")
-	return
-end
+local nvim_treesitter = SingularisArt.call('nvim-treesitter.configs', 'Tree Sitter')
 
 nvim_treesitter.setup({
   ensure_installed = "all",

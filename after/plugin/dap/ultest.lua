@@ -1,9 +1,4 @@
-local ultest_status, ultest = pcall(require, "ultest")
-
-if not ultest_status then
-	vim.notify("Please Install 'ultest'")
-	return
-end
+local ultest = SingularisArt.call('ultest', 'UlTest')
 
 vim.g.ultest_use_pty = 1
 

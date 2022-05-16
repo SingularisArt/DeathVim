@@ -22,7 +22,7 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("cmp-cmdline")
   SingularisArt.plugin.load("cmp-emoji")
   SingularisArt.plugin.load("cmp-latex-symbols")
-  SingularisArt.plugin.load("cmp-luasnip")
+  -- SingularisArt.plugin.load("cmp-luasnip")
   SingularisArt.plugin.load("cmp-nvim-lsp")
   SingularisArt.plugin.load("cmp-nvim-lua")
   SingularisArt.plugin.load("cmp-nvim-ultisnips")
@@ -49,7 +49,22 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("one-small-step-for-vimkind")
   -- DAP --
 
+  -- LSP --
+  SingularisArt.plugin.load("nvim-lspconfig")
+  SingularisArt.plugin.load("lspsaga.nvim")
+  SingularisArt.plugin.load("nvim-lsp-installer")
+  SingularisArt.plugin.load("nlsp-settings.nvim")
+  SingularisArt.plugin.load("lsp-colors.nvim")
+  SingularisArt.plugin.load("lspkind-nvim")
+  SingularisArt.plugin.load("lsp_signature.nvim")
+  SingularisArt.plugin.load("lsp-status.nvim")
+  -- LSP --
+
   -- OTHER --
+  SingularisArt.plugin.load("vim-javascript")
+  SingularisArt.plugin.load("typescript-vim")
+  SingularisArt.plugin.load("vim-jsx-pretty")
+  SingularisArt.plugin.load("vim-jsx-typescript")
   SingularisArt.plugin.load("Comment.nvim")
   SingularisArt.plugin.load("copilot.vim")
   SingularisArt.plugin.load("dim.lua")
@@ -66,26 +81,20 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("litee-filetree.nvim")
   SingularisArt.plugin.load("litee.nvim")
   SingularisArt.plugin.load("litee-symboltree.nvim")
-  SingularisArt.plugin.load("lsp-colors.nvim")
-  SingularisArt.plugin.load("lspkind-nvim")
-  SingularisArt.plugin.load("lsp_signature.nvim")
-  SingularisArt.plugin.load("lsp-status.nvim")
   SingularisArt.plugin.load("lua-dev.nvim")
   SingularisArt.plugin.load("lualine.nvim")
   SingularisArt.plugin.load("markdown-preview.nvim")
   SingularisArt.plugin.load("MatchTagAlways")
   SingularisArt.plugin.load("neogen")
   SingularisArt.plugin.load("neo-tree.nvim")
+  SingularisArt.plugin.load("nvim-tree.lua")
   SingularisArt.plugin.load("nerdcommenter")
-  SingularisArt.plugin.load("nlsp-settings.nvim")
   SingularisArt.plugin.load("nui.nvim")
   SingularisArt.plugin.load("null-ls.nvim")
   SingularisArt.plugin.load("nvim-autopairs")
   SingularisArt.plugin.load("nvim-gomove")
   SingularisArt.plugin.load("nvim-gps")
   SingularisArt.plugin.load("nvim-lightbulb")
-  SingularisArt.plugin.load("nvim-lspconfig")
-  SingularisArt.plugin.load("nvim-lsp-installer")
   SingularisArt.plugin.load("nvim-notify")
   SingularisArt.plugin.load("nvim-rg")
   SingularisArt.plugin.load("nvim-treesitter")
@@ -106,6 +115,8 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("toggleterm.nvim")
   SingularisArt.plugin.load("trouble.nvim")
   SingularisArt.plugin.load("UltiSnips")
+  -- SingularisArt.plugin.load("snippet-converter.nvim")
+  -- SingularisArt.plugin.load("luasnip")
   SingularisArt.plugin.load("vim-closetag")
   SingularisArt.plugin.load("vim-easymotion")
   SingularisArt.plugin.load("vim-fugitive")
@@ -120,6 +131,9 @@ if vim.o.loadplugins then
   SingularisArt.plugin.load("which-key.nvim")
   -- OTHER --
 end
+
+-- Needed to load the plugins
+require('SingularisArt.require-plugin')
 
 -- Automatic, language-dependent indentation, syntax coloring and other
 -- functionality.

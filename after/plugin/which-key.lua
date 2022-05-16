@@ -1,9 +1,4 @@
-local which_key_status, which_key = pcall(require, "which-key")
-
-if not which_key_status then
-  vim.notify("Please Install 'which-key'")
-  return
-end
+local which_key = SingularisArt.call('which-key', 'Which Key')
 
 which_key.setup({
   plugins = {
@@ -76,7 +71,7 @@ which_key.setup({
 -------------------------
 
 which_key.register({
-  e = { "<cmd>NeoTreeShow<CR>", "Toggle NeoTree" },
+  e = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
   S = { "<cmd>SidebarNvimToggle<CR>", "Toggle SidebarNvim" },
   v = { "<cmd>vsplit<CR>", "Vertical Split" },
   h = { "<cmd>split<CR>", "Horizontal Split" },
@@ -320,7 +315,7 @@ which_key.register({
 		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics" },
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show List of Diagnostics" },
 		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
-		r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Show the Implementation" },
 		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to Previous Diagnostic" },
 		k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to Next Diagnostic" },

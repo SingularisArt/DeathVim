@@ -1,9 +1,4 @@
-local gitsigns_status, gitsigns = pcall(require, "gitsigns")
-
-if not gitsigns_status then
-	vim.notify("Please Install 'gitsigns''")
-	return
-end
+local gitsigns = SingularisArt.call('gitsigns', 'GitSigns')
 
 gitsigns.setup({
 	signs = {

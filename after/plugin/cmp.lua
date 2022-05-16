@@ -39,16 +39,16 @@ Vscode = vim.lsp.protocol.make_client_capabilities()
 
 local source_mapping = {
 	nvim_lsp = "(LSP)",
-	nvim_lua = "(Lua)",
+	-- nvim_lua = "(Lua)",
 	latex_symbols = "(LaTeX)",
 	ultisnips = "(Snippet)",
-	cmp_tabnine = "(TabNine)",
-	calc = "(Calculator)",
-	gh_issues = "(Issues)",
+	-- cmp_tabnine = "(TabNine)",
+	-- calc = "(Calculator)",
+	-- gh_issues = "(Issues)",
 	path = "(Path)",
 	buffer = "(Buffer)",
-	emoji = "(Emoji)",
-	spell = "(Spell)",
+	-- emoji = "(Emoji)",
+	-- spell = "(Spell)",
 }
 
 Capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -102,16 +102,16 @@ cmp.setup({
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
+		-- { name = "nvim_lua" },
 		{ name = "latex_symbols" },
 		{ name = "ultisnips" },
-		{ name = "cmp_tabnine" },
-		{ name = "calc" },
-		{ name = "gh_issues" },
+		-- { name = "cmp_tabnine" },
+		-- { name = "calc" },
+		-- { name = "gh_issues" },
 		{ name = "path" },
 		{ name = "buffer" },
-		{ name = "emoji" },
-		{ name = "spell" },
+		-- { name = "emoji" },
+		-- { name = "spell" },
 	}),
 
 	experimental = {
@@ -135,11 +135,11 @@ cmp.setup({
 	},
 })
 
-cmp.setup.cmdline(":", {
-	sources = {
-		{ name = "cmdline" },
-	},
-})
+-- cmp.setup.cmdline(":", {
+-- 	sources = {
+-- 		{ name = "cmdline" },
+-- 	},
+-- })
 
 local Job = require("plenary.job")
 
@@ -218,7 +218,6 @@ highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
 highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
 highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
 highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-
 highlight! CmpItemKindEnum          guibg=NONE guifg=#7D8471
 highlight! CmpItemKindInterface     guibg=NONE guifg=#252850
 highlight! CmpItemKindFile          guibg=NONE guifg=#015D52
@@ -243,7 +242,6 @@ highlight! CmpItemKindProperty      guibg=NONE guifg=#F4F4F4
 highlight! CmpItemKindVariable      guibg=NONE guifg=#6D3F5B
 highlight! CmpItemKindReference     guibg=NONE guifg=#474B4E
 highlight! CmpItemKindEnumMember    guibg=NONE guifg=#193737
-
 highlight! CmpItemKindEnumDefault          guibg=NONE guifg=#7D8471
 highlight! CmpItemKindInterfaceDefault     guibg=NONE guifg=#252850
 highlight! CmpItemKindFileDefault          guibg=NONE guifg=#015D52
@@ -269,4 +267,3 @@ highlight! CmpItemKindVariableDefault      guibg=NONE guifg=#6D3F5B
 highlight! CmpItemKindReferenceDefault     guibg=NONE guifg=#474B4E
 highlight! CmpItemKindEnumMemberDefault    guibg=NONE guifg=#193737
 ]]
-

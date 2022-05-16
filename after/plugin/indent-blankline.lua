@@ -1,9 +1,4 @@
-local indent_blankline_status, indent_blankline = pcall(require, "indent_blankline")
-
-if not indent_blankline_status then
-	vim.notify("Please Install 'indent-blankline'")
-	return
-end
+local indent_blankline = SingularisArt.call('indent_blankline', 'Indent Blankline')
 
 -- vim.opt.list = true
 -- vim.opt.listchars:append("space:⋅")

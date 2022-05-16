@@ -1,15 +1,5 @@
-local notify_status, notify = pcall(require, "notify")
-local popup_status, Popup = pcall(require, "nui.popup")
-
-if not notify_status then
-	error("Please Install 'notify'")
-	return
-end
-
-if not popup_status then
-	error("Please Install 'nvim-ui'")
-	return
-end
+local notify = SingularisArt.call('notify', 'Notify')
+local Popup = SingularisArt.call('nui.popup', 'NUI Popup')
 
 local M = {}
 local default_width = 30

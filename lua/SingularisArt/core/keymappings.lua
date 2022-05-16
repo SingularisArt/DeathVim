@@ -92,8 +92,8 @@ map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
 map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
 
 -- explorer
--- map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
-map({ "n", "<Leader>e", ":NeoTreeShow<CR>" })
+map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
+-- map({ "n", "<Leader>e", ":NeoTreeShow<CR>" })
 
 -- tab switch buffer and tab edit
 map({ "n", "<C-w>", ":bdelete<CR>" })
@@ -209,7 +209,7 @@ map({ "n", "<F9>", ":lua require('dap').continue()<CR>" })
 
 -- lsp
 map({ "n", "<Leader>sdd", ":lua vim.lsp.buf.definition()<CR>" })
-map({ "n", "<Leader>sdf", ":Lspsaga lsp_finder<CR>" })
+map({ "n", "<Leader>sdf", "lua vim.lsp.buf.rename:<CR>" })
 map({ "n", "<Leader>sdr", ":lua vim.lsp.buf.references()<CR>" })
 map({ "n", "<Leader>sdt", ":lua vim.lsp.buf.type_definition()<CR>" })
 map({ "n", "<Leader>sdp", ":lua require('goto-preview').goto_preview_definition()<CR>" })
