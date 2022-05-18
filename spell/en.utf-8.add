@@ -323,3 +323,6 @@ Args
 usr
 env
 python3
+polybar
+src
+datetime

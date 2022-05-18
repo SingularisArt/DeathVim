@@ -136,4 +136,3 @@ vim.opt.wildmenu    = true                                  -- show options as l
 vim.opt.wildmode    = 'longest:full,full'                   -- shell-like autocomplete to unambiguous portion
 vim.opt.winblend    = 10                                    -- psuedo-transparency for floating windows
 vim.opt.writebackup = false                                 -- don't keep backups after writing
-

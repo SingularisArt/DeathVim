@@ -187,10 +187,10 @@ vim.opt.directory = vim.opt.directory + "." -- fallback
 vim.opt.emoji = false -- don't assume all emoji are double width
 vim.opt.expandtab = true -- always use spaces instead of tabs
 vim.opt.fillchars = {
-	diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
-	eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
-	fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
-	vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+  diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+  eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
+  fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 }
 vim.opt.mouse = "a" -- use mouse in all modes
 vim.opt.foldlevelstart = 99 -- start unfolded
@@ -208,15 +208,15 @@ vim.opt.lazyredraw = true -- don't bother updating screen during macro playback
 vim.opt.linebreak = true -- wrap long lines at characters in 'breakat'
 -- vim.opt.list           = true                              -- show whitespace
 vim.opt.listchars = {
-	nbsp = "⦸", -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-	extends = "»", -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-	precedes = "«", -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-	tab = "▷⋯", -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF)
-	trail = "•", -- BULLET (U+2022, UTF-8: E2 80 A2)
+  nbsp = "⦸", -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+  extends = "»", -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+  precedes = "«", -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+  tab = "▷⋯", -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF)
+  trail = "•", -- BULLET (U+2022, UTF-8: E2 80 A2)
 }
 
 if vi then
-	vim.opt.loadplugins = false
+  vim.opt.loadplugins = false
 end
 
 vim.opt.modelines = 5 -- scan this many lines looking for modeline
@@ -227,25 +227,25 @@ vim.opt.scrolloff = 8 -- start scrolling 8 lines before edge of viewport
 vim.g.nohlsearch = false -- highlight search results
 
 if root then
-	vim.opt.shada = "" -- Don't create root-owned files.
-	vim.opt.shadafile = "NONE"
+  vim.opt.shada = "" -- Don't create root-owned files.
+  vim.opt.shadafile = "NONE"
 else
-	-- Defaults:
-	--   Neovim: !,'100,<50,s10,h
-	--
-	-- - ! save/restore global variables (only all-uppercase variables)
-	-- - '100 save/restore marks from last 100 files
-	-- - <50 save/restore 50 lines from each register
-	-- - s10 max item size 10KB
-	-- - h do not save/restore 'hlsearch' setting
-	--
-	-- Our overrides:
-	-- - '0 store marks for 0 files
-	-- - <0 don't save registers
-	-- - f0 don't store file marks
-	-- - n: store in ~/.config/nvim/
-	--
-	vim.opt.shada = "'0,<0,f0,n~/.config/nvim/shada"
+  -- Defaults:
+  --   Neovim: !,'100,<50,s10,h
+  --
+  -- - ! save/restore global variables (only all-uppercase variables)
+  -- - '100 save/restore marks from last 100 files
+  -- - <50 save/restore 50 lines from each register
+  -- - s10 max item size 10KB
+  -- - h do not save/restore 'hlsearch' setting
+  --
+  -- Our overrides:
+  -- - '0 store marks for 0 files
+  -- - <0 don't save registers
+  -- - f0 don't store file marks
+  -- - n: store in ~/.config/nvim/
+  --
+  vim.opt.shada = "'0,<0,f0,n~/.config/nvim/shada"
 end
 
 vim.opt.shell = "sh" -- shell to use for `!`, `:!`, `system()` etc.
@@ -267,7 +267,7 @@ vim.opt.sidescrolloff = 3 -- same as scrolloff, but for columns
 vim.opt.smarttab = true -- <tab>/<BS> indent/dedent in leading whitespace
 
 if not vi then
-	vim.opt.softtabstop = -1 -- use 'shiftwidth' for tab/bs at end of line
+  vim.opt.softtabstop = -1 -- use 'shiftwidth' for tab/bs at end of line
 end
 
 vim.opt.spell = true -- spell checking
@@ -283,11 +283,11 @@ vim.opt.termguicolors = true -- use guifg/guibg instead of ctermfg/ctermbg in te
 vim.opt.textwidth = 80 -- automatically hard wrap at 80 columns
 
 if root then
-	vim.opt.undofile = false -- don't create root-owned files
+  vim.opt.undofile = false -- don't create root-owned files
 else
-	vim.opt.undodir = config .. "/undo//" -- keep undo files out of the way
-	vim.opt.undodir = vim.opt.undodir + "." -- fallback
-	vim.opt.undofile = true -- actually use undo files
+  vim.opt.undodir = config .. "/undo//" -- keep undo files out of the way
+  vim.opt.undodir = vim.opt.undodir + "." -- fallback
+  vim.opt.undofile = true -- actually use undo files
 end
 
 vim.opt.updatetime = 2000 -- CursorHold interval
@@ -338,20 +338,20 @@ vim.g.vim_markdown_frontmatter = 1
 vim.g.vim_markdown_new_list_item_indent = 0
 
 if vim.fn.filereadable("/usr/bin/python3.10") == 1 then
-	-- Avoid search, speeding up start-up.
-	vim.g.python3_host_prog = "/usr/bin/python3.10"
+  -- Avoid search, speeding up start-up.
+  vim.g.python3_host_prog = "/usr/bin/python3.10"
 end
 
 -- Allow for per-machine overrides.
 local hostname = vim.fn.substitute(vim.fn.hostname(), "\\..*", "", "")
 local overrides = {
-	config .. "/host/" .. hostname .. ".vim",
-	config .. "/host/" .. hostname .. ".lua",
-	config .. "/init-local.vim",
-	config .. "/init-local.lua",
+  config .. "/host/" .. hostname .. ".vim",
+  config .. "/host/" .. hostname .. ".lua",
+  config .. "/init-local.vim",
+  config .. "/init-local.lua",
 }
 for _, override in ipairs(overrides) do
-	if vim.fn.filereadable(override) == 1 then
-		vim.cmd("source " .. override)
-	end
+  if vim.fn.filereadable(override) == 1 then
+    vim.cmd("source " .. override)
+  end
 end
