@@ -1,7 +1,7 @@
 Death.NeoVim
 ============
 
-This is a simple, but yet, elegant neovim setup.
+This is a simple, but yet, elegant NeoVim setup.
 
 ![pic1](media/main.png)
 
@@ -13,8 +13,6 @@ Table of Contents
 * [Installation](#installation)
    * [Requirements](#requirements)
 * [Usage](#usage)
-   * [Package Managers](#package-managers)
-   * [Colorscheme](#colorscheme)
    * [Keybindings](#keybindings)
 * [Showcase](#showcase)
    * [Theme Showcase](#theme-showcase)
@@ -22,9 +20,9 @@ Table of Contents
    * [Filetypes](#filetypes)
 * [Contributing](#contributing)
 * [TODO](#todo)
-   * [Completed](#completed)
-   * [Working on](#working-on)
-   * [Need to do](#need-to-do)
+  * [Completed](#completed)
+  * [Working On](#working-on)
+  * [Need to Do](#need-to-do)
 
 # Install Language support
 
@@ -40,7 +38,7 @@ To install any of them run
 # Installation
 
 > ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
-> that is 0.6.1)
+> that is 0.8.0)
 
 ## Requirements
 
@@ -50,50 +48,11 @@ But before doing that, make sure you back-up your NeoVim configuration just
 in case. You do that with:
 
 ```sh
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim && cd ~/.config/nvim && ./script
+git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+git submodule update --init --recursive
 ```
 
 # Usage
-
-## Package Managers
-
-This NeoVim config doesn't use any plugin managers. I use `git submodules`.
-You can view all of the plugins [here](pack/bundle/opt) and I source theme in
-my [init.lua](./init.lua).
-
-### Adding plugins
-
-Here's how you add a plugin:
-
-```bash
-git submodule --name PLUGIN-NAME https://github.com/USER/PLUGIN-NAME pack/bundle/opt/PLUGIN-NAME
-```
-
-After you've add the submodule, add this to the `init.lua` file in the
-section for the plugins:
-
-```lua
-SingularisArt.plugin.load('PLUGIN-NAME')
-```
-
-### Remove/Disable plugins
-
-All you have to do to disable a plugin is to remove the calling from the
-`init.lua` file.
-If you want to permanently remove a plugin, remove it's submodule using the
-following command:
-
-```bash
-git rm --cached pack/bundle/opt/PLUGIN-NAME
-rm -rf pack/bundle/opt/PLUGIN-NAME
-```
-
-## Colorscheme
-
-I use the `pywal` colorscheme, which uses the colors from the `wal` command.
-[Here's](https://github.com/SingularisArt/Chameleon) a script that I forked
-that will change your computer's entire system colorscheme based on your
-wallpaper.
 
 ## Keybindings
 
@@ -418,8 +377,8 @@ and place your config there.
 ## Working on
 
 - [ ] Add images
+- [ ] Organize the structure of my `plugins.lua` file.
 
 ## Need to do
 
 - [ ] Make my own executable called **dvim**.
-

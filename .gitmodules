@@ -1,0 +1,3 @@
+[submodule "UltiSnips"]
+	path = UltiSnips
+	url = https://github.com/SingularisArt/snippets

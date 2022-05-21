@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
     url = "https://github.com/Pocco81/DAPInstall.nvim"
   },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -93,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/UltiSnips",
     url = "https://github.com/SirVer/UltiSnips"
+  },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["base16-vim"] = {
     loaded = true,
@@ -184,10 +194,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/corpus",
     url = "https://github.com/wincent/corpus"
   },
-  ["dashboard-nvim"] = {
+  ["darkplus.nvim"] = {
     loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
+    url = "https://github.com/lunarvim/darkplus.nvim"
   },
   ["deoplete-mssql"] = {
     loaded = true,
@@ -243,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://github.com/ray-x/guihua.lua"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -434,11 +449,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
-  },
   ["nvim-remote-containers"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-remote-containers",
@@ -468,6 +478,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
@@ -509,6 +524,11 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
+  },
   ["pretty-fold.nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/pretty-fold.nvim",
@@ -538,11 +558,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
-  },
-  ["sidebar.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/sidebar.nvim",
-    url = "https://github.com/sidebar-nvim/sidebar.nvim"
   },
   ["snippet-converter.nvim"] = {
     loaded = true,
@@ -628,6 +643,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-bbye"] = {
+    loaded = true,
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-bbye",
+    url = "https://github.com/moll/vim-bbye"
   },
   ["vim-closetag"] = {
     loaded = true,
@@ -778,11 +798,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/virtual-types.nvim",
     url = "https://github.com/jubnzv/virtual-types.nvim"
-  },
-  ["vscode_sidebar.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vscode_sidebar.nvim",
-    url = "https://github.com/SingularisArt/vscode_sidebar.nvim"
   },
   ["which-key.nvim"] = {
     loaded = true,

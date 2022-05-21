@@ -1,3 +1,0 @@
--- local trouble = SingularisArt.call('trouble', 'Trouble')
---
--- trouble.setup({})

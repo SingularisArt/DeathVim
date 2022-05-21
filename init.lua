@@ -1,24 +1,22 @@
-require("SingularisArt")
-
-vim.cmd('set rtp+=~/Documents/school-notes/current-course')
-
-require('SingularisArt.plugins')
-
-vim.cmd([[
-color pywal
-
-highlight Cursor guifg=#F8F8F8 guibg=#A7A7A7
-highlight Visual ctermbg=11 guibg=#504945
-
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
-]])
-
--- Require the lsp config
-require("SingularisArt.lsp")
-require('SingularisArt.lualine').setup()
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.cmp"
+require "user.lsp"
+require "user.telescope"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+require "user.gitsigns"
+require "user.nvim-tree"
+require "user.bufferline"
+require "user.lualine"
+require "user.toggleterm"
+require "user.project"
+require "user.impatient"
+require "user.indentline"
+require "user.alpha"
+require "user.ultisnips"
+require "user.whichkey"
+require "user.autocommands"
