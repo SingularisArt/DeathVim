@@ -75,7 +75,6 @@ which_key.setup({
 
 which_key.register({
   e = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
-  S = { "<cmd>SidebarNvimToggle<CR>", "Toggle SidebarNvim" },
   v = { "<cmd>vsplit<CR>", "Vertical Split" },
   h = { "<cmd>split<CR>", "Horizontal Split" },
   o = { "<cmd>only<CR>", "Tab only" },
@@ -86,6 +85,12 @@ which_key.register({
   j = "which_key_ignore",
   k = "which_key_ignore",
   r = "which_key_ignore",
+  t = {
+    c = "which_key_ignore",
+    m = "which_key_ignore",
+    r = "which_key_ignore",
+    s = "which_key_ignore",
+  }
 }, { prefix = "<leader>" })
 
 ------------------
@@ -107,19 +112,6 @@ which_key.register({
 	},
 }, { prefix = "<leader>" })
 
-----------------------
--- Minimap Mappings --
-----------------------
-
-which_key.register({
-	i = {
-		name = "Mini Map",
-		c = { "<cmd>MinimapClose<CR>", "Close Minimap" },
-		o = { "<cmd>MinimapOpen<CR>", "Open Minimap" },
-		r = { "<cmd>MinimapRefresh<CR>", "Refresh Minimap" },
-		t = { "<cmd>MinimapToggle<CR>", "Toggle Minimap" },
-	},
-}, { prefix = "<leader>" })
 
 ---------------------
 -- Plugin Mappings --
@@ -168,20 +160,22 @@ which_key.register({
 which_key.register({
 	t = {
 		name = "Table",
-		t = { "<cmd>TableModeToggle<CR>", "Toggle Table Mode" },
-		a = {
-			name = "Add",
-			f = { "<cmd>TableAddFormula<CR>", "Add formula" },
-		},
-		d = {
-			name = "Delete",
-			r = { "<Leader>tdr", "Delete Table Row" },
-			c = { "<Leader>tdc", "Delete Table Column" },
-		},
-		i = {
-			name = "Insert",
-			c = { "<Leader>tic", "Insert Table Column" },
-		},
+    t = { "<cmd>TableModeToggle<CR>", "Enable/Disable Table Mode" },
+    n = { "<Leader>ti", "Get cell info" },
+    f = {
+      name = "Formula",
+      a = { "<cmd>TableAddFormula<CR>", "Add formula" },
+      e = { "<Leader>tfe", "Evaluate formula on current row" },
+    },
+    d = {
+      name = "Delete",
+      r = { "<Leader>tdr", "Delete row" },
+      c = { "<Leader>tdc", "Delete column" },
+    },
+    i = {
+      name = "Insert",
+      c = { "<Leader>tic", "Insert column" },
+    }
 	},
 }, { prefix = "<leader>" })
 
@@ -313,28 +307,27 @@ which_key.register({
 	s = {
 		name = "LSP",
 		h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Documentation" },
-		c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "List Code Actions" },
-    C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all LSP Windows" },
-		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show Diagnostics" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show List of Diagnostics" },
+		c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
+		e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show line diagnostics" },
+		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show QuickFix" },
 		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-		i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Show the Implementation" },
-		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to Previous Diagnostic" },
-		k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to Next Diagnostic" },
-		d = {
-			name = "Defintions",
-			d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
-			f = { "<cmd>Lspsaga lsp_finder<CR>", "Find all definitions/refrences" },
-			r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Find refrences" },
-			t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Find the type" },
-			p = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "Preview Definition" },
-		},
-		w = {
-			name = "Workspace",
-			a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Workspace" },
-			r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Workspace" },
-		},
+		i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Go to implementation" },
+		j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+		k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+		C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
+    d = {
+      name = "Definition",
+      d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+      r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Find references" },
+      t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Get type definition" },
+      p = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "View definition in pop-up" },
+    },
+    w = {
+      name = "Workspace",
+      a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()", "Add workspace" },
+      r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()", "Remove workspace" },
+    }
 	},
 }, { prefix = "<leader>" })
 
@@ -345,23 +338,23 @@ which_key.register({
 which_key.register({
   b = {
     name = "Buffers",
+    p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
     c = {
       name = "Close",
-      l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffers to the Left" },
-      r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffers to the Right" },
+      l = { "<cmd>BufferLineCloseLeft", "Close all buffers to the left" },
+      r = { "<cmd>BufferLineCloseRight", "Close all buffers to the right" },
     },
     m = {
       name = "Move",
-      f = { "<cmd>BufferLineMoveNext<CR>", "Move buffer Forward" },
-      b = { "<cmd>BufferLineMovePrev<CR>", "Move buffer Backward" },
+      n = { "<cmd>BufferLineMoveNext", "Move buffer next" },
+      p = { "<cmd>BufferLineMovePrev", "Move buffer previous" },
     },
     s = {
       name = "Sort",
-      f = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by Directory" },
-      e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by Extension" },
-      r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by Relative Directory" },
-      t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by Tabs" },
-    },
-    p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+      d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
+      e = { "<cmd>BufferLineSortByExtension", "Sort by extension" },
+      r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
+      t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
+    }
   },
 }, { prefix = "<leader>" })

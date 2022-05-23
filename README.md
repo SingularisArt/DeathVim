@@ -1,28 +1,30 @@
-Death.NeoVim
-============
+<!-- tmf: $0,1=10*4 -->
+💀 A Hackable, Fully Featured, Rice Friendly Neovim Configuration 💀
 
-This is a simple, but yet, elegant NeoVim setup.
+<p align="center">💀 A Hackable, Fully Featured, Rice Friendly Neovim Configuration 💀</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#required-tools">Required Tools</a>
+  <br>
+  <br>
+  <a href="https://github.com/SingularisArt/Death.NeoVim/stargazers">
+    <img src="https://img.shields.io/github/stars/SingularisArt/Death.NeoVim.svg?style=flat-square&logo=hackaday"/>
+  </a>
+  <a href="https://github.com/SingularisArt/Death.NeoVim/commits/master">
+    <img src="https://img.shields.io/github/last-commit/SingularisArt/Death.NeoVim.svg?style=flat-square&logo=vim"/>
+  </a>
+  <a href="https://github.com/SingularisArt/Death.NeoVim.svg">
+    <img src="http://hits.dwyl.com/SingularisArt/Death.NeoVim.svg"/>
+  </a>
+
+<p align="center">
+  <img src="https://stars.medv.io/SingularisArt/Death.NeoVim.svg", title="commits"/>
+</p>
 
 ![pic1](media/main.png)
-
-Table of Contents
-=================
-
-* [Death.NeoVim](#deathneovim)
-* [Install Language support](#install-language-support)
-* [Installation](#installation)
-   * [Requirements](#requirements)
-* [Usage](#usage)
-   * [Keybindings](#keybindings)
-* [Showcase](#showcase)
-   * [Theme Showcase](#theme-showcase)
-   * [Very useful plugins used](#very-useful-plugins-used)
-   * [Filetypes](#filetypes)
-* [Contributing](#contributing)
-* [TODO](#todo)
-  * [Completed](#completed)
-  * [Working On](#working-on)
-  * [Need to Do](#need-to-do)
 
 # Install Language support
 
@@ -40,211 +42,224 @@ To install any of them run
 > ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
 > that is 0.8.0)
 
-## Requirements
-
-Right now, it only works on Linux (32 bit and 64 bit).
-
-But before doing that, make sure you back-up your NeoVim configuration just
-in case. You do that with:
-
 ```sh
+mv ~/.config/nvim ~/.config/nvim-back
 git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
-git submodule update --init --recursive
 ```
 
 # Usage
 
 ## Keybindings
 
-### Basic key binds
 
-| Function       | Keybind         |
-| -------------- | --------------- |
-| Leader Key     | `SPACE`         |
+<details><summary><code>Basic Key-Bindings</code></summary>
+<p>
+  
+| Function                                | Keybind           |
+| --------------------------------------- | ---------------   |
+| Leader Key                              | `SPACE`           |
+| Create a new tab                        | `Ctrl+t`          |
+| Remove the current tab                  | `Ctrl+w`          |
+| Toggle QuickFix                         | `Right Arrow`     |
+| Close QuickFix                          | `Left Arrow`      |
+| Previous QuickFix item                  | `Up Arrow`        |
+| Next QuickFix item                      | `Down Arrow`      |
+| Format file                             | `Ctrl+s`          |
+| Correct a misspelled word               | `Ctrl+l`          |
+| Create a vertical split                 | `<Leader>+v`      |
+| Create a horizontal split               | `<Leader>+h`      |
+| Close all splits                        | `<Leader>+o`      |
+| Highlight everything                    | `Ctrl+a`          |
+| Move text up                            | `J` (VISUAL MODE) |
+| Move text down                          | `K` (VISUAL MODE) |
+| Move text up                            | `<Leader>j`       |
+| Move text down                          | `<Leader>k`       |
+| Open NvimTree                           | `<Leader>e`       |
+| Toggle easymotion                       | `<Leader>y`       |
 
-### Browser
+</p>
+</details>
 
-| Function              | Keybind      |
-| --------------------- | ------------ |
-| :NvimTreeToggle       | `<Leader>e`  |
-| Create new tab        | `<A-t>`      |
-| Remove tab            | `<A-w>`      |
-| Go to next Diagnostic | `[d`         |
-| Go to prev Diagnostic | `]d`         |
+<details><summary><code>Packer</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Install plugins                         | `<Leader>pi`    |
+| Update plugins                          | `<Leader>pu`    |
+| Clean plugins                           | `<Leader>pc`    |
+| Load plugins                            | `<Leader>pl`    |
+| Sync plugins                            | `<Leader>ps`    |
+| Bring profile                           | `<Leader>pp`    |
 
-### Buffers
+</p>
+</details>
 
-| Function                           | Keybind        |
-| ---------------------------------- | -------------- |
-| :BufferLinePick                    | `<Leader>bp`   |
-| :BufferLineCloseLeft               | `<Leader>bcl`  |
-| :BufferLineCloseRight              | `<Leader>bcr`  |
-| :BufferLineMoveNext                | `<Leader>bmn`  |
-| :BufferLineMovePrev                | `<Leader>bmp`  |
-| :BufferLineSortByDirectory         | `<Leader>bsd`  |
-| :BufferLineSortByExtension         | `<Leader>bse`  |
-| :BufferLineSortByRelativeDirectory | `<Leader>bsr`  |
-| :BufferLineSortByTabs              | `<Leader>bst`  |
+<details><summary><code>Buffers</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Pick from the buffers                   | `<Leader>bp`    |
+| Close all buffers to the left           | `<Leader>bcl`   |
+| Close all buffers to the right          | `<Leader>bcr`   |
+| Move buffer next                        | `<Leader>bmn`   |
+| Move buffer previous                    | `<Leader>bmp`   |
+| Sort buffers by directory               | `<Leader>bsd`   |
+| Sort buffers by extension               | `<Leader>bse`   |
+| Sort buffers by relative directory      | `<Leader>bsr`   |
+| Sort buffers by tabs                    | `<Leader>bst`   |
 
-### Navigation
+</p>
+</details>
 
-| Function                      | Keybind                   |
-| ----------------------------- | ------------------------- |
-| Navigate to left window       | `Ctrl+h`                  |
-| Navigate to right window      | `Ctrl+l`                  |
-| Navigate to top window        | `Ctrl+k`                  |
-| Navigate to bottom window     | `Ctrl+j`                  |
-| Next tab                      | `Tab`                     |
-| Previous tab                  | `Shift+Tab`               |
-| Only window                   | `<Leader>o`               |
-| New tab                       | `<A-t>`                   |
-| Kill buffer                   | `<A-w>`                   |
-| Horizontal split              | `<Leader>h`               |
-| Horizontal vsplit             | `<Leader>v`               |
-| Easymotion                    | `<Leader>y`               |
+<details><summary><code>Git</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Git status                              | `<Leader>gs`    |
+| Git add                                 | `<Leader>ga`    |
+| Git commit                              | `<Leader>gc`    |
+| Git push                                | `<Leader>gp`    |
+| Git pull                                | `<Leader>gP`    |
+| Git log                                 | `<Leader>gl`    |
+| Git diff                                | `<Leader>gd`    |
+| Lazy Git                                | `<Leader>gL`    |
+| Lazy Git Filter                         | `<Leader>gf`    |
 
-### Editing
+</p>
+</details>
 
-| Function                 | Keybind                   |
-| ------------------------ | ------------------------- |
-| :TableModeToggle         | `<Leader>tt`              |
-| :TableAddFormula         | `<Leader>taf`             |
-| Delete Table Row         | `<Leader>tdr`             |
-| Delete Table Column      | `<Leader>tdc`             |
-| Insert Table Column      | `<Leader>tic`             |
-| NERDComment toggle       | `<Leader>nc`              |
-| NERDComment un-toggle    | `<Leader>nu`              |
-| Fix misspelled words     | `<C-l> INSERT MODE`       |
+<details><summary><code>Translate</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Show the translation in the cmd line    | `<Leader>Rt`    |
+| Show the translation in a pop-up        | `<Leader>Rw`    |
+| Convert the word to the translated word | `<Leader>Rr`    |
 
-### Telescope
+</p>
+</details>
 
-| Function                 | Keybind                   |
-| ------------------------ | ------------------------- |
-| :Telescope find_files    | `<Leader>ff`              |
-| :Telescope oldfiles      | `<Leader>fo`              |
-| :Telescope colorscheme   | `<Leader>fc`              |
-| :Telescope buffers       | `<Leader>fb`              |
-| :Telescope commands      | `<Leader>fm`              |
-| :Telescope quick_fix     | `<Leader>fq`              |
-| :Telescope live_grep     | `<Leader>fl`              |
-| :Telescope marks         | `<Leader>fr`              |
-| :Telescope projects      | `<Leader>fp`              |
-| :Telescope git_status    | `<Leader>fgs`             |
-| :Telescope git_files     | `<Leader>fgf`             |
-| :Telescope git_commits   | `<Leader>fgc`             |
-| :Telescope git_branches  | `<Leader>fgb`             |
-| :Telescope git_stash     | `<Leader>fgt`             |
+<details><summary><code>LaTeX</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Clean                                   | `<Leader>lll`   |
+| Clean Cache                             | `<Leader>llc`   |
+| Compile                                 | `<Leader>lcc`   |
+| Compile and show output                 | `<Leader>lco`   |
+| Compile and show SS                     | `<Leader>lcs`   |
+| Compile selected                        | `<Leader>lce`   |
+| Reload                                  | `<Leader>lrr`   |
+| Reload state                            | `<Leader>lrs`   |
+| Stop                                    | `<Leader>lop`   |
+| Stop all                                | `<Leader>loa`   |
+| Show TOC                                | `<Leader>ltt`   |
+| Show context menu                       | `<Leader>lm`    |
+| Count letters                           | `<Leader>lu`    |
+| Count words                             | `<Leader>lw`    |
+| Document package                        | `<Leader>ld`    |
+| Errors                                  | `<Leader>le`    |
+| Status                                  | `<Leader>ls`    |
+| View pdf                                | `<Leader>vl`    |
+| Info                                    | `<Leader>li`    |
 
-### Git
+</p>
+</details>
 
-| Function        | Keybind         |
-| --------------- | --------------- |
-| :Git            | `<Leader>gs`    |
-| :Git add .      | `<Leader>ga`    |
-| :Git diff       | `<Leader>gd`    |
-| :Git commit     | `<Leader>gc`    |
-| :Git push       | `<Leader>gp`    |
-| :Git pull       | `<Leader>gP`    |
-| :Git log        | `<Leader>gl`    |
-| :LazyGit        | `<Leader>gL`    |
-| :LazyGitFilter  | `<Leader>gf`    |
+<details><summary><code>Markdown</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Preview markdown                        | `<Leader>mp`    |
 
-### Translation
+</p>
+</details>
 
-| Function        | Keybind         |
-| ----------------| --------------- |
-| :Translate      | `<Leader>rt`    |
-| :TranslateW     | `<Leader>rw`    |
-| :TranslateR     | `<Leader>rr`    |
+<details><summary><code>Table</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Toggle table mode                       | `<Leader>tt`    |
+| Delete row                              | `<Leader>tdd`   |
+| Delete column                           | `<Leader>tdc`   |
+| Insert column                           | `<Leader>tic`   |
+| Add formula                             | `<Leader>tfa`   |
+| Evaluate the formula on the current row | `<Leader>tfe`   |
+| Get cell info                           | `<Leader>tn`
 
-### Dashbaord
+</p>
+</details>
 
-| Function          | Keybind         |
-| ----------------- | --------------- |
-| :Dashbaord        | `<Leader>dd`    |
-| :DashboardNewFile | `<Leader>dn`    |
+<details><summary><code>Telescope</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
+| Find files                              | `<Leader>fff`   |
+| Find files using a file browser         | `<Leader>ffb`   |
+| Git status                              | `<Leader>fgs`   |
+| Git commits                             | `<Leader>fgc`   |
+| Git branches                            | `<Leader>fgb`   |
+| Git stash                               | `<Leader>fgt`   |
+| Look through old files                  | `<Leader>fo`    |
+| Go through the colorschemes             | `<Leader>fc`    |
+| Go through buffers                      | `<Leader>fb`    |
+| Go through commands                     | `<Leader>fm`    |
+| Go through the QuickFix list            | `<Leader>fq`    |
+| Do a live grep                          | `<Leader>fl`    |
+| Go through marks                        | `<Leader>fm`    |
+| Go through projects                     | `<Leader>fp`    |
 
-### LaTeX
+</p>
+</details>
 
-| Function                   | Keybind         |
-| -------------------------- | --------------- |
-| :VimtexCache               | `<Leader>llc`   |
-| :VimtexCompile             | `<Leader>lcc`   |
-| :VimtexCompileOutput       | `<Leader>lco`   |
-| :VimtexCompileSS           | `<Leader>lcs`   |
-| :VimtexCompileSelected     | `<Leader>lce`   |
-| :VimtexReload              | `<Leader>lrr`   |
-| :VimtexReloadState         | `<Leader>lrs`   |
-| :VimtexStop                | `<Leader>lop`   |
-| :VimtexStopAll             | `<Leader>loa`   |
-| :VimtexTocOpen             | `<Leader>lto`   |
-| :VimtexTocToggle           | `<Leader>ltt`   |
-| :VimtexContextMenu         | `<Leader>lm`    |
-| :VimtexCountLetters        | `<Leader>lu`    |
-| :VimtexCountWords          | `<Leader>lw`    |
-| :VimtexDocPackage          | `<Leader>ld`    |
-| :VimtexErrors              | `<Leader>le`    |
-| :VimtexStatus              | `<Leader>ls`    |
-| :VimtexToggleMain          | `<Leader>la`    |
-| :VimtexView                | `<Leader>lv`    |
-| :VimtexInfo                | `<Leader>li`    |
+<details><summary><code>Debugging</code></summary>
+<p>
+  
+| Function                                | Keybind         |
+| --------------------------------------- | --------------- |
 
-### Misc
+</p>
+</details>
 
-| Function            | Keybind         |
-| ------------------- | --------------- |
-| :MarkdownPreview    | `<Leader>mp`    |
+<details><summary><code>LSP</code></summary>
+<p>
+  
+| Function                                 | Keybind         |
+| ---------------------------------------- | --------------- |
+| Go to definition                         | `<Leader>sdd`   |
+| Show references                          | `<Leader>sdr`   |
+| Get type definition                      | `<Leader>sdt`   |
+| Show definition preview in pop-up window | `<Leader>sdp`   |
+| Add workspace                            | `<Leader>swa`   |
+| Remove workspace                         | `<Leader>swr`   |
+| Show documentation                       | `<Leader>sh`    |
+| Show code actions                        | `<Leader>sc`    |
+| Show line diagnostics                    | `<Leader>se`    |
+| Show QuickFix list                       | `<Leader>sq`    |
+| Format                                   | `<Leader>sf`    |
+| Rename                                   | `<Leader>sr`    |
+| Go to implementation                     | `<Leader>si`    |
+| Go to next diagnostic                    | `<Leader>sj`    |
+| Go to prev diagnostic                    | `<Leader>sk`    |
+| Close all windows                        | `<Leader>sC`    |
 
-### Debugging
+</p>
+</details>
 
-| Function                      | Keybind       |
-|-------------------------------|---------------|
-| Continue                      | `<Leader>dsc` |
-| Step Over                     | `<Leader>dsv` |
-| Step Into                     | `<Leader>dsi` |
-| Step Out                      | `<Leader>dso` |
-| Hover                         | `<Leader>dhh` |
-| Visual Hover                  | `<Leader>dhv` |
-| UI Hover                      | `<Leader>duh` |
-| Float                         | `<Leader>duf` |
-| Repl Open                     | `<Leader>dro` |
-| Repl Last                     | `<Leader>drl` |
-| Create Breakpoint             | `<Leader>dbt` |
-| Create Breakpoint Condition   | `<Leader>dbc` |
-| Create Breakpoint Log Message | `<Leader>dbm` |
-| Scopes                        | `<Leader>dc`  |
-| Toggle UI                     | `<Leader>di`  |
-
-### LSP
-
-| Function                   | Keybind         |
-| -------------------------- | --------------- |
-| Go to next Diagnostic      | `[d`            |
-| Go to prev Diagnostic      | `]d`            |
-| Open/Close Terminal        | `<Alt-d>`       |
-| Hover Doc                  | `<Leader>sh`    |
-| Rename                     | `<Leader>sr`    |
-| Code Action                | `<Leader>sc`    |
-| Show Diagnostics           | `<Leader>se`    |
-| Error Localist             | `<Leader>sq`    |
-| Format                     | `<Leader>sf`    |
-| Implement                  | `<Leader>si`    |
-| Go to Definition           | `<Leader>sdd`   |
-| Find files with Definition | `<Leader>sdf`   |
-| Find References            | `<Leader>sdr`   |
-| Type Definition            | `<Leader>sdt`   |
-| Preview Definition         | `<Leader>sdp`   |
-| Add workspace              | `<Leader>swa`   |
-| Remove workspace           | `<Leader>swr`   |
-
-Check [here](lua/core/keymappings.lua) for all of the mappings.
-
-# Showcase
+## Showcase
 
 <img src="media/showcase/layout.png">
 <img src="media/showcase/completion.png">
 
-## Theme Showcase
+### Theme Showcase
 
 <details><summary>Images</summary>
   <img src="media/themes/theme-1.png">
@@ -252,9 +267,14 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
   <img src="media/themes/theme-3.png">
 </details>
 
-## Very useful plugins used
+### Very useful plugins used
 
 <details><summary>Images</summary>
+  <h3>Alpha</h3>
+  Nice start when you open nvim without passing any arguments.
+
+  <img src="media/plugins/alpha.png">
+
   <h3>Nvim Tree</h3>
   Fast file tree:<br>
 
@@ -283,7 +303,12 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
   <img src="media/plugins/nvim-treesitter.png">
 </details>
 
-## Filetypes
+### Completion
+
+<details><summary>Images</summary>
+</details>
+
+### Filetypes
 
 <details><summary>Images</summary>
   <h3>Python</h3>
@@ -347,7 +372,7 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
   <img src="media/filetypes/md.png">
 </details>
 
-## Debugging
+### Debugging
 
 <details><summary>Images</summary>
   <img src="media/debugging/debugging-1.png">
@@ -355,11 +380,12 @@ Check [here](lua/core/keymappings.lua) for all of the mappings.
   <img src="media/debugging/debugging-3.png">
 </details>
 
-# Contributing
+# Required Tools
 
-If you would like to contribute, you just simply create a folder within the
-`lua` folder. Then, you go ahead and create a folder that's named your username
-and place your config there.
+These must be installed for you to be able to use all the features:
+
+* [pywal](https://github.com/dylanaraps/pywal) for colorscheme
+* [all these npm packages](https://github.com/SingularisArt/Singularis/blob/master/package.json#L6-L18) for lsp support
 
 # TODO
 

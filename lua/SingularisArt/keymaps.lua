@@ -32,6 +32,29 @@ map({ "n", "<C-k>", "<NOP>" })
 map({ "n", "<C-Space>", "<NOP>" })
 map({ "n", "<C-s>", "<NOP>" })
 
+-- misc
+map({ "i", "<C-H>", "<C-W>" })
+
+-- format on save
+map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
+
+-- easymotion
+map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
+
+-- explorer
+map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
+
+-- tab switch buffer and tab edit
+map({ "n", "<C-w>", ":bdelete<CR>" })
+map({ "n", "<C-t>", ":tabnew<CR>" })
+
+-- spell correction
+map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" })
+
+-- highlight everything
+map({ "n", "<C-a>", "ggVG" })
+map({ "i", "<C-a>", "<Esc>ggVG" })
+
 -- everytime I move, I remove the highlight after searching
 map({ "n", ";", ":nohl<CR>" })
 
@@ -62,9 +85,6 @@ map({ "i", ".", ".<c-g>u" })
 map({ "i", "!", "!<c-g>u" })
 map({ "i", "?", "?<c-g>u" })
 
--- misc
-map({ "i", "<C-H>", "<C-W>" })
-
 -- resize with arrows
 map({ "n", "<C-Up>", ":resize -2<CR>" })
 map({ "n", "<C-Down>", ":resize +2<CR>" })
@@ -80,36 +100,21 @@ map({ "n", "<Left>", ":cclose<CR>" })
 -- moving text
 map({ "v", "J", ":m '>+1<CR>gv=gv" })
 map({ "v", "K", ":m '<-2<CR>gv=gv" })
-map({ "i", "<A-j>", "<Esc>:m . +1<CR>==a" })
-map({ "i", "<A-k>", "<Esc>:m . -2<CR>==a" })
 map({ "n", "<Leader>j", ":m . +1<CR>==" })
 map({ "n", "<Leader>k", ":m . -2<CR>==" })
-
--- format on save
-map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
-
--- easymotion
-map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
-
--- explorer
-map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
--- map({ "n", "<Leader>e", ":NeoTreeShow<CR>" })
-
--- tab switch buffer and tab edit
-map({ "n", "<C-w>", ":bdelete<CR>" })
-map({ "n", "<C-t>", ":tabnew<CR>" })
-
--- spell correction
-map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" })
-
--- highlight everything
-map({ "n", "<C-a>", "ggVG" })
-map({ "i", "<C-a>", "<Esc>ggVG" })
 
 -- windows/panes/tabs/buffers
 map({ "n", "<Leader>v", ":vsplit<CR>" })
 map({ "n", "<Leader>h", ":split<CR>" })
 map({ "n", "<Leader>o", ":only<CR>" })
+
+-- packer mappings
+map({ "n", "<Leader>pi", ":PackerInstall" })
+map({ "n", "<Leader>pu", ":PackerUpdate" })
+map({ "n", "<Leader>pc", ":PackerClean" })
+map({ "n", "<Leader>pl", ":PackerLoad" })
+map({ "n", "<Leader>ps", ":PackerSync" })
+map({ "n", "<Leader>pp", ":PackerProfile" })
 
 -- buffers
 map({ "n", "<Leader>bp", ":BufferLinePick<CR>" })
@@ -121,16 +126,15 @@ map({ "n", "<Leader>bsd", ":BufferLineSortByDirectory<CR>" })
 map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
 map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
 map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
-map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
 
 -- git
 map({ "n", "<Leader>gs", ":Git<CR>" })
 map({ "n", "<Leader>ga", ":Git add .<CR>" })
-map({ "n", "<Leader>gd", ":Git diff<CR>" })
 map({ "n", "<Leader>gc", ":Git commit<CR>" })
 map({ "n", "<Leader>gp", ":Git push<CR>" })
 map({ "n", "<Leader>gP", ":Git pull<CR>" })
 map({ "n", "<Leader>gl", ":Git log<CR>" })
+map({ "n", "<Leader>gd", ":Git diff<CR>" })
 map({ "n", "<Leader>gL", ":LazyGit<CR>" })
 map({ "n", "<Leader>gf", ":LazyGitFilter<CR>" })
 
@@ -152,7 +156,6 @@ map({ "n", "<Leader>lop", ":VimtexStop<CR>" })
 map({ "n", "<Leader>loa", ":VimtexStopAll<CR>" })
 map({ "n", "<Leader>lto", ":VimtexTocOpen<CR>" })
 map({ "n", "<Leader>ltt", ":VimtexTocToggle<CR>" })
-
 map({ "n", "<Leader>lm", ":VimtexContextMenu<CR>" })
 map({ "n", "<Leader>lu", ":VimtexCountLetters<CR>" })
 map({ "n", "<Leader>lw", ":VimtexCountWords<CR>" })
@@ -166,21 +169,10 @@ map({ "n", "<Leader>li", ":VimtexInfo<CR>" })
 -- markdown
 map({ "n", "<Leader>mp", ":MarkdownPreview<CR>" })
 
--- inkscape
-map({
-  "i",
-  "<C-f>",
-  "<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>",
-})
-map({
-  "n",
-  "<C-f>",
-  ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
-})
-
 -- table
 map({ "n", "<Leader>tt", ":TableModeToggle<CR>" })
-map({ "n", "<Leader>taf", ":TableAddFormula<CR>" })
+map({ "n", "<Leader>tf", ":TableAddFormula<CR>" })
+map({ "n", "<Leader>tn", "<Leader>t?" })
 map({ "n", "<Leader>tdr", "<Leader>tdr" })
 map({ "n", "<Leader>tdc", "<Leader>tdc" })
 map({ "n", "<Leader>tic", "<Leader>tic" })
@@ -188,6 +180,11 @@ map({ "n", "<Leader>tic", "<Leader>tic" })
 -- telescope
 map({ "n", "<Leader>fff", ":Telescope find_files<CR>" })
 map({ "n", "<Leader>ffb", ':lua require("telescope").extensions.file_browser.file_browser()<CR>' })
+map({ "n", "<Leader>fgs", ":Telescope git_status<CR>" })
+map({ "n", "<Leader>fgf", ":Telescope git_files<CR>" })
+map({ "n", "<Leader>fgc", ":Telescope git_commits<CR>" })
+map({ "n", "<Leader>fgb", ":Telescope git_branches<CR>" })
+map({ "n", "<Leader>fgt", ":Telescope git_stash<CR>" })
 map({ "n", "<Leader>fo", ":Telescope oldfiles<CR>" })
 map({ "n", "<Leader>fc", ":Telescope colorscheme<CR>" })
 map({ "n", "<Leader>fb", ":Telescope buffers<CR>" })
@@ -196,20 +193,31 @@ map({ "n", "<Leader>fq", ":Telescope quick_fix<CR>" })
 map({ "n", "<Leader>fl", ":Telescope live_grep<CR>" })
 map({ "n", "<Leader>fr", ":Telescope marks<CR>" })
 map({ "n", "<Leader>fp", ":Telescope projects<CR>" })
-map({ "n", "<Leader>fgs", ":Telescope git_status<CR>" })
-map({ "n", "<Leader>fgf", ":Telescope git_files<CR>" })
-map({ "n", "<Leader>fgc", ":Telescope git_commits<CR>" })
-map({ "n", "<Leader>fgb", ":Telescope git_branches<CR>" })
-map({ "n", "<Leader>fgt", ":Telescope git_stash<CR>" })
 
 -- nvim-dap
-map({ "n", "<F4>", ":lua require('dapui').toggle()<CR>" })
-map({ "n", "<F5>", ":lua require('dap').toggle_breakpoint()<CR>" })
-map({ "n", "<F9>", ":lua require('dap').continue()<CR>" })
+map({ "n", "<Leader>dR", ":lua require(dap').run_to_cursor()" })
+map({ "n", "<Leader>dE", ":lua require(dapui').eval(vim.fn.input '[Expression] > ')" })
+map({ "n", "<Leader>dC", ":lua require(dap').set_breakpoint(vim.fn.input '[Condition] > ')" })
+map({ "n", "<Leader>dU", ":lua require(dapui').toggle()" })
+map({ "n", "<Leader>db", ":lua require(dap').step_back()" })
+map({ "n", "<Leader>dc", ":lua require(dap').continue()" })
+map({ "n", "<Leader>dd", ":lua require(dap').disconnect()" })
+map({ "n", "<Leader>de", ":lua require(dapui').eval()" })
+map({ "n", "<Leader>dg", ":lua require(dap').session()" })
+map({ "n", "<Leader>dh", ":lua require(dap.ui.widgets').hover()" })
+map({ "n", "<Leader>dS", ":lua require(dap.ui.widgets').scopes()" })
+map({ "n", "<Leader>di", ":lua require(dap').step_into()" })
+map({ "n", "<Leader>do", ":lua require(dap').step_over()" })
+map({ "n", "<Leader>dp", ":lua require(dap').pause.toggle()" })
+map({ "n", "<Leader>dq", ":lua require(dap').close()" })
+map({ "n", "<Leader>dr", ":lua require(dap').repl.toggle()" })
+map({ "n", "<Leader>ds", ":lua require(dap').continue()" })
+map({ "n", "<Leader>dt", ":lua require(dap').toggle_breakpoint()" })
+map({ "n", "<Leader>dx", ":lua require(dap').terminate()" })
+map({ "n", "<Leader>du", ":lua require(dap').step_out()" })
 
 -- lsp
 map({ "n", "<Leader>sdd", ":lua vim.lsp.buf.definition()<CR>" })
-map({ "n", "<Leader>sdf", "lua vim.lsp.buf.rename:<CR>" })
 map({ "n", "<Leader>sdr", ":lua vim.lsp.buf.references()<CR>" })
 map({ "n", "<Leader>sdt", ":lua vim.lsp.buf.type_definition()<CR>" })
 map({ "n", "<Leader>sdp", ":lua require('goto-preview').goto_preview_definition()<CR>" })
@@ -225,17 +233,9 @@ map({ "n", "<Leader>si", ":lua require('goto-preview').goto_preview_implementati
 map({ "n", "<Leader>sj", ":lua vim.diagnostic.goto_next()<CR>" })
 map({ "n", "<Leader>sk", ":lua vim.diagnostic.goto_prev()<CR>" })
 map({ "n", "<Leader>sC", ":lua require('goto-preview').close_all_win()<CR>" })
-map({ "n", "<A-d>", ":ToggleTerm<CR>" })
-map({ "t", "<A-d>", "<C-\\><C-n>:ToggleTerm<CR>" })
 
 -- github copilot
 vim.cmd([[
   imap <silent><script><expr> <Right> copilot#Accept("\<CR>")
   let g:copilot_no_tab_map = v:true
 ]])
-
--- config
-map({ "n", "<Leader>Dc", ":e ~/.config/nvim/init.lua<CR>" })
-map({ "n", "<Leader>Df", ":vertical resize +2<CR>" })
-map({ "n", "<Leader>Dg", ":vertical resize +2<CR>" })
-map({ "n", "<Leader>Dk", ":vertical resize +2<CR>" })
