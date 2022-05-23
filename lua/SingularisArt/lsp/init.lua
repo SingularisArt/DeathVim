@@ -9,6 +9,6 @@ if not lspconfig_status then
 	return
 end
 
-require("user.lsp.handlers").setup()
-require("user.lsp.servers")
--- require("user.lsp.null")
+require("SingularisArt.lsp.handlers").setup()
+require("SingularisArt.lsp.servers")
+-- require("SingularisArt.lsp.null")

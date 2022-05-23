@@ -28,6 +28,14 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _jump_to_last_line
+    autocmd!
+    autocmd BufReadPost * 
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+  augroup end
 ]]
 
 -- Autoformat

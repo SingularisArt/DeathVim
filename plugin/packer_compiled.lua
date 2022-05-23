@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
     url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
-  LuaSnip = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   MatchTagAlways = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/MatchTagAlways",
@@ -129,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp-calc",
     url = "https://github.com/hrsh7th/cmp-calc"
   },
-  ["cmp-cmdline"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
   ["cmp-latex-symbols"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp-latex-symbols",
@@ -159,16 +149,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-spell"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp-spell",
-    url = "https://github.com/f3fora/cmp-spell"
-  },
-  cmp_luasnip = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
   ["colorbuddy.nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
@@ -179,35 +159,20 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/colorizer",
     url = "https://github.com/lilydjwg/colorizer"
   },
-  ["command-t"] = {
+  colorschemes = {
     loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/command-t",
-    url = "https://github.com/wincent/command-t"
+    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/colorschemes",
+    url = "https://github.com/lunarvim/colorschemes"
   },
   ["copilot.vim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
-  corpus = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/corpus",
-    url = "https://github.com/wincent/corpus"
-  },
   ["darkplus.nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
-  },
-  ["deoplete-mssql"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/deoplete-mssql",
-    url = "https://github.com/jjohnson338/deoplete-mssql"
-  },
-  ["dim.lua"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/dim.lua",
-    url = "https://github.com/narutoxy/dim.lua"
   },
   ["emmet-vim"] = {
     loaded = true,
@@ -219,21 +184,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/ferret",
     url = "https://github.com/wincent/ferret"
   },
-  ["fidget.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
-  },
-  firenvim = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/firenvim",
-    url = "https://github.com/glacambre/firenvim"
-  },
-  ["friendly-snippets"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -243,11 +193,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/goto-preview",
     url = "https://github.com/rmagatti/goto-preview"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["guihua.lua"] = {
     loaded = true,
@@ -273,46 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
-  },
-  ["litee-bookmarks.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/litee-bookmarks.nvim",
-    url = "https://github.com/ldelossa/litee-bookmarks.nvim"
-  },
-  ["litee-calltree.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/litee-calltree.nvim",
-    url = "https://github.com/ldelossa/litee-calltree.nvim"
-  },
-  ["litee-filetree.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/litee-filetree.nvim",
-    url = "https://github.com/ldelossa/litee-filetree.nvim"
-  },
-  ["litee-symboltree.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/litee-symboltree.nvim",
-    url = "https://github.com/ldelossa/litee-symboltree.nvim"
-  },
-  ["litee.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/litee.nvim",
-    url = "https://github.com/ldelossa/litee.nvim"
-  },
-  ["load-all.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/load-all.nvim",
-    url = "https://github.com/mrjones2014/load-all.nvim"
-  },
-  ["lsp-colors.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
-    url = "https://github.com/folke/lsp-colors.nvim"
-  },
-  ["lsp-status.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
-    url = "https://github.com/nvim-lua/lsp-status.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -349,11 +254,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/navigator.lua",
     url = "https://github.com/ray-x/navigator.lua"
   },
-  ["neo-tree.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
   neogen = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/neogen",
@@ -373,11 +273,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
     url = "https://github.com/tamago324/nlsp-settings.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -424,21 +319,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-gomove",
     url = "https://github.com/booperlv/nvim-gomove"
   },
-  ["nvim-gps"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-gps",
-    url = "https://github.com/SmiteshP/nvim-gps"
-  },
-  ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
-    url = "https://github.com/mfussenegger/nvim-jdtls"
-  },
-  ["nvim-lightbulb"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
-    url = "https://github.com/kosayoda/nvim-lightbulb"
-  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -449,20 +329,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-remote-containers"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-remote-containers",
-    url = "https://github.com/jamestthompson3/nvim-remote-containers"
-  },
   ["nvim-rg"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-rg",
     url = "https://github.com/duane9/nvim-rg"
-  },
-  ["nvim-scrollbar"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-scrollbar",
-    url = "https://github.com/petertriho/nvim-scrollbar"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -499,11 +369,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/nvim-workbench",
     url = "https://github.com/marcushwz/nvim-workbench"
   },
-  ["one-small-step-for-vimkind"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/one-small-step-for-vimkind",
-    url = "https://github.com/jbyuki/one-small-step-for-vimkind"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -528,11 +393,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["pretty-fold.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/pretty-fold.nvim",
-    url = "https://github.com/anuvyklack/pretty-fold.nvim"
   },
   ["project.nvim"] = {
     loaded = true,
@@ -559,11 +419,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
-  ["snippet-converter.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/snippet-converter.nvim",
-    url = "https://github.com/smjonas/snippet-converter.nvim"
-  },
   snippets = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/snippets",
@@ -573,11 +428,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
     url = "https://github.com/AndrewRadev/splitjoin.vim"
-  },
-  ["sqls.nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/sqls.nvim",
-    url = "https://github.com/nanotee/sqls.nvim"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,
@@ -654,26 +504,6 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-closetag",
     url = "https://github.com/alvan/vim-closetag"
   },
-  ["vim-dadbod"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-dadbod",
-    url = "https://github.com/tpope/vim-dadbod"
-  },
-  ["vim-dadbod-completion"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
-    url = "https://github.com/kristijanhusak/vim-dadbod-completion"
-  },
-  ["vim-dadbod-ui"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
-    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
-  },
-  ["vim-docker-tools"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-docker-tools",
-    url = "https://github.com/kkvh/vim-docker-tools"
-  },
   ["vim-easymotion"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-easymotion",
@@ -714,20 +544,10 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-log-highlighting",
     url = "https://github.com/mtdl9/vim-log-highlighting"
   },
-  ["vim-plugin"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-plugin",
-    url = "https://github.com/kiteco/vim-plugin"
-  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
-  },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-snippets",
-    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-solidity"] = {
     loaded = true,
@@ -744,30 +564,15 @@ _G.packer_plugins = {
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
   },
-  ["vim-test"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-test",
-    url = "https://github.com/vim-test/vim-test"
-  },
   ["vim-tex-kawaii"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-tex-kawaii",
     url = "https://github.com/anufrievroman/vim-tex-kawaii"
   },
-  ["vim-tmux-navigator"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
-    url = "https://github.com/christoomey/vim-tmux-navigator"
-  },
   ["vim-translator"] = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-translator",
     url = "https://github.com/voldikss/vim-translator"
-  },
-  ["vim-ultest"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-ultest",
-    url = "https://github.com/rcarriga/vim-ultest"
   },
   ["vim-visual-multi"] = {
     loaded = true,
@@ -778,11 +583,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-visual-star-search",
     url = "https://github.com/nelstrom/vim-visual-star-search"
-  },
-  ["vim-wakatime"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/vim-wakatime",
-    url = "https://github.com/wakatime/vim-wakatime"
   },
   vimade = {
     loaded = true,
@@ -803,11 +603,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/hashem/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["xresources-nvim"] = {
-    loaded = true,
-    path = "/home/hashem/.local/share/nvim/site/pack/packer/start/xresources-nvim",
-    url = "https://github.com/nekonako/xresources-nvim"
   },
   ["zen-mode.nvim"] = {
     loaded = true,

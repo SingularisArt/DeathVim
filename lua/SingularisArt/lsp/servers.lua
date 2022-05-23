@@ -67,18 +67,12 @@ for _, server in ipairs(langservers) do
 end
 
 require('goto-preview').setup {}
-require('litee.lib').setup({})
-require('litee.bookmarks').setup({})
-require('litee.filetree').setup({})
-require('litee.symboltree').setup({})
-require('litee.calltree').setup({})
-
-require("lsp-colors").setup({
-  Error = "#db4b4b",
-  Warning = "#e0af68",
-  Information = "#0db9d7",
-  Hint = "#10B981"
-})
+--require("lsp-colors").setup({
+  --Error = "#db4b4b",
+  --Warning = "#e0af68",
+  --Information = "#0db9d7",
+  --Hint = "#10B981"
+--})
 
 require('lspconfig').sqls.setup{
     on_attach = function(client, bufnr)
