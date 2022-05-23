@@ -1,6 +1,3 @@
-<!-- tmf: $0,1=10*4 -->
-💀 A Hackable, Fully Featured, Rice Friendly Neovim Configuration 💀
-
 <p align="center">💀 A Hackable, Fully Featured, Rice Friendly Neovim Configuration 💀</p>
 
 <p align="center">
@@ -267,7 +264,7 @@ git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
   <img src="media/themes/theme-3.png">
 </details>
 
-### Very useful plugins used
+### Very useful plugins
 
 <details><summary>Images</summary>
   <h3>Alpha</h3>
