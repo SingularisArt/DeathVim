@@ -221,4 +221,4 @@ map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" }) -- Fix spelling mistake
 map({ "n", "<C-a>", "ggVG" }) -- Highlight everything
 map({ "i", "<C-a>", "<Esc>ggVG" }) -- Highlight everything
 map({ "n", ";", ":nohl<CR>" }) -- Un-highlight everything
-map({ "i", "<C-BS>", "<C-W>" }) -- Delete a whole word by using Ctrl+Backspace
+map({ "i", "<C-H>", "<C-W>" }) -- Delete a whole word by using Ctrl+Backspace
