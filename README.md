@@ -5,6 +5,7 @@
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
   <a href="#showcase">Showcase</a> •
+  <a href="#setting-up-pywal">Setting up PyWal</a> •
   <a href="#required-tools">Required Tools</a> •
   <a href="#todo">TODO</a>
   <br>
@@ -303,9 +304,6 @@ To install any of them run
 
 ## Showcase
 
-<img src="media/showcase/layout.png">
-<img src="media/showcase/completion.png">
-
 ### Theme Showcase
 
 <details><summary>Images</summary>
@@ -317,35 +315,54 @@ To install any of them run
 ### Very useful plugins
 
 <details><summary>Images</summary>
-  <h3>Alpha</h3>
-  Nice start when you open nvim without passing any arguments.
+  <h4>Alpha</h4>
+
+  Nice start when you open nvim without passing any arguments:
 
   <img src="media/plugins/alpha.png">
 
-  <h3>Nvim Tree</h3>
-  Fast file tree:<br>
+  <h4>Nvim Tree</h4>
+
+  Fast file tree:
 
   <img src="media/plugins/nvim-tree.png">
 
-  <h3>Telescope-nvim</h3>
-  A fuzzy file finder, picker, sorter, previewer and much more:<br>
+  <h4>Telescope-nvim</h4>
 
-  <img src="media/plugins/nvim-telescope.png">
+  A fuzzy file finder, picker, sorter, previewer and much more:
 
-  <h3>Nvim-bufferline.lua</h3>
-  Better tab implementation:<br>
+  <img src="media/plugins/telescope.png">
 
-  <img src="media/plugins/nvim-bufferline.png">
+  <h4>Nvim-bufferline.lua</h4>
 
-  <h3>Nvim-web-devicons</h3>
-  Lua fork of Vim Devicons which offers more file icon customisability:<br>
+  <h5>Tabline</h5>
+
+  The tabline will display the currently open buffers, and whether they have
+  been modified:
+
+  <img src="media/plugins/tabline.png">
+
+  <h5>Statusbar</h5>
+
+  The statusbar displays the current branch, how many errors and warnings are
+  in the current file, the mode you're in, how many newly added lines, how many
+  modified lines, how many removed lines, how many spaces are in each tab, the
+  encoding of the file, the file language, the line and column number, and a
+  little gif showing how far you are from the top:
+
+  <img src="media/plugins/statusbar.png">
+
+  <h4>Nvim-web-devicons</h4>
+
+  Lua fork of Vim Devicons which offers more file icon customisability:
 
   <img src="media/plugins/nvim-web-devicons.png">
 
-  <h3>Nvim-treesitter</h3>
-  Better syntax highlighting for programming languages
+  <h4>Nvim-treesitter</h4>
 
-  Without/with TreeSitter:<br>
+  Better syntax highlighting for programming languages.
+
+  Without/with TreeSitter:
 
   <img src="media/plugins/nvim-treesitter.png">
 </details>
@@ -358,81 +375,59 @@ To install any of them run
 ### Filetypes
 
 <details><summary>Images</summary>
-  <h3>Python</h3>
-  <img src="media/filetypes/python.png">
+  <h4>LaTeX</h4>
 
-  <h3>C++</h3>
-  <img src="media/filetypes/cpp.png">
+  While editing a LaTeX document, press `<Leader>lc` to start automatic
+  compilation:
 
-  <h3>C#</h3>
-  <img src="media/filetypes/cs.png">
-
-  <h3>C</h3>
-  <img src="media/filetypes/c.png">
-
-  <h3>MySQL</h3>
-  <img src="media/filetypes/sql.png">
-
-  <h3>HTML</h3>
-  <img src="media/filetypes/html.png">
-
-  <h3>CSS</h3>
-  <img src="media/filetypes/css.png">
-
-  <h3>JavaScript</h3>
-  <img src="media/filetypes/js.png">
-
-  <h3>TypeScript</h3>
-  <img src="media/filetypes/ts.png">
-
-  <h3>Php</h3>
-  <img src="media/filetypes/php.png">
-
-  <h3>Ruby</h3>
-  <img src="media/filetypes/rb.png">
-
-  <h3>Perl</h3>
-  <img src="media/filetypes/perl.png">
-
-  <h3>Java</h3>
-  <img src="media/filetypes/java.png">
-
-  <h3>Rust</h3>
-  <img src="media/filetypes/rs.png">
-
-  <h3>Solidity</h3>
-  <img src="media/filetypes/sol.png">
-
-  <h3>Bash</h3>
-  <img src="media/filetypes/sh.png">
-
-  <h3>Lua</h3>
-  <img src="media/filetypes/lua.png">
-
-  <h3>VimScript</h3>
-  <img src="media/filetypes/vim.png">
-
-  <h3>LaTeX</h3>
   <img src="media/filetypes/latex.png">
 
-  <h3>Markdown</h3>
+  Visit the [setting up pywal](#setting-up-pywal) section to see how we do
+  this.
+
+  <h4>Markdown</h4>
+
+  While editing a markdown document, press `<Leader>md` to open a live preview
+  of your document. You must edit the plugin settings to point to the absolute
+  filepath of the css file. This shoud just mean changing the username:
+
   <img src="media/filetypes/md.png">
+
+  If you are running pywal, your colors will be dynamically sourced!
 </details>
 
 ### Debugging
 
 <details><summary>Images</summary>
+
+  Only having a couple of breakpoints. To create them, press `<Leader>dt`:
+
   <img src="media/debugging/debugging-1.png">
+
+  Running the file. To do this, press `<Leader>ds`:
+
   <img src="media/debugging/debugging-2.png">
+
+  Running the UI. To do this, press `<Leader>dU`:
+
   <img src="media/debugging/debugging-3.png">
 </details>
+
+# Setting up PyWal
+
+First, install [pywal](https://github.com/dylanaraps/pywal). Then, download my
+wal templates from
+[here](https://github.com/SingularisArt/Singularis/tree/master/aspects/wal). Go
+over the README file in the `templates` folder. Once you've set everything up,
+go ahead and download my
+[Chameleon.py](https://github.com/SingularisArt/Chameleon). Follow the
+installation instructions, and voila, you have yourself a pywal-theming system!
 
 # Required Tools
 
 These must be installed for you to be able to use all the features:
 
-* [pywal](https://github.com/dylanaraps/pywal) for colorscheme
-* [all these npm packages](https://github.com/SingularisArt/Singularis/blob/master/package.json#L6-L18) for lsp support
+* [pywal](https://github.com/dylanaraps/pywal) for colorscheme.
 
 # TODO
 
@@ -446,10 +441,10 @@ These must be installed for you to be able to use all the features:
 - [x] Add **features** to **README.md**.
 - [x] Add TabNine.
 - [x] Add GitHub copilot.
+- [x] Add images
 
 ## Working on
 
-- [ ] Add images
 - [ ] Organize the structure of my `plugins.lua` file.
 
 ## Need to do
