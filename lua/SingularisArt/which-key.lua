@@ -89,7 +89,7 @@ which_key.register({
     c = "which_key_ignore",
     m = "which_key_ignore",
     r = "which_key_ignore",
-    s = "which_key_ignore",
+    -- s = "which_key_ignore",
   }
 }, { prefix = "<leader>" })
 

@@ -32,9 +32,9 @@ source.complete = function(self, _, callback)
 
         on_exit = function(job)
           local result = job:result()
-          local ok, parsed = pcall(vim.json.decode, table.concat(result, ""))
-          if not ok then
-            vim.notify "Failed to parse gh result"
+          local status, parsed = pcall(vim.json.decode, table.concat(result, ""))
+          if not status then
+            print('Couldn\'t parse github issues!')
             return
           end
 

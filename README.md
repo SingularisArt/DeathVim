@@ -102,6 +102,7 @@ To install any of them run
 | Move text down                          | `<Leader>k`       |
 | Open NvimTree                           | `<Leader>e`       |
 | Toggle easymotion                       | `<Leader>y`       |
+| Toggle SymbolsOutline                   | `<Leader>u`       |
 
 </p>
 </details>

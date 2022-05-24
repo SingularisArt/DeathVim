@@ -181,11 +181,8 @@ return packer.startup(function(use)
   use { 'haya14busa/is.vim' }
   use { 'mhinz/vim-grepper' }
   use { 'nelstrom/vim-visual-star-search' }
-  use { 'wincent/replay' }
-  use { 'wincent/ferret' }
   use { 'duane9/nvim-rg' }
   use { 'folke/todo-comments.nvim' }
-  use { 'jubnzv/virtual-types.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

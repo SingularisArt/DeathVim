@@ -3,12 +3,6 @@ if not cmp_status_ok then
   return
 end
 
-local check_backspace = function()
-  local col = vim.fn.col "." - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-local lspkind = require('lspkind')
-
 --   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",

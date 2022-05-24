@@ -32,35 +32,6 @@ map({ "n", "<C-k>", "<NOP>" })
 map({ "n", "<C-Space>", "<NOP>" })
 map({ "n", "<C-s>", "<NOP>" })
 
--- misc
-map({ "i", "<C-H>", "<C-W>" })
-
--- format on save
-map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" })
-
--- easymotion
-map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" })
-
--- explorer
-map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" })
-
--- tab switch buffer and tab edit
-map({ "n", "<C-w>", ":bdelete<CR>" })
-map({ "n", "<C-t>", ":tabnew<CR>" })
-
--- spell correction
-map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" })
-
--- highlight everything
-map({ "n", "<C-a>", "ggVG" })
-map({ "i", "<C-a>", "<Esc>ggVG" })
-
--- everytime I move, I remove the highlight after searching
-map({ "n", ";", ":nohl<CR>" })
-
--- delete an entire word using Ctrl-Backspace
-map({ "i", "<C-BS>", "<C-W>" })
-
 -- better window movement
 map({ "n", "<C-h>", "<C-w>h" })
 map({ "n", "<C-j>", "<C-w>j" })
@@ -75,7 +46,6 @@ map({ "n", "J", "mzJ`z" })
 -- better searching
 map({ "n", "<Leader>r", ":%s///g<Left><Left>" })
 map({ "n", "<Leader>rc", ":%s///gc<Left><Left><Left>" })
-
 map({ "x", "<Leader>r", ":s///g<Left><Left>" })
 map({ "x", "<Leader>rc", ":s///gc<Left><Left><Left>" })
 
@@ -239,3 +209,16 @@ vim.cmd([[
   imap <silent><script><expr> <Right> copilot#Accept("\<CR>")
   let g:copilot_no_tab_map = v:true
 ]])
+
+-- other
+map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" }) -- Format
+map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" }) -- Easymotion
+map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" }) -- Toggle NvimTree
+map({ "n", "<Leader>u", ":SymbolsOutline<CR>" }) -- Togle SymbolsOutline
+map({ "n", "<C-w>", ":bdelete<CR>" }) -- Delete a buffer
+map({ "n", "<C-t>", ":tabnew<CR>" }) -- Create a buffer
+map({ "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u" }) -- Fix spelling mistake
+map({ "n", "<C-a>", "ggVG" }) -- Highlight everything
+map({ "i", "<C-a>", "<Esc>ggVG" }) -- Highlight everything
+map({ "n", ";", ":nohl<CR>" }) -- Un-highlight everything
+map({ "i", "<C-BS>", "<C-W>" }) -- Delete a whole word by using Ctrl+Backspace
