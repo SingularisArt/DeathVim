@@ -1,10 +1,12 @@
-<p align="center">💀 A Hackable, Fully Featured, Rice Friendly Neovim Configuration 💀</p>
+<p align="center">💀 A Hackable, Fully Featured, Rice Friendly NeoVim Configuration 💀</p>
 
 <p align="center">
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#required-tools">Required Tools</a>
+  <a href="#showcase">Showcase</a> •
+  <a href="#required-tools">Required Tools</a> •
+  <a href="#todo">TODO</a>
   <br>
   <br>
   <a href="https://github.com/SingularisArt/Death.NeoVim/stargazers">
@@ -21,9 +23,47 @@
   <img src="https://stars.medv.io/SingularisArt/Death.NeoVim.svg", title="commits"/>
 </p>
 
-![pic1](media/main.png)
+# Features
 
-# Install Language support
+* Blazing fast
+* Written in 100% **LUA**
+* Has TreeSitter syntax highlighting
+* Colorscheme generated with [pywal](https://github.com/dylanaraps/pywal)
+* Intellisense, Completion, Linting, and Debugging
+* Easily able to install LSP Servers and DAP Servers using `:LspInstall` and
+  `:DPInstall`
+* Git integration with [vim-fugitive](https://github.com/tpope/vim-fugitive)
+  and [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* Informative statusline and tabline with
+  [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+* Code snippets powered by [UltiSnips](https://github.com/SirVer/ultisnips)
+* Intelligent suggestions with
+  [vim-tabnine](https://github.com/zxqfl/tabnine-vim) and
+  [vim-copilot](https://github.com/github/copilot.vim)
+* Simple file browsing with
+  [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
+* Dynamic homepage with [alpha-vim](https://github.com/goolord/alpha-nvim)
+* Blur inactive panes using [vimade](https://github.com/TaDaa/vimade)
+* Distraction free writing with
+  [ZenMode](https://github.com/folke/zen-mode.nvim) and
+  [Twilight](https://github.com/folke/twilight.nvim)
+* Easily configurable to suit your needs
+* Common sense keybindings
+* Support [Which-Key](https://github.com/folke/which-key.nvim) so you never
+  forget your keybindings
+* Enhanced editing with the use of the [top plugins](#very-useful-plugins)
+
+# Installation
+
+> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
+> that is 0.7.0)
+
+```sh
+mv ~/.config/nvim ~/.config/nvim-back
+git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+```
+
+## Install Language support
 
 You can find a list of supported languages
 [here](https://github.com/kabouzeid/nvim-lspinstall/tree/main/lua/lspinstall/servers).
@@ -34,20 +74,9 @@ To install any of them run
 * Enter `:TSInstall` followed by `<TAB>` to see your options for syntax
   highlighting
 
-# Installation
-
-> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
-> that is 0.8.0)
-
-```sh
-mv ~/.config/nvim ~/.config/nvim-back
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
-```
-
 # Usage
 
 ## Keybindings
-
 
 <details><summary><code>Basic Key-Bindings</code></summary>
 <p>
@@ -222,6 +251,26 @@ git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
   
 | Function                                | Keybind         |
 | --------------------------------------- | --------------- |
+| Start debug session                     | `<Leader>ds`    |
+| Conditional breakpoint                  | `<Leader>dC`    |
+| Toggle breakpoint                       | `<Leader>db`    |
+| Toggle UI                               | `<Leader>dU`    |
+| Continue                                | `<Leader>dc`    |
+| Step back                               | `<Leader>db`    |
+| Step into                               | `<Leader>di`    |
+| Step over                               | `<Leader>do`    |
+| Step out                                | `<Leader>du`    |
+| Run to cursor                           | `<Leader>dR`    |
+| Hover variable                          | `<Leader>dh`    |
+| Get session                             | `<Leader>dg`    |
+| Evaluate                                | `<Leader>de`    |
+| Evaluate input                          | `<Leader>dE`    |
+| Toggle repl                             | `<Leader>dr`    |
+| Scopes                                  | `<Leader>dS`    |
+| Pause                                   | `<Leader>dp`    |
+| Disconnect                              | `<Leader>dd`    |
+| Quit                                    | `<Leader>dq`    |
+| Terminate                               | `<Leader>dx`    |
 
 </p>
 </details>

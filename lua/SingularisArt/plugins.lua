@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-calc' }
+  use { 'tzachar/cmp-tabnine', run='./install.sh', }
   use { 'quangnguyen30192/cmp-nvim-ultisnips' }
   use { 'kdheepak/cmp-latex-symbols' }
 
@@ -101,7 +102,7 @@ return packer.startup(function(use)
   use { 'mfussenegger/nvim-dap' }
   use { 'rcarriga/nvim-dap-ui' }
   use { 'theHamsta/nvim-dap-virtual-text' }
-  use { 'Pocco81/DAPInstall.nvim', run='make' }
+  use { 'Pocco81/dap-buddy.nvim' }
   use { 'mfussenegger/nvim-dap-python' }
 
   -- Telescope
@@ -141,20 +142,22 @@ return packer.startup(function(use)
   -- CSS
 
   -- HTML
-  use { 'mattn/emmet-vim' }
+  use { 'mattn/emmet-vim' } -- Fast typing
+  use { 'Valloric/MatchTagAlways' } -- Highlight the closing tag
+  use { 'alvan/vim-closetag' } -- Auto close tags
 
   -- Solidity
   use { 'TovarishFin/vim-solidity' }
 
+  -- Markdown
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' } -- View markdown
+
   -- Other
-  use { 'github/copilot.vim' }
-  use { 'Valloric/MatchTagAlways' }
-  use { 'alvan/vim-closetag' }
-  use { 'folke/zen-mode.nvim' }
-  use { 'folke/twilight.nvim' }
+  use { 'github/copilot.vim' } -- AI suggestions
+  use { 'folke/zen-mode.nvim' } -- Distraction free writing
+  use { 'folke/twilight.nvim' } -- Highlight certain lines
   use { 'wincent/pinnacle' }
   use { 'scrooloose/nerdcommenter' }
-  use { 'iamcco/markdown-preview.nvim' }
   use { 'easymotion/vim-easymotion' }
   use { 'tpope/vim-surround' }
   use { 'NvChad/nvim-base16.lua' }
