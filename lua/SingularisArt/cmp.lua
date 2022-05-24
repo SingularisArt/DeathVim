@@ -7,6 +7,7 @@ local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
+local lspkind = require('lspkind')
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -44,9 +45,10 @@ local source_mapping = {
 	latex_symbols = "[LaTeX]",
 	ultisnips = "[Snippet]",
 	calc = "[Calculator]",
-	gh_issues = "[Issues]",
 	path = "[Path]",
 	buffer = "[Buffer]",
+  cmp_tabnine = '[TabNine]',
+	gh_issues = "[Issues]",
 }
 
 cmp.setup {
@@ -93,38 +95,104 @@ cmp.setup {
     }
   },
 
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[LaTeX]",
-        ultisnips = "[Snippet]",
-        calc = "[Calculator]",
-        gh_issues = "[Issues]",
-        path = "[Path]",
-        buffer = "[Buffer]",
-      })[entry.source.name]
-      return vim_item
-    end,
-  },
-
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "latex_symbols" },
 		{ name = "ultisnips" },
 		{ name = "calc" },
-		{ name = "gh_issues" },
 		{ name = "path" },
 		{ name = "buffer" },
+    { name = 'cmp_tabnine' },
+    { name = "gh_issues" },
 	}),
+
+	formatting = {
+   fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			vim_item.kind = kind_icons[vim_item.kind]
+			local menu = source_mapping[entry.source.name]
+			if entry.source.name == "cmp_tabnine" then
+				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+					menu = entry.completion_item.data.detail .. " " .. menu
+				end
+				vim_item.kind = ""
+			end
+			vim_item.menu = menu
+			return vim_item
+		end,
+	},
 
 	experimental = {
 		native_menu = false,
 		ghost_text = true,
 	},
 }
+
+local source = {}
+
+source.new = function()
+  local self = setmetatable({ cache = {} }, { __index = source })
+
+  return self
+end
+
+source.complete = function(self, _, callback)
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  -- This just makes sure that we only hit the GH API once per session.
+  --
+  -- You could remove this if you wanted, but this just makes it so we're
+  -- good programming citizens.
+  if not self.cache[bufnr] then
+    Job
+      :new({
+        -- Uses `gh` executable to request the issues from the remote repository.
+        "gh",
+        "issue",
+        "list",
+        "--limit",
+        "1000",
+        "--json",
+        "title,number,body",
+
+        on_exit = function(job)
+          local result = job:result()
+          local ok, parsed = pcall(vim.json.decode, table.concat(result, ""))
+          if not ok then
+            vim.notify "Failed to parse gh result"
+            return
+          end
+
+          local items = {}
+          for _, gh_item in ipairs(parsed) do
+            gh_item.body = string.gsub(gh_item.body or "", "\r", "")
+
+            table.insert(items, {
+              label = string.format("#%s", gh_item.number),
+              documentation = {
+                kind = "markdown",
+                value = string.format("# %s\n\n%s", gh_item.title, gh_item.body),
+              },
+            })
+          end
+
+          callback { items = items, isIncomplete = false }
+          self.cache[bufnr] = items
+        end,
+      })
+      :start()
+  else
+    callback { items = self.cache[bufnr], isIncomplete = false }
+  end
+end
+
+source.get_trigger_characters = function()
+  return { "#" }
+end
+
+source.is_available = function()
+  return vim.bo.filetype == "gitcommit"
+end
+
+require("cmp").register_source("gh_issues", source.new())
