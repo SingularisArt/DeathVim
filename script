@@ -5,4 +5,4 @@ source "${HOME}/Singularis/bin/variables"
 
 log_info "Installing nvim"
 
-ln -sf "${CONFIG}/nvim" "${CONFG_LOCATION}"
+ln -sf "${CONFIG}/nvim" "${CONFIG_LOCATION}"
