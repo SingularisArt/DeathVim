@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source "${HOME}/Singularis/bin/common"
+source "${HOME}/Singularis/bin/variables"
+
+log_info "Installing nvim"
+
+ln -sf "${CONFIG}/nvim" "${CONFG_LOCATION}"
