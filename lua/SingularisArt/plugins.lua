@@ -151,6 +151,7 @@ return packer.startup(function(use)
 
   -- Markdown
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' } -- View markdown
+  use { 'preservim/vim-markdown' }
 
   -- Other
   use { 'github/copilot.vim' } -- AI suggestions

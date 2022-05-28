@@ -25,3 +25,5 @@ require('SingularisArt.vimtex')
 require('SingularisArt.dap')
 require('SingularisArt.markdown')
 require('SingularisArt.neogen')
+
+vim.cmd('let g:vim_markdown_math = 1')
