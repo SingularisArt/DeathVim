@@ -41,7 +41,6 @@ local source_mapping = {
 	calc = "[Calculator]",
 	path = "[Path]",
 	buffer = "[Buffer]",
-  cmp_tabnine = '[TabNine]',
 	gh_issues = "[Issues]",
 }
 
@@ -97,25 +96,27 @@ cmp.setup {
 		{ name = "calc" },
 		{ name = "path" },
 		{ name = "buffer" },
-    { name = 'cmp_tabnine' },
     { name = "gh_issues" },
 	}),
 
-	formatting = {
-   fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			vim_item.kind = kind_icons[vim_item.kind]
-			local menu = source_mapping[entry.source.name]
-			if entry.source.name == "cmp_tabnine" then
-				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-					menu = entry.completion_item.data.detail .. " " .. menu
-				end
-				vim_item.kind = ""
-			end
-			vim_item.menu = menu
-			return vim_item
-		end,
-	},
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+        ultisnips = "[Snippet]",
+        calc = "[Calculator]",
+        gh_issues = "[Issues]",
+        path = "[Path]",
+        buffer = "[Buffer]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
 
 	experimental = {
 		native_menu = false,

@@ -76,13 +76,16 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-calc' }
-  use { 'tzachar/cmp-tabnine', run='./install.sh', }
+  -- use { 'tzachar/cmp-tabnine', run='./install.sh', }
   use { 'quangnguyen30192/cmp-nvim-ultisnips' }
   use { 'kdheepak/cmp-latex-symbols' }
 
   -- Snippets
   use { 'SirVer/UltiSnips' }
   use { 'SingularisArt/snippets' }
+
+  -- Syntax highlighting
+  use { 'neomutt/neomutt.vim' }
 
   -- LSP
   use { 'neovim/nvim-lspconfig' }
