@@ -36,7 +36,7 @@ local options = {
   spell = true,                            -- turn on spell check
 }
 
-vim.cmd('set rtp+=~/Documents/school-notes/current-course')
+vim.cmd('set rtp+=~/Documents/notes/school-notes/current-course')
 
 vim.opt.shortmess:append "c"
 
