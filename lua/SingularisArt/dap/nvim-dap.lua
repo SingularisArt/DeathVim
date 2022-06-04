@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '🟦', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
 
 dap.configurations.lua = {
   {

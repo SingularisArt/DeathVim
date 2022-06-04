@@ -1,3 +1,6 @@
 [submodule "UltiSnips"]
 	path = UltiSnips
 	url = https://github.com/SingularisArt/snippets
+[submodule "pythonx"]
+	path = pythonx
+	url = https://github.com/SingularisArt/snippet-dependencies

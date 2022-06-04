@@ -107,6 +107,7 @@ return packer.startup(function(use)
   use { 'theHamsta/nvim-dap-virtual-text' }
   use { 'Pocco81/dap-buddy.nvim' }
   use { 'mfussenegger/nvim-dap-python' }
+  use { 'nvim-telescope/telescope-dap.nvim' }
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim' }
@@ -153,10 +154,12 @@ return packer.startup(function(use)
   use { 'TovarishFin/vim-solidity' }
 
   -- Markdown
+  use { 'ferrine/md-img-paste.vim' }
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' } -- View markdown
   use { 'preservim/vim-markdown' }
 
   -- Other
+  use { 'rhysd/vim-grammarous' }
   use { 'github/copilot.vim' } -- AI suggestions
   use { 'folke/zen-mode.nvim' } -- Distraction free writing
   use { 'folke/twilight.nvim' } -- Highlight certain lines
