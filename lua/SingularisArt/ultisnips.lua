@@ -9,8 +9,8 @@ let g:UltiSnipsExpandTrigger = "<Enter>"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
-" open the file in a vertical split
-let g:UltiSnipsEditSplit='vertical'
+" open the file in a new tab
+let g:UltiSnipsEditSplit='tabdo'
 
 " the location of the snippets
 let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips/", "UltiSnips"]
