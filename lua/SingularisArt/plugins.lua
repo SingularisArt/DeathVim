@@ -159,6 +159,7 @@ return packer.startup(function(use)
   use { 'preservim/vim-markdown' }
 
   -- Other
+  use { 'wakatime/vim-wakatime' } -- Monitor how much coding I do
   use { 'rhysd/vim-grammarous' }
   use { 'github/copilot.vim' } -- AI suggestions
   use { 'folke/zen-mode.nvim' } -- Distraction free writing
