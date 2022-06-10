@@ -63,6 +63,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use { 'chriskempson/base16-vim' }
   use { 'AlphaTechnolog/pywal.nvim' }
+  use { 'dylanaraps/wal.vim' }
   use { 'EdenEast/nightfox.nvim' }
   use { 'lunarvim/colorschemes' }
   use { 'lunarvim/darkplus.nvim' }
@@ -185,7 +186,6 @@ return packer.startup(function(use)
   use { 'folke/lua-dev.nvim' }
   use { 'turbio/bracey.vim' }
   use { 'danymat/neogen' }
-  use { 'TaDaa/vimade' }
   use { 'haya14busa/is.vim' }
   use { 'mhinz/vim-grepper' }
   use { 'nelstrom/vim-visual-star-search' }

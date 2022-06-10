@@ -1,3 +1,1 @@
-vim.cmd [[
-color pywal
-]]
+vim.cmd("color wal")
