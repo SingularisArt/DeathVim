@@ -222,3 +222,7 @@ map({ "n", "<C-a>", "ggVG" }) -- Highlight everything
 map({ "i", "<C-a>", "<Esc>ggVG" }) -- Highlight everything
 map({ "n", ";", ":nohl<CR>" }) -- Un-highlight everything
 map({ "i", "<C-H>", "<C-W>" }) -- Delete a whole word by using Ctrl+Backspace
+
+-- inkscape
+map({ 'i', '<C-f>', '<Esc>:silent exec \'.!inkscape-figures create "\'.getline(\'.\').\'" "\'.b:vimtex.root.\'/figures/"\'<CR>' })
+map({ 'n', '<C-f>', ':silent exec \'!inkscape-figures edit "\'.b:vimtex.root.\'/figures/" > /dev/null 2>&1 &\'<CR><CR>:redraw!<CR>' })

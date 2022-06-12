@@ -12,7 +12,7 @@ require('SingularisArt.gitsigns')
 
 require('SingularisArt.lualine')
 require('SingularisArt.bufferline')
-require('SingularisArt.indentline')
+-- require('SingularisArt.indentline')
 -- vim.cmd('set showtabline=0')
 -- vim.cmd('set laststatus=0')
 require('SingularisArt.nvim-tree')
