@@ -158,6 +158,7 @@ return packer.startup(function(use)
   use { 'ferrine/md-img-paste.vim' }
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install' } -- View markdown
   use { 'preservim/vim-markdown' }
+  use { 'mzlogin/vim-markdown-toc' }
 
   -- Other
   use { 'wakatime/vim-wakatime' } -- Monitor how much coding I do
