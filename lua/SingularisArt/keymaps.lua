@@ -97,6 +97,12 @@ map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
 map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
 map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
 
+-- cybu
+map({ "n", "H", "<Plug>(CybuPrev)" })
+map({ "n", "L", "<Plug>(CybuNext)" })
+map({ "n", "<Ctrl-Shift><Tab>", "<plug>(CybuLastusedPrev)" })
+map({ "n", "<Ctrl-Tab>", "<plug>(CybuLastusedNext)" })
+
 -- git
 map({ "n", "<Leader>gs", ":Git<CR>" })
 map({ "n", "<Leader>ga", ":Git add .<CR>" })

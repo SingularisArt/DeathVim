@@ -77,13 +77,13 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-calc' }
+  use { 'rcarriga/cmp-dap' }
   -- use { 'tzachar/cmp-tabnine', run='./install.sh', }
   use { 'quangnguyen30192/cmp-nvim-ultisnips' }
   use { 'kdheepak/cmp-latex-symbols' }
 
   -- Snippets
   use { 'SirVer/UltiSnips' }
-  use { 'SingularisArt/snippets' }
 
   -- Syntax highlighting
   use { 'neomutt/neomutt.vim' }
@@ -106,16 +106,18 @@ return packer.startup(function(use)
   use { 'mfussenegger/nvim-dap' }
   use { 'rcarriga/nvim-dap-ui' }
   use { 'theHamsta/nvim-dap-virtual-text' }
-  use { 'Pocco81/dap-buddy.nvim' }
+  use { 'ravenxrz/DAPInstall.nvim' }
   use { 'mfussenegger/nvim-dap-python' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
   -- Telescope
   use { 'nvim-telescope/telescope.nvim' }
+  use { 'tom-anders/telescope-vim-bookmarks.nvim' }
   use { 'nvim-telescope/telescope-file-browser.nvim' }
   use { 'nvim-telescope/telescope-fzy-native.nvim' }
   use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'nvim-telescope/telescope-media-files.nvim' }
+  use { 'ghillb/cybu.nvim' }
 
   -- Treesitter
   use {
@@ -161,6 +163,7 @@ return packer.startup(function(use)
   use { 'mzlogin/vim-markdown-toc' }
 
   -- Other
+  use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'wakatime/vim-wakatime' } -- Monitor how much coding I do
   use { 'rhysd/vim-grammarous' }
   use { 'github/copilot.vim' } -- AI suggestions

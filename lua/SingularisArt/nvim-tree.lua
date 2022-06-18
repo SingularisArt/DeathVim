@@ -1,84 +1,141 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
+local status_ok, nvim_tree = pcall(require, 'nvim-tree')
 if not status_ok then
   return
 end
 
-local icons = {
-  git = {
-    staged = "✓",
-    renamed = "➜",
-    deleted = "",
-    ignored = "◌",
-    unstaged = "",
-    unmerged = "",
-    untracked = "★",
-   },
-  folder = {
-    open = "",
-    empty = "",
-    default = "",
-    symlink = "",
-    empty_open = "",
-    symlink_open = "",
-  },
-}
+local config_status_ok, nvim_tree_config = pcall(require, 'nvim-tree.config')
+if not config_status_ok then
+  return
+end
 
-local g = vim.g
-g.nvim_tree_icons = icons
--- g.nvim_tree_indent_markers = 1
-g.nvim_tree_highlight_opened_files = 2
-g.nvim_tree_show_icons = { git = 1, folder_arrows = 1, folders = 1, files = 1 }
+local icons = require('SingularisArt.icons')
 
--- local cb = require("nvim-tree.config").nvim_tree_callback
-local mappings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
-  { key = "<C-e>",                        action = "edit_in_place" },
-  { key = {"O"},                          action = "edit_no_picker" },
-  { key = {"<2-RightMouse>", "<C-]>"},    action = "cd" },
-  { key = "<C-v>",                        action = "vsplit" },
-  { key = "<C-x>",                        action = "split" },
-  { key = "<C-t>",                        action = "tabnew" },
-  { key = "<",                            action = "prev_sibling" },
-  { key = ">",                            action = "next_sibling" },
-  { key = "P",                            action = "parent_node" },
-  { key = "<BS>",                         action = "close_node" },
-  { key = "<Tab>",                        action = "preview" },
-  { key = "K",                            action = "first_sibling" },
-  { key = "J",                            action = "last_sibling" },
-  { key = "I",                            action = "toggle_git_ignored" },
-  { key = "H",                            action = "toggle_dotfiles" },
-  { key = "R",                            action = "refresh" },
-  { key = "a",                            action = "create" },
-  { key = "d",                            action = "remove" },
-  { key = "D",                            action = "trash" },
-  { key = "r",                            action = "rename" },
-  { key = "<C-r>",                        action = "full_rename" },
-  { key = "x",                            action = "cut" },
-  { key = "c",                            action = "copy" },
-  { key = "p",                            action = "paste" },
-  { key = "y",                            action = "copy_name" },
-  { key = "Y",                            action = "copy_path" },
-  { key = "gy",                           action = "copy_absolute_path" },
-  { key = "[c",                           action = "prev_git_item" },
-  { key = "]c",                           action = "next_git_item" },
-  { key = "-",                            action = "dir_up" },
-  { key = "s",                            action = "system_open" },
-  { key = "q",                            action = "close" },
-  { key = "g?",                           action = "toggle_help" },
-  { key = "W",                            action = "collapse_all" },
-  { key = "S",                            action = "search_node" },
-  { key = "<C-k>",                        action = "toggle_file_info" },
-  { key = ".",                            action = "run_file_command" }
-}
+local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
-  open_on_setup = true,
-  update_cwd = true,
+  hijack_directories = {
+    enable = false,
+  },
+  -- update_to_buf_dir = {
+  --   enable = false,
+  -- },
+  -- disable_netrw = true,
+  -- hijack_netrw = true,
+  -- open_on_setup = false,
+  ignore_ft_on_setup = {
+    "startify",
+    "dashboard",
+    "alpha",
+  },
+  filters = {
+    custom = { ".git" },
+    exclude = { ".gitignore" },
+  },
   -- auto_close = true,
-  disable_netrw = true,
-  hijack_cursor = true,
-  diagnostics = { enable = true },
-  git = { enable = true, ignore = false, },
-  update_focused_file = { enable = false, update_cwd = false, },
-  view = { hide_root_folder = false, mappings = { custom_only = true, list = mappings } },
+  -- open_on_tab = false,
+  -- hijack_cursor = false,
+  update_cwd = true,
+  -- update_to_buf_dir = {
+  --   enable = true,
+  --   auto_open = true,
+  -- },
+  -- --   error
+  -- --   info
+  -- --   question
+  -- --   warning
+  -- --   lightbulb
+  renderer = {
+    add_trailing = false,
+    group_empty = false,
+    highlight_git = false,
+    highlight_opened_files = "none",
+    root_folder_modifier = ":t",
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          arrow_open = icons.ui.ArrowOpen,
+          arrow_closed = icons.ui.ArrowClosed,
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U",
+          deleted = "",
+          ignored = "◌",
+        },
+      },
+    },
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
+  },
+  -- system_open = {
+  --   cmd = nil,
+  --   args = {},
+  -- },
+  -- filters = {
+  --   dotfiles = false,
+  --   custom = {},
+  -- },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = "left",
+    -- auto_resize = true,
+    mappings = {
+      custom_only = false,
+      list = {
+        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = "h", cb = tree_cb "close_node" },
+        { key = "v", cb = tree_cb "vsplit" },
+      },
+    },
+    number = false,
+    relativenumber = false,
+  },
 }
