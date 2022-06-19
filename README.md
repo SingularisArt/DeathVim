@@ -138,6 +138,7 @@ To install any of them run
 | Sort buffers by extension               | `<Leader>bse`   |
 | Sort buffers by relative directory      | `<Leader>bsr`   |
 | Sort buffers by tabs                    | `<Leader>bst`   |
+| List all buffers with JABS              | \`              |
 
 </p>
 </details>

@@ -193,6 +193,7 @@ return packer.startup(function(use)
   use { 'nelstrom/vim-visual-star-search' }
   use { 'duane9/nvim-rg' }
   use { 'folke/todo-comments.nvim' }
+  use { 'matbme/JABS.nvim' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

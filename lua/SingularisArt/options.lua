@@ -28,10 +28,9 @@ local options = {
   shiftwidth = 2,				   								 -- spaces per tab
   expandtab = true,				   							 -- spaces per tab
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = true,                             -- display lines as one long line
+  wrap = false,                            -- don't display lines as one long line
   scrolloff = 8,                           -- scroll when you are 8 lines away from the top/bottom
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  spell = true,                            -- turn on spell check
+  -- spell = true,                            -- turn on spell check
 }
 
 vim.cmd('set rtp+=~/Documents/notes/school-notes/current-course')

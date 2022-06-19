@@ -97,11 +97,8 @@ map({ "n", "<Leader>bse", ":BufferLineSortByExtension<CR>" })
 map({ "n", "<Leader>bsr", ":BufferLineSortByRelativeDirectory<CR>" })
 map({ "n", "<Leader>bst", ":BufferLineSortByTabs<CR>" })
 
--- cybu
-map({ "n", "H", "<Plug>(CybuPrev)" })
-map({ "n", "L", "<Plug>(CybuNext)" })
-map({ "n", "<Ctrl-Shift><Tab>", "<plug>(CybuLastusedPrev)" })
-map({ "n", "<Ctrl-Tab>", "<plug>(CybuLastusedNext)" })
+-- jabs
+map({ "n", "`", ":JABSOpen<CR>" })
 
 -- git
 map({ "n", "<Leader>gs", ":Git<CR>" })
