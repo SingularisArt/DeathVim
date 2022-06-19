@@ -1,6 +1,8 @@
 local M = require('SingularisArt.functions')
 
 local lualine = M.safe_require('lualine')
+local gps = M.safe_require('nvim-gps')
+M.safe_require('nvim-gps').setup()
 
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
@@ -72,9 +74,8 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		lualine_c = {},
-		-- lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_b = { mode, "filename" },
+    lualine_c = { { gps.get_location, cond = gps.is_available }, },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
@@ -82,8 +83,8 @@ lualine.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_c = {},
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
