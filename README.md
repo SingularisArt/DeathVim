@@ -11,14 +11,14 @@
   <br>
   <br>
   <a href="https://github.com/SingularisArt/Death.NeoVim/stargazers">
-    <img src="https://img.shields.io/github/stars/SingularisArt/Death.NeoVim.svg?style=flat-square&logo=hackaday"/>
-  </a>
-  <a href="https://github.com/SingularisArt/Death.NeoVim/commits/master">
-    <img src="https://img.shields.io/github/last-commit/SingularisArt/Death.NeoVim.svg?style=flat-square&logo=vim"/>
-  </a>
-  <a href="https://github.com/SingularisArt/Death.NeoVim.svg">
-    <img src="http://hits.dwyl.com/SingularisArt/Death.NeoVim.svg"/>
-  </a>
+    <img alt="Stars" src="https://img.shields.io/github/stars/SingularisArt/Death.NeoVim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+  <a href="https://github.com/SingularisArt/Death.NeoVim/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/SingularisArt/Death.NeoVim?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41"></a>
+  <a href="https://github.com/SingularisArt/Death.NeoVim">
+    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/SingularisArt/Death.NeoVim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41"/></a>
+  <a href="https://github.com/SingularisArt/Death.NeoVim">
+    <img alt="License" src="https://img.shields.io/github/license/SingularisArt/Death.NeoVim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"/></a>
+</p>
 
 <p align="center">
   <img src="https://stars.medv.io/SingularisArt/Death.NeoVim.svg", title="commits"/>
@@ -62,6 +62,7 @@
 ```sh
 mv ~/.config/nvim ~/.config/nvim-back
 git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+cd ~/.config/nvim && bash script
 ```
 
 ## Install Language support
@@ -250,7 +251,7 @@ To install any of them run
 
 <details><summary><code>Debugging</code></summary>
 <p>
-  
+
 | Function                                | Keybind         |
 | --------------------------------------- | --------------- |
 | Start debug session                     | `<Leader>ds`    |
@@ -352,12 +353,6 @@ To install any of them run
 
   <img src="media/plugins/statusbar.png">
 
-  <h4>Nvim-web-devicons</h4>
-
-  Lua fork of Vim Devicons which offers more file icon customisability:
-
-  <img src="media/plugins/nvim-web-devicons.png">
-
   <h4>Nvim-treesitter</h4>
 
   Better syntax highlighting for programming languages.
@@ -365,11 +360,16 @@ To install any of them run
   Without/with TreeSitter:
 
   <img src="media/plugins/nvim-treesitter.png">
-</details>
 
-### Completion
+  To create breakpoints, press `<Leader>dt`.
 
-<details><summary>Images</summary>
+  To run the file, press `<Leader>ds`.
+
+  Before you run the file, you first must have the debugger for that language
+  installed. To do that, run `DIInstall` and hit tab to view all supported
+  languages:
+
+  <img src="media/plugins/debugging.png">
 </details>
 
 ### Filetypes
@@ -382,35 +382,15 @@ To install any of them run
 
   <img src="media/filetypes/latex.png">
 
-  Visit the [setting up pywal](#setting-up-pywal) section to see how we do
-  this.
-
   <h4>Markdown</h4>
 
   While editing a markdown document, press `<Leader>md` to open a live preview
   of your document. You must edit the plugin settings to point to the absolute
-  filepath of the css file. This shoud just mean changing the username:
+  filepath of the
+  [this](https://github.com/SingularisArt/Death.NeoVim/blob/master/static/markdown-preview/customStyle.css)
+  css file. This shoud just mean changing the username:
 
   <img src="media/filetypes/md.png">
-
-  If you are running pywal, your colors will be dynamically sourced!
-</details>
-
-### Debugging
-
-<details><summary>Images</summary>
-
-  Only having a couple of breakpoints. To create them, press `<Leader>dt`:
-
-  <img src="media/debugging/debugging-1.png">
-
-  Running the file. To do this, press `<Leader>ds`:
-
-  <img src="media/debugging/debugging-2.png">
-
-  Running the UI. To do this, press `<Leader>dU`:
-
-  <img src="media/debugging/debugging-3.png">
 </details>
 
 # Setting up PyWal
@@ -422,12 +402,6 @@ over the README file in the `templates` folder. Once you've set everything up,
 go ahead and download my
 [Chameleon.py](https://github.com/SingularisArt/Chameleon). Follow the
 installation instructions, and voila, you have yourself a pywal-theming system!
-
-# Required Tools
-
-These must be installed for you to be able to use all the features:
-
-* [pywal](https://github.com/dylanaraps/pywal) for colorscheme.
 
 # TODO
 
