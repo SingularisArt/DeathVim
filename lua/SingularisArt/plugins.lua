@@ -1,4 +1,5 @@
 local fn = vim.fn
+local M = require('SingularisArt.functions')
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -23,11 +24,7 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local packer = M.safe_require('packer')
 
 -- Have packer use a popup window
 packer.init {

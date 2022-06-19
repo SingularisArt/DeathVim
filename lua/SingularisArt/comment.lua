@@ -1,7 +1,6 @@
-local status_ok, comment = pcall(require, "Comment")
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
+
+local comment = M.safe_require('Comment')
 
 comment.setup {
   pre_hook = function(ctx)

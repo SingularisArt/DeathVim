@@ -1,9 +1,7 @@
-local status_ok, todo_comments = pcall(require, 'todo-comments')
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
 
-local icons = require('SinularisArt.icons')
+local todo_comments = M.safe_require('todo-comments')
+local icons = M.safe_require('SingularisArt.icons')
 
 local error_red = "#F44747"
 local warning_orange = "#ff8800"

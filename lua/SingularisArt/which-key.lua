@@ -1,7 +1,6 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
+
+local which_key = M.safe_require('which-key')
 
 which_key.setup({
   plugins = {

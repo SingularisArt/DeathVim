@@ -1,7 +1,6 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
+
+local gitsigns = M.safe_require('gitsigns')
 
 gitsigns.setup {
   signs = {

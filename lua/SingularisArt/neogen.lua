@@ -1,6 +1,5 @@
-local status_ok, neogen = pcall(require, "neogen")
-if not status_ok then
-	return
-end
+local M = require('SingularisArt.functions')
+
+local neogen = M.safe_require('neogen')
 
 neogen.setup{}

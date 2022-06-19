@@ -1,7 +1,6 @@
-local null_status, null = pcall(require, "null-ls")
-if not null_status then
-	vim.notify("Please Install 'null-ls'")
-end
+local M = require('SingularisArt.functions')
+
+local null = M.safe_require('null-ls')
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null.builtins.formatting

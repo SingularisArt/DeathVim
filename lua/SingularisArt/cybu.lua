@@ -1,7 +1,6 @@
-local ok, cybu = pcall(require, 'cybu')
-if not ok then
-  return
-end
+local M = require('SingularisArt.functions')
+
+local cybu = M.safe_require('cybu')
 
 cybu.setup {
   position = {

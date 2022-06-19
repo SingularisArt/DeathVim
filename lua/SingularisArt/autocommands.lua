@@ -19,6 +19,12 @@ vim.cmd [[
     autocmd FileType markdown setlocal spell
   augroup end
 
+  augroup _tex
+    autocmd!
+    autocmd FileType tex setlocal showtabline=0
+    autocmd FileType tex setlocal laststatus=0
+  augroup end
+
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
@@ -37,9 +43,3 @@ vim.cmd [[
      \ endif
   augroup end
 ]]
-
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end

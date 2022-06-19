@@ -2,13 +2,10 @@
 -- Main Files --
 ----------------
 
-local lspconfig_status = pcall(require, "lspconfig")
+local M = require('SingularisArt.functions')
 
-if not lspconfig_status then
-	vim.notify("Please Install 'nvim-lspconfig'")
-	return
-end
+M.safe_require('lspconfig')
 
-require("SingularisArt.lsp.handlers").setup()
-require("SingularisArt.lsp.servers")
+M.safe_require("SingularisArt.lsp.handlers").setup()
+M.safe_require("SingularisArt.lsp.servers")
 -- require("SingularisArt.lsp.null")

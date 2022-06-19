@@ -1,4 +1,6 @@
-local icons = require('SingularisArt.icons')
+local M = require('SingularisArt.functions')
+
+local icons = M.safe_require('SingularisArt.icons')
 
 vim.g.symbols_outline = {
 	highlight_hovered_item = true,

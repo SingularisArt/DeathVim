@@ -1,9 +1,8 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
 
-configs.setup({
+local tree_sitter = M.safe_require('nvim-treesitter.configs')
+
+tree_sitter.setup({
   ensure_installed = "all",
 
   highlight = {

@@ -1,14 +1,8 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
 
-local cmp_dap_status_ok, cmp_dap = pcall(require, "cmp_dap")
-if not cmp_dap_status_ok then
-  return
-end
-
-local icons = require("SingularisArt.icons")
+local cmp =  M.safe_require('cmp')
+local cmp_dap = M.safe_require('cmp_dap')
+local icons = M.safe_require('SingularisArt.icons')
 local kind_icons = icons.kind
 
 cmp.setup {
@@ -46,13 +40,6 @@ cmp.setup {
     format = function(entry, vim_item)
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-
-      if entry.source.name == "cmp_tabnine" then
-        -- if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-        -- menu = entry.completion_item.data.detail .. " " .. menu
-        -- end
-        vim_item.kind = icons.misc.Robot
-      end
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       -- NOTE: order matters
       vim_item.menu = ({
@@ -100,5 +87,5 @@ cmp.setup {
   },
 }
 
-require('SingularisArt.cmp.cmp_github_issues')
-require('SingularisArt.cmp.cmp_emails').setup()
+M.safe_require('SingularisArt.cmp.cmp_github_issues')
+M.safe_require('SingularisArt.cmp.cmp_emails').setup()

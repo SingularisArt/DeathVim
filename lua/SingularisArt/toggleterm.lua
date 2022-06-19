@@ -1,7 +1,6 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-if not status_ok then
-	return
-end
+local M = require('SingularisArt.functions')
+
+local toggleterm = M.safe_require('toggleterm')
 
 toggleterm.setup({
 	size = 20,

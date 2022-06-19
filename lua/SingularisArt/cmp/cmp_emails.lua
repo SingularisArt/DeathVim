@@ -1,5 +1,3 @@
--- Custom nvim-cmp source for GitHub handles.
-
 local handles = {}
 
 local registered = false
@@ -10,11 +8,9 @@ handles.setup = function()
   end
   registered = true
 
-  local has_cmp, cmp = pcall(require, 'cmp')
+  local M = require('SingularisArt.functions')
 
-  if not has_cmp then
-    return
-  end
+  local cmp = M.safe_require('cmp')
 
   local config = vim.fn.expand('~/.github-handles.json')
   if vim.fn.filereadable(config) == 0 then
@@ -25,7 +21,7 @@ handles.setup = function()
   local source = {}
 
   source.new = function()
-    return setmetatable({}, {__index = source})
+    return setmetatable({}, { __index = source })
   end
 
   source.get_trigger_characters = function()
@@ -45,22 +41,22 @@ handles.setup = function()
       local items = {}
       for handle, address in pairs(addresses) do
         table.insert(items, {
-            filterText = handle .. ' ' .. address,
-            label = address,
-            textEdit = {
-              newText = address,
-              range = {
-                start = {
-                  line = request.context.cursor.row - 1,
-                  character = request.context.cursor.col - 1 - #input,
-                },
-                ['end'] = {
-                  line = request.context.cursor.row - 1,
-                  character = request.context.cursor.col - 1,
-                },
+          filterText = handle .. ' ' .. address,
+          label = address,
+          textEdit = {
+            newText = address,
+            range = {
+              start = {
+                line = request.context.cursor.row - 1,
+                character = request.context.cursor.col - 1 - #input,
+              },
+              ['end'] = {
+                line = request.context.cursor.row - 1,
+                character = request.context.cursor.col - 1,
               },
             },
-          }
+          },
+        }
         )
       end
       callback {
@@ -68,13 +64,13 @@ handles.setup = function()
         isIncomplete = true,
       }
     else
-      callback({isIncomplete = true})
+      callback({ isIncomplete = true })
     end
   end
 
   cmp.register_source('handles', source.new())
 
-  local filetypes = {'gitcommit', 'mail'}
+  local filetypes = { 'gitcommit', 'mail' }
   cmp.setup.filetype(filetypes, {
     sources = cmp.config.sources({
       { name = "nvim_lsp" },

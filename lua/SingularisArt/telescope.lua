@@ -1,11 +1,9 @@
-local telescope_status, telescope = pcall(require, 'telescope')
-if not telescope_status then
-  return
-end
+local M = require('SingularisArt.functions')
 
-local actions = require('telescope.actions')
+local telescope = M.safe_require('telescope')
+local actions = M.safe_require('telescope.actions')
+local icons = M.safe_require('SingularisArt.icons')
 telescope.load_extension('media_files')
-local icons = require('SingularisArt.icons')
 
 telescope.setup {
   defaults = {

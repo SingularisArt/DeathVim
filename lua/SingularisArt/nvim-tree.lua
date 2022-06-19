@@ -1,14 +1,8 @@
-local status_ok, nvim_tree = pcall(require, 'nvim-tree')
-if not status_ok then
-  return
-end
+local M = require('SingularisArt.functions')
 
-local config_status_ok, nvim_tree_config = pcall(require, 'nvim-tree.config')
-if not config_status_ok then
-  return
-end
-
-local icons = require('SingularisArt.icons')
+local nvim_tree = M.safe_require('nvim-tree')
+local nvim_tree_config = M.safe_require('nvim-tree.config')
+local icons = M.safe_require('SingularisArt.icons')
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
