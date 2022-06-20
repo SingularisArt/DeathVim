@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       vim.opt.showtabline=0
       vim.opt.laststatus=0
     else
-      vim.opt.showtabline=2
+      -- vim.opt.showtabline=2
       vim.opt.laststatus=2
     end
   end,
@@ -78,3 +78,9 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 ]]
+
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
+  callback = function()
+    require("SingularisArt.winbar").get_winbar()
+  end,
+})

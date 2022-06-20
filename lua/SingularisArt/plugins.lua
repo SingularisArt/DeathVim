@@ -47,13 +47,14 @@ return packer.startup(function(use)
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'akinsho/bufferline.nvim' }
+  use { 'fgheng/winbar.nvim' }
   use { 'moll/vim-bbye' }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'SmiteshP/nvim-gps' }
   use { 'akinsho/toggleterm.nvim' }
   use { 'ahmedkhalf/project.nvim' }
   use { 'lewis6991/impatient.nvim' }
-  -- use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'tomasiser/vim-code-dark' }
   use { 'goolord/alpha-nvim' }
   use { 'antoinemadec/FixCursorHold.nvim' }
   use { 'folke/which-key.nvim' }
@@ -76,7 +77,7 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-calc' }
   use { 'rcarriga/cmp-dap' }
-  -- use { 'tzachar/cmp-tabnine', run='./install.sh', }
+  use { 'tzachar/cmp-tabnine', run='./install.sh', }
   use { 'quangnguyen30192/cmp-nvim-ultisnips' }
   use { 'kdheepak/cmp-latex-symbols' }
 
@@ -161,7 +162,6 @@ return packer.startup(function(use)
   use { 'mzlogin/vim-markdown-toc' }
 
   -- Other
-  use { 'lukas-reineke/indent-blankline.nvim' }
   use { 'wakatime/vim-wakatime' } -- Monitor how much coding I do
   use { 'rhysd/vim-grammarous' }
   use { 'github/copilot.vim' } -- AI suggestions

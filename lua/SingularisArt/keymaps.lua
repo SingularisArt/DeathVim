@@ -1,21 +1,21 @@
 local map = function(key)
-  -- get the extra options
-  local opts = { noremap = true }
-  for i, v in pairs(key) do
-    if type(i) == "string" then
-      opts[i] = v
-    end
-  end
+	-- get the extra options
+	local opts = { noremap = true }
+	for i, v in pairs(key) do
+		if type(i) == "string" then
+			opts[i] = v
+		end
+	end
 
-  -- basic support for buffer-scoped keybindings
-  local buffer = opts.buffer
-  opts.buffer = nil
+	-- basic support for buffer-scoped keybindings
+	local buffer = opts.buffer
+	opts.buffer = nil
 
-  if buffer then
-    vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
-  else
-    vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
-  end
+	if buffer then
+		vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
+	else
+		vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
+	end
 end
 
 -- leader key
@@ -42,12 +42,6 @@ map({ "n", "<C-l>", "<C-w>l" })
 map({ "n", "n", "nzzzv" })
 map({ "n", "N", "Nzzzv" })
 map({ "n", "J", "mzJ`z" })
-
--- better searching
-map({ "n", "<Leader>r", ":%s///g<Left><Left>" })
-map({ "n", "<Leader>rc", ":%s///gc<Left><Left><Left>" })
-map({ "x", "<Leader>r", ":s///g<Left><Left>" })
-map({ "x", "<Leader>rc", ":s///gc<Left><Left><Left>" })
 
 -- undo break points
 map({ "i", ",", ",<c-g>u" })
@@ -200,21 +194,14 @@ map({ "n", "<Leader>sh", ":lua vim.lsp.buf.hover()<CR>" })
 map({ "n", "<Leader>sc", ":lua vim.lsp.buf.code_action()<CR>" })
 map({ "n", "<Leader>se", ":lua vim.diagnostic.open_float()<CR>" })
 map({ "n", "<Leader>sq", ":lua vim.lsp.diagnostic.set_loclist()<CR>" })
-map({ "n", "<Leader>sf", ":lua vim.lsp.buf.formatting()<CR>" })
-map({ "n", "<Leader>sr", ":Lspsaga rename<CR>" })
+map({ "n", "<Leader>sf", ":lua vim.lsp.buf.format { async = true }<CR>" })
+map({ "n", "<Leader>sr", ":lua vim.lsp.buf.rename()<CR>" })
 map({ "n", "<Leader>si", ":lua require('goto-preview').goto_preview_implementation()<CR>" })
 map({ "n", "<Leader>sj", ":lua vim.diagnostic.goto_next()<CR>" })
 map({ "n", "<Leader>sk", ":lua vim.diagnostic.goto_prev()<CR>" })
 map({ "n", "<Leader>sC", ":lua require('goto-preview').close_all_win()<CR>" })
 
--- github copilot
-vim.cmd([[
-  imap <silent><script><expr> <Right> copilot#Accept("\<CR>")
-  let g:copilot_no_tab_map = v:true
-]])
-
 -- other
-map({ "n", "<C-s>", ":write | lua vim.lsp.buf.formatting_sync()<CR>" }) -- Format
 map({ "n", "<Leader>y", "<Plug>(easymotion-bd-f)" }) -- Easymotion
 map({ "n", "<Leader>e", ":NvimTreeToggle<CR>" }) -- Toggle NvimTree
 map({ "n", "<Leader>u", ":SymbolsOutline<CR>" }) -- Togle SymbolsOutline
@@ -227,5 +214,13 @@ map({ "n", ";", ":nohl<CR>" }) -- Un-highlight everything
 map({ "i", "<C-H>", "<C-W>" }) -- Delete a whole word by using Ctrl+Backspace
 
 -- inkscape
-map({ 'i', '<C-f>', '<Esc>:silent exec \'.!inkscape-figures create "\'.getline(\'.\').\'" "\'.b:vimtex.root.\'/figures/"\'<CR>' })
-map({ 'n', '<C-f>', ':silent exec \'!inkscape-figures edit "\'.b:vimtex.root.\'/figures/" > /dev/null 2>&1 &\'<CR><CR>:redraw!<CR>' })
+map({
+	"i",
+	"<C-f>",
+	"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>",
+})
+map({
+	"n",
+	"<C-f>",
+	":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
+})
