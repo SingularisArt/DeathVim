@@ -27,17 +27,17 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
 -- When in a tex file, remove statusbar and tabline, but in other filetypes,
 -- enable them
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  callback = function()
-    if vim.bo.filetype == 'tex' then
-      vim.opt.showtabline=0
-      vim.opt.laststatus=0
-    else
-      -- vim.opt.showtabline=2
-      vim.opt.laststatus=2
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   callback = function()
+--     if vim.bo.filetype == 'tex' then
+--       vim.opt.showtabline=0
+--       vim.opt.laststatus=0
+--     else
+--       -- vim.opt.showtabline=2
+--       vim.opt.laststatus=2
+--     end
+--   end,
+-- })
 
 ------------------------------------------------------------------------
 --                           User AutoCmds                            --
