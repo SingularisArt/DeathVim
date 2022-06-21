@@ -4,7 +4,6 @@
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#showcase">Showcase</a> •
   <a href="#setting-up-pywal">Setting up PyWal</a> •
   <a href="#required-tools">Required Tools</a> •
   <a href="#todo">TODO</a>
@@ -22,6 +21,10 @@
 
 <p align="center">
   <img src="https://stars.medv.io/SingularisArt/Death.NeoVim.svg", title="commits"/>
+</p>
+
+<p align="center">
+  <img src="media/screenshot-1.png">
 </p>
 
 # Features
@@ -302,96 +305,6 @@ To install any of them run
 | Close all windows                        | `<Leader>sC`    |
 
 </p>
-</details>
-
-## Showcase
-
-### Theme Showcase
-
-<details><summary>Images</summary>
-  <img src="media/themes/theme-1.png">
-  <img src="media/themes/theme-2.png">
-  <img src="media/themes/theme-3.png">
-</details>
-
-### Very useful plugins
-
-<details><summary>Images</summary>
-  <h4>Alpha</h4>
-
-  Nice start when you open nvim without passing any arguments:
-
-  <img src="media/plugins/alpha.png">
-
-  <h4>Nvim Tree</h4>
-
-  Fast file tree:
-
-  <img src="media/plugins/nvim-tree.png">
-
-  <h4>Telescope-nvim</h4>
-
-  A fuzzy file finder, picker, sorter, previewer and much more:
-
-  <img src="media/plugins/telescope.png">
-
-  <h4>Nvim-bufferline.lua</h4>
-
-  <h5>Tabline</h5>
-
-  The tabline will display the currently open buffers, and whether they have
-  been modified:
-
-  <img src="media/plugins/tabline.png">
-
-  <h5>Statusbar</h5>
-
-  The statusbar displays the current branch, how many errors and warnings are
-  in the current file, the mode you're in, how many newly added lines, how many
-  modified lines, how many removed lines, how many spaces are in each tab, the
-  encoding of the file, the file language, the line and column number, and a
-  little gif showing how far you are from the top:
-
-  <img src="media/plugins/statusbar.png">
-
-  <h4>Nvim-treesitter</h4>
-
-  Better syntax highlighting for programming languages.
-
-  Without/with TreeSitter:
-
-  <img src="media/plugins/nvim-treesitter.png">
-
-  To create breakpoints, press `<Leader>dt`.
-
-  To run the file, press `<Leader>ds`.
-
-  Before you run the file, you first must have the debugger for that language
-  installed. To do that, run `DIInstall` and hit tab to view all supported
-  languages:
-
-  <img src="media/plugins/debugging.png">
-</details>
-
-### Filetypes
-
-<details><summary>Images</summary>
-  <h4>LaTeX</h4>
-
-  While editing a LaTeX document, press `<Leader>lc` to start automatic
-  compilation:
-
-  <img src="media/filetypes/latex.png">
-
-  <h4>Markdown</h4>
-
-  While editing a markdown document, press `<Leader>md` to open a live preview
-  of your document. You must edit the plugin settings to point to the absolute
-  filepath of the
-  [this](https://github.com/SingularisArt/Death.NeoVim/blob/master/static/markdown-preview/customStyle.css)
-  css file. This shoud just mean changing the username:
-
-  <img src="media/filetypes/md.png">
 </details>
 
 # Setting up PyWal
