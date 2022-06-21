@@ -1,6 +1,6 @@
 -- LSP Servers to install
 
-local M = require("SingularisArt.functions")
+local M = require("dvim.utils.functions")
 
 local capabilities = M.safe_require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 

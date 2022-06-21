@@ -1,7 +1,7 @@
-local M = require("SingularisArt.functions")
+local M = require("dvim.utils.functions")
 local signature = M.safe_require("lsp_signature")
 
-local icons = require("SingularisArt.icons")
+local icons = require("dvim.core.icons")
 
 local cfg = {
 	debug = false, -- set to true to enable debug logging

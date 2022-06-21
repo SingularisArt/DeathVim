@@ -1,10 +1,10 @@
-local MM = require("SingularisArt.functions")
+local MM = require("dvim.utils.functions")
 local M = {}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.setup = function()
-	local icons = MM.safe_require("SingularisArt.icons")
+	local icons = MM.safe_require("dvim.core.icons")
 
 	local signs = {
 		{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
@@ -82,6 +82,6 @@ function M.remove_augroup(name)
 	end
 end
 
-vim.cmd([[ command! LspToggleAutoFormat execute 'lua require("SingularisArt.lsp.handlers").toggle_format_on_save()' ]])
+vim.cmd([[ command! LspToggleAutoFormat execute 'lua require("dvim.core.lsp.handlers").toggle_format_on_save()' ]])
 
 return M

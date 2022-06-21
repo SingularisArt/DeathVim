@@ -1,6 +1,6 @@
 local M = require('dvim.utils.functions')
 
-local icons = M.safe_require('dvim.config.icons')
+local icons = M.safe_require('dvim.core.icons')
 
 vim.g.symbols_outline = {
   highlight_hovered_item = true,

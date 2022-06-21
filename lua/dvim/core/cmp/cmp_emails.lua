@@ -8,7 +8,7 @@ handles.setup = function()
   end
   registered = true
 
-  local M = require('SingularisArt.functions')
+  local M = require('dvim.utils.functions')
 
   local cmp = M.safe_require('cmp')
 

@@ -1,4 +1,4 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.utils.functions')
 
 local Job = M.safe_require('plenary.job')
 

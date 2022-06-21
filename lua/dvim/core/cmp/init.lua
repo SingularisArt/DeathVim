@@ -1,8 +1,8 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.utils.functions')
 
 local cmp =  M.safe_require('cmp')
 local cmp_dap = M.safe_require('cmp_dap')
-local icons = M.safe_require('SingularisArt.icons')
+local icons = M.safe_require('dvim.core.icons')
 local kind_icons = icons.kind
 
 cmp.setup {
@@ -87,5 +87,5 @@ cmp.setup {
   },
 }
 
-M.safe_require('SingularisArt.cmp.cmp_github_issues')
-M.safe_require('SingularisArt.cmp.cmp_emails').setup()
+M.safe_require('dvim.core.cmp.cmp_github_issues')
+M.safe_require('dvim.core.cmp.cmp_emails').setup()

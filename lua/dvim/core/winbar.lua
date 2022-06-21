@@ -55,7 +55,7 @@ local get_gps = function()
   end
 
   if not require("dvim.utils.functions").isempty(gps_location) then
-    return require("dvim.icons").ui.ChevronRight .. " " .. gps_location
+    return require("dvim.core.icons").ui.ChevronRight .. " " .. gps_location
   else
     return ""
   end
@@ -86,7 +86,7 @@ M.get_winbar = function()
   end
 
   if not f.isempty(value) and f.get_buf_option("mod") then
-    local mod = "%#LineNr#" .. require("dvim.icons").ui.Circle .. "%*"
+    local mod = "%#LineNr#" .. require("dvim.core.icons").ui.Circle .. "%*"
     if gps_added then
       value = value .. " " .. mod
     else

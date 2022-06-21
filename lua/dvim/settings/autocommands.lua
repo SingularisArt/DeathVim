@@ -81,6 +81,6 @@ autocmd BufReadPost *
 
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
   callback = function()
-    require("dvim.config.winbar").get_winbar()
+    require("dvim.core.winbar").get_winbar()
   end,
 })
