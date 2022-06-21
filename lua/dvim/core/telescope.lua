@@ -1,8 +1,6 @@
-local M = require('dvim.utils.functions')
-
-local telescope = M.safe_require('telescope')
-local actions = M.safe_require('telescope.actions')
-local icons = M.safe_require('dvim.core.icons')
+local telescope = Utils.safe_require('telescope')
+local actions = Utils.safe_require('telescope.actions')
+local icons = Utils.safe_require('dvim.core.icons')
 telescope.load_extension('media_files')
 
 telescope.setup {

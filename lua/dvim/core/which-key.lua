@@ -1,6 +1,4 @@
-local M = require("dvim.utils.functions")
-
-local which_key = M.safe_require("which-key")
+local which_key = Utils.safe_require("which-key")
 
 which_key.setup({
   plugins = {

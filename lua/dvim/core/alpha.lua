@@ -1,7 +1,5 @@
-local M = require('dvim.utils.functions')
-
-local alpha = M.safe_require('alpha')
-local dashboard = M.safe_require('alpha.themes.dashboard')
+local alpha = Utils.safe_require('alpha')
+local dashboard = Utils.safe_require('alpha.themes.dashboard')
 
 dashboard.section.header.val = {
   [[                               __                ]],

@@ -1,10 +1,5 @@
-local status_ok, gps = pcall(require, "nvim-gps")
-if not status_ok then
-  return
-end
-
-local icons = require("dvim.core.icons")
-
+local gps = Utils.safe_require("nvim-gps")
+local icons = Utils.safe_require("dvim.core.icons")
 local space = ""
 
 if vim.fn.has("mac") == 1 then

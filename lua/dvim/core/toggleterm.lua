@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local toggleterm = M.safe_require('toggleterm')
+local toggleterm = Utils.safe_require('toggleterm')
 
 toggleterm.setup({
   size = 20,

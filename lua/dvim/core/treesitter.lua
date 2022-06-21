@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local tree_sitter = M.safe_require('nvim-treesitter.configs')
+local tree_sitter = Utils.safe_require('nvim-treesitter.configs')
 
 tree_sitter.setup({
   ensure_installed = "all",

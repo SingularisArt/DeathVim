@@ -1,7 +1,5 @@
-local M = require('dvim.utils.functions')
-
-local todo_comments = M.safe_require('todo-comments')
-local icons = M.safe_require('dvim.core.icons')
+local todo_comments = Utils.safe_require('todo-comments')
+local icons = Utils.safe_require('dvim.core.icons')
 
 local error_red = "#F44747"
 local warning_orange = "#ff8800"

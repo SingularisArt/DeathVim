@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local comment = M.safe_require('Comment')
+local comment = Utils.safe_require('Comment')
 
 comment.setup {
   pre_hook = function(ctx)

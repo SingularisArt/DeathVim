@@ -1,28 +1,6 @@
--- LSP Servers to install
-
-local M = require("dvim.utils.functions")
-
-local capabilities = M.safe_require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local langservers = {
-	"sumneko_lua", -- Lua
-	"vimls", -- Vim
-	"texlab", -- LaTeX
-	"pylsp", -- Python
-	"bashls", -- Bash
-	"clangd", -- C++,C
-	"cmake", -- CMake
-	"html", -- HTML
-	"cssls", -- CSS
-	"jsonls", -- JSON
-	"rust_analyzer", -- Rust
-	"tsserver", -- Typescript/Javascript
-	"jdtls", -- Java
-	"yamlls", -- Yaml
-}
+local capabilities = Utils.safe_require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local config = {
-	-- disable virtual text
 	virtual_text = false,
 	update_in_insert = true,
 	underline = true,
@@ -37,9 +15,9 @@ local config = {
 	},
 }
 
-for _, server in ipairs(langservers) do
+for _, server in ipairs(dvim.language_servers) do
 	if server == "sumneko_lua" then
-		M.safe_require("lspconfig")[server].setup({
+		Utils.safe_require("lspconfig")[server].setup({
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -50,15 +28,15 @@ for _, server in ipairs(langservers) do
 			},
 		})
 	else
-		M.safe_require("lspconfig")[server].setup({
+		Utils.safe_require("lspconfig")[server].setup({
 			capabilities = capabilities,
 		})
 	end
 
-	M.safe_require("lsp_signature").setup({ hi_parameter = "IncSearch" })
+	Utils.safe_require("lsp_signature").setup({ hi_parameter = "IncSearch" })
 end
 
-M.safe_require("goto-preview").setup({})
+Utils.safe_require("goto-preview").setup({})
 
 vim.diagnostic.config(config)
 

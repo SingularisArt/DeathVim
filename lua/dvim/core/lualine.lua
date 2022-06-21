@@ -1,8 +1,6 @@
-local M = require('dvim.utils.functions')
+local lualine = Utils.safe_require('lualine')
 
-local lualine = M.safe_require('lualine')
-local gps = M.safe_require('nvim-gps')
-M.safe_require('nvim-gps').setup()
+Utils.safe_require('nvim-gps').setup()
 
 local hide_in_width = function()
   return vim.fn.winwidth(0) > 80

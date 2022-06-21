@@ -1,6 +1,4 @@
--- local M = require('dvim.utils.functions')
---
--- local surround = M.safe_require('surround')
+-- local surround = Utils.safe_require('surround')
 --
 -- surround.setup {
 --   context_offset = 100,

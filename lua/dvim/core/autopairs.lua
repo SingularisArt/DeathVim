@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local npairs = M.safe_require('nvim-autopairs')
+local npairs = Utils.safe_require('nvim-autopairs')
 
 npairs.setup {
   check_ts = true,

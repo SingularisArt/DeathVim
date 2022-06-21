@@ -1,16 +1,19 @@
 local M = require("dvim.utils.functions")
+Utils = require("dvim.utils.functions")
+
+dvim = require("dvim.config")
+dvim = dvim.dvim
 
 M.safe_require("dvim.settings.options")
-M.safe_require("dvim.settings.plugins")
 M.safe_require("dvim.settings.keymaps")
+M.safe_require("dvim.settings.plugins")
 M.safe_require("dvim.settings.colorscheme")
 M.safe_require("dvim.settings.autocommands")
 
 M.safe_require("dvim.core.alpha")
 M.safe_require("dvim.core.autopairs")
 M.safe_require("dvim.core.bufferline")
--- M.safe_require("dvim.core.cmp")
-require("dvim.core.cmp")
+M.safe_require("dvim.core.cmp")
 M.safe_require("dvim.core.comment")
 M.safe_require("dvim.core.cybu")
 M.safe_require("dvim.core.dap")
@@ -35,4 +38,5 @@ M.safe_require("dvim.core.treesitter")
 M.safe_require("dvim.core.ultisnips")
 M.safe_require("dvim.core.vimtex")
 M.safe_require("dvim.core.which-key")
+M.safe_require("dvim.core.notify")
 M.safe_require("dvim.core.winbar")

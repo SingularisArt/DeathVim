@@ -1,9 +1,7 @@
-local M = require('dvim.utils.functions')
-
-local dap = M.safe_require('dap')
-local nvim_dap_virtual_text = M.safe_require('nvim-dap-virtual-text')
-local dapui = M.safe_require('dapui')
-local icons = M.safe_require('dvim.core.icons')
+local dap = Utils.safe_require('dap')
+local nvim_dap_virtual_text = Utils.safe_require('nvim-dap-virtual-text')
+local dapui = Utils.safe_require('dapui')
+local icons = Utils.safe_require('dvim.core.icons')
 
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 dap.configurations.lua = {

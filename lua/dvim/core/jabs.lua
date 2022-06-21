@@ -1,5 +1,4 @@
-local M = require('dvim.utils.functions')
-local jabs = M.safe_require('jabs')
+local jabs = Utils.safe_require('jabs')
 
 jabs.setup {
   position = "center", -- center, corner

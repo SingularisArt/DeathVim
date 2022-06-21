@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local bufferline = M.safe_require('bufferline')
+local bufferline = Utils.safe_require('bufferline')
 
 bufferline.setup {
   options = {

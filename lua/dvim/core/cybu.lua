@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local cybu = M.safe_require('cybu')
+local cybu = Utils.safe_require('cybu')
 
 cybu.setup {
   position = {
