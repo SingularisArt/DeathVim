@@ -56,7 +56,7 @@ function M.remove_augroup(name)
   end
 end
 
-vim.cmd [[ command! SnipRunToggle execute 'lua require("user.functions").toggle_sniprun()' ]]
+vim.cmd [[ command! SnipRunToggle execute 'lua require("dvim.utils.functions").toggle_sniprun()' ]]
 
 -- get length of current word
 function M.get_word_length()

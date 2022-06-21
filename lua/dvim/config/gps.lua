@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local icons = require("dvim.icons")
+local icons = require("dvim.config.icons")
 
 local space = ""
 

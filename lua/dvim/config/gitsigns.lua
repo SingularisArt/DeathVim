@@ -1,4 +1,4 @@
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 local gitsigns = M.safe_require('gitsigns')
 

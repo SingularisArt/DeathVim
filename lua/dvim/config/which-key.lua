@@ -1,4 +1,4 @@
-local M = require("dvim.functions")
+local M = require("dvim.utils.functions")
 
 local which_key = M.safe_require("which-key")
 

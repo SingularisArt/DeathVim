@@ -1,4 +1,4 @@
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 local lualine = M.safe_require('lualine')
 local gps = M.safe_require('nvim-gps')

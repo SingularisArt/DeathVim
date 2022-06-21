@@ -1,4 +1,4 @@
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 local cybu = M.safe_require('cybu')
 

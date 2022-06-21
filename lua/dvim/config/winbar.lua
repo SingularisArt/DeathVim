@@ -18,7 +18,7 @@ M.winbar_filetype_exclude = {
 local get_filename = function()
   local filename = vim.fn.expand("%:t")
   local extension = vim.fn.expand("%:e")
-  local f = require("dvim.functions")
+  local f = require("dvim.utils.functions")
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
@@ -54,7 +54,7 @@ local get_gps = function()
     return ""
   end
 
-  if not require("dvim.functions").isempty(gps_location) then
+  if not require("dvim.utils.functions").isempty(gps_location) then
     return require("dvim.icons").ui.ChevronRight .. " " .. gps_location
   else
     return ""
@@ -73,7 +73,7 @@ M.get_winbar = function()
   if excludes() then
     return
   end
-  local f = require("dvim.functions")
+  local f = require("dvim.utils.functions")
   local value = get_filename()
 
   local gps_added = false

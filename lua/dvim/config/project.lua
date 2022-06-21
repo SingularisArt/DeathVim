@@ -1,4 +1,4 @@
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 local project = M.safe_require('project_nvim')
 local telescope = M.safe_require('telescope')

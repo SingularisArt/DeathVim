@@ -1,4 +1,4 @@
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 local alpha = M.safe_require('alpha')
 local dashboard = M.safe_require('alpha.themes.dashboard')

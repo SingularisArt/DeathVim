@@ -1,5 +1,5 @@
 local fn = vim.fn
-local M = require('dvim.functions')
+local M = require('dvim.utils.functions')
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
