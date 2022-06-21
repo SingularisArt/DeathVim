@@ -1,4 +1,4 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 local npairs = M.safe_require('nvim-autopairs')
 

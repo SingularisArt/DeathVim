@@ -1,4 +1,4 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 local jabs = M.safe_require('jabs')
 
 jabs.setup {

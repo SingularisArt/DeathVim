@@ -1,5 +1,5 @@
 local fn = vim.fn
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -77,7 +77,7 @@ return packer.startup(function(use)
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'hrsh7th/cmp-calc' }
   use { 'rcarriga/cmp-dap' }
-  use { 'tzachar/cmp-tabnine', run='./install.sh', }
+  use { 'tzachar/cmp-tabnine', run = './install.sh', }
   use { 'quangnguyen30192/cmp-nvim-ultisnips' }
   use { 'kdheepak/cmp-latex-symbols' }
 

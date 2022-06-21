@@ -1,8 +1,8 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 local telescope = M.safe_require('telescope')
 local actions = M.safe_require('telescope.actions')
-local icons = M.safe_require('SingularisArt.icons')
+local icons = M.safe_require('dvim.icons')
 telescope.load_extension('media_files')
 
 telescope.setup {

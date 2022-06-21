@@ -1,7 +1,7 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 local todo_comments = M.safe_require('todo-comments')
-local icons = M.safe_require('SingularisArt.icons')
+local icons = M.safe_require('dvim.icons')
 
 local error_red = "#F44747"
 local warning_orange = "#ff8800"

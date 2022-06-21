@@ -6,8 +6,8 @@
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "git", "tex" },
   callback = function()
-    vim.opt.wrap=true
-    vim.opt.spell=true
+    vim.opt.wrap = true
+    vim.opt.spell = true
   end,
 })
 
@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Always go back to the line you quit on
-vim.cmd[[
+vim.cmd [[
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -81,6 +81,6 @@ autocmd BufReadPost *
 
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
   callback = function()
-    require("SingularisArt.winbar").get_winbar()
+    require("dvim.winbar").get_winbar()
   end,
 })

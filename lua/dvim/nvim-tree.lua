@@ -1,8 +1,8 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 local nvim_tree = M.safe_require('nvim-tree')
 local nvim_tree_config = M.safe_require('nvim-tree.config')
-local icons = M.safe_require('SingularisArt.icons')
+local icons = M.safe_require('dvim.icons')
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 

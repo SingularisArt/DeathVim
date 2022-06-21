@@ -1,9 +1,9 @@
-local M = require('SingularisArt.functions')
+local M = require('dvim.functions')
 
 local dap = M.safe_require('dap')
 local nvim_dap_virtual_text = M.safe_require('nvim-dap-virtual-text')
 local dapui = M.safe_require('dapui')
-local icons = M.safe_require('SingularisArt.icons')
+local icons = M.safe_require('dvim.icons')
 
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 dap.configurations.lua = {

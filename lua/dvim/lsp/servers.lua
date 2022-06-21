@@ -11,7 +11,6 @@ local langservers = {
 	"pylsp", -- Python
 	"bashls", -- Bash
 	"clangd", -- C++,C
-	"omnisharp", -- C#
 	"cmake", -- CMake
 	"html", -- HTML
 	"cssls", -- CSS
@@ -20,11 +19,6 @@ local langservers = {
 	"tsserver", -- Typescript/Javascript
 	"jdtls", -- Java
 	"yamlls", -- Yaml
-	"solc", -- Solidity
-	"solang", -- Solidity
-	"solidity_ls", -- Solidity
-	"dockerls", -- Docker
-	"sqlls", -- SQL
 }
 
 local config = {
