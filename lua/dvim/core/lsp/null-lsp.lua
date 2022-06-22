@@ -9,15 +9,16 @@ null.setup({
   debug = false,
   sources = {
     -- Formatters
-    formatting.black.with({ extra_args = { "--fast" } }), -- Python
-    formatting.clang_format, -- C++, C, C#, Java, Cuda
-    formatting.latexindent, -- LaTeX
-    formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }), -- Javascript, Javascriptreact, Typescript, Typescriptreact, Vue, Css, Scss, Less, Html, Json, Jsonc, Yaml, Markdown, Graphql, Handlebars
-    formatting.rustfmt, -- Rust
-    formatting.sql_formatter, -- SQL
-    formatting.standardrb.with({ extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" } }), -- Ruby
-    formatting.stylua, -- Lua
-    formatting.google_java_format, -- Java
+    dvim.formatters,
+    -- formatting.black.with({ extra_args = { "--fast" } }), -- Python
+    -- formatting.clang_format, -- C++, C, C#, Java, Cuda
+    -- formatting.latexindent, -- LaTeX
+    -- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }), -- Javascript, Javascriptreact, Typescript, Typescriptreact, Vue, Css, Scss, Less, Html, Json, Jsonc, Yaml, Markdown, Graphql, Handlebars
+    -- formatting.rustfmt, -- Rust
+    -- formatting.sql_formatter, -- SQL
+    -- formatting.standardrb.with({ extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" } }), -- Ruby
+    -- formatting.stylua, -- Lua
+    -- formatting.google_java_format, -- Java
 
     -- Diagnostics
     diagnostics.flake8, -- Python

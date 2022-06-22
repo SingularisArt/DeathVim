@@ -7,7 +7,7 @@ vim.cmd [[
 
 Utils = require("dvim.utils.functions")
 
-dvim = Utils.safe_require("dvim.config").dvim
+Utils.safe_require("config")
 
 Utils.safe_require("dvim.settings.options")
 Utils.safe_require("dvim.settings.keymaps")

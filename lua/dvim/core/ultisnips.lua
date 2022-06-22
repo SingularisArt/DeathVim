@@ -13,5 +13,5 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 let g:UltiSnipsEditSplit='tabdo'
 
 " the location of the snippets
-let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips/", "UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.local/share/deathvim/dvim/UltiSnips", "UltiSnips"]
 ]])
