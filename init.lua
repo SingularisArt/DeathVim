@@ -2,45 +2,28 @@ vim.cmd [[
   set runtimepath+=~/.config/dvim
   set runtimepath+=~/.local/share/deathvim/dvim
   set runtimepath+=~/.local/share/deathvim/site
-  set runtimepath+=~/.local/share/deathvim/site/pack/*/start/*/after
 ]]
 
-Utils = require("dvim.utils.functions")
+local init_path = debug.getinfo(1, "S").source:sub(2)
+local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
 
-Utils.safe_require("config")
+if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
+  vim.opt.rtp:append(base_dir)
+end
+
+Utils = require("dvim.utils.functions")
+require("dvim.settings.defaults")
+
+M = require("config")
+require("dvim.bootstrap"):init(base_dir)
+
+local plugins = require("dvim.plugins")
+require("dvim.plugin-loader").load({ plugins, dvim.plugins })
 
 Utils.safe_require("dvim.settings.options")
 Utils.safe_require("dvim.settings.keymaps")
-Utils.safe_require("dvim.settings.plugins")
 Utils.safe_require("dvim.settings.colorscheme")
 Utils.safe_require("dvim.settings.autocommands")
 
-Utils.safe_require("dvim.core.alpha")
-Utils.safe_require("dvim.core.autopairs")
-Utils.safe_require("dvim.core.bufferline")
-Utils.safe_require("dvim.core.cmp")
-Utils.safe_require("dvim.core.comment")
-Utils.safe_require("dvim.core.cybu")
-Utils.safe_require("dvim.core.dap")
-Utils.safe_require("dvim.core.gitsigns")
-Utils.safe_require("dvim.core.gps")
-Utils.safe_require("dvim.core.icons")
-Utils.safe_require("dvim.core.impatient")
-Utils.safe_require("dvim.core.jabs")
-Utils.safe_require("dvim.core.lsp")
-Utils.safe_require("dvim.core.lualine")
-Utils.safe_require("dvim.core.lualine")
-Utils.safe_require("dvim.core.markdown")
-Utils.safe_require("dvim.core.neogen")
-Utils.safe_require("dvim.core.nvim-tree")
-Utils.safe_require("dvim.core.project")
-Utils.safe_require("dvim.core.surround")
-Utils.safe_require("dvim.core.symbols-outline")
-Utils.safe_require("dvim.core.telescope")
-Utils.safe_require("dvim.core.todo-comments")
-Utils.safe_require("dvim.core.toggleterm")
-Utils.safe_require("dvim.core.treesitter")
-Utils.safe_require("dvim.core.ultisnips")
-Utils.safe_require("dvim.core.vimtex")
-Utils.safe_require("dvim.core.which-key")
-Utils.safe_require("dvim.core.winbar")
+M.user_lsp_config()
+-- Utils.safe_require("dvim.lsp")

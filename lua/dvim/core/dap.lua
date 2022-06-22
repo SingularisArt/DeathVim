@@ -1,59 +1,46 @@
-local dap = Utils.safe_require('dap')
-local nvim_dap_virtual_text = Utils.safe_require('nvim-dap-virtual-text')
-local dapui = Utils.safe_require('dapui')
-local icons = Utils.safe_require('dvim.core.icons')
+local M = {}
 
-dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
-dap.configurations.lua = {
-  {
-    type = "nlua",
-    request = "attach",
-    name = "Attach to running Neovim instance",
-    host = function()
-      local value = vim.fn.input "Host [127.0.0.1]: "
-      if value ~= "" then
-        return value
-      end
-      return "127.0.0.1"
-    end,
-    port = function()
-      local val = tonumber(vim.fn.input("Port: ", "54321"))
-      assert(val, "Please provide a port number")
-      return val
-    end,
-  },
-}
-
-vim.g.dap_virtual_text = true
-
-nvim_dap_virtual_text.setup()
-
-dapui.setup {
-  icons = { expanded = "▾", collapsed = "▸" },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "double", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
+M.config = function()
+  dvim.builtin.dap = {
+    active = false,
+    on_config_done = nil,
+    breakpoint = {
+      text = "",
+      texthl = "LspDiagnosticsSignError",
+      linehl = "",
+      numhl = "",
     },
-  },
-  windows = { indent = 1 },
-}
-
-vim.fn.sign_define('DapBreakpoint', { text = icons.ui.Bug })
-
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
-dap.adapters.nlua = function(callback, config)
-  callback { type = "server", host = config.host, port = config.port }
+    breakpoint_rejected = {
+      text = "",
+      texthl = "LspDiagnosticsSignHint",
+      linehl = "",
+      numhl = "",
+    },
+    stopped = {
+      text = "",
+      texthl = "LspDiagnosticsSignInformation",
+      linehl = "DiagnosticUnderlineInfo",
+      numhl = "LspDiagnosticsSignInformation",
+    },
+  }
 end
 
-require('dap-python').setup('/usr/bin/python3.10')
+M.setup = function()
+  local dap = require "dap"
+  M.config()
+
+  if dvim.use_icons then
+    vim.fn.sign_define('DapBreakpoint', dvim.builtin.dap.breakpoint)
+    vim.fn.sign_define("DapBreakpointRejected", dvim.builtin.dap.breakpoint_rejected)
+    vim.fn.sign_define("DapStopped", dvim.builtin.dap.stopped)
+  end
+
+  dap.defaults.fallback.terminal_win_cmd = "50vsplit new"
+
+  if dvim.builtin.dap.on_config_done then
+    dvim.builtin.dap.on_config_done(dap)
+  end
+end
+
+M.setup()
+return M

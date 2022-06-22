@@ -1,6 +1,5 @@
 local M = {}
 
-local Log = require "dvim.core.log"
 local if_nil = vim.F.if_nil
 
 local function git_cmd(opts)
@@ -24,28 +23,18 @@ local function git_cmd(opts)
       })
       :sync()
 
-  if not vim.tbl_isempty(stderr) then
-    Log:debug(stderr)
-  end
-
-  if not vim.tbl_isempty(stdout) then
-    Log:debug(stdout)
-  end
-
   return ret, stdout
 end
 
 local function safe_deep_fetch()
   local ret, result = git_cmd { args = { "rev-parse", "--is-shallow-repository" } }
   if ret ~= 0 then
-    Log:error "Git fetch failed! Check the log for further information"
     return
   end
   -- git fetch --unshallow will cause an error on a a complete clone
   local fetch_mode = result[1] == "true" and "--unshallow" or "--all"
   ret = git_cmd { args = { "fetch", fetch_mode } }
   if ret ~= 0 then
-    Log:error "Git fetch failed! Check the log for further information"
     return
   end
   return true
@@ -53,23 +42,18 @@ end
 
 ---pulls the latest changes from github
 function M.update_base_dvim()
-  Log:info "Checking for updates"
-
   local ret = git_cmd { args = { "fetch" } }
   if ret ~= 0 then
-    Log:error "Update failed! Check the log for further information"
     return
   end
 
   ret = git_cmd { args = { "diff", "--quiet", "@{upstream}" } }
   if ret == 0 then
-    Log:info "LunarVim is already up-to-date"
     return
   end
 
   ret = git_cmd { args = { "merge", "--ff-only", "--progress" } }
   if ret ~= 0 then
-    Log:error "Update failed! Please pull the changes manually instead."
     return
   end
 
@@ -91,7 +75,6 @@ function M.switch_dvim_branch(branch)
 
   local ret = git_cmd { args = args }
   if ret ~= 0 then
-    Log:error "Unable to switch branches! Check the log for further information"
     return
   end
   return true
@@ -122,9 +105,9 @@ function M.get_dvim_version()
 
   local dvim_version
   if current_branch ~= "HEAD" or "" then
-    dvim_version = current_branch .. "-" .. M.get_lvim_current_sha()
+    dvim_version = current_branch .. "-" .. M.get_dvim_current_sha()
   else
-    dvim_version = "v" .. M.get_lvim_tag()
+    dvim_version = "v" .. M.get_dvim_tag()
   end
   return dvim_version
 end

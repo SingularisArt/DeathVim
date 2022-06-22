@@ -1,122 +1,169 @@
-local telescope = Utils.safe_require('telescope')
-local actions = Utils.safe_require('telescope.actions')
-local icons = Utils.safe_require('dvim.core.icons')
-telescope.load_extension('media_files')
+local M = {}
 
-telescope.setup {
-  defaults = {
+function M.config()
+  -- Define this minimal config so that it's available if telescope is not yet available.
 
-    prompt_prefix = icons.ui.Telescope .. " ",
-    selection_caret = " ",
-    path_display = { "smart" },
-    file_ignore_patterns = { ".git/", "node_modules/", "target/", "docs/", ".settings/", "media/", "spell/" },
+  dvim.builtin.telescope = {
+    ---@usage disable telescope completely [not recommended]
+    active = true,
+    on_config_done = nil,
+  }
 
-    mappings = {
-      i = {
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
-
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-
-        ["<C-c>"] = actions.close,
-
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
-
-        ["<CR>"] = actions.select_default,
-        ["<C-s>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
-        ["<C-t>"] = actions.select_tab,
-
-        ["<c-d>"] = require("telescope.actions").delete_buffer,
-
-        -- ["<C-u>"] = actions.preview_scrolling_up,
-        -- ["<C-d>"] = actions.preview_scrolling_down,
-
-        ["<PageUp>"] = actions.results_scrolling_up,
-        ["<PageDown>"] = actions.results_scrolling_down,
-
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-        ["<C-l>"] = actions.complete_tag,
-        ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+  local actions = Utils.safe_require("telescope.actions")
+  dvim.builtin.telescope = vim.tbl_extend("force", dvim.builtin.telescope, {
+    defaults = {
+      prompt_prefix = " ",
+      selection_caret = " ",
+      entry_prefix = "  ",
+      initial_mode = "insert",
+      selection_strategy = "reset",
+      sorting_strategy = "descending",
+      layout_strategy = "horizontal",
+      layout_config = {
+        width = 0.75,
+        preview_cutoff = 120,
+        horizontal = {
+          preview_width = function(_, cols, _)
+            if cols < 120 then
+              return math.floor(cols * 0.5)
+            end
+            return math.floor(cols * 0.6)
+          end,
+          mirror = false,
+        },
+        vertical = { mirror = false },
       },
-
-      n = {
-        ["<esc>"] = actions.close,
-        ["<CR>"] = actions.select_default,
-        ["<C-x>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
-        ["<C-t>"] = actions.select_tab,
-
-        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
-        ["j"] = actions.move_selection_next,
-        ["k"] = actions.move_selection_previous,
-        ["H"] = actions.move_to_top,
-        ["M"] = actions.move_to_middle,
-        ["L"] = actions.move_to_bottom,
-
-        ["<Down>"] = actions.move_selection_next,
-        ["<Up>"] = actions.move_selection_previous,
-        ["gg"] = actions.move_to_top,
-        ["G"] = actions.move_to_bottom,
-
-        ["<C-u>"] = actions.preview_scrolling_up,
-        ["<C-d>"] = actions.preview_scrolling_down,
-
-        ["<PageUp>"] = actions.results_scrolling_up,
-        ["<PageDown>"] = actions.results_scrolling_down,
-
-        ["?"] = actions.which_key,
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--glob=!.git/",
       },
-    },
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
-  extensions = {
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = { "png", "webp", "jpg", "jpeg" },
-      find_cmd = "rg", -- find command (defaults to `fd`)
-    },
-    file_browser = {
-      -- theme = "ivy",
-      -- require("telescope.themes").get_dropdown {
-      --   previewer = false,
-      --   -- even more opts
-      -- },
       mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
+        i = {
+          ["<C-n>"] = actions.move_selection_next,
+          ["<C-p>"] = actions.move_selection_previous,
+          ["<C-c>"] = actions.close,
+          ["<C-j>"] = actions.cycle_history_next,
+          ["<C-k>"] = actions.cycle_history_prev,
+          ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+          ["<CR>"] = actions.select_default,
         },
-        ["n"] = {
-          -- your custom normal mode mappings
+        n = {
+          ["<C-n>"] = actions.move_selection_next,
+          ["<C-p>"] = actions.move_selection_previous,
+          ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        },
+      },
+      file_ignore_patterns = {},
+      path_display = { shorten = 5 },
+      winblend = 0,
+      border = {},
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      color_devicons = true,
+      set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+      pickers = {
+        find_files = {
+          hidden = true,
+        },
+        live_grep = {
+          --@usage don't include the filename in the search results
+          only_sort_text = true,
         },
       },
     },
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-        previewer = false,
-        -- even more opts
+    extensions = {
+      fzf = {
+        fuzzy = true, -- false will only do exact matching
+        override_generic_sorter = true, -- override the generic sorter
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
       },
     },
-  },
-}
+  })
+end
 
-telescope.load_extension('ui-select')
-telescope.load_extension('file_browser')
+M.setup = function()
+  local previewers = require("telescope.previewers")
+  local sorters = require("telescope.sorters")
+
+  dvim.builtin.telescope = vim.tbl_extend("keep", {
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
+    file_sorter = sorters.get_fuzzy_file,
+    generic_sorter = sorters.get_generic_fuzzy_sorter,
+    ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
+    mappings = {
+      f = {
+        name = "Telescope",
+        f = {
+          name = "Find",
+          f = {
+            "<cmd>Telescope find_files<CR>",
+            "Fuzzy Find Files",
+          },
+          b = {
+            '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>',
+            "Browser Find Files",
+          },
+        },
+        g = {
+          name = "Git",
+          s = {
+            "<cmd>Telescope git_status<CR>",
+            "Git Status",
+          },
+          f = {
+            "<cmd>Telescope git_files<CR>",
+            "Git Files",
+          },
+          c = {
+            "<cmd>Telescope git_commits<CR>",
+            "Commits",
+          },
+          b = {
+            "<cmd>Telescope git_branches<CR>",
+            "Branches",
+          },
+          t = {
+            "<cmd>Telescope git_stash<CR>",
+            "Stash",
+          },
+        },
+      },
+    },
+  }, dvim.builtin.telescope)
+
+  local telescope = require("telescope")
+  telescope.setup(dvim.builtin.telescope)
+
+  if dvim.builtin.project.active then
+    pcall(function()
+      require("telescope").load_extension("projects")
+    end)
+  end
+
+  if dvim.builtin.notify.active then
+    pcall(function()
+      require("telescope").load_extension("notify")
+    end)
+  end
+
+  if dvim.builtin.telescope.on_config_done then
+    dvim.builtin.telescope.on_config_done(telescope)
+  end
+
+  if dvim.builtin.telescope.extensions and dvim.builtin.telescope.extensions.fzf then
+    pcall(function()
+      require("telescope").load_extension("fzf")
+    end)
+  end
+end
+
+return M

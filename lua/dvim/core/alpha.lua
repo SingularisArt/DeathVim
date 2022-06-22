@@ -1,33 +1,78 @@
-local alpha = Utils.safe_require('alpha')
-local dashboard = Utils.safe_require('alpha.themes.dashboard')
+local M = {}
 
-dashboard.section.header.val = {
-  [[                               __                ]],
-  [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-  [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-  [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-  [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-  [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-}
-dashboard.section.buttons.val = {
-  dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-  dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
-  dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
-  dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
-  dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-  dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
-}
+function M.config()
+  local dvim_dashboard = require("dvim.core.alpha.dashboard")
+  local dvim_startify = require("dvim.core.alpha.startify")
 
-local function footer()
-  return "damrah.netlify.app"
+  dvim.builtin.alpha = {
+    dashboard = { config = {}, section = dvim_dashboard.get_sections() },
+    startify = { config = {}, section = dvim_startify.get_sections() },
+    active = true,
+    mode = "dashboard",
+  }
 end
 
-dashboard.section.footer.val = footer()
+local function resolve_buttons(theme_name, entries)
+  local selected_theme = require("alpha.themes." .. theme_name)
+  local val = {}
+  for _, entry in pairs(entries) do
+    local on_press = function()
+      local sc_ = entry[1]:gsub("%s", ""):gsub("SPC", "<leader>")
+      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+      vim.api.nvim_feedkeys(key, "normal", false)
+    end
+    local button_element = selected_theme.button(entry[1], entry[2], entry[3])
+    -- this became necessary after recent changes in alpha.nvim (06ade3a20ca9e79a7038b98d05a23d7b6c016174)
+    button_element.on_press = on_press
+    table.insert(val, button_element)
+  end
+  return val
+end
 
-dashboard.section.footer.opts.hl = "Type"
-dashboard.section.header.opts.hl = "Include"
-dashboard.section.buttons.opts.hl = "Keyword"
+local function resolve_config(theme_name)
+  local selected_theme = require("alpha.themes." .. theme_name)
+  local resolved_section = selected_theme.section
+  local section = dvim.builtin.alpha[theme_name].section
 
-dashboard.opts.opts.noautocmd = true
-alpha.setup(dashboard.opts)
+  for name, el in pairs(section) do
+    for k, v in pairs(el) do
+      if name:match "buttons" and k == "entries" then
+        resolved_section[name].val = resolve_buttons(theme_name, v)
+      elseif v then
+        resolved_section[name][k] = v
+      end
+    end
+  end
+
+  return selected_theme.config
+end
+
+local function configure_additional_autocmds()
+  local group = "_dashboard_settings"
+  vim.api.nvim_create_augroup(group, {})
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "alpha",
+    command = "set showtabline=0 | autocmd BufLeave <buffer> set showtabline=" .. vim.opt.showtabline._value,
+  })
+end
+
+function M.setup()
+  M.config()
+
+  local alpha = require("alpha")
+  local mode = dvim.builtin.alpha.mode
+  local config = dvim.builtin.alpha[mode].config
+
+  -- this makes it easier to use a completely custom configuration
+  if vim.tbl_isempty(config) then
+    config = resolve_config(mode)
+  end
+
+
+  alpha.setup(config)
+  configure_additional_autocmds()
+end
+
+M.setup()
+return M

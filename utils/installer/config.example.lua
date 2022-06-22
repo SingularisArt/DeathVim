@@ -1,10 +1,10 @@
-dvim = {}
+require("dvim.settings.defaults")
 
 ------------------------------------------------------------------------
 --                              General                               --
 ------------------------------------------------------------------------
 
-dvim.colorscheme = "wal"
+dvim.colorscheme = "onedarker"
 dvim.autosave = true
 dvim.log_level = "warn"
 dvim.leader = "space"
@@ -16,63 +16,78 @@ dvim.leader = "space"
 dvim.leader = "space"
 
 ------------------------------------------------------------------------
+--                           Builtin Plugins                          --
+------------------------------------------------------------------------
+
+-- After changing plugin config exit and reopen DeathVim, then
+-- Run :PackerInstall :PackerCompile
+dvim.builtin.alpha.active = true
+dvim.builtin.alpha.mode = "dashboard"
+dvim.builtin.autopairs.active = true
+dvim.builtin.bufferline.active = true
+dvim.builtin.cmp.active = true
+dvim.builtin.dap.active = true
+dvim.builtin.lualine.active = true
+dvim.builtin.markdown.active = true
+dvim.builtin.chadtree.active = true
+dvim.builtin.telescope.active = true
+dvim.builtin.project.active = true
+dvim.builtin.ultisnips.active = true
+dvim.builtin.vimtex.active = true
+dvim.builtin.which_key.active = true
+dvim.builtin.winbar.active = true
+dvim.builtin.notify.active = true
+
+------------------------------------------------------------------------
 --                                LSP                                 --
 ------------------------------------------------------------------------
 
-local null = Utils.safe_require("null-ls")
+local M = {}
+M.user_lsp_config = function()
+  ------------------------
+  --  Language Servers  --
+  ------------------------
 
-------------------------
---  Language Servers  --
-------------------------
-
-dvim.language_servers = {
-  "sumneko_lua", -- Lua
-  "vimls", -- Vim
-  "texlab", -- LaTeX
-  "pylsp", -- Python
-  "bashls", -- Bash
-  "clangd", -- C++,C
-  "cmake", -- CMake
-  "html", -- HTML
-  "cssls", -- CSS
-  "jsonls", -- JSON
-  "rust_analyzer", -- Rust
-  "tsserver", -- Typescript/Javascript
-  "jdtls", -- Java
-  "yamlls", -- Yaml
-}
-
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null.builtins.diagnostics
-
-null.setup({
-  debug = false,
-  sources = {
-    ------------------
-    --  Formatters  --
-    ------------------
-    formatting.black, -- Python
-    formatting.clang_format, -- C++,C
-    formatting.latexindent, -- LaTeX
-    formatting.prettier, -- Javascript/Typescript
-    formatting.rustfmt, -- Rust
-    formatting.sql_formatter, -- Sql
-    formatting.standardrb, -- Ruby
-    formatting.stylua, -- Lua
-    formatting.google_java_format, -- Java
-    formatting.shellharden, -- Bash
-
-    -------------------
-    --  Diagnostics  --
-    -------------------
-    diagnostics.luacheck, -- Lua
-    diagnostics.vint, -- Vim
-    diagnostics.flake8, -- Python
-    diagnostics.cppcheck, -- C++,C
-    diagnostics.shellcheck, -- Bash
+  dvim.language_servers = {
+    "sumneko_lua", -- Lua
+    "vimls", -- Vim
+    "texlab", -- LaTeX
+    "pylsp", -- Python
+    "bashls", -- Bash
+    "clangd", -- C++,C
+    "cmake", -- CMake
+    "html", -- HTML
+    "cssls", -- CSS
+    "jsonls", -- JSON
+    "rust_analyzer", -- Rust
+    "tsserver", -- Typescript/Javascript
+    "jdtls", -- Java
+    "yamlls", -- Yaml
   }
-})
 
-return dvim
+  -- dvim.lsp.automatic_servers_installation = true
+
+  -- set a formatter, this will override the language server formatting capabilities (if it exists)
+  local formatters = require("dvim.lsp.null-ls.formatters")
+  formatters.setup {
+    { command = "black", extra_args = { "--fast" } },
+    { command = "clang_format" },
+    { command = "latexindent" },
+    { command = "prettier", extra_args = { "--single-quote", "--jsx-single-quote" } },
+    { command = "rustfmt" },
+    { command = "sql_formatter" },
+    { command = "standardrb", extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" } },
+    { command = "stylua" },
+    { command = "google_java_format" },
+    { command = "shellharden" },
+  }
+
+  -- set additional linters
+  local diagnostics = require("dvim.lsp.null-ls.diagnostics")
+  diagnostics.setup {
+    { command = "flake8" },
+    { command = "cppcheck" },
+  }
+end
+
+return M

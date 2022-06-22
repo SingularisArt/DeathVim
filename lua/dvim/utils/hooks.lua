@@ -1,31 +1,19 @@
 local M = {}
 
-local Log = require "dvim.core.log"
 local in_headless = #vim.api.nvim_list_uis() == 0
 
-function M.run_pre_update()
-  Log:debug "Starting pre-update hook"
-end
-
-function M.run_pre_reload()
-  Log:debug "Starting pre-reload hook"
-end
-
 function M.run_on_packer_complete()
-  Log:debug "Packer operation complete"
   vim.api.nvim_exec_autocmds("User", { pattern = "PackerComplete" })
 
   vim.g.colors_name = dvim.colorscheme
   pcall(vim.cmd, "colorscheme " .. dvim.colorscheme)
 
   if M._reload_triggered then
-    Log:info "Reloaded configuration"
     M._reload_triggered = nil
   end
 end
 
 function M.run_post_reload()
-  Log:debug "Starting post-reload hook"
   M.reset_cache()
   M._reload_triggered = true
 end
@@ -45,13 +33,10 @@ function M.reset_cache()
       table.insert(dvim_modules, module)
     end
   end
-  Log:trace(string.format("Cache invalidated for core modules: { %s }", table.concat(dvim_modules, ", ")))
   require("dvim.lsp.templates").generate_templates()
 end
 
 function M.run_post_update()
-  Log:debug "Starting post-update hook"
-
   if vim.fn.has "nvim-0.7" ~= 1 then
     local compat_tag = "1.1.3"
     vim.notify(
@@ -70,7 +55,6 @@ function M.run_post_update()
 
   M.reset_cache()
 
-  Log:debug "Syncing core plugins"
   require("dvim.plugin-loader").sync_core_plugins()
 
   if not in_headless then

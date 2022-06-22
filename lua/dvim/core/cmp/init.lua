@@ -1,16 +1,16 @@
-local M = require('dvim.utils.functions')
+local M = {}
 
-local cmp =  M.safe_require('cmp')
-local cmp_dap = M.safe_require('cmp_dap')
-local icons = M.safe_require('dvim.core.icons')
+local cmp = Utils.safe_require('cmp')
+local cmp_dap = Utils.safe_require('cmp_dap')
+local icons = Utils.safe_require('dvim.core.icons')
 local kind_icons = icons.kind
 
-cmp.setup {
+dvim.builtin.cmp = {
   snippet = {
     expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-			-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
     end,
   },
 
@@ -19,10 +19,10 @@ cmp.setup {
   end,
 
   mapping = cmp.mapping.preset.insert {
-		["<C-y>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
+    ["<C-y>"] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
 
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
@@ -33,7 +33,7 @@ cmp.setup {
     ['<A-k>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -56,13 +56,13 @@ cmp.setup {
     end,
   },
   sources = {
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-		{ name = "latex_symbols" },
-		{ name = "ultisnips" },
-		{ name = "calc" },
-		{ name = "path" },
-		{ name = "buffer" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "latex_symbols" },
+    { name = "ultisnips" },
+    { name = "calc" },
+    { name = "path" },
+    { name = "buffer" },
     { name = "gh_issues" },
   },
   confirm_opts = {
@@ -87,5 +87,11 @@ cmp.setup {
   },
 }
 
-M.safe_require('dvim.core.cmp.cmp_github_issues')
-M.safe_require('dvim.core.cmp.cmp_emails').setup()
+M.setup = function()
+  require("cmp").setup(dvim.builtin.cmp)
+
+  Utils.safe_require('dvim.core.cmp.cmp_github_issues')
+  Utils.safe_require('dvim.core.cmp.cmp_emails').setup()
+end
+
+return M
