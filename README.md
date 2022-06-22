@@ -64,7 +64,7 @@
 
 ```sh
 mv ~/.config/nvim ~/.config/nvim-back
-git clone https://https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
+git clone https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
 cd ~/.config/nvim && bash script
 ```
 
