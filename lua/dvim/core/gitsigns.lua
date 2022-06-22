@@ -4,7 +4,7 @@ M.config = function()
   dvim.builtin.gitsigns = {
     active = true,
     on_config_done = nil,
-    opts = {
+    setup = {
       signs = {
         add = {
           hl = "GitSignsAdd",
@@ -79,9 +79,11 @@ M.config = function()
 end
 
 M.setup = function()
+  M.config()
+
   local gitsigns = require("gitsigns")
 
-  gitsigns.setup(dvim.builtin.gitsigns.opts)
+  gitsigns.setup(dvim.builtin.gitsigns.setup)
   if dvim.builtin.gitsigns.on_config_done then
     dvim.builtin.gitsigns.on_config_done(gitsigns)
   end

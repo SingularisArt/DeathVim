@@ -34,7 +34,14 @@ local core_plugins = {
   { "tamago324/nlsp-settings.nvim" },
 
   -- Git
-  { "lewis6991/gitsigns.nvim" },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("dvim.core.gitsigns").setup()
+    end,
+    event = "BufRead",
+    disable = not dvim.builtin.gitsigns.active,
+  },
   { "tpope/vim-rhubarb" },
   { "tpope/vim-fugitive" },
 
@@ -51,10 +58,21 @@ local core_plugins = {
   { "machakann/vim-highlightedyank" },
   { "folke/lua-dev.nvim" },
   { "turbio/bracey.vim" },
-  { "folke/todo-comments.nvim" },
-  { "matbme/JABS.nvim" },
+  {
+    "folke/todo-comments.nvim",
+    config = function()
+      require("dvim.core.todo-comments").setup()
+    end,
+    disable = not dvim.builtin.comments.active,
+  },
+  {
+    "matbme/JABS.nvim",
+    config = function()
+      require("dvim.core.jabs").setup()
+    end,
+    disable = not dvim.builtin.jabs.active,
+  },
   { "akinsho/toggleterm.nvim" }, -- Terminal
-  { "ghillb/cybu.nvim" }, -- Cycling through buffers
   { "kyazdani42/nvim-web-devicons" }, -- Icons
 
   -- TreeSitter
@@ -220,13 +238,13 @@ local core_plugins = {
     disable = not dvim.builtin.autopairs.active,
   },
 
-  -- ChadTree
+  -- NvimTree
   {
-    "ms-jpq/chadtree",
+    "kyazdani42/nvim-tree.lua",
     config = function()
-      require("dvim.core.chadtree").setup()
+      require("dvim.core.nvimtree").setup()
     end,
-    disable = not dvim.builtin.chadtree.active,
+    disable = not dvim.builtin.nvimtree.active,
   },
 
   -- Status Line and Bufferline

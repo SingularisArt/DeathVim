@@ -67,7 +67,7 @@ local excludes = function()
   return false
 end
 
-M.get_winbar = function()
+M.setup = function()
   if excludes() then
     return
   end
@@ -95,10 +95,6 @@ M.get_winbar = function()
   if not status_ok then
     return
   end
-end
-
-M.setup = function()
-  M.get_winbar()
 end
 
 return M
