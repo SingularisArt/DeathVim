@@ -384,10 +384,6 @@ function link_local_dvim() {
   ln -s -f "$BASEDIR" "$DEATHVIM_BASE_DIR"
 }
 
-function setup_shim() {
-  make -C "$DEATHVIM_BASE_DIR" install-bin
-}
-
 function remove_old_cache_files() {
   local packer_cache="$DEATHVIM_CONFIG_DIR/plugin/packer_compiled.lua"
   if [ -e "$packer_cache" ]; then
@@ -407,8 +403,6 @@ function setup_dvim() {
 
   msg "Installing DeathVim shim"
 
-  setup_shim
-
   cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
 
   echo "Preparing Packer setup"
@@ -422,14 +416,11 @@ function setup_dvim() {
 
 function print_logo() {
   cat <<'EOF'
-      88\                                                   88\
-      88 |                                                  \__|
-      88 |88\   88\ 888888$\   888888\   888888\ 88\    88\ 88\ 888888\8888\
-      88 |88 |  88 |88  __88\  \____88\ 88  __88\\88\  88  |88 |88  _88  _88\
-      88 |88 |  88 |88 |  88 | 888888$ |88 |  \__|\88\88  / 88 |88 / 88 / 88 |
-      88 |88 |  88 |88 |  88 |88  __88 |88 |       \88$  /  88 |88 | 88 | 88 |
-      88 |\888888  |88 |  88 |\888888$ |88 |        \$  /   88 |88 | 88 | 88 |
-      \__| \______/ \__|  \__| \_______|\__|         \_/    \__|\__| \__| \__|
+                      _            _   _          _           
+                   __| | ___  __ _| |_| |____   _(_)_ __ ___  
+                  / _` |/ _ \/ _` | __| '_ \ \ / / | '_ ` _ \ 
+                 | (_| |  __/ (_| | |_| | | \ V /| | | | | | |
+                  \__,_|\___|\__,_|\__|_| |_|\_/ |_|_| |_| |_|
 EOF
 }
 
