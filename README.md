@@ -59,13 +59,8 @@
 
 # Installation
 
-> ⚠️  WARNING: Make sure you have the latest version of NeoVim. (at the time,
-> that is 0.7.0)
-
 ```sh
-mv ~/.config/nvim ~/.config/nvim-back
-git clone https://github.com/SingularisArt/Death.NeoVim ~/.config/nvim
-cd ~/.config/nvim && bash script
+bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)
 ```
 
 ## Install Language support
