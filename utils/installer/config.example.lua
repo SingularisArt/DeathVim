@@ -22,14 +22,17 @@ dvim.leader = "space"
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerInstall :PackerCompile
 dvim.builtin.alpha.active = true
+dvim.builtin.gitsigns.active = true
 dvim.builtin.alpha.mode = "dashboard"
+dvim.builtin.jabs.active = true
+dvim.builtin.comments.active = true
 dvim.builtin.autopairs.active = true
 dvim.builtin.bufferline.active = true
 dvim.builtin.cmp.active = true
 dvim.builtin.dap.active = true
 dvim.builtin.lualine.active = true
 dvim.builtin.markdown.active = true
-dvim.builtin.chadtree.active = true
+dvim.builtin.nvimtree.active = true
 dvim.builtin.telescope.active = true
 dvim.builtin.project.active = true
 dvim.builtin.ultisnips.active = true

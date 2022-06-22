@@ -17,13 +17,19 @@ require("dvim.settings.defaults")
 M = require("config")
 require("dvim.bootstrap"):init(base_dir)
 
+Utils.safe_require("dvim.settings.keymaps")
+
 local plugins = require("dvim.plugins")
 require("dvim.plugin-loader").load({ plugins, dvim.plugins })
 
-Utils.safe_require("dvim.settings.options")
-Utils.safe_require("dvim.settings.keymaps")
-Utils.safe_require("dvim.settings.colorscheme")
-Utils.safe_require("dvim.settings.autocommands")
+local settings = Utils.safe_require("dvim.settings")
+settings.load_defaults()
+
+local autocmds = Utils.safe_require("dvim.autocmds")
+autocmds.load_defaults()
+
+local colorscheme = require("dvim.colorscheme")
+colorscheme.apply_colorscheme(dvim.colorscheme)
 
 M.user_lsp_config()
 Utils.safe_require("dvim.lsp")
