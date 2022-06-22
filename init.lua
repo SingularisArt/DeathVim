@@ -26,4 +26,4 @@ Utils.safe_require("dvim.settings.colorscheme")
 Utils.safe_require("dvim.settings.autocommands")
 
 M.user_lsp_config()
--- Utils.safe_require("dvim.lsp")
+Utils.safe_require("dvim.lsp")
