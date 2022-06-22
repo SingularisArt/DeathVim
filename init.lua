@@ -17,7 +17,7 @@ require("dvim.settings.defaults")
 M = require("config")
 require("dvim.bootstrap"):init(base_dir)
 
-Utils.safe_require("dvim.settings.keymaps")
+Utils.safe_require("dvim.keymaps")
 
 local plugins = require("dvim.plugins")
 require("dvim.plugin-loader").load({ plugins, dvim.plugins })
