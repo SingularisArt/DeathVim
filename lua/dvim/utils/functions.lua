@@ -15,7 +15,7 @@ vim.cmd [[
 function M.safe_require(plugin_name)
   local status_ok, plugin = pcall(require, plugin_name)
   if not status_ok then
-    vim.notify('Cannot source ' .. plugin_name)
+    print('Cannot source ' .. plugin_name)
     return
   end
 

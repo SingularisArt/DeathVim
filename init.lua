@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
   set runtimepath+=~/.config/dvim
   set runtimepath+=~/.local/share/deathvim/dvim
   set runtimepath+=~/.local/share/deathvim/site
@@ -7,8 +7,7 @@ vim.cmd[[
 
 Utils = require("dvim.utils.functions")
 
-dvim = Utils.safe_require("config")
-dvim = dvim.dvim
+dvim = Utils.safe_require("dvim.config").dvim
 
 Utils.safe_require("dvim.settings.options")
 Utils.safe_require("dvim.settings.keymaps")
