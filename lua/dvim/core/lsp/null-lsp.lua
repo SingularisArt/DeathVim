@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local null = M.safe_require('null-ls')
+local null = Utils.safe_require("null-ls")
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null.builtins.formatting
@@ -22,7 +20,7 @@ null.setup({
     formatting.google_java_format, -- Java
 
     -- Diagnostics
-    -- diagnostics.flake8, -- Python
-    -- diagnostics.cppcheck, -- C++, C
+    diagnostics.flake8, -- Python
+    diagnostics.cppcheck, -- C++, C
   },
 })

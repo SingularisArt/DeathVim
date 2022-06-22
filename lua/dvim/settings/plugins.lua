@@ -57,7 +57,6 @@ return packer.startup(function(use)
 	use({ "goolord/alpha-nvim" })
 	use({ "antoinemadec/FixCursorHold.nvim" })
 	use({ "folke/which-key.nvim" })
-	use({ "rcarriga/nvim-notify" })
 
 	-- Colorschemes
 	use({ "chriskempson/base16-vim" })
