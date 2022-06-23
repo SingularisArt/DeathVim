@@ -22,8 +22,17 @@ for _, server in ipairs(dvim.language_servers) do
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim", "use" },
+						globals = { "vim", "use", "dvim" },
 					},
+				},
+			},
+		})
+	elseif server == "jsonls" then
+		Utils.safe_require("lspconfig")[server].setup({
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
 				},
 			},
 		})
@@ -39,14 +48,3 @@ end
 Utils.safe_require("goto-preview").setup({})
 
 vim.diagnostic.config(config)
-
-local signs = {
-	{ name = "DiagnosticSignError", text = "" },
-	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
-}
-
-for _, sign in ipairs(signs) do
-	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-end

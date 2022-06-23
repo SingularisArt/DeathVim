@@ -1,9 +1,10 @@
+local MM = require("dvim.utils.functions")
 local M = {}
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.setup = function()
-	local icons = Utils.safe_require("dvim.core.icons")
+	local icons = MM.safe_require("dvim.core.icons")
 
 	local signs = {
 		{ name = "DiagnosticSignError", text = icons.diagnostics.Error },
@@ -17,8 +18,8 @@ M.setup = function()
 	end
 
 	local config = {
-		-- enable virtual text
-		virtual_text = true,
+		-- disable virtual text
+		virtual_text = false,
 		-- show signs
 		signs = {
 			active = signs,
@@ -42,8 +43,8 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, dvim.lsp.float)
 end
 
-M.on_attach = function(_, _)
-	local cmp_nvim_lsp = Utils.safe_require("cmp_nvim_lsp")
+M.on_attach = function(client, _)
+	local cmp_nvim_lsp = MM.safe_require("cmp_nvim_lsp")
 
 	M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 	M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)

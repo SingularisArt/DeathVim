@@ -96,7 +96,6 @@ local core_plugins = {
   { "voldikss/vim-translator" },
   { "dhruvasagar/vim-table-mode" },
   { "machakann/vim-highlightedyank" },
-  { "folke/lua-dev.nvim" },
   { "turbio/bracey.vim" },
   {
     "folke/todo-comments.nvim",
@@ -112,6 +111,7 @@ local core_plugins = {
     end,
     disable = not dvim.builtin.jabs.active,
   },
+
   -- Terminal
   {
     "akinsho/toggleterm.nvim",
@@ -312,6 +312,10 @@ local core_plugins = {
     config = function()
       require("dvim.core.vimtex").setup()
     end,
+    disable = not dvim.builtin.vimtex.active,
+  },
+  {
+    "KeitaNakamura/tex-conceal.vim",
     disable = not dvim.builtin.vimtex.active,
   },
 
