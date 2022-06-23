@@ -82,14 +82,13 @@ dvim.builtin.notify.active = true
 --   "yamlls", -- Yaml
 -- }
 
--- -- dvim.lsp.automatic_servers_installation = true
+-- dvim.lsp.automatic_servers_installation = true
 
 ----------------
 -- Formatters --
 ----------------
 
--- local formatters = Utils.safe_require("dvim.lsp.null-ls.formatters")
--- formatters.setup({
+-- dvim.lsp.formatters = {
 --   { command = "black", extra_args = { "--fast" } },
 --   { command = "clang_format" },
 --   { command = "latexindent" },
@@ -100,17 +99,16 @@ dvim.builtin.notify.active = true
 --   { command = "stylua" },
 --   { command = "google_java_format" },
 --   { command = "shellharden" },
--- })
+-- }
 
 -------------
 -- Linters --
 -------------
 
--- local diagnostics = Utils.safe_require("dvim.lsp.null-ls.diagnostics")
--- diagnostics.setup({
+-- dvim.lsp.diagnostics = {
 --   { command = "flake8" },
 --   { command = "cppcheck" },
--- })
+-- }
 
 ------------------------------------------------------------------------
 --                         Additional Plugins                         --
@@ -184,5 +182,3 @@ dvim.builtin.notify.active = true
 ------------------------------------------------------------------------
 
 -- vim.cmd("set rtp+=~/Documents/notes/school-notes/current-course")
-
-return M
