@@ -16,12 +16,12 @@ function M.list_supported(filetype)
   return supported_linters
 end
 
-function M.setup(linter_configs)
-  if vim.tbl_isempty(linter_configs) then
+function M.setup()
+  if vim.tbl_isempty(dvim.lsp.diagnostics) then
     return
   end
 
-  services.register_sources(linter_configs, method)
+  services.register_sources(dvim.lsp.diagnostics, method)
 end
 
 return M

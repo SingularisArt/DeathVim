@@ -16,12 +16,12 @@ function M.list_supported(filetype)
   return supported_formatters
 end
 
-function M.setup(formatter_configs)
-  if vim.tbl_isempty(formatter_configs) then
+function M.setup()
+  if vim.tbl_isempty(dvim.lsp.formatters) then
     return
   end
 
-  services.register_sources(formatter_configs, method)
+  services.register_sources(dvim.lsp.formatters, method)
 end
 
 return M
