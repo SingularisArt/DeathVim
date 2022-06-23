@@ -60,6 +60,7 @@ dvim = {
     override_notify = false,
   },
 }
+dvim.lsp = require('dvim.lsp.config')
 
 for _, plugin in ipairs(builtin_plugins) do
   dvim.builtin[plugin] = {}

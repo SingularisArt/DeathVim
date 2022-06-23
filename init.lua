@@ -31,4 +31,4 @@ autocmds.load_defaults()
 local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.colorscheme)
 
-require("dvim.lsp").setup()
+require("dvim.lsp")

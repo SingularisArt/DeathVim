@@ -10,4 +10,5 @@ function M.setup()
   null_ls.setup(vim.tbl_deep_extend("force", default_opts, dvim.lsp.null_ls.setup))
 end
 
+M.setup()
 return M
