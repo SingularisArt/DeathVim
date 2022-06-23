@@ -142,6 +142,14 @@ dvim.builtin.notify.active = true
 --   end,
 -- })
 
+vim.api.nvim_create_autocmd("CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", {
+  callback = function()
+    if vim.bo.filetype ~= "tex" then
+      require("dvim.core.winbar").setup()
+    end
+  end
+})
+
 ------------------------------------------------------------------------
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
