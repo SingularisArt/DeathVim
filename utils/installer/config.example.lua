@@ -5,36 +5,52 @@ require("dvim.settings.defaults")
 ------------------------------------------------------------------------
 
 dvim.colorscheme = "onedarker"
-dvim.autosave = true
+dvim.auto_save = true
 dvim.log_level = "warn"
-dvim.leader = "space"
 
 ------------------------------------------------------------------------
 --                         TODO: Keymappings                          --
 ------------------------------------------------------------------------
 
-dvim.leader = "space"
+-------------
+--  Setup  --
+-------------
+
+dvim.leader = " "
+
+-----------------------
+--  Add Keymappings  --
+-----------------------
+
+--------------------------
+--  Remove Keymappings  --
+--------------------------
 
 ------------------------------------------------------------------------
 --                           Builtin Plugins                          --
 ------------------------------------------------------------------------
 
 -- After changing plugin config exit and reopen DeathVim, then
--- Run :PackerInstall :PackerCompile
+-- Run :PackerSync
 dvim.builtin.alpha.active = true
-dvim.builtin.gitsigns.active = true
 dvim.builtin.alpha.mode = "dashboard"
-dvim.builtin.jabs.active = true
-dvim.builtin.comments.active = true
 dvim.builtin.autopairs.active = true
 dvim.builtin.bufferline.active = true
 dvim.builtin.cmp.active = true
 dvim.builtin.dap.active = true
+dvim.builtin.symbols_outline.active = true
+dvim.builtin.todo_comments.active = true
+dvim.builtin.gitsigns.active = true
+dvim.builtin.comment.active = true
+dvim.builtin.jabs.active = true
+dvim.builtin.surround.active = true
+dvim.builtin.comments.active = true
 dvim.builtin.lualine.active = true
 dvim.builtin.markdown.active = true
 dvim.builtin.nvimtree.active = true
 dvim.builtin.telescope.active = true
 dvim.builtin.project.active = true
+dvim.builtin.terminal.active = true
 dvim.builtin.ultisnips.active = true
 dvim.builtin.vimtex.active = true
 dvim.builtin.which_key.active = true
@@ -72,7 +88,7 @@ M.user_lsp_config = function()
 
   -- set a formatter, this will override the language server formatting capabilities (if it exists)
   local formatters = require("dvim.lsp.null-ls.formatters")
-  formatters.setup {
+  formatters.setup({
     { command = "black", extra_args = { "--fast" } },
     { command = "clang_format" },
     { command = "latexindent" },
@@ -83,14 +99,50 @@ M.user_lsp_config = function()
     { command = "stylua" },
     { command = "google_java_format" },
     { command = "shellharden" },
-  }
+  })
 
   -- set additional linters
   local diagnostics = require("dvim.lsp.null-ls.diagnostics")
-  diagnostics.setup {
+  diagnostics.setup({
     { command = "flake8" },
     { command = "cppcheck" },
-  }
+  })
 end
+
+------------------------------------------------------------------------
+--                         Additional Plugins                         --
+------------------------------------------------------------------------
+
+dvim.plugins = {
+  { "folke/tokyonight.nvim" },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+}
+
+------------------------------------------------------------------------
+--                           Auto Commands                            --
+------------------------------------------------------------------------
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.json", "*.jsonc" },
+  -- enable wrap mode for json files only
+  command = "setlocal wrap",
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zsh",
+  callback = function()
+    -- let treesitter use bash highlight for zsh files as well
+    require("nvim-treesitter.highlight").attach(0, "bash")
+  end,
+})
+
+------------------------------------------------------------------------
+--                            Vim Commands                            --
+------------------------------------------------------------------------
+
+vim.cmd('set rtp+=~/Documents/notes/school-notes/current-course')
 
 return M

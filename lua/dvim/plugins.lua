@@ -26,12 +26,33 @@ local core_plugins = {
   { "williamboman/nvim-lsp-installer" },
   { "jose-elias-alvarez/null-ls.nvim" },
   { "onsails/lspkind-nvim" },
-  { "simrat39/symbols-outline.nvim" },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("dvim.core.symbols-outline").setup()
+    end,
+    disable = not dvim.builtin.symbols_outline.active,
+  },
   { "ray-x/navigator.lua" },
   { "ray-x/guihua.lua" },
   { "ray-x/lsp_signature.nvim" },
   { "rmagatti/goto-preview" },
   { "tamago324/nlsp-settings.nvim" },
+
+  -- WhichKey
+  {
+    -- NOTE: Temporary fix till folke comes back
+    "max397574/lua-dev.nvim",
+    module = "lua-dev",
+  },
+  {
+    "max397574/which-key.nvim",
+    commit = "f03a259",
+    config = function()
+      require("dvim.core.which-key").setup()
+    end,
+    disable = not dvim.builtin.which_key.active,
+  },
 
   -- Git
   {
@@ -45,14 +66,33 @@ local core_plugins = {
   { "tpope/vim-rhubarb" },
   { "tpope/vim-fugitive" },
 
+  -- Comments
+  {
+    "numToStr/Comment.nvim",
+    event = "BufRead",
+    config = function()
+      require("dvim.core.comment").setup()
+    end,
+    disable = not dvim.builtin.comment.active,
+  },
+
   -- Other
   { "mattn/emmet-vim" },
   { "Valloric/MatchTagAlways" },
   { "alvan/vim-closetag" },
   { "wakatime/vim-wakatime" },
-  { "scrooloose/nerdcommenter" },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    event = "BufReadPost",
+  },
   { "easymotion/vim-easymotion" },
-  { "tpope/vim-surround" },
+  {
+    "Mephistophiles/surround.nvim",
+    config = function()
+      require("dvim.core.surround").setup()
+    end,
+    disable = not dvim.builtin.surround.active,
+  },
   { "voldikss/vim-translator" },
   { "dhruvasagar/vim-table-mode" },
   { "machakann/vim-highlightedyank" },
@@ -63,7 +103,7 @@ local core_plugins = {
     config = function()
       require("dvim.core.todo-comments").setup()
     end,
-    disable = not dvim.builtin.comments.active,
+    disable = not dvim.builtin.todo_comments.active,
   },
   {
     "matbme/JABS.nvim",
@@ -72,7 +112,17 @@ local core_plugins = {
     end,
     disable = not dvim.builtin.jabs.active,
   },
-  { "akinsho/toggleterm.nvim" }, -- Terminal
+  -- Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    event = "BufWinEnter",
+    branch = "main",
+    config = function()
+      require("dvim.core.terminal").setup()
+    end,
+    disable = not dvim.builtin.terminal.active,
+  },
+
   { "kyazdani42/nvim-web-devicons" }, -- Icons
 
   -- TreeSitter
@@ -91,13 +141,13 @@ local core_plugins = {
   },
 
   -- Winbar
-  {
-    "fgheng/winbar.nvim",
-    config = function()
-      require("dvim.core.winbar").setup()
-    end,
-    disable = not dvim.builtin.winbar.active,
-  },
+  -- {
+  --   "fgheng/winbar.nvim",
+  --   config = function()
+  --     require("dvim.core.winbar").setup()
+  --   end,
+  --   disable = not dvim.builtin.winbar.active,
+  -- },
 
   -- Debugging
   {
@@ -132,15 +182,6 @@ local core_plugins = {
     end,
     disable = not dvim.builtin.alpha.active,
   },
-
-  -- -- WhichKey
-  -- {
-  --   "folke/which-key.nvim",
-  --   config = function()
-  --     require("dvim.core.which-key").setup()
-  --   end,
-  --   disable = not dvim.builtin.which_key.active,
-  -- },
 
   -- Snippets
   {
@@ -281,6 +322,11 @@ local core_plugins = {
       require("dvim.core.markdown").setup()
     end,
     disable = not dvim.builtin.markdown.active,
+  },
+
+  -- SchemaStore
+  {
+    "b0o/schemastore.nvim",
   },
 }
 

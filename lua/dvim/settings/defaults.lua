@@ -1,5 +1,10 @@
 local builtin_plugins = {
   "alpha",
+  "symbols_outline",
+  "todo_comments",
+  "surround",
+  "terminal",
+  "comment",
   "jabs",
   "comments",
   "gitsigns",
@@ -58,5 +63,7 @@ dvim = {
 for _, plugin in ipairs(builtin_plugins) do
   dvim.builtin[plugin] = {}
 end
+
+dvim.builtin.which_key.mappings = {}
 
 return dvim

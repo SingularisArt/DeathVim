@@ -46,7 +46,9 @@ M.config = function()
 end
 
 M.setup = function()
-  local terminal = require "toggleterm"
+  M.config()
+
+  local terminal = require("toggleterm")
   terminal.setup(dvim.builtin.terminal)
 
   for i, exec in pairs(dvim.builtin.terminal.execs) do
@@ -97,28 +99,6 @@ M._exec_toggle = function(opts)
   local Terminal = require("toggleterm.terminal").Terminal
   local term = Terminal:new { cmd = opts.cmd, count = opts.count, direction = opts.direction }
   term:toggle(dvim.builtin.terminal.size, opts.direction)
-end
-
----Toggles a log viewer according to log.viewer.layout_config
----@param logfile string the fullpath to the logfile
-M.toggle_log_view = function(logfile)
-  local log_viewer = dvim.log.viewer.cmd
-  if vim.fn.executable(log_viewer) ~= 1 then
-    log_viewer = "less +F"
-  end
-  log_viewer = log_viewer .. " " .. logfile
-  local term_opts = vim.tbl_deep_extend("force", dvim.builtin.terminal, {
-    cmd = log_viewer,
-    open_mapping = dvim.log.viewer.layout_config.open_mapping,
-    direction = dvim.log.viewer.layout_config.direction,
-    -- TODO: this might not be working as expected
-    size = dvim.log.viewer.layout_config.size,
-    float_opts = dvim.log.viewer.layout_config.float_opts,
-  })
-
-  local Terminal = require("toggleterm.terminal").Terminal
-  local log_view = Terminal:new(term_opts)
-  log_view:toggle()
 end
 
 return M
