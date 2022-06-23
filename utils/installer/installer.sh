@@ -403,7 +403,7 @@ function setup_dvim() {
 
   msg "Installing DeathVim shim"
 
-  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
+  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
 
   echo "Preparing Packer setup"
 

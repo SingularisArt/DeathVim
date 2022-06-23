@@ -1,7 +1,7 @@
 local M = {}
 
-local null_ls = require("null-ls")
-local services = require("dvim.lsp.null-ls.services")
+local null_ls = Utils.safe_require("null-ls")
+local services = Utils.safe_require("dvim.lsp.null-ls.services")
 local method = null_ls.methods.FORMATTING
 
 function M.list_registered(filetype)
@@ -10,7 +10,7 @@ function M.list_registered(filetype)
 end
 
 function M.list_supported(filetype)
-  local s = require("null-ls.sources")
+  local s = Utils.safe_require("null-ls.sources")
   local supported_formatters = s.get_supported(filetype, "formatting")
   table.sort(supported_formatters)
   return supported_formatters
