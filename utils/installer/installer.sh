@@ -408,10 +408,9 @@ function setup_dvim() {
 
   echo "Preparing Packer setup"
 
-  # TODO: Fix this SHIT
-  # "$INSTALL_PREFIX/bin/dvim" --headless \
-  #   -c 'autocmd User PackerComplete quitall' \
-  #   -c 'PackerSync'
+  "$INSTALL_PREFIX/bin/dvim" \
+    -c 'autocmd User PackerComplete quitall' \
+    -c 'PackerSync'
 
   echo "Packer setup complete"
 }
