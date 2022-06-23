@@ -128,7 +128,7 @@ dvim.builtin.notify.active = true
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
--- -- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
 --   -- enable wrap mode for json files only
@@ -142,13 +142,42 @@ dvim.builtin.notify.active = true
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd("CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", {
-  callback = function()
-    if vim.bo.filetype ~= "tex" then
-      require("dvim.core.winbar").setup()
-    end
-  end
-})
+-- for winbar support
+-- vim.api.nvim_create_autocmd("CursorMoved", {
+--   callback = function()
+--     if vim.bo.filetype ~= "tex" then
+--       require("dvim.core.winbar").setup()
+--     end
+--   end
+-- })
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   callback = function()
+--     if vim.bo.filetype ~= "tex" then
+--       require("dvim.core.winbar").setup()
+--     end
+--   end
+-- })
+-- vim.api.nvim_create_autocmd("BufFilePost", {
+--   callback = function()
+--     if vim.bo.filetype ~= "tex" then
+--       require("dvim.core.winbar").setup()
+--     end
+--   end
+-- })
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   callback = function()
+--     if vim.bo.filetype ~= "tex" then
+--       require("dvim.core.winbar").setup()
+--     end
+--   end
+-- })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   callback = function()
+--     if vim.bo.filetype ~= "tex" then
+--       require("dvim.core.winbar").setup()
+--     end
+--   end
+-- })
 
 ------------------------------------------------------------------------
 --                            Vim Commands                            --
