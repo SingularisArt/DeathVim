@@ -25,11 +25,12 @@ local builtin_plugins = {
 }
 
 dvim = {
-  leader = "space",
+  leader = " ",
   colorscheme = "onedarker",
   transparent_window = false,
   format_on_save = true,
   keys = {},
+  language_servers = {},
 
   use_icons = true,
 
