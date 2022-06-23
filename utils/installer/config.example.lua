@@ -62,7 +62,7 @@ dvim.builtin.notify.active = true
 ------------------------------------------------------------------------
 
 local M = {}
-M.user_lsp_config = pcall(function()
+M.user_lsp_config = function()
   ------------------------
   --  Language Servers  --
   ------------------------
@@ -87,7 +87,7 @@ M.user_lsp_config = pcall(function()
   -- dvim.lsp.automatic_servers_installation = true
 
   -- set a formatter, this will override the language server formatting capabilities (if it exists)
-  local formatters = require("dvim.lsp.null-ls.formatters")
+  local formatters = Utils.safe_require("dvim.lsp.null-ls.formatters")
   formatters.setup({
     { command = "black", extra_args = { "--fast" } },
     { command = "clang_format" },
@@ -102,12 +102,12 @@ M.user_lsp_config = pcall(function()
   })
 
   -- set additional linters
-  local diagnostics = require("dvim.lsp.null-ls.diagnostics")
+  local diagnostics = Utils.safe_require("dvim.lsp.null-ls.diagnostics")
   diagnostics.setup({
     { command = "flake8" },
     { command = "cppcheck" },
   })
-end)
+end
 
 ------------------------------------------------------------------------
 --                         Additional Plugins                         --
