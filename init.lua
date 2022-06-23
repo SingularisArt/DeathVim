@@ -34,12 +34,3 @@ colorscheme.apply_colorscheme(dvim.colorscheme)
 -- M.user_lsp_config()
 dvim.lsp = Utils.safe_require("dvim.lsp.config")
 require("dvim.lsp")
-
-require('lspconfig').jsonls.setup {
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = { enable = true },
-    },
-  },
-}
