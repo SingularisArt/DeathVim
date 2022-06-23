@@ -61,88 +61,91 @@ dvim.builtin.notify.active = true
 --                                LSP                                 --
 ------------------------------------------------------------------------
 
-local M = {}
-M.user_lsp_config = function()
-  ------------------------
-  --  Language Servers  --
-  ------------------------
+------------------------
+--  Language Servers  --
+------------------------
 
-  dvim.language_servers = {
-    "sumneko_lua", -- Lua
-    "vimls", -- Vim
-    "texlab", -- LaTeX
-    "pylsp", -- Python
-    "bashls", -- Bash
-    "clangd", -- C++,C
-    "cmake", -- CMake
-    "html", -- HTML
-    "cssls", -- CSS
-    "jsonls", -- JSON
-    "rust_analyzer", -- Rust
-    "tsserver", -- Typescript/Javascript
-    "jdtls", -- Java
-    "yamlls", -- Yaml
-  }
+-- dvim.language_servers = {
+--   "sumneko_lua", -- Lua
+--   "vimls", -- Vim
+--   "texlab", -- LaTeX
+--   "pylsp", -- Python
+--   "bashls", -- Bash
+--   "clangd", -- C++,C
+--   "cmake", -- CMake
+--   "html", -- HTML
+--   "cssls", -- CSS
+--   "jsonls", -- JSON
+--   "rust_analyzer", -- Rust
+--   "tsserver", -- Typescript/Javascript
+--   "jdtls", -- Java
+--   "yamlls", -- Yaml
+-- }
 
-  -- dvim.lsp.automatic_servers_installation = true
+-- -- dvim.lsp.automatic_servers_installation = true
 
-  -- set a formatter, this will override the language server formatting capabilities (if it exists)
-  local formatters = Utils.safe_require("dvim.lsp.null-ls.formatters")
-  formatters.setup({
-    { command = "black", extra_args = { "--fast" } },
-    { command = "clang_format" },
-    { command = "latexindent" },
-    { command = "prettier", extra_args = { "--single-quote", "--jsx-single-quote" } },
-    { command = "rustfmt" },
-    { command = "sql_formatter" },
-    { command = "standardrb", extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" } },
-    { command = "stylua" },
-    { command = "google_java_format" },
-    { command = "shellharden" },
-  })
+----------------
+-- Formatters --
+----------------
 
-  -- set additional linters
-  local diagnostics = Utils.safe_require("dvim.lsp.null-ls.diagnostics")
-  diagnostics.setup({
-    { command = "flake8" },
-    { command = "cppcheck" },
-  })
-end
+-- local formatters = Utils.safe_require("dvim.lsp.null-ls.formatters")
+-- formatters.setup({
+--   { command = "black", extra_args = { "--fast" } },
+--   { command = "clang_format" },
+--   { command = "latexindent" },
+--   { command = "prettier", extra_args = { "--single-quote", "--jsx-single-quote" } },
+--   { command = "rustfmt" },
+--   { command = "sql_formatter" },
+--   { command = "standardrb", extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" } },
+--   { command = "stylua" },
+--   { command = "google_java_format" },
+--   { command = "shellharden" },
+-- })
+
+-------------
+-- Linters --
+-------------
+
+-- local diagnostics = Utils.safe_require("dvim.lsp.null-ls.diagnostics")
+-- diagnostics.setup({
+--   { command = "flake8" },
+--   { command = "cppcheck" },
+-- })
 
 ------------------------------------------------------------------------
 --                         Additional Plugins                         --
 ------------------------------------------------------------------------
 
-dvim.plugins = {
-  { "folke/tokyonight.nvim" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
-}
+-- dvim.plugins = {
+--   { "folke/tokyonight.nvim" },
+--   {
+--     "folke/trouble.nvim",
+--     cmd = "TroubleToggle",
+--   },
+-- }
 
 ------------------------------------------------------------------------
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
-  command = "setlocal wrap",
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "zsh",
-  callback = function()
-    -- let treesitter use bash highlight for zsh files as well
-    require("nvim-treesitter.highlight").attach(0, "bash")
-  end,
-})
+-- -- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = { "*.json", "*.jsonc" },
+--   -- enable wrap mode for json files only
+--   command = "setlocal wrap",
+-- })
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "zsh",
+--   callback = function()
+--     -- let treesitter use bash highlight for zsh files as well
+--     require("nvim-treesitter.highlight").attach(0, "bash")
+--   end,
+-- })
 
 ------------------------------------------------------------------------
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
 
-vim.cmd("set rtp+=~/Documents/notes/school-notes/current-course")
+-- vim.cmd("set rtp+=~/Documents/notes/school-notes/current-course")
 
 return M
