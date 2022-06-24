@@ -407,6 +407,9 @@ function main() {
 
   if [ "$ARGS_INSTALL_DEPENDENCIES" -eq 1 ]; then
     if [ "$INTERACTIVE_MODE" -eq 1 ]; then
+      if confirm "Would you like to install DeathVim's OS dependencies?"; then
+        install_os_dependencies
+      fi
       if confirm "Would you like to install DeathVim's NodeJS dependencies?"; then
         install_nodejs_dependencies
       fi
