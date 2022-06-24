@@ -1,5 +1,6 @@
 local builtin_plugins = {
   "alpha",
+  "indent_blankline",
   "symbols_outline",
   "todo_comments",
   "surround",

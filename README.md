@@ -25,6 +25,7 @@
 
 <p align="center">
   <img src="media/screenshot-1.png">
+  <img src="media/screenshot-2.png">
 </p>
 
 # Features

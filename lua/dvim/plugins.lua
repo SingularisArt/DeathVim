@@ -21,6 +21,15 @@ local core_plugins = {
   { "tjdevries/colorbuddy.nvim" },
   { "tomasiser/vim-code-dark" },
 
+  -- Indent Blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("dvim.core.indent-blankline")
+    end,
+    disable = not dvim.builtin.indent_blankline.active,
+  },
+
   -- LSP
   { "neovim/nvim-lspconfig" },
   { "williamboman/nvim-lsp-installer" },
