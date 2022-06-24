@@ -405,6 +405,7 @@ function setup_dvim() {
 
   mkdir -p $HOME/.config/dvim/lua
   cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
+  bash $DEATHVIM_BASE_DIR/utils/installer/install_bin.sh
 
   echo "Preparing Packer setup"
 
