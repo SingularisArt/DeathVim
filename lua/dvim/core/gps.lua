@@ -6,7 +6,7 @@ local icons = require("dvim.core.icons")
 -- local bg = vim.api.nvim_get_hl_by_name('DiffAdd', 0).foreground
 
 local gps = Utils.safe_require("nvim-gps")
-local space = ""
+local space = " "
 
 if vim.fn.has("mac") == 1 then
   space = " "

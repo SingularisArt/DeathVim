@@ -90,11 +90,17 @@ local core_plugins = {
   { "Valloric/MatchTagAlways" },
   { "alvan/vim-closetag" },
   { "wakatime/vim-wakatime" },
+  { "easymotion/vim-easymotion" },
+  { "voldikss/vim-translator" },
+  { "dhruvasagar/vim-table-mode" },
+  { "machakann/vim-highlightedyank" },
+  { "turbio/bracey.vim" },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     event = "BufReadPost",
   },
-  { "easymotion/vim-easymotion" },
+
+  -- Surround
   {
     "Mephistophiles/surround.nvim",
     config = function()
@@ -102,10 +108,8 @@ local core_plugins = {
     end,
     disable = not dvim.builtin.surround.active,
   },
-  { "voldikss/vim-translator" },
-  { "dhruvasagar/vim-table-mode" },
-  { "machakann/vim-highlightedyank" },
-  { "turbio/bracey.vim" },
+
+  -- Todo Comments
   {
     "folke/todo-comments.nvim",
     config = function()
@@ -113,6 +117,8 @@ local core_plugins = {
     end,
     disable = not dvim.builtin.todo_comments.active,
   },
+
+  -- Jabs
   {
     "matbme/JABS.nvim",
     config = function()
@@ -225,6 +231,16 @@ local core_plugins = {
     disable = not dvim.builtin.project.active,
   },
 
+  -- Copilot
+  {
+    "github/copilot.vim",
+    disable = not dvim.builtin.copilot.active,
+  },
+  {
+    "hrsh7th/cmp-copilot",
+    disable = not dvim.builtin.copilot.active and not dvim.builtin.cmp.active,
+  },
+
   -- CMP
   {
     "hrsh7th/nvim-cmp",
@@ -278,6 +294,11 @@ local core_plugins = {
     requires = { "hrsh7th/nvim-cmp" },
     disable = not dvim.builtin.cmp.active,
   },
+  {
+    "hrsh7th/cmp-emoji",
+    requires = { "hrsh7th/nvim-cmp" },
+    disable = not dvim.builtin.cmp.active,
+  },
 
   -- Autopairs
   {
@@ -321,11 +342,11 @@ local core_plugins = {
     config = function()
       require("dvim.core.vimtex").setup()
     end,
-    disable = not dvim.builtin.vimtex.active,
+    disable = not dvim.builtin.latex.active,
   },
   {
     "KeitaNakamura/tex-conceal.vim",
-    disable = not dvim.builtin.vimtex.active,
+    disable = not dvim.builtin.latex.active,
   },
 
   -- Markdown
@@ -335,11 +356,6 @@ local core_plugins = {
       require("dvim.core.markdown").setup()
     end,
     disable = not dvim.builtin.markdown.active,
-  },
-
-  -- SchemaStore
-  {
-    "b0o/schemastore.nvim",
   },
 }
 
