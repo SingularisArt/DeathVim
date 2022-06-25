@@ -75,6 +75,17 @@ function M.load_defaults()
         end,
       },
     },
+
+    {
+      "CursorMoved",
+      {
+        callback = function()
+          if vim.bo.filetype ~= "tex" then
+            require("dvim.core.plugins.winbar").setup()
+          end
+        end
+      },
+    },
   }
 
   M.define_autocmds(definitions)

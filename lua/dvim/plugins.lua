@@ -57,6 +57,12 @@ local core_plugins = {
   { "rmagatti/goto-preview" },
   { "tamago324/nlsp-settings.nvim" },
 
+  -- Log files
+  {
+    "mtdl9/vim-log-highlighting",
+    disable = not dvim.builtin.filetypes.log.active,
+  },
+
   -- WhichKey
   {
     -- NOTE: Temporary fix till folke comes back
@@ -307,7 +313,7 @@ local core_plugins = {
   {
     "kdheepak/cmp-latex-symbols",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active and not dvim.builtin.filetypes.latex.active,
   },
   {
     "hrsh7th/cmp-emoji",
@@ -356,11 +362,11 @@ local core_plugins = {
     config = function()
       require("dvim.core.plugins.vimtex").setup()
     end,
-    disable = not dvim.builtin.plugins.latex.active,
+    disable = not dvim.builtin.filetypes.latex.active,
   },
   {
     "KeitaNakamura/tex-conceal.vim",
-    disable = not dvim.builtin.plugins.latex.active,
+    disable = not dvim.builtin.filetypes.latex.active,
   },
 
   -- Markdown
@@ -369,7 +375,7 @@ local core_plugins = {
     config = function()
       require("dvim.core.plugins.markdown").setup()
     end,
-    disable = not dvim.builtin.plugins.markdown.active,
+    disable = not dvim.builtin.filetypes.markdown.active,
   },
 }
 

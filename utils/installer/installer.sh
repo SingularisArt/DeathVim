@@ -311,11 +311,11 @@ function backup_old_config() {
 
 function clone_dvim() {
   msg "Cloning DeathVim configuration"
-  if ! git clone --branch "$DV_BRANCH" \
-    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
-    echo "Failed to clone repository. Installation failed."
-    exit 1
-  fi
+  git clone --branch "$DV_BRANCH" \
+    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"
+  cd $DEATHVIM_BASE_DIR
+  msg "Updating submodules"
+  git submodule update --init --recursive
 }
 
 function link_local_dvim() {

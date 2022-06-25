@@ -32,7 +32,10 @@ local builtin_filetypes = {
   "cs",
   "c",
   "sql",
+  "cmake",
+  "yaml",
   "html",
+  "bash",
   "css",
   "js",
   "ts",
@@ -40,10 +43,12 @@ local builtin_filetypes = {
   "ruby",
   "perl",
   "java",
+  "json",
   "rust",
   "latex",
   "markdown",
   "lua",
+  "log",
   "vim",
 }
 
@@ -68,22 +73,10 @@ dvim = {
   lang = {},
   log = {
     ---@usage can be { "trace", "debug", "info", "warn", "error", "fatal" },
-    level = "warn",
-    viewer = {
-      ---@usage this will fallback on "less +F" if not found
-      cmd = "lnav",
-      layout_config = {
-        ---@usage direction = 'vertical' | 'horizontal' | 'window' | 'float',
-        direction = "horizontal",
-        open_mapping = "",
-        size = 40,
-        float_opts = {},
-      },
-    },
-    -- currently disabled due to instabilities
-    override_notify = false,
+    level = "trace",
   },
 }
+
 dvim.lsp = require('dvim.lsp.config')
 dvim.builtin.plugins = {}
 dvim.builtin.filetypes = {}

@@ -21,17 +21,23 @@ Utils.safe_require("dvim.keymappings").load_defaults()
 
 local plugins = require("dvim.plugins")
 require("dvim.plugin-loader").load({ plugins, dvim.plugins })
+Log = require("dvim.log")
 
 local settings = Utils.safe_require("dvim.settings")
 settings.load_defaults()
+Log.trace("Loaded settings")
 
 local autocmds = Utils.safe_require("dvim.autocmds")
 autocmds.load_defaults()
+Log.trace("Loaded autocmds")
 
 local parse_vim_commands = Utils.safe_require("dvim.parse_vim_commands")
 parse_vim_commands.load_defaults()
+Log.trace("Loaded vim commands")
 
 local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.colorscheme)
+Log.trace("Applied colorscheme")
 
 require("dvim.lsp")
+Log.trace("Loaded LSP")
