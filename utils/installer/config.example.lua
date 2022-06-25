@@ -1,3 +1,6 @@
+-- For more information, see:
+-- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
+
 ------------------------------------------------------------------------
 --                              General                               --
 ------------------------------------------------------------------------
@@ -43,63 +46,73 @@ dvim.leader = " "
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins.alpha.active = true
-dvim.builtin.plugins.alpha.mode = "dashboard"
-dvim.builtin.plugins.indent_blankline.active = true
-dvim.builtin.plugins.symbols_outline.active = true
-dvim.builtin.plugins.which_key.active = true
-dvim.builtin.plugins.gitsigns.active = true
-dvim.builtin.plugins.comment.active = true
-dvim.builtin.plugins.surround.active = true
-dvim.builtin.plugins.todo_comments.active = true
-dvim.builtin.plugins.jabs.active = true
-dvim.builtin.plugins.terminal.active = true
-dvim.builtin.plugins.dap.active = true
-dvim.builtin.plugins.alpha.active = true
-dvim.builtin.plugins.ultisnips.active = true
-dvim.builtin.plugins.telescope.active = true
-dvim.builtin.plugins.project.active = true
-dvim.builtin.plugins.copilot.active = true
-dvim.builtin.plugins.cmp.active = true
-dvim.builtin.plugins.autopairs.active = true
-dvim.builtin.plugins.nvimtree.active = true
-dvim.builtin.plugins.lualine.active = true
-dvim.builtin.plugins.bufferline.active = true
-dvim.builtin.plugins.notify.active = true
-dvim.builtin.plugins.treesitter.active = true
-dvim.builtin.plugins.latex.active = true
-dvim.builtin.plugins.markdown.active = true
+dvim.builtin.plugins = {
+  alpha = { active = true, mode = "dashboard" },
+  indent_blankline = { active = true },
+  symbols_outline = { active = true },
+  which_key = { active = true },
+  gitsigns = { active = true },
+  comment = { active = true },
+  surround = { active = true },
+  todo_comments = { active = true },
+  jabs = { active = true },
+  terminal = { active = true },
+  dap = { active = true },
+  ultisnips = { active = true },
+  telescope = { active = true },
+  project = { active = true },
+  copilot = { active = true },
+  cmp = { active = true },
+  autopairs = { active = true },
+  nvimtree = { active = true },
+  lualine = { active = true },
+  bufferline = { active = true },
+  notify = { active = true },
+  treesitter = { active = true },
+  latex = { active = true },
+  markdown = { active = true },
+}
 
 -------------------------
 --  Builtin Filetypes  --
 -------------------------
 
--- This is an important list. If you disable a filetype, DeathVim will
--- uninstall it's TreeSitter parser, disable the lsp, formatter, diagnostic and
--- uninstall all plugins related to it.
-dvim.builtin.filetypes.lua.active = true
-dvim.builtin.filetypes.vim.active = true
-dvim.builtin.filetypes.python.active = true
-dvim.builtin.filetypes.cpp.active = true
-dvim.builtin.filetypes.cmake.active = true
-dvim.builtin.filetypes.c.active = true
-dvim.builtin.filetypes.cs.active = true
-dvim.builtin.filetypes.sql.active = true
-dvim.builtin.filetypes.html.active = true
-dvim.builtin.filetypes.css.active = true
-dvim.builtin.filetypes.js.active = true
-dvim.builtin.filetypes.ts.active = true
-dvim.builtin.filetypes.php.active = true
-dvim.builtin.filetypes.ruby.active = true
-dvim.builtin.filetypes.perl.active = true
-dvim.builtin.filetypes.java.active = true
-dvim.builtin.filetypes.rust.active = true
-dvim.builtin.filetypes.bash.active = true
-dvim.builtin.filetypes.log.active = true
-dvim.builtin.filetypes.latex.active = true
-dvim.builtin.filetypes.markdown.active = true
-dvim.builtin.filetypes.yaml.active = true
-dvim.builtin.filetypes.json.active = true
+-- This is an important list. If you disable a filetype, DeathVim will disable
+-- the following for you:
+--  It's LSP
+--  It's formatter
+--  It's diagnostic
+--  It's TreeSitter parser
+--  It's plugins
+-- So, instead of you going through each of those items and disabling them, you
+-- can just disable the filetype.
+-- After modifying this list, exit and reopen DeathVim, then run :PackerSync.
+dvim.builtin.filetypes = {
+  lua = { active = true },
+  vim = { active = true },
+  python = { active = true },
+  cpp = { active = true },
+  cmake = { active = true },
+  c = { active = true },
+  c_sharp = { active = true },
+  sql = { active = true },
+  html = { active = true },
+  css = { active = true },
+  javascript = { active = true },
+  typescript = { active = true },
+  php = { active = true },
+  ruby = { active = true },
+  perl = { active = true },
+  java = { active = true },
+  rust = { active = true },
+  bash = { active = true },
+  log = { active = true },
+  latex = { active = true },
+  markdown = { active = true },
+  yaml = { active = true },
+  json = { active = true },
+}
+
 
 ------------------------------------------------------------------------
 --                            Tree Sitter                             --
@@ -109,26 +122,26 @@ dvim.builtin.filetypes.json.active = true
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
 -- dvim.builtin.plugins.treesitter.ensure_installed = {
---   { command = "lua", filetype = "lua" },
---   { command = "vim", filetype = "vim" },
---   { command = "python", filetype = "python" },
---   { command = "cpp", filetype = "cpp" },
---   { command = "cmake", filetype = "cmake" },
---   { command = "c", filetype = "c" },
---   { command = "c_sharp", filetype = "cs" },
---   { command = "sql", filetype = "sql" },
---   { command = "html", filetype = "html" },
---   { command = "css", filetype = "css" },
---   { command = "javascript", filetype = "js" },
---   { command = "typescript", filetype = "ts" },
---   { command = "php", filetype = "php" },
---   { command = "ruby", filetype = "ruby" },
---   { command = "perl", filetype = "perl" },
---   { command = "java", filetype = "java" },
---   { command = "rust", filetype = "rust" },
---   { command = "bash", filetype = "bash" },
---   { command = "yaml", filetype = "yaml" },
---   { command = "json", filetype = "json" },
+--   { parser = "lua", filetype = "lua" },
+--   { parser = "vim", filetype = "vim" },
+--   { parser = "python", filetype = "python" },
+--   { parser = "cpp", filetype = "cpp" },
+--   { parser = "cmake", filetype = "cmake" },
+--   { parser = "c", filetype = "c" },
+--   { parser = "c_sharp", filetype = "c_sharp" },
+--   { parser = "sql", filetype = "sql" },
+--   { parser = "html", filetype = "html" },
+--   { parser = "css", filetype = "css" },
+--   { parser = "javascript", filetype = "javascript" },
+--   { parser = "typescript", filetype = "typescript" },
+--   { parser = "php", filetype = "php" },
+--   { parser = "ruby", filetype = "ruby" },
+--   { parser = "perl", filetype = "perl" },
+--   { parser = "java", filetype = "java" },
+--   { parser = "rust", filetype = "rust" },
+--   { parser = "bash", filetype = "bash" },
+--   { parser = "yaml", filetype = "yaml" },
+--   { parser = "json", filetype = "json" },
 -- }
 
 -- Language servers to not install
@@ -137,10 +150,16 @@ dvim.builtin.filetypes.json.active = true
 --   "markdown",
 -- }
 
--- Enable highlighting automatically
--- dvim.builtin.plugins.treesitter.highlight.enabled = true
--- Enable indenting automatically
--- dvim.builtin.plugins.treesitter.indent.enabled = true
+dvim.builtin.plugins.treesitter = {
+  -- Install TreeSitter parsers automatically
+  -- Check the log file for errors or success messages
+  -- ~/.config/dvim/log.log
+  -- install_parsers_automatically = { enabled = true },
+  -- Enable highlighting automatically
+  -- highlight = { enabled = true },
+  -- Enable indenting automatically
+  -- indent = { enabled = true },
+}
 
 ------------------------------------------------------------------------
 --                                LSP                                 --
@@ -165,7 +184,7 @@ dvim.builtin.filetypes.json.active = true
 --   { server = "cssls", filetype = "css" },
 --   { server = "jsonls", filetype = "json" },
 --   { server = "rust_analyzer", filetype = "rust" },
---   { server = "tsserver", filetype = "js" },
+--   { server = "tsserver", filetype = "javascript" },
 --   { server = "jdtls", filetype = "java" },
 --   { server = "yamlls", filetype = "yaml" },
 -- }
@@ -184,46 +203,46 @@ dvim.builtin.filetypes.json.active = true
 -- filetypes list from above.
 -- dvim.lsp.formatters = {
 --   {
---     command = "black",
+--     formatter = "black",
 --     extra_args = { "--fast" },
 --     filetype = "python",
 --   },
 --   {
---     command = "clang_format",
+--     formatter = "clang_format",
 --     filetype = "cpp",
 --   },
 --   {
---     command = "latexindent",
+--     formatter = "latexindent",
 --     filetype = "latex",
 --   },
 --   {
---     command = "prettier",
+--     formatter = "prettier",
 --     extra_args = { "--single-quote", "--jsx-single-quote" },
---     filetype = "js",
+--     filetype = "javascript",
 --   },
 --   {
---     command = "rustfmt",
+--     formatter = "rustfmt",
 --     filetype = "rust",
 --   },
 --   {
---     command = "sql_formatter",
+--     formatter = "sql_formatter",
 --     filetype = "sql",
 --   },
 --   {
---     command = "standardrb",
+--     formatter = "standardrb",
 --     extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
 --     filetype = "ruby",
 --   },
 --   {
---     command = "stylua",
+--     formatter = "stylua",
 --     filetype = "lua",
 --   },
 --   {
---     command = "google_java_format",
+--     formatter = "google_java_format",
 --     filetype = "java",
 --   },
 --   {
---     command = "shellharden",
+--     formatter = "shellharden",
 --     filetype = "bash",
 --   },
 -- }
@@ -242,10 +261,12 @@ dvim.builtin.filetypes.json.active = true
 -- filetypes list from above.
 -- dvim.lsp.diagnostics = {
 --   {
---     command = "flake8", filetype = "python",
+--     diagnostic = "flake8",
+--     filetype = "python",
 --   },
 --   {
---     command = "cppcheck", filetype = "cpp",
+--     diagnostic = "cppcheck",
+--     filetype = "cpp",
 --   },
 -- }
 

@@ -3,7 +3,7 @@ set -eo pipefail
 
 # Set branch to master unless specified by the user
 declare -r DV_BRANCH="${DV_BRANCH:-"master"}"
-declare -r DV_REMOTE="${DV_REMOTE:-SingularisArt/Death.NeoVim.git}"
+declare -r DV_REMOTE="${DV_REMOTE:-SingularisArt/DeathVim.git}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 
 declare -r XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"

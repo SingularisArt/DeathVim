@@ -9,18 +9,16 @@ M.setup = function()
     return
   end
 
-  -- Iterate through all formatters
-  for _, diagnostic_object in pairs(dvim.lsp.diagnostics) do
-    for key, value in pairs(diagnostic_object) do
-      if key == "filetype" then
-        -- Check if the filetype is active
-        if dvim.builtin.filetypes[value].active then
-          -- Check if the `extra_args` is within this formatter
-          null_ls.setup({
-            diagnostics[diagnostic_object.command]
-          })
-        end
-      end
+  for _, diagnostic_object in ipairs(dvim.lsp.diagnostics) do
+    if pcall(function() return dvim.builtin.filetypes[diagnostic_object.filetype].active ~= nil end) then
+      Log.trace("[NULL-LS] Toggling diagnostic for filetype: " ..
+        diagnostic_object.filetype .. " Diagnostic is: [" .. diagnostic_object.diagnostic .. "]")
+      null_ls.setup({
+        diagnostics[diagnostic_object.diagnostic]
+      })
+    else
+      Log.error("[NULL-LS] Filetype: [" ..
+        diagnostic_object.filetype .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file.")
     end
   end
 end

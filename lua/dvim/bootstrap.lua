@@ -10,7 +10,6 @@ end
 
 local uv = vim.loop
 local path_sep = uv.os_uname().version:match "Windows" and "\\" or "/"
-local in_headless = #vim.api.nvim_list_uis() == 0
 
 ---Join path segments that were passed as input
 ---@return string
@@ -32,7 +31,7 @@ end
 ---Get the full path to `$DEATHVIM_RUNTIME_DIR`
 ---@return string
 function _G.get_runtime_dir()
-  local dvim_runtime_dir = os.getenv "DEATHVIM_RUNTIME_DIR"
+  local dvim_runtime_dir = os.getenv("HOME") .. "/.local/share"
   if not dvim_runtime_dir then
     -- when nvim is used directly
     return vim.call("stdpath", "data")
@@ -43,8 +42,9 @@ end
 ---Get the full path to `$DEATHVIM_CONFIG_DIR`
 ---@return string
 function _G.get_config_dir()
-  local dvim_config_dir = os.getenv("DEATHVIM_CONFIG_DIR")
+  local dvim_config_dir = os.getenv("HOME") .. "/.config/dvim"
   if not dvim_config_dir then
+    -- when nvim is used directly
     return vim.call("stdpath", "config")
   end
   return dvim_config_dir
@@ -53,8 +53,9 @@ end
 ---Get the full path to `$DEATHVIM_CACHE_DIR`
 ---@return string
 function _G.get_cache_dir()
-  local dvim_cache_dir = os.getenv "DEATHVIM_CACHE_DIR"
+  local dvim_cache_dir = os.getenv("HOME") .. "/.cache/dvim"
   if not dvim_cache_dir then
+    -- when nvim is used directly
     return vim.call("stdpath", "cache")
   end
   return dvim_cache_dir
@@ -85,7 +86,7 @@ function M:init(base_dir)
     return base_dir
   end
 
-  if os.getenv "DEATHVIM_RUNTIME_DIR" then
+  if os.getenv("DEATHVIM_RUNTIME_DIR") then
     -- vim.opt.rtp:append(os.getenv "DEATHVIM_RUNTIME_DIR" .. path_sep .. "dvim")
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site"))
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site", "after"))

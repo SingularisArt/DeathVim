@@ -14,6 +14,7 @@ local core_plugins = {
 
   -- Colorschemes
   { "lilydjwg/colorizer" },
+  { "nekonako/xresources-nvim" },
   { "EdenEast/nightfox.nvim" },
   { "lunarvim/colorschemes" },
   { "dylanaraps/wal.vim" },

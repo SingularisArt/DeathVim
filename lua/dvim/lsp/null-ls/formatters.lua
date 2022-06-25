@@ -9,25 +9,23 @@ M.setup = function()
     return
   end
 
-  -- Iterate through all formatters
-  for _, formatter_object in pairs(dvim.lsp.formatters) do
-    for key, value in pairs(formatter_object) do
-      if key == "filetype" then
-        -- Check if the filetype is active
-        if dvim.builtin.filetypes[value].active then
-          -- Check if the `extra_args` is within this formatter
-          if formatter_object.extra_args then
-            -- Add the formatter to the sources table
-            null_ls.setup({
-              formatting[formatter_object.command].with { extra_args = formatter_object.extra_args }
-            })
-          else
-            null_ls.setup({
-              formatting[formatter_object.command]
-            })
-          end
-        end
+  for _, formatter_object in ipairs(dvim.lsp.formatters) do
+    if pcall(function() return dvim.builtin.filetypes[formatter_object.filetype].active ~= nil end) then
+      if formatter_object.extra_args then
+        null_ls.setup({
+          formatting[formatter_object.formatter].with { extra_args = formatter_object.extra_args }
+        })
+      else
+        null_ls.setup({
+          formatting[formatter_object.formatter]
+        })
       end
+
+      Log.trace("[LSP] Toggling formatter for filetype: " ..
+        formatter_object.filetype .. " Formatter is: [" .. formatter_object.formatter .. "]")
+    else
+      Log.error("[NULL-LS] Filetype: [" ..
+        formatter_object.filetype .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file.")
     end
   end
 end
