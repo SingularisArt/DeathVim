@@ -3,7 +3,7 @@ local M = {}
 M.setup = function()
   vim.cmd [[
     " Contains CSS for markdown + page + higlight
-    let g:mkdp_markdown_css = '/home/singularis/.config/nvim/static/markdown-preview/customStyle.css' 
+    let g:mkdp_markdown_css = '/home/singularis/.local/share/deathvim/dvim/static/markdown-preview/customStyle.css' 
     " Trick plugin into hosting colors.css so we get nice themes
     let g:mkdp_highlight_css = '/home/singularis/.cache/wal/colors.css'
 

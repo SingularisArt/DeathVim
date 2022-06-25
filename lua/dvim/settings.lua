@@ -15,7 +15,6 @@ M.load_default_options = function()
 		clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 		cmdheight = 2, -- more space in the neovim command line for displaying messages
 		completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-		conceallevel = 3, -- so we can see equations in latex and markdown
 		fileencoding = "utf-8", -- the encoding written to a file
 		hlsearch = true, -- highlight all matches on previous search pattern
 		ignorecase = true, -- ignore case in search patterns

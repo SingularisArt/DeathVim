@@ -26,37 +26,51 @@
 <p align="center">
   <img src="media/screenshot-1.png">
   <img src="media/screenshot-2.png">
+  <img src="media/screenshot-3.png">
+  <img src="media/screenshot-4.png">
+  <img src="media/screenshot-5.png">
 </p>
 
 # Features
 
-* Blazing fast
-* Written in 100% **LUA**
-* Has TreeSitter syntax highlighting
-* Colorscheme generated with [pywal](https://github.com/dylanaraps/pywal)
-* Intellisense, Completion, Linting, and Debugging
-* Easily able to install LSP Servers and DAP Servers using `:LspInstall` and
-  `:DPInstall`
+* Install in just one line of code, view [here](#installation) for more info.
+* Blazing fast.
+* Written in 100% **LUA**.
+* Has TreeSitter syntax highlighting.
+* Intellisense, Completion, Linting, and Debugging.
+* Easily able to install LSP, DAP, and TS servers by running:
+  * `:LspInstall`
+  * `:DIIstall`
+  * `:TSInstall`.
+* Already supports $20+$ programming languages out of the box with LSP,
+  Debugging, TreeSitter, and special plugins for each filetype.
 * Git integration with [vim-fugitive](https://github.com/tpope/vim-fugitive)
-  and [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* Informative statusline and tabline with
-  [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-* Code snippets powered by [UltiSnips](https://github.com/SirVer/ultisnips)
+  and [vim-gitgutter](https://github.com/airblade/vim-gitgutter).
+* Informative [statusline](https://github.com/nvim-lualine/lualine.nvim) and
+  [bufferline](https://github.com/akinsho/bufferline.nvim).
+* Code snippets powered by [UltiSnips](https://github.com/SirVer/ultisnips).
 * Intelligent suggestions with
   [vim-tabnine](https://github.com/zxqfl/tabnine-vim) and
-  [vim-copilot](https://github.com/github/copilot.vim)
+  [vim-copilot](https://github.com/github/copilot.vim).
 * Simple file browsing with
-  [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
-* Dynamic homepage with [alpha-vim](https://github.com/goolord/alpha-nvim)
-* Blur inactive panes using [vimade](https://github.com/TaDaa/vimade)
+  [NvimTree](https://github.com/kyazdani42/nvim-tree.lua).
+* Dynamic homepage with [alpha-vim](https://github.com/goolord/alpha-nvim).
 * Distraction free writing with
   [ZenMode](https://github.com/folke/zen-mode.nvim) and
-  [Twilight](https://github.com/folke/twilight.nvim)
-* Easily configurable to suit your needs
-* Common sense keybindings
-* Support [Which-Key](https://github.com/folke/which-key.nvim) so you never
-  forget your keybindings
-* Enhanced editing with the use of the [top plugins](#very-useful-plugins)
+  [Twilight](https://github.com/folke/twilight.nvim).
+* Common sense keybindings.
+* Uses [Which-Key](https://github.com/folke/which-key.nvim) so you never forget
+  your keybindings.
+* Already comes with dozens of plugins that are already configured for you,
+  view [here](#builtin-plugins) for more info.
+* Already comes with dozens of filetypes that are already configured for you,
+  view [here](#builtin-filetypes) for more info.
+* Already comes with dozens of snippets that are already configured for you,
+  view [here](#builtin-snippets) for more info.
+* Comes with a config file so you don't have to deal with any of the dirty
+  work, view [here](#config-file) for more info.
+* Has dozens of themes already setup for you, view [here](#builtin-themes) for
+  more info.
 
 # Installation
 
@@ -64,7 +78,7 @@
 bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)
 ```
 
-## Install Language support
+## Install Language Support
 
 You can find a list of supported languages
 [here](https://github.com/kabouzeid/nvim-lspinstall/tree/main/lua/lspinstall/servers).
@@ -74,6 +88,7 @@ To install any of them run
 * Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
 * Enter `:TSInstall` followed by `<TAB>` to see your options for syntax
   highlighting
+* Enter `:DIInstall` followed by `<TAB>` to see your options for debugging
 
 # Usage
 
@@ -303,15 +318,31 @@ To install any of them run
 </p>
 </details>
 
-# Setting up PyWal
+# Colorschemes
 
-First, install [pywal](https://github.com/dylanaraps/pywal). Then, download my
-wal templates from
-[here](https://github.com/SingularisArt/Singularis/tree/master/aspects/wal). Go
-over the README file in the `templates` folder. Once you've set everything up,
-go ahead and download my
-[Chameleon.py](https://github.com/SingularisArt/Chameleon). Follow the
-installation instructions, and voila, you have yourself a pywal-theming system!
+Here's a complete list of all the supported colorschemes.
+
+* [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
+* [lunarvim-colorschemes](https://github.com/lunarvim/colorschemes)
+* [wal.vim](https://github.com/dylanaraps/wal.vim)
+* [pywal.nvim](https://github.com/AlphaTechnolog/pywal.nvim)
+* [vim-code-dark](https://github.com/tomasiser/vim-code-dark)
+* [vim-lighthaus](https://github.com/lighthaus-theme/vim-lighthaus)
+* [tender.vim](https://github.com/jacoborus/tender.vim)
+* [zenbones.nvim](https://github.com/mcchrish/zenbones.nvim)
+* [onenord.nvim](https://github.com/rmehri01/onenord.nvim)
+* [neovim-ayu](https://github.com/Shatur/neovim-ayu)
+* [neon](https://github.com/rafamadriz/neon)
+* [gruvbox-baby](https://github.com/luisiacc/gruvbox-baby)
+* [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+* [base16-vim](https://github.com/chriskempson/base16-vim)
+* [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+
+# Future Plans
+
+# Builtin Plugins
+
+# Builtin Filetypes
 
 # TODO
 
@@ -325,12 +356,10 @@ installation instructions, and voila, you have yourself a pywal-theming system!
 - [x] Add **features** to **README.md**.
 - [x] Add TabNine.
 - [x] Add GitHub copilot.
-- [x] Add images
 
 ## Working on
 
-- [ ] Organize the structure of my `plugins.lua` file.
+- [ ] Patch up the installation script.
+- [ ] Get more screenshots.
 
 ## Need to do
-
-- [ ] Make my own executable called **dvim**.

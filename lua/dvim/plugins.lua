@@ -13,13 +13,22 @@ local core_plugins = {
   },
 
   -- Colorschemes
+  { "lilydjwg/colorizer" },
   { "EdenEast/nightfox.nvim" },
   { "lunarvim/colorschemes" },
-  { "lunarvim/darkplus.nvim" },
   { "dylanaraps/wal.vim" },
-  { "lilydjwg/colorizer" },
-  { "tjdevries/colorbuddy.nvim" },
   { "tomasiser/vim-code-dark" },
+  { "AlphaTechnolog/pywal.nvim" },
+  { "lighthaus-theme/vim-lighthaus" },
+  { "jacoborus/tender.vim" },
+  { "mcchrish/zenbones.nvim" },
+  { "rmehri01/onenord.nvim" },
+  { "Shatur/neovim-ayu" },
+  { "rafamadriz/neon" },
+  { "luisiacc/gruvbox-baby" },
+  { "folke/tokyonight.nvim" },
+  { "chriskempson/base16-vim" },
+  { "flazz/vim-colorschemes" },
 
   -- Indent Blankline
   {
@@ -146,6 +155,12 @@ local core_plugins = {
     run = ":TSUpdate",
   },
   { "nvim-treesitter/playground" },
+  {
+    "lewis6991/spellsitter.nvim",
+    config = function()
+      require('spellsitter').setup()
+    end,
+  },
 
   -- GPS
   {

@@ -5,10 +5,10 @@ function M.load_defaults()
     {
       "FileType",
       {
-        pattern = { "markdown", "git", "tex" },
+        pattern = { "markdown" },
         callback = function()
+          vim.opt.conceallevel = 3
           vim.opt.wrap = true
-          vim.opt.spell = true
         end,
       },
     },
@@ -32,11 +32,15 @@ function M.load_defaults()
           if vim.bo.filetype == "tex" then
             vim.opt.showtabline = 0
             vim.opt.laststatus = 0
+            vim.opt.conceallevel = 1
+          elseif vim.bo.filetype == "markdown" then
+            vim.opt.showtabline = 2
+            vim.opt.laststatus = 2
             vim.opt.conceallevel = 3
           else
             vim.opt.showtabline = 2
             vim.opt.laststatus = 2
-            vim.opt.conceallevel = 2
+            vim.opt.conceallevel = 0
           end
         end,
       },
