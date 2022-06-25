@@ -1,29 +1,50 @@
 local builtin_plugins = {
   "alpha",
-  "copilot",
   "indent_blankline",
   "symbols_outline",
-  "todo_comments",
-  "surround",
-  "terminal",
-  "comment",
-  "jabs",
-  "comments",
+  "which_key",
   "gitsigns",
-  "autopairs",
-  "bufferline",
-  "cmp",
+  "comment",
+  "surround",
+  "todo_comments",
+  "jabs",
+  "terminal",
   "dap",
-  "lualine",
-  "latex",
-  "nvimtree",
+  "alpha",
+  "ultisnips",
   "telescope",
   "project",
-  "ultisnips",
-  "markdown",
-  "which_key",
-  "winbar",
+  "copilot",
+  "cmp",
+  "autopairs",
+  "nvimtree",
+  "lualine",
+  "bufferline",
   "notify",
+  "treesitter",
+  "latex",
+  "markdown",
+}
+
+local builtin_filetypes = {
+  "python",
+  "cpp",
+  "cs",
+  "c",
+  "sql",
+  "html",
+  "css",
+  "js",
+  "ts",
+  "php",
+  "ruby",
+  "perl",
+  "java",
+  "rust",
+  "latex",
+  "markdown",
+  "lua",
+  "vim",
 }
 
 dvim = {
@@ -63,11 +84,18 @@ dvim = {
   },
 }
 dvim.lsp = require('dvim.lsp.config')
+dvim.builtin.plugins = {}
+dvim.builtin.filetypes = {}
 
 for _, plugin in ipairs(builtin_plugins) do
-  dvim.builtin[plugin] = {}
+  dvim.builtin.plugins[plugin] = {}
 end
 
-dvim.builtin.which_key.mappings = {}
+for _, filetype in ipairs(builtin_filetypes) do
+  dvim.builtin.filetypes[filetype] = {}
+end
+
+dvim.builtin.plugins.which_key.mappings = {}
+dvim.builtin.plugins.treesitter.highlight = {}
 
 return dvim

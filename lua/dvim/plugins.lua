@@ -8,7 +8,7 @@ local core_plugins = {
   {
     "rcarriga/nvim-notify",
     config = function()
-      require("dvim.core.notify").setup()
+      require("dvim.core.plugins.notify").setup()
     end,
   },
 
@@ -25,9 +25,9 @@ local core_plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("dvim.core.indent-blankline")
+      require("dvim.core.plugins.indent-blankline").setup()
     end,
-    disable = not dvim.builtin.indent_blankline.active,
+    disable = not dvim.builtin.plugins.indent_blankline.active,
   },
 
   -- LSP
@@ -38,9 +38,9 @@ local core_plugins = {
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require("dvim.core.symbols-outline").setup()
+      require("dvim.core.plugins.symbols-outline").setup()
     end,
-    disable = not dvim.builtin.symbols_outline.active,
+    disable = not dvim.builtin.plugins.symbols_outline.active,
   },
   { "ray-x/navigator.lua" },
   { "ray-x/guihua.lua" },
@@ -58,19 +58,19 @@ local core_plugins = {
     "max397574/which-key.nvim",
     commit = "f03a259",
     config = function()
-      require("dvim.core.which-key").setup()
+      require("dvim.core.plugins.which-key").setup()
     end,
-    disable = not dvim.builtin.which_key.active,
+    disable = not dvim.builtin.plugins.which_key.active,
   },
 
   -- Git
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("dvim.core.gitsigns").setup()
+      require("dvim.core.plugins.gitsigns").setup()
     end,
     event = "BufRead",
-    disable = not dvim.builtin.gitsigns.active,
+    disable = not dvim.builtin.plugins.gitsigns.active,
   },
   { "tpope/vim-rhubarb" },
   { "tpope/vim-fugitive" },
@@ -80,9 +80,9 @@ local core_plugins = {
     "numToStr/Comment.nvim",
     event = "BufRead",
     config = function()
-      require("dvim.core.comment").setup()
+      require("dvim.core.plugins.comment").setup()
     end,
-    disable = not dvim.builtin.comment.active,
+    disable = not dvim.builtin.plugins.comment.active,
   },
 
   -- Other
@@ -104,27 +104,27 @@ local core_plugins = {
   {
     "Mephistophiles/surround.nvim",
     config = function()
-      require("dvim.core.surround").setup()
+      require("dvim.core.plugins.surround").setup()
     end,
-    disable = not dvim.builtin.surround.active,
+    disable = not dvim.builtin.plugins.surround.active,
   },
 
   -- Todo Comments
   {
     "folke/todo-comments.nvim",
     config = function()
-      require("dvim.core.todo-comments").setup()
+      require("dvim.core.plugins.todo-comments").setup()
     end,
-    disable = not dvim.builtin.todo_comments.active,
+    disable = not dvim.builtin.plugins.todo_comments.active,
   },
 
   -- Jabs
   {
     "matbme/JABS.nvim",
     config = function()
-      require("dvim.core.jabs").setup()
+      require("dvim.core.plugins.jabs").setup()
     end,
-    disable = not dvim.builtin.jabs.active,
+    disable = not dvim.builtin.plugins.jabs.active,
   },
 
   -- Terminal
@@ -133,9 +133,9 @@ local core_plugins = {
     event = "BufWinEnter",
     branch = "main",
     config = function()
-      require("dvim.core.terminal").setup()
+      require("dvim.core.plugins.terminal").setup()
     end,
-    disable = not dvim.builtin.terminal.active,
+    disable = not dvim.builtin.plugins.terminal.active,
   },
 
   { "kyazdani42/nvim-web-devicons" }, -- Icons
@@ -151,7 +151,7 @@ local core_plugins = {
   {
     "SmiteshP/nvim-gps",
     config = function()
-      require("dvim.core.gps").setup()
+      require("dvim.core.plugins.gps").setup()
     end,
   },
 
@@ -159,203 +159,203 @@ local core_plugins = {
   -- {
   --   "fgheng/winbar.nvim",
   --   config = function()
-  --     require("dvim.core.winbar").setup()
+  --     require("dvim.core.plugins.winbar").setup()
   --   end,
-  --   disable = not dvim.builtin.winbar.active,
+  --   disable = not dvim.builtin.plugins.winbar.active,
   -- },
 
   -- Debugging
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require("dvim.core.dap").setup()
+      require("dvim.core.plugins.dap").setup()
     end,
-    disable = not dvim.builtin.dap.active,
+    disable = not dvim.builtin.plugins.dap.active,
   },
   {
     "rcarriga/nvim-dap-ui",
-    disable = not dvim.builtin.dap.active,
+    disable = not dvim.builtin.plugins.dap.active,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    disable = not dvim.builtin.dap.active,
+    disable = not dvim.builtin.plugins.dap.active,
   },
   {
     "ravenxrz/DAPInstall.nvim",
-    disable = not dvim.builtin.dap.active,
+    disable = not dvim.builtin.plugins.dap.active,
   },
   {
     "mfussenegger/nvim-dap-python",
-    disable = not dvim.builtin.dap.active,
+    disable = not dvim.builtin.plugins.dap.active,
   },
 
   -- Alpha
   {
     "goolord/alpha-nvim",
     config = function()
-      require("dvim.core.alpha").setup()
+      require("dvim.core.plugins.alpha").setup()
     end,
-    disable = not dvim.builtin.alpha.active,
+    disable = not dvim.builtin.plugins.alpha.active,
   },
 
   -- Snippets
   {
     "SirVer/UltiSnips",
     config = function()
-      require("dvim.core.ultisnips").setup()
+      require("dvim.core.plugins.ultisnips").setup()
     end,
-    disable = not dvim.builtin.ultisnips.active,
+    disable = not dvim.builtin.plugins.ultisnips.active,
   },
 
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     config = function()
-      require("dvim.core.telescope").setup()
+      require("dvim.core.plugins.telescope").setup()
     end,
-    disable = not dvim.builtin.telescope.active,
+    disable = not dvim.builtin.plugins.telescope.active,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
     run = "make",
-    disable = not dvim.builtin.telescope.active,
+    disable = not dvim.builtin.plugins.telescope.active,
   },
 
   -- Project
   {
     "ahmedkhalf/project.nvim",
     config = function()
-      require("dvim.core.project").setup()
+      require("dvim.core.plugins.project").setup()
     end,
-    disable = not dvim.builtin.project.active,
+    disable = not dvim.builtin.plugins.project.active,
   },
 
   -- Copilot
   {
     "github/copilot.vim",
-    disable = not dvim.builtin.copilot.active,
+    disable = not dvim.builtin.plugins.copilot.active,
   },
   {
     "hrsh7th/cmp-copilot",
-    disable = not dvim.builtin.copilot.active and not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.copilot.active and not dvim.builtin.plugins.cmp.active,
   },
 
   -- CMP
   {
     "hrsh7th/nvim-cmp",
     config = function()
-      require("dvim.core.cmp").setup()
+      require("dvim.core.plugins.cmp").setup()
     end,
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-buffer",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-path",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-nvim-lsp",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-nvim-lua",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-calc",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "rcarriga/cmp-dap",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "tzachar/cmp-tabnine", run = "./install.sh",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "quangnguyen30192/cmp-nvim-ultisnips",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "kdheepak/cmp-latex-symbols",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
   {
     "hrsh7th/cmp-emoji",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.cmp.active,
+    disable = not dvim.builtin.plugins.cmp.active,
   },
 
   -- Autopairs
   {
     "windwp/nvim-autopairs",
     config = function()
-      require("dvim.core.autopairs").setup()
+      require("dvim.core.plugins.autopairs").setup()
     end,
-    disable = not dvim.builtin.autopairs.active,
+    disable = not dvim.builtin.plugins.autopairs.active,
   },
 
   -- NvimTree
   {
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("dvim.core.nvimtree").setup()
+      require("dvim.core.plugins.nvimtree").setup()
     end,
-    disable = not dvim.builtin.nvimtree.active,
+    disable = not dvim.builtin.plugins.nvimtree.active,
   },
 
   -- Status Line and Bufferline
   {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("dvim.core.lualine").setup()
+      require("dvim.core.plugins.lualine").setup()
     end,
-    disable = not dvim.builtin.lualine.active,
+    disable = not dvim.builtin.plugins.lualine.active,
   },
   {
     "akinsho/bufferline.nvim",
     config = function()
-      require("dvim.core.bufferline").setup()
+      require("dvim.core.plugins.bufferline").setup()
     end,
     branch = "main",
     event = "BufWinEnter",
-    disable = not dvim.builtin.bufferline.active,
+    disable = not dvim.builtin.plugins.bufferline.active,
   },
 
   -- LaTeX
   {
     "lervag/vimtex",
     config = function()
-      require("dvim.core.vimtex").setup()
+      require("dvim.core.plugins.vimtex").setup()
     end,
-    disable = not dvim.builtin.latex.active,
+    disable = not dvim.builtin.plugins.latex.active,
   },
   {
     "KeitaNakamura/tex-conceal.vim",
-    disable = not dvim.builtin.latex.active,
+    disable = not dvim.builtin.plugins.latex.active,
   },
 
   -- Markdown
   {
     "iamcco/markdown-preview.nvim",
     config = function()
-      require("dvim.core.markdown").setup()
+      require("dvim.core.plugins.markdown").setup()
     end,
-    disable = not dvim.builtin.markdown.active,
+    disable = not dvim.builtin.plugins.markdown.active,
   },
 }
 
