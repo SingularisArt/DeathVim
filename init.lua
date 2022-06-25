@@ -12,7 +12,7 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
 end
 
 Utils = require("dvim.utils.functions")
-require("dvim.settings.defaults")
+require("dvim.defaults")
 
 M = require("config")
 require("dvim.bootstrap"):init(base_dir)
@@ -27,6 +27,9 @@ settings.load_defaults()
 
 local autocmds = Utils.safe_require("dvim.autocmds")
 autocmds.load_defaults()
+
+local parse_vim_commands = Utils.safe_require("dvim.parse_vim_commands")
+parse_vim_commands.load_defaults()
 
 local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.colorscheme)

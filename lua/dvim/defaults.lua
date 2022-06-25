@@ -54,6 +54,7 @@ dvim = {
   format_on_save = true,
   keys = {},
   language_servers = {},
+  vim_commands = {},
 
   use_icons = true,
 
@@ -96,6 +97,8 @@ for _, filetype in ipairs(builtin_filetypes) do
 end
 
 dvim.builtin.plugins.which_key.mappings = {}
+
 dvim.builtin.plugins.treesitter.highlight = {}
+dvim.builtin.plugins.treesitter.indent = {}
 
 return dvim

@@ -109,7 +109,7 @@ dvim.builtin.plugins.cmp = {
 }
 
 M.setup = function()
-  require("cmp").setup(dvim.builtin.plugins.cmp)
+  require("cmp").setup(dvim.builtin.plugins.cmp.setup)
 
   Utils.safe_require('dvim.core.plugins.cmp.cmp_github_issues')
   Utils.safe_require('dvim.core.plugins.cmp.cmp_emails').setup()

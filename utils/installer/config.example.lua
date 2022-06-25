@@ -1,5 +1,3 @@
-require("dvim.settings.defaults")
-
 ------------------------------------------------------------------------
 --                              General                               --
 ------------------------------------------------------------------------
@@ -95,22 +93,29 @@ dvim.builtin.filetypes.vim.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 -- dvim.builtin.plugins.treesitter.ensure_installed = {
---   "bash",
---   "c",
---   "javascript",
---   "json",
---   "lua",
 --   "python",
---   "typescript",
---   "tsx",
+--   "cpp",
+--   "cs",
+--   "c",
+--   "sql",
+--   "html",
 --   "css",
---   "rust",
+--   "js",
+--   "ts",
+--   "php",
+--   "ruby",
+--   "perl",
 --   "java",
---   "yaml",
+--   "rust",
+--   "latex",
+--   "markdown",
+--   "lua",
+--   "vim",
 -- }
 
 -- dvim.builtin.plugins.treesitter.ignore_install = { "haskell" }
 -- dvim.builtin.plugins.treesitter.highlight.enabled = true
+-- dvim.builtin.plugins.treesitter.indent.enabled = true
 
 ------------------------------------------------------------------------
 --                                LSP                                 --
@@ -236,4 +241,6 @@ dvim.builtin.filetypes.vim.active = true
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
 
--- vim.cmd("set rtp+=~/Documents/notes/school-notes/current-course")
+-- dvim.vim_commands = {
+--   { command = "set rtp+=~/Documents/notes/school-notes/current-course" },
+-- }

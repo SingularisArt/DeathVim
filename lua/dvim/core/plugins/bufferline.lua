@@ -209,7 +209,8 @@ end
 M.setup = function()
   M.config()
 
-  require("bufferline").setup {
+  local bufferline = require("bufferline")
+  bufferline.setup {
     options = dvim.builtin.plugins.bufferline.options,
     highlights = dvim.builtin.plugins.bufferline.highlights,
   }

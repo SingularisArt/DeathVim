@@ -332,7 +332,6 @@ local core_plugins = {
       require("dvim.core.plugins.bufferline").setup()
     end,
     branch = "main",
-    event = "BufWinEnter",
     disable = not dvim.builtin.plugins.bufferline.active,
   },
 
