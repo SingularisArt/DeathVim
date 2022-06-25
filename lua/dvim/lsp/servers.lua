@@ -15,7 +15,7 @@ local config = {
 	},
 }
 
-for _, server in ipairs(dvim.language_servers) do
+for _, server in ipairs(dvim.lsp.language_servers) do
 	if server == "sumneko_lua" then
 		Utils.safe_require("lspconfig")[server].setup({
 			capabilities = capabilities,
