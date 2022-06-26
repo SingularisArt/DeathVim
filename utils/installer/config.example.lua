@@ -51,7 +51,11 @@ dvim.builtin.plugins = {
   indent_blankline = { active = true },
   symbols_outline = { active = true },
   which_key = { active = true },
-  gitsigns = { active = true },
+  gitsigns = {
+    active = true,
+    -- Show the git commit message on the line
+    line_blame = true
+  },
   comment = { active = true },
   surround = { active = true },
   todo_comments = { active = true },
@@ -105,6 +109,8 @@ dvim.builtin.filetypes = {
   perl = { active = true },
   java = { active = true },
   rust = { active = true },
+  solidity = { active = true },
+  go = { active = true },
   bash = { active = true },
   log = { active = true },
   latex = { active = true },
@@ -112,7 +118,6 @@ dvim.builtin.filetypes = {
   yaml = { active = true },
   json = { active = true },
 }
-
 
 ------------------------------------------------------------------------
 --                            Tree Sitter                             --
@@ -140,6 +145,8 @@ dvim.builtin.filetypes = {
 --     "perl",
 --     "java",
 --     "rust",
+--     "solidity",
+--     "go",
 --     "bash",
 --     "yaml",
 --     "json",
@@ -188,6 +195,10 @@ dvim.builtin.filetypes = {
 --   { server = "cssls", filetype = "css" },
 --   { server = "jsonls", filetype = "json" },
 --   { server = "rust_analyzer", filetype = "rust" },
+--   { server = "solang", filetype = "solidity" },
+--   { server = "solc", filetype = "solidity" },
+--   { server = "marksman", filetype = "markdown" },
+--   { server = "golangci_lint_ls", filetype = "go" },
 --   { server = "tsserver", filetype = "javascript" },
 --   { server = "jdtls", filetype = "java" },
 --   { server = "yamlls", filetype = "yaml" },
@@ -251,6 +262,7 @@ dvim.builtin.filetypes = {
 --   },
 -- }
 
+-- TODO:
 -- If you don't have a formatter installed for a filetype, DeathVim will try to
 -- install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
@@ -272,12 +284,46 @@ dvim.builtin.filetypes = {
 --     diagnostic = "cppcheck",
 --     filetype = "cpp",
 --   },
+--   {
+--     diagnostic = "write_good",
+--     filetype = "latex",
+--   },
+--   {
+--     diagnostic = "write_good",
+--     filetype = "markdown",
+--   },
 -- }
 
+-- TODO:
 -- If you don't have a diagnostic installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
 -- dvim.lsp.automatic_diagnostics_installation = true
+
+-----------
+-- Hover --
+-----------
+
+-- dvim.lsp.hovers = {
+--   { hover = "dictionary", },
+-- }
+
+-----------------
+-- Code Action --
+-----------------
+
+-- dvim.lsp.code_actions = {
+--   { code_action = "gitsigns" },
+--   { code_action = "gitrebase" },
+-- }
+
+----------------
+-- Completion --
+----------------
+
+-- dvim.lsp.completions = {
+--   { completion = "spell", },
+-- }
 
 ------------------------------------------------------------------------
 --                         Additional Plugins                         --
