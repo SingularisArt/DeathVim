@@ -1,5 +1,5 @@
 -- For more information, see:
--- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
+-- https://github.com/SingularisArt/Death.NeoVim/wiki/Modifying-the-config.lua-file
 
 ------------------------------------------------------------------------
 --                              General                               --
@@ -14,9 +14,9 @@ dvim.format_on_save = false
 
 -- The level of logging.
 -- Possible values: "trace", "debug", "info", "warn", "error", "fatal"
-dvim.log.level = "warn"
--- The file to log to. Default is ~/.config/dvim/log.log
-dvim.log.out_file = os.getenv("HOME") .. "/.config/dvim/log.log"
+dvim.log.level = "trace"
+-- The file to log to. Default is ~/.cache/dvim/dvim.log
+dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 ------------------------------------------------------------------------
 --                         TODO: Keymappings                          --
@@ -118,48 +118,52 @@ dvim.builtin.filetypes = {
 --                            Tree Sitter                             --
 ------------------------------------------------------------------------
 
--- This list depends on the filetypes list. Don't remove any of the items. Only
--- add new ones and if you want to disable a filetype, set it to false in the
--- filetypes list from above.
--- dvim.builtin.plugins.treesitter.ensure_installed = {
---   { parser = "lua", filetype = "lua" },
---   { parser = "vim", filetype = "vim" },
---   { parser = "python", filetype = "python" },
---   { parser = "cpp", filetype = "cpp" },
---   { parser = "cmake", filetype = "cmake" },
---   { parser = "c", filetype = "c" },
---   { parser = "c_sharp", filetype = "c_sharp" },
---   { parser = "sql", filetype = "sql" },
---   { parser = "html", filetype = "html" },
---   { parser = "css", filetype = "css" },
---   { parser = "javascript", filetype = "javascript" },
---   { parser = "typescript", filetype = "typescript" },
---   { parser = "php", filetype = "php" },
---   { parser = "ruby", filetype = "ruby" },
---   { parser = "perl", filetype = "perl" },
---   { parser = "java", filetype = "java" },
---   { parser = "rust", filetype = "rust" },
---   { parser = "bash", filetype = "bash" },
---   { parser = "yaml", filetype = "yaml" },
---   { parser = "json", filetype = "json" },
+-- dvim.builtin.plugins.treesitter = {
+--   -- Install TreeSitter parsers automatically
+--   sync_install = { enabled = true },
+--   -- Parsers that are going to be installed by default
+--   ensure_installed = {
+--     "lua",
+--     "vim",
+--     "python",
+--     "cpp",
+--     "cmake",
+--     "c",
+--     "c_sharp",
+--     -- "sql",
+--     "html",
+--     "css",
+--     "javascript",
+--     "typescript",
+--     "php",
+--     "ruby",
+--     "perl",
+--     "java",
+--     "rust",
+--     "bash",
+--     "yaml",
+--     "json",
+--   },
+--   -- Language servers to not install
+--   ignore_install = {
+--     "latex",
+--     "markdown",
+--   },
+--   -- Enable indenting automatically
+--   indent = { enabled = true },
+--   autotag = { enabled = true },
+--   highlight = {
+--     -- Enable highlighting automatically
+--     enabled = true,
+--     -- Parsers to not highlight
+--     -- NOTE: This is not the filetype, but the parser name. For example, if you
+--     -- want to disable the filetype tex, just type latex.
+--     disable = {
+--       "latex",
+--       "markdown",
+--     },
+--   },
 -- }
-
--- Language servers to not install
--- dvim.builtin.plugins.treesitter.ignore_install = {
---   "latex",
---   "markdown",
--- }
-
-dvim.builtin.plugins.treesitter = {
-  -- Install TreeSitter parsers automatically
-  -- Check the log file for errors or success messages
-  -- ~/.config/dvim/log.log
-  -- install_parsers_automatically = { enabled = true },
-  -- Enable highlighting automatically
-  -- highlight = { enabled = true },
-  -- Enable indenting automatically
-  -- indent = { enabled = true },
-}
 
 ------------------------------------------------------------------------
 --                                LSP                                 --

@@ -1,97 +1,50 @@
 local M = {}
 
 M.config = function()
-  dvim.builtin.plugins.treesitter = {
-    on_config_done = nil,
-    ensure_installed = {}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ignore_install = {},
-    matchup = {
-      enable = false, -- mandatory, false will disable the whole extension
-      -- disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+  dvim.builtin.plugins.treesitter.setup = {
+    -- Directory to store TreeSitter parsers
+    parser_install_dir = get_cache_dir() .. "treesitter",
+
+    -- A list of parser names
+    ensure_installed = dvim.builtin.plugins.treesitter.ensure_installed,
+
+    -- List of parsers to ignore installing (for "all")
+    ignore_install = dvim.builtin.plugins.treesitter.ignore_install,
+
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = dvim.builtin.plugins.treesitter.sync_install.enabled,
+
+    -- Autoindent
+    indent = {
+      enable = dvim.builtin.plugins.treesitter.indent.enabled,
     },
+
+    autotag = {
+      enable = dvim.builtin.plugins.treesitter.autotag.enabled,
+    },
+
     highlight = {
-      enable = true, -- false will disable the whole extension
-      additional_vim_regex_highlighting = false,
-      disable = { "latex" },
-    },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-      config = {
-        -- Languages that have a single comment style
-        typescript = "// %s",
-        css = "/* %s */",
-        scss = "/* %s */",
-        html = "<!-- %s -->",
-        svelte = "<!-- %s -->",
-        vue = "<!-- %s -->",
-        python = "# %s",
-        json = "",
-      },
-    },
-    indent = { enable = true, disable = { "yaml", "python" } },
-    autotag = { enable = false },
-    textobjects = {
-      swap = {
-        enable = false,
-        -- swap_next = textobj_swap_keymaps,
-      },
-      -- move = textobj_move_keymaps,
-      select = {
-        enable = false,
-        -- keymaps = textobj_sel_keymaps,
-      },
-    },
-    textsubjects = {
-      enable = false,
-      keymaps = { ["."] = "textsubjects-smart", [";"] = "textsubjects-big" },
-    },
-    playground = {
-      enable = false,
-      disable = {},
-      updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-      persist_queries = false, -- Whether the query persists across vim sessions
-      keybindings = {
-        toggle_query_editor = "o",
-        toggle_hl_groups = "i",
-        toggle_injected_languages = "t",
-        toggle_anonymous_nodes = "a",
-        toggle_language_display = "I",
-        focus_language = "f",
-        unfocus_language = "F",
-        update = "R",
-        goto_node = "<cr>",
-        show_help = "?",
-      },
-    },
-    rainbow = {
-      enable = false,
-      extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-      max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+      -- Enable syntax highlighting
+      enable = dvim.builtin.plugins.treesitter.highlight.enabled,
+
+      -- List of parsers to ignore
+      disable = dvim.builtin.plugins.treesitter.highlight.disable,
+
+      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+      -- Using this option may slow down your editor, and you may see some duplicate highlights.
+      -- Instead of true it can also be a list of languages
+      additional_vim_regex_highlighting = true,
     },
   }
 end
 
 M.setup = function()
   M.config()
+  vim.opt.runtimepath:append(get_cache_dir() .. "treesitter")
 
-  -- avoid running in headless mode since it's harder to detect failures
-  if #vim.api.nvim_list_uis() == 0 then
-    return
-  end
-
-  local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
-  if not status_ok then
-    return
-  end
-
-  local opts = vim.deepcopy(dvim.builtin.plugins.treesitter)
-
-  treesitter_configs.setup(opts)
-
-  if dvim.builtin.plugins.treesitter.on_config_done then
-    dvim.builtin.plugins.treesitter.on_config_done(treesitter_configs)
-  end
+  local tree_sitter = require_clean("nvim-treesitter.configs")
+  tree_sitter.setup(dvim.builtin.plugins.treesitter.setup)
 end
 
 return M

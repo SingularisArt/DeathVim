@@ -160,6 +160,9 @@ local core_plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+    config = function()
+      require('dvim.core.plugins.treesitter').setup()
+    end,
   },
   { "nvim-treesitter/playground" },
   {

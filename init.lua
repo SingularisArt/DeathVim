@@ -12,6 +12,8 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
 end
 
 Utils = require("dvim.utils.functions")
+
+require("dvim.global")
 require("dvim.defaults")
 
 M = require("config")
