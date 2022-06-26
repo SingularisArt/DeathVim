@@ -2,11 +2,30 @@
 -- Main Files --
 ----------------
 
-Utils.safe_require("lspconfig")
+require_clean("lspconfig")
 
-Utils.safe_require("dvim.lsp.servers").setup()
-Utils.safe_require("dvim.lsp.lsp-signature")
-Utils.safe_require("dvim.lsp.handlers").setup()
+local M = {}
 
-Utils.safe_require("dvim.lsp.null-ls.formatters").setup()
-Utils.safe_require("dvim.lsp.null-ls.diagnostics").setup()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+local opts = {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
+local servers = {}
+
+for _, server_object in ipairs(dvim.lsp.language_servers) do
+  servers[server_object.server] = {}
+end
+
+require_clean("dvim.lsp.installer").setup(servers, opts)
+require_clean("dvim.lsp.handlers").setup()
+require_clean("dvim.lsp.servers").setup()
+require_clean("dvim.lsp.lsp-signature")
+require("dvim.lsp.null-ls")

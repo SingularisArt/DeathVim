@@ -6,39 +6,49 @@ local formatting = null_ls.builtins.formatting
 local sources = {}
 
 M.setup = function()
-	if vim.tbl_isempty(dvim.lsp.formatters) then
-		return
-	end
+  if vim.tbl_isempty(dvim.lsp.formatters) then
+    return
+  end
 
-	for _, formatter_object in ipairs(dvim.lsp.formatters) do
-		if pcall(function()
-			return dvim.builtin.filetypes[formatter_object.filetype].active ~= nil
-		end) then
-			if formatter_object.extra_args then
-				table.insert(
-					sources,
-					formatting[formatter_object.formatter].with({ extra_args = formatter_object.extra_args })
-				)
-			else
-				table.insert(sources, formatting[formatter_object.formatter])
-			end
+  for _, formatter_object in ipairs(dvim.lsp.formatters) do
+    if pcall(function()
+      return dvim.builtin.filetypes[formatter_object.filetype].active ~= nil
+    end) then
+      if formatter_object.extra_args then
+        table.insert(
+          sources,
+          formatting[formatter_object.formatter].with({ extra_args = formatter_object.extra_args })
+        )
+      else
+        table.insert(sources, formatting[formatter_object.formatter])
+      end
 
-			Log.trace(
-				"[NULL-LS] Toggling formatter "
-					.. formatter_object.formatter
-			)
-		else
-			Log.error(
-				"[NULL-LS] Filetype: ["
-					.. formatter_object.filetype
-					.. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
-			)
-		end
-	end
+      Log.trace("[NULL-LS] Toggling formatter " .. formatter_object.formatter)
+    else
+      Log.error(
+        "[NULL-LS] Filetype: ["
+        .. formatter_object.filetype
+        .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
+      )
+    end
+  end
 
-	require("null-ls").setup({
-		sources = sources,
-	})
+  require("null-ls").setup({
+    sources = sources,
+    on_attach = function()
+      if dvim.format_on_save then
+        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+      end
+      vim.cmd [[
+        augroup document_highlight
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]]
+    end
+  })
 end
 
+M.setup()
 return M

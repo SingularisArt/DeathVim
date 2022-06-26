@@ -104,6 +104,11 @@ if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
       Question = "",
       Hint = "",
     },
+    lsp = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗",
+    },
     misc = {
       Robot = "ﮧ",
       Squirrel = "",

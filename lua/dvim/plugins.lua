@@ -1,6 +1,9 @@
 local core_plugins = {
   { "wbthomason/packer.nvim" },
 
+  { "RRethy/vim-illuminate", event = "VimEnter" },
+  { "folke/lua-dev.nvim", event = "VimEnter" },
+
   { "nvim-lua/popup.nvim" },
   { "nvim-lua/plenary.nvim" },
   { "antoinemadec/FixCursorHold.nvim" },
@@ -46,6 +49,10 @@ local core_plugins = {
   { "jose-elias-alvarez/null-ls.nvim" },
   { "onsails/lspkind-nvim" },
   {
+    "b0o/SchemaStore.nvim",
+    disable = not dvim.builtin.filetypes.json.active,
+  },
+  {
     "simrat39/symbols-outline.nvim",
     config = function()
       require("dvim.core.plugins.symbols-outline").setup()
@@ -65,11 +72,6 @@ local core_plugins = {
   },
 
   -- WhichKey
-  {
-    -- NOTE: Temporary fix till folke comes back
-    "max397574/lua-dev.nvim",
-    module = "lua-dev",
-  },
   {
     "max397574/which-key.nvim",
     commit = "f03a259",
@@ -161,14 +163,14 @@ local core_plugins = {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     config = function()
-      require('dvim.core.plugins.treesitter').setup()
+      require("dvim.core.plugins.treesitter").setup()
     end,
   },
   { "nvim-treesitter/playground" },
   {
     "lewis6991/spellsitter.nvim",
     config = function()
-      require('spellsitter').setup()
+      require("spellsitter").setup()
     end,
   },
 
@@ -305,7 +307,8 @@ local core_plugins = {
     disable = not dvim.builtin.plugins.cmp.active,
   },
   {
-    "tzachar/cmp-tabnine", run = "./install.sh",
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
     requires = { "hrsh7th/nvim-cmp" },
     disable = not dvim.builtin.plugins.cmp.active,
   },

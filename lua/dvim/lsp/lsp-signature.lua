@@ -1,5 +1,4 @@
-local M = require("dvim.utils.functions")
-local signature = M.safe_require("lsp_signature")
+local signature = require_clean("lsp_signature")
 
 local icons = require("dvim.core.icons")
 

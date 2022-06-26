@@ -6,29 +6,29 @@ M.config = function()
     parser_install_dir = get_cache_dir() .. "treesitter",
 
     -- A list of parser names
-    ensure_installed = dvim.builtin.plugins.treesitter.ensure_installed,
+    ensure_installed = {},
 
     -- List of parsers to ignore installing (for "all")
-    ignore_install = dvim.builtin.plugins.treesitter.ignore_install,
+    ignore_install = {},
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = dvim.builtin.plugins.treesitter.sync_install.enabled,
+    sync_install = true,
 
     -- Autoindent
     indent = {
-      enable = dvim.builtin.plugins.treesitter.indent.enabled,
+      enable = true,
     },
 
     autotag = {
-      enable = dvim.builtin.plugins.treesitter.autotag.enabled,
+      enable = true,
     },
 
     highlight = {
       -- Enable syntax highlighting
-      enable = dvim.builtin.plugins.treesitter.highlight.enabled,
+      enable = true,
 
       -- List of parsers to ignore
-      disable = dvim.builtin.plugins.treesitter.highlight.disable,
+      disable = {},
 
       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -47,4 +47,5 @@ M.setup = function()
   tree_sitter.setup(dvim.builtin.plugins.treesitter.setup)
 end
 
+M.setup()
 return M
