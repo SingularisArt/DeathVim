@@ -59,7 +59,6 @@ dvim.builtin.plugins = {
   comment = { active = true },
   surround = { active = true },
   todo_comments = { active = true },
-  jabs = { active = true },
   terminal = { active = true },
   dap = { active = true },
   ultisnips = { active = true },
@@ -123,57 +122,57 @@ dvim.builtin.filetypes = {
 --                            Tree Sitter                             --
 ------------------------------------------------------------------------
 
--- dvim.builtin.plugins.treesitter = {
---   -- Install TreeSitter parsers automatically
---   sync_install = { enabled = true },
---   -- Parsers that are going to be installed by default
---   ensure_installed = {
---     "lua",
---     "vim",
---     "python",
---     "cpp",
---     "cmake",
---     "c",
---     "c_sharp",
---     -- "sql",
---     "html",
---     "css",
---     "javascript",
---     "typescript",
---     "php",
---     "ruby",
---     "perl",
---     "java",
---     "rust",
---     "solidity",
---     "go",
---     "bash",
---     "yaml",
---     "json",
---   },
---   -- Language servers to not install
---   ignore_install = {
---     "latex",
---     "markdown",
---   },
---   -- Enable indenting automatically
---   indent = {
---     enabled = true,
---     disable = {}
---   },
---   autotag = { enabled = true },
---   highlight = {
---     -- Enable highlighting automatically
---     enabled = true,
---     -- Parsers to not highlight
---     -- NOTE: This is not the filetype, but the parser name. For example, if you
---     -- want to disable the filetype tex, just type latex.
---     disable = {
---       "latex",
---       "markdown",
---     },
---   },
--- }
+dvim.builtin.plugins.treesitter = {
+  -- Install TreeSitter parsers automatically
+  sync_install = { enabled = true },
+  -- Parsers that are going to be installed by default
+  ensure_installed = {
+    "lua",
+    "vim",
+    "python",
+    "cpp",
+    "cmake",
+    "c",
+    "c_sharp",
+    -- "sql",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "php",
+    "ruby",
+    "perl",
+    "java",
+    "rust",
+    "solidity",
+    "go",
+    "bash",
+    "yaml",
+    "json",
+  },
+  -- Language servers to not install
+  ignore_install = {
+    "latex",
+    "markdown",
+  },
+  -- Enable indenting automatically
+  indent = {
+    enabled = true,
+    disable = {}
+  },
+  autotag = { enabled = true },
+  highlight = {
+    -- Enable highlighting automatically
+    enabled = true,
+    -- Parsers to not highlight
+    -- NOTE: This is not the filetype, but the parser name. For example, if you
+    -- want to disable the filetype tex, just type latex.
+    disable = {
+      "latex",
+      "markdown",
+    },
+  },
+}
 
 ------------------------------------------------------------------------
 --                                LSP                                 --
@@ -186,31 +185,31 @@ dvim.builtin.filetypes = {
 -- This list depends on the filetypes list. Don't remove any of the items. Only
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
--- dvim.lsp.language_servers = {
---   { server = "sumneko_lua", filetype = "lua" },
---   { server = "vimls", filetype = "vim" },
---   { server = "texlab", filetype = "latex" },
---   { server = "pylsp", filetype = "python" },
---   { server = "bashls", filetype = "bash" },
---   { server = "clangd", filetype = "cpp" },
---   { server = "cmake", filetype = "cmake" },
---   { server = "html", filetype = "html" },
---   { server = "cssls", filetype = "css" },
---   { server = "jsonls", filetype = "json" },
---   { server = "rust_analyzer", filetype = "rust" },
---   { server = "solang", filetype = "solidity" },
---   { server = "solc", filetype = "solidity" },
---   { server = "marksman", filetype = "markdown" },
---   { server = "golangci_lint_ls", filetype = "go" },
---   { server = "tsserver", filetype = "javascript" },
---   { server = "jdtls", filetype = "java" },
---   { server = "yamlls", filetype = "yaml" },
--- }
+dvim.lsp.language_servers = {
+  { server = "sumneko_lua", filetype = "lua" },
+  { server = "vimls", filetype = "vim" },
+  { server = "texlab", filetype = "latex" },
+  { server = "pylsp", filetype = "python" },
+  { server = "bashls", filetype = "bash" },
+  { server = "clangd", filetype = "cpp" },
+  { server = "cmake", filetype = "cmake" },
+  { server = "html", filetype = "html" },
+  { server = "cssls", filetype = "css" },
+  { server = "jsonls", filetype = "json" },
+  { server = "rust_analyzer", filetype = "rust" },
+  { server = "solang", filetype = "solidity" },
+  { server = "solc", filetype = "solidity" },
+  { server = "marksman", filetype = "markdown" },
+  { server = "golangci_lint_ls", filetype = "go" },
+  { server = "tsserver", filetype = "javascript" },
+  { server = "jdtls", filetype = "java" },
+  { server = "yamlls", filetype = "yaml" },
+}
 
 -- If you don't have a server installed for a filetype, DeathVim will try to
 -- install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
--- dvim.lsp.automatic_servers_installation = true
+dvim.lsp.automatic_servers_installation = true
 
 ----------------
 -- Formatters --
@@ -219,57 +218,57 @@ dvim.builtin.filetypes = {
 -- This list depends on the filetypes list. Don't remove any of the items. Only
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
--- dvim.lsp.formatters = {
---   {
---     formatter = "black",
---     extra_args = { "--fast" },
---     filetype = "python",
---   },
---   {
---     formatter = "clang_format",
---     filetype = "cpp",
---   },
---   {
---     formatter = "latexindent",
---     filetype = "latex",
---   },
---   {
---     formatter = "prettier",
---     extra_args = { "--single-quote", "--jsx-single-quote" },
---     filetype = "javascript",
---   },
---   {
---     formatter = "rustfmt",
---     filetype = "rust",
---   },
---   {
---     formatter = "sql_formatter",
---     filetype = "sql",
---   },
---   {
---     formatter = "standardrb",
---     extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
---     filetype = "ruby",
---   },
---   {
---     formatter = "stylua",
---     filetype = "lua",
---   },
---   {
---     formatter = "google_java_format",
---     filetype = "java",
---   },
---   {
---     formatter = "shellharden",
---     filetype = "bash",
---   },
--- }
+dvim.lsp.formatters = {
+  {
+    formatter = "black",
+    extra_args = { "--fast" },
+    filetype = "python",
+  },
+  {
+    formatter = "clang_format",
+    filetype = "cpp",
+  },
+  {
+    formatter = "latexindent",
+    filetype = "latex",
+  },
+  {
+    formatter = "prettier",
+    extra_args = { "--single-quote", "--jsx-single-quote" },
+    filetype = "javascript",
+  },
+  {
+    formatter = "rustfmt",
+    filetype = "rust",
+  },
+  {
+    formatter = "sql_formatter",
+    filetype = "sql",
+  },
+  {
+    formatter = "standardrb",
+    extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+    filetype = "ruby",
+  },
+  {
+    formatter = "stylua",
+    filetype = "lua",
+  },
+  {
+    formatter = "google_java_format",
+    filetype = "java",
+  },
+  {
+    formatter = "shellharden",
+    filetype = "bash",
+  },
+}
 
 -- TODO:
 -- If you don't have a formatter installed for a filetype, DeathVim will try to
 -- install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
--- dvim.lsp.automatic_formatters_installation = true
+dvim.lsp.automatic_formatters_installation = true
 
 -----------------
 -- Diagnostics --
@@ -278,90 +277,85 @@ dvim.builtin.filetypes = {
 -- This list depends on the filetypes list. Don't remove any of the items. Only
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
--- dvim.lsp.diagnostics = {
---   {
---     diagnostic = "flake8",
---     filetype = "python",
---   },
---   {
---     diagnostic = "cppcheck",
---     filetype = "cpp",
---   },
---   {
---     diagnostic = "write_good",
---     filetype = "latex",
---   },
---   {
---     diagnostic = "write_good",
---     filetype = "markdown",
---   },
--- }
+dvim.lsp.diagnostics = {
+  {
+    diagnostic = "flake8",
+    filetype = "python",
+  },
+  {
+    diagnostic = "cppcheck",
+    filetype = "cpp",
+  },
+  {
+    diagnostic = "write_good",
+    filetype = "latex",
+  },
+  {
+    diagnostic = "write_good",
+    filetype = "markdown",
+  },
+}
 
 -- TODO:
 -- If you don't have a diagnostic installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
--- dvim.lsp.automatic_diagnostics_installation = true
+dvim.lsp.automatic_diagnostics_installation = true
 
 -----------
 -- Hover --
 -----------
 
--- dvim.lsp.hovers = {
---   { hover = "dictionary", },
--- }
+dvim.lsp.hovers = {
+  { hover = "dictionary", },
+}
 
 -----------------
 -- Code Action --
 -----------------
 
--- dvim.lsp.code_actions = {
---   { code_action = "gitsigns" },
---   { code_action = "gitrebase" },
--- }
+dvim.lsp.code_actions = {
+  { code_action = "gitsigns" },
+  { code_action = "gitrebase" },
+}
 
 ----------------
 -- Completion --
 ----------------
 
--- dvim.lsp.completions = {
---   { completion = "spell", },
--- }
+dvim.lsp.completions = {
+  { completion = "spell", },
+}
 
 ------------------------------------------------------------------------
 --                         Additional Plugins                         --
 ------------------------------------------------------------------------
 
 -- Add any additional plugins you may want
--- dvim.plugins = {
---   {
---     "folke/trouble.nvim",
---     cmd = "TroubleToggle",
---   },
--- }
+dvim.plugins = {}
 
 ------------------------------------------------------------------------
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- vim.api.nvim_create_autocmd("BufEnter", {
---   pattern = { "*.json", "*.jsonc" },
---   -- enable wrap mode for json files only
---   command = "setlocal wrap",
--- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.json", "*.jsonc" },
+  -- enable wrap mode for json files only
+  command = "setlocal wrap",
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zsh",
+  callback = function()
+    -- let treesitter use bash highlight for zsh files as well
+    require("nvim-treesitter.highlight").attach(0, "bash")
+  end,
+})
 
 ------------------------------------------------------------------------
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
 
--- dvim.vim_commands = {
---   { command = "set rtp+=~/Documents/notes/school-notes/current-course" },
--- }
+dvim.vim_commands = {
+  { command = "set rtp+=~/Documents/notes/school-notes/current-course" },
+}

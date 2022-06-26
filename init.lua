@@ -11,19 +11,19 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
   vim.opt.rtp:append(base_dir)
 end
 
-require("dvim.global")
+require("dvim.global").init(base_dir)
 require("dvim.defaults")
 
 require("config")
-require("dvim.plugins")
+Utils = require("dvim.utils.functions")
+require("dvim.plugins.plugins")
 
 if #vim.api.nvim_list_uis() == 0 then
   return
 end
 
-Utils = require("dvim.utils.functions")
-
 Log = require("dvim.log")
+require("dvim.plugins.source_plugins")
 
 Utils.safe_require("dvim.keymappings").load_defaults()
 

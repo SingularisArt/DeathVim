@@ -1,6 +1,16 @@
 local uv = vim.loop
 local path_sep = uv.os_uname().version:match "Windows" and "\\" or "/"
 
+local M = {}
+
+function M.init(base_dir)
+  ---Get the full path to LunarVim's base directory
+  ---@return string
+  function _G.get_dvim_base_dir()
+    return base_dir
+  end
+end
+
 ---Join path segments that were passed as input
 ---@return string
 function _G.join_paths(...)
@@ -50,3 +60,5 @@ function _G.get_cache_dir()
   end
   return dvim_cache_dir
 end
+
+return M
