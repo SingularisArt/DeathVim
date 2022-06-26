@@ -11,35 +11,37 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
   vim.opt.rtp:append(base_dir)
 end
 
-Utils = require("dvim.utils.functions")
-
 require("dvim.global")
 require("dvim.defaults")
 
-M = require("config")
-require("dvim.bootstrap"):init(base_dir)
+require("config")
+require("dvim.plugins")
 
---Utils.safe_require("dvim.keymappings").load_defaults()
+if #vim.api.nvim_list_uis() == 0 then
+  return
+end
 
-local plugins = require("dvim.plugins")
-require("dvim.plugin-loader").load({ plugins, dvim.plugins })
---Log = require("dvim.log")
+Utils = require("dvim.utils.functions")
 
---local settings = Utils.safe_require("dvim.settings")
---settings.load_defaults()
---Log.trace("Loaded settings")
+Log = require("dvim.log")
 
---local autocmds = Utils.safe_require("dvim.autocmds")
---autocmds.load_defaults()
---Log.trace("Loaded autocmds")
+Utils.safe_require("dvim.keymappings").load_defaults()
 
---local parse_vim_commands = Utils.safe_require("dvim.parse_vim_commands")
---parse_vim_commands.load_defaults()
---Log.trace("Loaded vim commands")
+local settings = Utils.safe_require("dvim.settings")
+settings.load_defaults()
+Log.trace("Loaded settings")
 
---local colorscheme = require("dvim.colorscheme")
---colorscheme.apply_colorscheme(dvim.colorscheme)
---Log.trace("Applied colorscheme")
+local autocmds = Utils.safe_require("dvim.autocmds")
+autocmds.load_defaults()
+Log.trace("Loaded autocmds")
 
---require("dvim.lsp")
---Log.trace("Loaded LSP")
+local parse_vim_commands = Utils.safe_require("dvim.parse_vim_commands")
+parse_vim_commands.load_defaults()
+Log.trace("Loaded vim commands")
+
+local colorscheme = require("dvim.colorscheme")
+colorscheme.apply_colorscheme(dvim.colorscheme)
+Log.trace("Applied colorscheme")
+
+require("dvim.lsp")
+Log.trace("Loaded LSP")

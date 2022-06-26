@@ -157,7 +157,10 @@ dvim.builtin.filetypes = {
 --     "markdown",
 --   },
 --   -- Enable indenting automatically
---   indent = { enabled = true },
+--   indent = {
+--     enabled = true,
+--     disable = {}
+--   },
 --   autotag = { enabled = true },
 --   highlight = {
 --     -- Enable highlighting automatically
