@@ -6,7 +6,7 @@
 ------------------------------------------------------------------------
 
 dvim.colorscheme = "onedarker"
-dvim.format_on_save = false
+dvim.format_on_save = true
 
 ------------------------------------------------------------------------
 --                                Logging                             --
@@ -32,9 +32,30 @@ dvim.leader = " "
 --  Add Keymappings  --
 -----------------------
 
+dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+dvim.keys.normal_mode["<C-f>"] = ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
+dvim.keys.insert_mode["<C-f>"] = "<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>"
+
+--------------------------
+--  Which Key Bindings  --
+--------------------------
+
+dvim.builtin.plugins.which_key.mappings["r"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+}
+
 --------------------------
 --  Remove Keymappings  --
 --------------------------
+
+-- Ctrl+a highlights everything
+dvim.keys.normal_mode["<C-a>"] = ""
 
 ------------------------------------------------------------------------
 --                              Builtin                               --
@@ -51,11 +72,7 @@ dvim.builtin.plugins = {
   indent_blankline = { active = true },
   symbols_outline = { active = true },
   which_key = { active = true },
-  gitsigns = {
-    active = true,
-    -- Show the git commit message on the line
-    line_blame = true
-  },
+  gitsigns = { active = true },
   comment = { active = true },
   surround = { active = true },
   todo_comments = { active = true },
@@ -119,8 +136,12 @@ dvim.builtin.filetypes = {
 }
 
 ------------------------------------------------------------------------
---                            Tree Sitter                             --
+--                         Modifying Plugins                          --
 ------------------------------------------------------------------------
+
+-------------------
+--  Tree Sitter  --
+-------------------
 
 dvim.builtin.plugins.treesitter = {
   -- Install TreeSitter parsers automatically
@@ -173,6 +194,31 @@ dvim.builtin.plugins.treesitter = {
     },
   },
 }
+
+-----------------
+--  Which Key  --
+-----------------
+
+dvim.builtin.plugins.which_key.marks = true
+dvim.builtin.plugins.which_key.presets = {
+  operators = false,
+  motions = false,
+  text_objects = false,
+  nav = false,
+  z = false,
+  g = false,
+}
+dvim.builtin.plugins.which_key.spelling = {
+  enabled = false, -- For some reason, this breaks which key
+  suggestions = 20
+}
+
+-----------------
+--  Git Signs  --
+-----------------
+
+-- Show the git commit message on the line
+dvim.builtin.plugins.gitsigns.line_blame = true
 
 ------------------------------------------------------------------------
 --                                LSP                                 --
@@ -332,7 +378,9 @@ dvim.lsp.completions = {
 ------------------------------------------------------------------------
 
 -- Add any additional plugins you may want
-dvim.plugins = {}
+dvim.plugins = {
+  "folke/trouble.nvim",
+}
 
 ------------------------------------------------------------------------
 --                           Auto Commands                            --
