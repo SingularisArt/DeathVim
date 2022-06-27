@@ -6,19 +6,17 @@ local hovers = null_ls.builtins.hover
 local sources = {}
 
 M.setup = function()
-	if vim.tbl_isempty(dvim.lsp.completions) then
-		return
-	end
+  if vim.tbl_isempty(dvim.lsp.completions) then
+    return
+  end
 
-	for _, hover_object in ipairs(dvim.lsp.hovers) do
+  for _, hover_object in ipairs(dvim.lsp.hovers) do
     table.insert(sources, hovers[hover_object.hover])
 
-		Log.trace("[NULL-LS] Toggling hover " .. hover_object.hover)
-	end
+    Log.trace("[NULL-LS] Toggling hover " .. hover_object.hover)
+  end
 
-	require("null-ls").setup({
-		sources = sources,
-	})
+  return sources
 end
 
 return M

@@ -1,9 +1,19 @@
 local M = {}
 
-local null_ls = Utils.safe_require("null-ls")
+local null_ls = require("null-ls")
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 local sources = {}
+
+M.on_attach = function()
+  -- vim.cmd [[
+  --   augroup document_highlight
+  --     autocmd! * <buffer>
+  --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+  --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  --   augroup END
+  -- ]]
+end
 
 M.setup = function()
   if vim.tbl_isempty(dvim.lsp.formatters) then
@@ -33,22 +43,7 @@ M.setup = function()
     end
   end
 
-  require("null-ls").setup({
-    sources = sources,
-    on_attach = function()
-      if dvim.format_on_save then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-      end
-      vim.cmd [[
-        augroup document_highlight
-          autocmd! * <buffer>
-          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
-      ]]
-    end
-  })
+  return sources
 end
 
-M.setup()
 return M

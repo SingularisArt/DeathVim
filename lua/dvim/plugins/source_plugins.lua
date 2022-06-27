@@ -1,6 +1,7 @@
 require("dvim.core.plugins.notify").setup()
 require("dvim.core.plugins.notify").setup()
 require("dvim.core.plugins.indent-blankline").setup()
+require("dvim.core.plugins.illuminate")
 require("dvim.core.plugins.symbols-outline").setup()
 require("dvim.core.plugins.which-key").setup()
 require("dvim.core.plugins.gitsigns").setup()

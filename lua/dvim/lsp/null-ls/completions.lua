@@ -16,9 +16,7 @@ M.setup = function()
 		Log.trace("[NULL-LS] Toggling completion " .. completion_object.completion)
 	end
 
-	require("null-ls").setup({
-		sources = sources,
-	})
+  return sources
 end
 
 return M

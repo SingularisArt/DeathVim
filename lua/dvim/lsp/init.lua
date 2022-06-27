@@ -6,6 +6,10 @@ local M = {}
 
 require_clean("lspconfig")
 
+if dvim.format_on_save then
+  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)

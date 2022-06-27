@@ -16,9 +16,7 @@ M.setup = function()
 		Log.trace("[NULL-LS] Toggling code action " .. code_actions_object.code_action)
 	end
 
-	require("null-ls").setup({
-		sources = sources,
-	})
+  return sources
 end
 
 return M

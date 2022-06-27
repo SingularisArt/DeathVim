@@ -1,8 +1,8 @@
-vim.cmd [[
+vim.cmd([[
   set runtimepath+=~/.config/dvim
   set runtimepath+=~/.local/share/deathvim/dvim
   set runtimepath+=~/.local/share/deathvim/site
-]]
+]])
 
 local init_path = debug.getinfo(1, "S").source:sub(2)
 local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
@@ -12,10 +12,6 @@ if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
 end
 
 require("dvim.bootstrap"):init(base_dir)
-
-if #vim.api.nvim_list_uis() == 0 then
-  return
-end
 
 require("dvim.plugins.source_plugins")
 
@@ -33,6 +29,7 @@ Log.trace("Loaded vim commands")
 
 local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.colorscheme)
+colorscheme.highlight_lsp()
 Log.trace("Applied colorscheme")
 
 require("dvim.lsp")

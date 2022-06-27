@@ -69,15 +69,6 @@ function M:init(base_dir)
   self.packer_install_dir = join_paths(self.runtime_dir, "site", "pack", "packer", "start", "packer.nvim")
   self.packer_cache_path = join_paths(self.config_dir, "plugin", "packer_compiled.lua")
 
-  ---@meta overridden to use DEATHVIM_CACHE_DIR instead, since a lot of plugins call this function interally
-  ---NOTE: changes to "data" are currently unstable, see #2507
-  vim.fn.stdpath = function(what)
-    if what == "cache" then
-      return _G.get_cache_dir()
-    end
-    return vim.call("stdpath", what)
-  end
-
   ---Get the full path to DeathVim's base directory
   ---@return string
   function _G.get_dvim_base_dir()
@@ -86,12 +77,21 @@ function M:init(base_dir)
 
   require("dvim.defaults")
   require("dvim.keymappings").load_defaults()
+
   Utils = require("dvim.utils.functions")
 
+  dvim.builtin.plugins.which_key = { mappings = {} }
+
   require("config")
+  require("dvim.keymappings").load(dvim.keys)
+
   Log = require("dvim.log")
 
   require("dvim.plugins.plugins")
+
+  if #vim.api.nvim_list_uis() == 0 then
+    return
+  end
 
   return self
 end
