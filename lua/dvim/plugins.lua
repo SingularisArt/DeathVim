@@ -161,6 +161,10 @@ return require("packer").startup(function(use)
 	use({ "dhruvasagar/vim-table-mode" })
 	use({ "machakann/vim-highlightedyank" })
 	use({ "turbio/bracey.vim" })
+	use({ "jbyuki/venn.nvim" })
+	use({ "folke/zen-mode.nvim" })
+	use({ "folke/twilight.nvim" })
+	use({ "Pocco81/HighStr.nvim" })
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		event = "BufReadPost",
@@ -412,6 +416,28 @@ return require("packer").startup(function(use)
 			require("dvim.core.plugins.markdown").setup()
 		end,
 		disable = not dvim.builtin.filetypes.markdown.active,
+	})
+	use({
+		"mzlogin/vim-markdown-toc",
+		disable = not dvim.builtin.filetypes.markdown.active,
+	})
+
+	-- Grammar
+	use({
+		"rhysd/vim-grammarous",
+		disable = not dvim.builtin.actions.writing,
+	})
+	use({
+		"dpelle/vim-LanguageTool",
+		disable = not dvim.builtin.actions.writing,
+	})
+	use({
+		"vigoux/LanguageTool.nvim",
+		disable = not dvim.builtin.actions.writing,
+	})
+	use({
+		"preservim/vim-pencil",
+		disable = not dvim.builtin.actions.writing,
 	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
