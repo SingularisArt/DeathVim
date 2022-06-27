@@ -22,6 +22,13 @@ end
 --     autocmd BufWritePost plugins.lua source <afile> | PackerSync
 --   augroup end
 -- ]])
+function require_config(config)
+  if #vim.api.nvim_list_uis() == 0 then
+    return
+  else
+    require(config)
+  end
+end
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -54,7 +61,7 @@ return require("packer").startup(function(use)
   use({
     "rcarriga/nvim-notify",
     config = function()
-      require("dvim.core.plugins.notify").setup()
+      require_config("dvim.core.plugins.notify").setup()
     end,
   })
 
@@ -82,7 +89,7 @@ return require("packer").startup(function(use)
   use({
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("dvim.core.plugins.indent-blankline").setup()
+      require_config("dvim.core.plugins.indent-blankline").setup()
     end,
     disable = not dvim.builtin.plugins.indent_blankline.active,
   })
@@ -95,7 +102,7 @@ return require("packer").startup(function(use)
   use({
     "RRethy/vim-illuminate",
     config = function()
-      require("dvim.core.plugins.illuminate")
+      require_config("dvim.core.plugins.illuminate")
     end,
   })
   use({ "folke/lua-dev.nvim" })
@@ -106,7 +113,7 @@ return require("packer").startup(function(use)
   use({
     "simrat39/symbols-outline.nvim",
     config = function()
-      require("dvim.core.plugins.symbols-outline").setup()
+      require_config("dvim.core.plugins.symbols-outline").setup()
     end,
     disable = not dvim.builtin.plugins.symbols_outline.active,
   })
@@ -126,7 +133,7 @@ return require("packer").startup(function(use)
   use({
     "max397574/which-key.nvim",
     config = function()
-      require("dvim.core.plugins.which-key").setup()
+      require_config("dvim.core.plugins.which-key").setup()
     end,
     disable = not dvim.builtin.plugins.which_key.active,
   })
@@ -135,7 +142,7 @@ return require("packer").startup(function(use)
   use({
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("dvim.core.plugins.gitsigns").setup()
+      require_config("dvim.core.plugins.gitsigns").setup()
     end,
     disable = not dvim.builtin.plugins.gitsigns.active,
   })
@@ -146,7 +153,7 @@ return require("packer").startup(function(use)
   use({
     "numToStr/Comment.nvim",
     config = function()
-      require("dvim.core.plugins.comment").setup()
+      require_config("dvim.core.plugins.comment").setup()
     end,
     disable = not dvim.builtin.plugins.comment.active,
   })
@@ -170,7 +177,7 @@ return require("packer").startup(function(use)
   use({
     "Mephistophiles/surround.nvim",
     config = function()
-      require("dvim.core.plugins.surround").setup()
+      require_config("dvim.core.plugins.surround").setup()
     end,
     disable = not dvim.builtin.plugins.surround.active,
   })
@@ -179,7 +186,7 @@ return require("packer").startup(function(use)
   use({
     "folke/todo-comments.nvim",
     config = function()
-      require("dvim.core.plugins.todo-comments").setup()
+      require_config("dvim.core.plugins.todo-comments").setup()
     end,
     disable = not dvim.builtin.plugins.todo_comments.active,
   })
@@ -188,7 +195,7 @@ return require("packer").startup(function(use)
   use({
     "akinsho/toggleterm.nvim",
     config = function()
-      require("dvim.core.plugins.terminal").setup()
+      require_config("dvim.core.plugins.terminal").setup()
     end,
     branch = "main",
     disable = not dvim.builtin.plugins.terminal.active,
@@ -200,7 +207,7 @@ return require("packer").startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      require("dvim.core.plugins.treesitter").setup()
+      require_config("dvim.core.plugins.treesitter").setup()
     end,
   })
   use({ "nvim-treesitter/playground" })
@@ -209,7 +216,7 @@ return require("packer").startup(function(use)
   use({
     "SmiteshP/nvim-gps",
     config = function()
-      require("dvim.core.plugins.gps").setup()
+      require_config("dvim.core.plugins.gps").setup()
     end,
   })
 
@@ -217,7 +224,7 @@ return require("packer").startup(function(use)
   use({
     "mfussenegger/nvim-dap",
     config = function()
-      require("dvim.core.plugins.dap").setup()
+      require_config("dvim.core.plugins.dap").setup()
     end,
     disable = not dvim.builtin.plugins.dap.active,
   })
@@ -242,7 +249,7 @@ return require("packer").startup(function(use)
   use({
     "goolord/alpha-nvim",
     config = function()
-      require("dvim.core.plugins.alpha").setup()
+      require_config("dvim.core.plugins.alpha").setup()
     end,
     disable = not dvim.builtin.plugins.alpha.active,
   })
@@ -251,7 +258,7 @@ return require("packer").startup(function(use)
   use({
     "SirVer/UltiSnips",
     config = function()
-      require("dvim.core.plugins.ultisnips").setup()
+      require_config("dvim.core.plugins.ultisnips").setup()
     end,
     disable = not dvim.builtin.plugins.ultisnips.active,
   })
@@ -260,7 +267,7 @@ return require("packer").startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     config = function()
-      require("dvim.core.plugins.telescope").setup()
+      require_config("dvim.core.plugins.telescope").setup()
     end,
     disable = not dvim.builtin.plugins.telescope.active,
   })
@@ -275,7 +282,7 @@ return require("packer").startup(function(use)
   use({
     "ahmedkhalf/project.nvim",
     config = function()
-      require("dvim.core.plugins.project").setup()
+      require_config("dvim.core.plugins.project").setup()
     end,
     disable = not dvim.builtin.plugins.project.active,
   })
@@ -294,7 +301,7 @@ return require("packer").startup(function(use)
   use({
     "hrsh7th/nvim-cmp",
     config = function()
-      require("dvim.core.plugins.cmp").setup()
+      require_config("dvim.core.plugins.cmp").setup()
     end,
     disable = not dvim.builtin.plugins.cmp.active,
   })
@@ -354,7 +361,7 @@ return require("packer").startup(function(use)
   use({
     "windwp/nvim-autopairs",
     config = function()
-      require("dvim.core.plugins.autopairs").setup()
+      require_config("dvim.core.plugins.autopairs").setup()
     end,
     disable = not dvim.builtin.plugins.autopairs.active,
   })
@@ -363,7 +370,7 @@ return require("packer").startup(function(use)
   use({
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("dvim.core.plugins.nvimtree").setup()
+      require_config("dvim.core.plugins.nvimtree").setup()
     end,
     disable = not dvim.builtin.plugins.nvimtree.active,
   })
@@ -372,21 +379,21 @@ return require("packer").startup(function(use)
   use({
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("dvim.core.plugins.lualine").setup()
+      require_config("dvim.core.plugins.lualine").setup()
     end,
     disable = not dvim.builtin.plugins.lualine.active,
   })
   use({
     "tamton-aquib/staline.nvim",
     config = function()
-      require("dvim.core.plugins.staline").setup()
+      require_config("dvim.core.plugins.staline").setup()
     end,
     disable = not dvim.builtin.plugins.staline.active,
   })
   use({
     "akinsho/bufferline.nvim",
     config = function()
-      require("dvim.core.plugins.bufferline").setup()
+      require_config("dvim.core.plugins.bufferline").setup()
     end,
     branch = "main",
     disable = not dvim.builtin.plugins.bufferline.active,
@@ -396,7 +403,7 @@ return require("packer").startup(function(use)
   use({
     "lervag/vimtex",
     config = function()
-      require("dvim.core.plugins.vimtex").setup()
+      require_config("dvim.core.plugins.vimtex").setup()
     end,
     disable = not dvim.builtin.filetypes.latex.active,
   })
@@ -409,7 +416,7 @@ return require("packer").startup(function(use)
   use({
     "iamcco/markdown-preview.nvim",
     config = function()
-      require("dvim.core.plugins.markdown").setup()
+      require_config("dvim.core.plugins.markdown").setup()
     end,
     disable = not dvim.builtin.filetypes.markdown.active,
   })
