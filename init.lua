@@ -13,7 +13,10 @@ end
 
 require("dvim.bootstrap"):init(base_dir)
 
-require("dvim.plugins.source_plugins")
+if #vim.api.nvim_list_uis() == 0 then
+  Log.info("Only running bootstrap file since running in headless")
+  return
+end
 
 local settings = require("dvim.settings")
 settings.load_defaults()

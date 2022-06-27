@@ -87,7 +87,7 @@ function M:init(base_dir)
 
   Log = require("dvim.log")
 
-  require("dvim.plugins.plugins")
+  require("dvim.plugins")
 
   if #vim.api.nvim_list_uis() == 0 then
     return

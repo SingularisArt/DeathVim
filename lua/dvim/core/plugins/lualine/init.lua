@@ -35,18 +35,15 @@ M.config = function()
 end
 
 M.setup = function()
-  -- avoid running in headless mode since it's harder to detect failures
-  if #vim.api.nvim_list_uis() == 0 then
-    return
-  end
+  if dvim.statusline == "lualine" then
+    require("dvim.core.plugins.lualine.styles").update()
 
-  require("dvim.core.plugins.lualine.styles").update()
+    local lualine = require("lualine")
+    lualine.setup(dvim.builtin.plugins.lualine)
 
-  local lualine = require("lualine")
-  lualine.setup(dvim.builtin.plugins.lualine)
-
-  if dvim.builtin.plugins.lualine.on_config_done then
-    dvim.builtin.plugins.lualine.on_config_done(lualine)
+    if dvim.builtin.plugins.lualine.on_config_done then
+      dvim.builtin.plugins.lualine.on_config_done(lualine)
+    end
   end
 end
 
