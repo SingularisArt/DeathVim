@@ -89,10 +89,6 @@ function M:init(base_dir)
 
   require("dvim.plugins")
 
-  if #vim.api.nvim_list_uis() == 0 then
-    return
-  end
-
   return self
 end
 
