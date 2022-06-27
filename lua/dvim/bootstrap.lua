@@ -68,10 +68,6 @@ function M:init(base_dir)
   self.pack_dir = join_paths(self.runtime_dir, "site", "pack")
   self.packer_install_dir = join_paths(self.runtime_dir, "site", "pack", "packer", "start", "packer.nvim")
   self.packer_cache_path = join_paths(self.config_dir, "plugin", "packer_compiled.lua")
-  print(self.cache_dir)
-  print(self.pack_dir)
-  print(self.packer_install_dir)
-  print(self.packer_cache_path)
 
   ---Get the full path to DeathVim's base directory
   ---@return string
