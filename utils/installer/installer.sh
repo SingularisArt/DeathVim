@@ -37,31 +37,31 @@ LOG_LEVEL=$LOG_LEVEL_INFO
 
 log_notice() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_NOTICE ]]; then
-    echo -e "${GREEN}[notice] ${RESET} $*" > /dev/stderr
+    echo -e "$GREEN[notice] $RESET $*" > /dev/stderr
   fi
 }
 
 log_debug() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
-    echo -e "${PURPLE}[debug]  ${RESET} $*" > /dev/stderr
+    echo -e "$PURPLE[debug]  $RESET $*" > /dev/stderr
   fi
 }
 
 log_info() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_INFO ]]; then
-    echo -e "${BOLD}[info]   ${RESET} $*" > /dev/stderr
+    echo -e "$BOLD[info]   $RESET $*" > /dev/stderr
   fi
 }
 
 log_warn() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_WARNING ]]; then
-    echo -e "${YELLOW}[warning]${RESET} $*" > /dev/stderr
+    echo -e "$YELLOW[warning]$RESET $*" > /dev/stderr
   fi
 }
 
 log_error() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_ERROR ]]; then
-    echo -e "${RED}[error]  ${RESET} $*" > /dev/stderr
+    echo -e "$RED[error]  $RESET $*" > /dev/stderr
   fi
 }
 
@@ -226,7 +226,7 @@ function check_if_installed() {
 
 function install_os_dependencies() {
   for dep in "${__os_deps[@]}"; do
-    $RECOMMEND_INSTALL $dep
+    "$RECOMMEND_INSTALL" "$dep"
   done
 }
 
@@ -236,7 +236,7 @@ function install_nodejs_dependencies() {
   fi
 
   for dep in "${__npm_deps[@]}"; do
-    sudo npm install --location=global $dep
+    sudo npm install --location=global "$dep"
   done
 }
 
@@ -246,7 +246,7 @@ function install_python_dependencies() {
   fi
 
   for dep in "${__pip_deps[@]}"; do
-    pip3 install $dep
+    pip3 install "$dep"
   done
 }
 
@@ -256,7 +256,7 @@ function install_rust_dependencies() {
   fi
 
   for dep in "${__rust_deps[@]}"; do
-    cargo install $dep
+    cargo install "$dep"
   done
 }
 
@@ -313,7 +313,7 @@ function clone_dvim() {
   msg "Cloning DeathVim configuration"
   git clone --branch "$DV_BRANCH" \
     --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"
-  cd $DEATHVIM_BASE_DIR
+  cd "$DEATHVIM_BASE_DIR"
   msg "Updating submodules"
   git submodule update --init --recursive
 }
@@ -349,14 +349,13 @@ function setup_dvim() {
 
   msg "Installing DeathVim example configuration"
 
-  mkdir -p $HOME/.config/dvim/lua
+  mkdir -p "$HOME"/.config/dvim/lua
   cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
 
   echo "Preparing Packer setup"
 
   "$INSTALL_PREFIX/bin/dvim" --headless \
-    -c 'autocmd User PackerComplete quitall' \
-    -c 'PackerSync' > /dev/stderr
+    -c 'autocmd User PackerComplete quitall'
 
   echo "Packer setup complete"
 }
@@ -377,11 +376,11 @@ function create_executable() {
   local dst="$INSTALL_PREFIX/bin/dvim"
 
   if [[ -f $dst ]]; then
-    rm -rf $dst
+    rm -rf "$dst"
   fi
 
-  cp $src $dst
-  chmod +x $dst
+  cp "$src" "$dst"
+  chmod +x "$dst"
 }
 
 function print_logo() {
@@ -447,4 +446,4 @@ function main() {
   log_info "Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"
 }
 
-main $@
+main "$@"
