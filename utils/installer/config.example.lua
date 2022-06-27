@@ -5,7 +5,7 @@
 --                              General                               --
 ------------------------------------------------------------------------
 
-dvim.colorscheme = "onedarker"
+dvim.colorscheme = "rose-pine"
 dvim.format_on_save = true
 
 ------------------------------------------------------------------------
@@ -138,6 +138,14 @@ dvim.builtin.filetypes = {
 	json = { active = true },
 }
 
+-----------------------
+--  Builtin Actions  --
+-----------------------
+
+dvim.builtin.actions = {
+  presentation = { active = true },
+}
+
 ------------------------------------------------------------------------
 --                         Modifying Plugins                          --
 ------------------------------------------------------------------------
@@ -149,7 +157,7 @@ dvim.builtin.filetypes = {
 -- Possible values: "staline", "lualine"
 dvim.statusline = "staline"
 -- Possible values: "evil", "normal" "pebble" "simple" "simpler"
-dvim.builtin.plugins.staline.mode = "pebble"
+dvim.builtin.plugins.staline.mode = "simple"
 
 -------------------
 --  Tree Sitter  --
