@@ -2,7 +2,6 @@ local M = {}
 
 M.config = function()
   dvim.builtin.plugins.dap = {
-    active = false,
     on_config_done = nil,
     breakpoint = {
       text = "",

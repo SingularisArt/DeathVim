@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  local icons = Utils.safe_require('dvim.core.icons')
+  local icons = require('dvim.core.icons')
 
   local error_red = "#F44747"
   local warning_orange = "#ff8800"
@@ -73,7 +73,7 @@ end
 M.setup = function()
   M.config()
 
-  local todo_comments = Utils.safe_require('todo-comments')
+  local todo_comments = require('todo-comments')
 
   todo_comments.setup(dvim.builtin.plugins.comment.setup)
 end

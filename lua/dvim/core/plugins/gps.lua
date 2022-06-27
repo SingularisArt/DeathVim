@@ -1,7 +1,7 @@
 local M = {}
 local icons = require("dvim.core.icons")
 
-local gps = Utils.safe_require("nvim-gps")
+local gps = require("nvim-gps")
 local space = " "
 
 if vim.fn.has("mac") == 1 then

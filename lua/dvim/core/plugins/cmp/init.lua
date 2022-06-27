@@ -1,8 +1,8 @@
 local M = {}
 
-local cmp = Utils.safe_require('cmp')
-local cmp_dap = Utils.safe_require('cmp_dap')
-local icons = Utils.safe_require('dvim.core.icons')
+local cmp = require('cmp')
+local cmp_dap = require('cmp_dap')
+local icons = require('dvim.core.icons')
 local kind_icons = icons.kind
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
@@ -111,8 +111,8 @@ dvim.builtin.plugins.cmp = {
 M.setup = function()
   require("cmp").setup(dvim.builtin.plugins.cmp.setup)
 
-  Utils.safe_require('dvim.core.plugins.cmp.cmp_github_issues')
-  Utils.safe_require('dvim.core.plugins.cmp.cmp_emails').setup()
+  require('dvim.core.plugins.cmp.cmp_github_issues')
+  require('dvim.core.plugins.cmp.cmp_emails').setup()
 end
 
 return M

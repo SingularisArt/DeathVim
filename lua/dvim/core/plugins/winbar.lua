@@ -22,7 +22,7 @@ local get_filename = function()
   local extension = vim.fn.expand("%:e")
 
   if not Utils.isempty(filename) then
-    local file_icon, file_icon_color = Utils.safe_require("nvim-web-devicons").get_icon_color(
+    local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
       filename,
       extension,
       { default = true }
@@ -41,7 +41,7 @@ local get_filename = function()
 end
 
 local get_gps = function()
-  local gps = Utils.safe_require("nvim-gps")
+  local gps = require("nvim-gps")
 
   local status_ok, gps_location = pcall(gps.get_location, {})
   if not status_ok then

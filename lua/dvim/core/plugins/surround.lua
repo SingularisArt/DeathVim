@@ -22,7 +22,7 @@ end
 M.setup = function()
   M.config()
 
-  local surround = Utils.safe_require('surround')
+  local surround = require('surround')
   surround.setup(dvim.builtin.plugins.surround.setup)
 end
 

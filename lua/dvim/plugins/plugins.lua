@@ -38,11 +38,14 @@ packer.init {
   },
 }
 
+for _, plugin in pairs(dvim.plugins) do
+  require('packer').startup(function(use)
+    use { plugin }
+  end)
+end
+
 return require('packer').startup(function(use)
   use { "wbthomason/packer.nvim" }
-
-  use { "RRethy/vim-illuminate", event = "VimEnter" }
-  use { "folke/lua-dev.nvim", event = "VimEnter" }
 
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
@@ -80,6 +83,8 @@ return require('packer').startup(function(use)
   use { "williamboman/nvim-lsp-installer" }
   use { "jose-elias-alvarez/null-ls.nvim" }
   use { "onsails/lspkind-nvim" }
+  use { "RRethy/vim-illuminate" }
+  use { "folke/lua-dev.nvim" }
   use {
     "b0o/SchemaStore.nvim",
     disable = not dvim.builtin.filetypes.json.active,

@@ -1,5 +1,4 @@
 local M = {}
-local Log = require('dvim.log')
 
 M.config = function()
   dvim.builtin.plugins.nvimtree = {

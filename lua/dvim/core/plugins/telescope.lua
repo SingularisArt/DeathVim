@@ -9,7 +9,7 @@ M.config = function()
     on_config_done = nil,
   }
 
-  local actions = Utils.safe_require("telescope.actions")
+  local actions = require("telescope.actions")
   dvim.builtin.plugins.telescope = vim.tbl_extend("force", dvim.builtin.plugins.telescope, {
     defaults = {
       prompt_prefix = " ",

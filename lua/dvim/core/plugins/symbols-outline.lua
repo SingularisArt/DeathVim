@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  local icons = Utils.safe_require('dvim.core.icons')
+  local icons = require('dvim.core.icons')
 
   dvim.builtin.plugins.symbols_outline = {
     active = true,

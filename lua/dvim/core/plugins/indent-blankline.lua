@@ -53,7 +53,7 @@ end
 M.setup = function()
   M.config()
 
-  local indent_blankline = Utils.safe_require("indent_blankline")
+  local indent_blankline = require("indent_blankline")
 
   indent_blankline.setup(dvim.builtin.plugins.indent_blankline.setup)
 end

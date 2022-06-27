@@ -19,7 +19,7 @@ end
 M.setup = function()
   M.config()
 
-  local copilot = Utils.safe_require("copilot")
+  local copilot = require("copilot")
 
   copilot.setup(dvim.builtin.plugins.copilot.setup)
 end

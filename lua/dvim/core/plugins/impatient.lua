@@ -3,7 +3,7 @@ local M = {}
 M.setup = function()
   M.config()
 
-  local impatient = Utils.safe_require('impatient')
+  local impatient = require('impatient')
 
   impatient.enable_profile()
 end

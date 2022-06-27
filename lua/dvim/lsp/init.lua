@@ -2,9 +2,9 @@
 -- Main Files --
 ----------------
 
-require_clean("lspconfig")
-
 local M = {}
+
+require_clean("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -24,8 +24,8 @@ for _, server_object in ipairs(dvim.lsp.language_servers) do
   servers[server_object.server] = {}
 end
 
-require_clean("dvim.lsp.installer").setup(servers, opts)
-require_clean("dvim.lsp.handlers").setup()
-require_clean("dvim.lsp.servers").setup()
-require_clean("dvim.lsp.lsp-signature")
-require("dvim.lsp.null-ls")
+require("dvim.lsp.installer").setup(servers, opts)
+require("dvim.lsp.handlers").setup()
+require("dvim.lsp.servers").setup()
+require("dvim.lsp.lsp-signature")
+require("dvim.lsp.null-ls").setup()
