@@ -395,8 +395,18 @@ function link_local_dvim() {
   ln -s -f "$BASEDIR" "$DEATHVIM_BASE_DIR"
 }
 
-function setup_make() {
-  make -C "$DEATHVIM_BASE_DIR" install-bin
+function create_executable() {
+  msg "Creating DeathVim executable"
+
+  local src="$DEATHVIM_BASE_DIR/utils/bin/dvim.template"
+  local dst="$INSTALL_PREFIX/bin/dvim"
+
+  if [[ -f $dst ]]; then
+    rm -rf "$dst"
+  fi
+
+  cp "$src" "$dst"
+  chmod +x "$dst"
 }
 
 function remove_old_cache_files() {
@@ -416,13 +426,15 @@ function setup_dvim() {
 
   remove_old_cache_files
 
-  msg "Installing LunarVim shim"
+  msg "Creating DeathVim executable"
 
-  setup_make
+  create_executable
+
+  msg "Creating example config.lua file"
 
   cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
 
-  echo "Preparing Packer setup"
+  msg "Preparing Packer setup"
 
   "$INSTALL_PREFIX/bin/dvim" --headless \
     -c 'autocmd User PackerComplete quitall'
