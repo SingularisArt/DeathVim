@@ -80,6 +80,15 @@ return require("packer").startup(function(use)
 	use({ "flazz/vim-colorschemes" })
 	use({ "rose-pine/neovim" })
 
+	-- Pretty folds
+	use({ "anuvyklack/nvim-keymap-amend" })
+	use({
+		"anuvyklack/pretty-fold.nvim",
+		config = function()
+			require("dvim.core.plugins.folds").setup()
+		end,
+	})
+
 	-- Indent Blankline
 	use({
 		"lukas-reineke/indent-blankline.nvim",
