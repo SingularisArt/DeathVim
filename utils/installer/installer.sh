@@ -168,7 +168,7 @@ function parse_arguments() {
         ARGS_INSTALL_DEPENDENCIES=0
         ;;
       --create-executable)
-        create_executable()
+        create_executable
         ;;
       -h | --help)
         usage
