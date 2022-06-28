@@ -418,7 +418,7 @@ function setup_dvim() {
 
   msg "Installing LunarVim shim"
 
-  setup_shim
+  setup_make
 
   cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
 
