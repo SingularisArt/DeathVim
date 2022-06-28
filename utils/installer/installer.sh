@@ -395,7 +395,7 @@ function link_local_dvim() {
   ln -s -f "$BASEDIR" "$DEATHVIM_BASE_DIR"
 }
 
-function setup_shim() {
+function setup_make() {
   make -C "$DEATHVIM_BASE_DIR" install-bin
 }
 
@@ -416,7 +416,7 @@ function setup_dvim() {
 
   remove_old_cache_files
 
-  msg "Installing DeathVin shim"
+  msg "Installing LunarVim shim"
 
   setup_shim
 
@@ -425,7 +425,6 @@ function setup_dvim() {
   echo "Preparing Packer setup"
 
   "$INSTALL_PREFIX/bin/dvim" --headless \
-    -c "lua require('dvim.core.log'):set_level([[$DEATHVIM_LOG_LEVEL]])" \
     -c 'autocmd User PackerComplete quitall'
 
   echo "Packer setup complete"
