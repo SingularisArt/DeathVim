@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-# Set branch to master unless specified by the user
-declare -r DV_BRANCH="${DV_BRANCH:-"master"}"
-declare -r DV_REMOTE="${DV_REMOTE:-SingularisArt/DeathVim.git}"
+#Set branch to master unless specified by the user
+declare DV_BRANCH="${DV_BRANCH:-"master"}"
+declare -r DV_REMOTE="${DV_REMOTE:-singularisart/deathvim.git}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 
 declare -r XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
@@ -15,54 +15,69 @@ declare -r DEATHVIM_CONFIG_DIR="${DEATHVIM_CONFIG_DIR:-"$XDG_CONFIG_HOME/dvim"}"
 declare -r DEATHVIM_CACHE_DIR="${DEATHVIM_CACHE_DIR:-"$XDG_CACHE_HOME/dvim"}"
 declare -r DEATHVIM_BASE_DIR="${DEATHVIM_BASE_DIR:-"$DEATHVIM_RUNTIME_DIR/dvim"}"
 
+declare -r DEATHVIM_LOG_LEVEL="${DEATHVIM_LOG_LEVEL:-warn}"
+
+declare BASEDIR
+BASEDIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+BASEDIR="$(dirname -- "$(dirname -- "$BASEDIR")")"
+readonly BASEDIR
+
 declare ARGS_LOCAL=0
 declare ARGS_OVERWRITE=0
 declare ARGS_INSTALL_DEPENDENCIES=1
 declare INTERACTIVE_MODE=1
 
-declare -r BOLD='\033[0;1m'
-declare -r GREEN='\033[1;32m'
-declare -r PURPLE='\033[1;35m'
-declare -r RED='\033[1;31m'
-declare -r RESET='\033[0m'
-declare -r YELLOW='\033[1;33m'
+declare -a __dvim_dirs=(
+  "$DEATHVIM_CONFIG_DIR"
+  "$DEATHVIM_RUNTIME_DIR"
+  "$DEATHVIM_CACHE_DIR"
+)
 
-declare -r LOG_LEVEL_DEBUG=5
-declare -r LOG_LEVEL_NOTICE=4
-declare -r LOG_LEVEL_INFO=3
-declare -r LOG_LEVEL_WARNING=2
-declare -r LOG_LEVEL_ERROR=1
+declare -a __npm_deps=(
+  "neovim"
+  "tree-sitter-cli"
+)
 
-LOG_LEVEL=$LOG_LEVEL_INFO
+declare -a __pip_deps=(
+  "pynvim"
+)
 
-log_notice() {
-  if [[ $LOG_LEVEL -ge $LOG_LEVEL_NOTICE ]]; then
-    echo -e "$GREEN[notice] $RESET $*" > /dev/stderr
-  fi
+function usage() {
+  echo "Usage: install.sh [<options>]"
+  echo ""
+  echo "Options:"
+  echo "    -h, --help                               Print this help message"
+  echo "    -l, --local                              Install local copy of DeathVin"
+  echo "    -y, --yes                                Disable confirmation prompts (answer yes to all questions)"
+  echo "    --overwrite                              Overwrite previous DeathVin configuration (a backup is always performed first)"
+  echo "    --[no]-install-dependencies              Whether to automatically install external dependencies (will prompt by default)"
 }
 
-log_debug() {
-  if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
-    echo -e "$PURPLE[debug]  $RESET $*" > /dev/stderr
-  fi
-}
-
-log_info() {
-  if [[ $LOG_LEVEL -ge $LOG_LEVEL_INFO ]]; then
-    echo -e "$BOLD[info]   $RESET $*" > /dev/stderr
-  fi
-}
-
-log_warn() {
-  if [[ $LOG_LEVEL -ge $LOG_LEVEL_WARNING ]]; then
-    echo -e "$YELLOW[warning]$RESET $*" > /dev/stderr
-  fi
-}
-
-log_error() {
-  if [[ $LOG_LEVEL -ge $LOG_LEVEL_ERROR ]]; then
-    echo -e "$RED[error]  $RESET $*" > /dev/stderr
-  fi
+function parse_arguments() {
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -l | --local)
+        ARGS_LOCAL=1
+        ;;
+      --overwrite)
+        ARGS_OVERWRITE=1
+        ;;
+      -y | --yes)
+        INTERACTIVE_MODE=0
+        ;;
+      --install-dependencies)
+        ARGS_INSTALL_DEPENDENCIES=1
+        ;;
+      --no-install-dependencies)
+        ARGS_INSTALL_DEPENDENCIES=0
+        ;;
+      -h | --help)
+        usage
+        exit 0
+        ;;
+    esac
+    shift
+  done
 }
 
 function msg() {
@@ -91,92 +106,51 @@ function confirm() {
   done
 }
 
-declare -a __dvim_dirs=(
-  "$DEATHVIM_RUNTIME_DIR"
-  "$DEATHVIM_CONFIG_DIR"
-  "$DEATHVIM_CACHE_DIR"
-)
+function main() {
+  parse_arguments "$@"
 
-declare -a __os_deps=()
+  print_logo
 
-declare -a __npm_deps=(
-  "vim-language-server"
-  "bash-language-server"
-  "vscode-langservers-extracted"
-  "typescript-language-server"
-  "typescript"
-  "clang-format"
-)
+  msg "Detecting platform for managing any additional neovim dependencies"
+  detect_platform
 
-declare -a __pip_deps=(
-  "python-lsp-server[all]"
-  "neovim"
-  "pynvim"
-  "black"
-  "cmake-language-server"
-)
+  check_system_deps
 
-declare -a __rust_deps=(
-  "texlab"
-)
-
-function usage() {
-  echo "Usage: install.sh [<options>]"
-  echo ""
-  echo "Options:"
-  echo "    -h, --help                               Print this help message"
-  echo "    -y, --yes                                Disable confirmation prompts (answer yes to all questions)"
-  echo "    --overwrite                              Overwrite previous LunarVim configuration (a backup is always performed first)"
-  echo "    --[no]-install-dependencies              Whether to automatically install external dependencies (will prompt by default)"
-  echo "    --log-level                              Log level (debug, info, warn, error)"
-  echo "    --create-executable                      Only create the dvim executable"
-}
-
-function change_log_level() {
-  if [[ $1 == "debug" ]]; then
-    LOG_LEVEL=$LOG_LEVEL_DEBUG
-  elif [[ $1 == "notice" ]]; then
-    LOG_LEVEL=$LOG_LEVEL_NOTICE
-  elif [[ $1 == "info" ]]; then
-    LOG_LEVEL=$LOG_LEVEL_INFO
-  elif [[ $1 == "warn" ]]; then
-    LOG_LEVEL=$LOG_LEVEL_WARNING
-  elif [[ $1 == "error" ]]; then
-    LOG_LEVEL=$LOG_LEVEL_ERROR
-  else
-    log_error "Unknown log level: $1"
-    exit 1
+  if [ "$ARGS_INSTALL_DEPENDENCIES" -eq 1 ]; then
+    if [ "$INTERACTIVE_MODE" -eq 1 ]; then
+      if confirm "Would you like to install DeathVin's NodeJS dependencies?"; then
+        install_nodejs_deps
+      fi
+      if confirm "Would you like to install DeathVin's Python dependencies?"; then
+        install_python_deps
+      fi
+      if confirm "Would you like to install DeathVin's Rust dependencies?"; then
+        install_rust_deps
+      fi
+    else
+      install_nodejs_deps
+      install_python_deps
+      install_rust_deps
+    fi
   fi
-}
 
-function parse_arguments() {
-  while [ "$#" -gt 0 ]; do
-    case "$1" in
-      -l | --local)
-        ARGS_LOCAL=1
-        ;;
-      -L | --log-level)
-        change_log_level "$2"
-        ;;
-      -y | --yes)
-        INTERACTIVE_MODE=0
-        ;;
-      --install-dependencies)
-        ARGS_INSTALL_DEPENDENCIES=1
-        ;;
-      --no-install-dependencies)
-        ARGS_INSTALL_DEPENDENCIES=0
-        ;;
-      --create-executable)
-        create_executable
-        ;;
-      -h | --help)
-        usage
-        exit 0
-        ;;
-    esac
-    shift
-  done
+  backup_old_config
+
+  verify_dvim_dirs
+
+  if [ "$ARGS_LOCAL" -eq 1 ]; then
+    link_local_dvim
+  elif [ -d "$DEATHVIM_BASE_DIR" ]; then
+    validate_deathvim_files
+  else
+    clone_dvim
+  fi
+
+  setup_dvim
+
+  msg "Thank you for installing DeathVin!!"
+  echo "You can start it by running: $INSTALL_PREFIX/bin/dvim"
+  echo "Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"
 }
 
 function detect_platform() {
@@ -206,55 +180,22 @@ function detect_platform() {
       RECOMMEND_INSTALL="brew install"
       ;;
     *)
-      log_error "OS $OS is not currently supported."
+      echo "OS $OS is not currently supported."
       exit 1
       ;;
   esac
 }
 
-function check_if_installed() {
-  if [[ -f "/usr/bin/$1" ]]; then
-    return 0
+function print_missing_dep_msg() {
+  if [ "$#" -eq 1 ]; then
+    echo "[ERROR]: Unable to find dependency [$1]"
+    echo "Please install it first and re-run the installer. Try: $RECOMMEND_INSTALL $1"
   else
-    log_error "Please install $1 with the following command: '$RECOMMEND_INSTALL $1'"
-    return 1
+    local cmds
+    cmds=$(for i in "$@"; do echo "$RECOMMEND_INSTALL $i"; done)
+    printf "[ERROR]: Unable to find dependencies [%s]" "$@"
+    printf "Please install any one of the dependencies and re-run the installer. Try: \n%s\n" "$cmds"
   fi
-}
-
-function install_os_dependencies() {
-  for dep in "${__os_deps[@]}"; do
-    "$RECOMMEND_INSTALL" "$dep"
-  done
-}
-
-function install_nodejs_dependencies() {
-  if [[ $(check_if_installed "npm") ]]; then
-    return
-  fi
-
-  for dep in "${__npm_deps[@]}"; do
-    sudo npm install --location=global "$dep"
-  done
-}
-
-function install_python_dependencies() {
-  if [[ $(check_if_installed "pip3") ]]; then
-    return
-  fi
-
-  for dep in "${__pip_deps[@]}"; do
-    pip3 install "$dep"
-  done
-}
-
-function install_rust_dependencies() {
-  if [[ $(check_if_installed "cargo") ]]; then
-    return
-  fi
-
-  for dep in "${__rust_deps[@]}"; do
-    cargo install "$dep"
-  done
 }
 
 function check_neovim_min_version() {
@@ -262,9 +203,135 @@ function check_neovim_min_version() {
 
   # exit with an error if min_version not found
   if ! nvim --headless -u NONE -c "$verify_version_cmd"; then
-    echo "[ERROR]: DeathVim requires at least Neovim v0.7 or higher"
+    echo "[ERROR]: DeathVin requires at least Neovim v0.7 or higher"
     exit 1
   fi
+}
+
+function verify_core_plugins() {
+  msg "Verifying core plugins"
+  if ! bash "$DEATHVIM_BASE_DIR/utils/ci/verify_plugins.sh"; then
+    echo "[ERROR]: Unable to verify plugins, makde sure to manually run ':PackerSync' when starting dvim for the first time."
+    exit 1
+  fi
+  echo "Verification complete!"
+}
+
+function validate_deathvim_files() {
+  local verify_version_cmd='if v:errmsg != "" | cquit | else | quit | endif'
+  if ! "$INSTALL_PREFIX/bin/dvim" --headless -c 'DvimUpdate' -c "$verify_version_cmd" &>/dev/null; then
+    msg "Removing old installation files"
+    rm -rf "$DEATHVIM_BASE_DIR"
+    clone_dvim
+  fi
+}
+
+function check_system_deps() {
+  if ! command -v git &>/dev/null; then
+    print_missing_dep_msg "git"
+    exit 1
+  fi
+  if ! command -v nvim &>/dev/null; then
+    print_missing_dep_msg "neovim"
+    exit 1
+  fi
+  check_neovim_min_version
+}
+
+function __install_nodejs_deps_pnpm() {
+  echo "Installing node modules with pnpm.."
+  pnpm install -g "${__npm_deps[@]}"
+  echo "All NodeJS dependencies are successfully installed"
+}
+
+function __install_nodejs_deps_npm() {
+  echo "Installing node modules with npm.."
+  for dep in "${__npm_deps[@]}"; do
+    if ! npm ls -g "$dep" &>/dev/null; then
+      printf "installing %s .." "$dep"
+      npm install -g "$dep"
+    fi
+  done
+
+  echo "All NodeJS dependencies are successfully installed"
+}
+
+function __install_nodejs_deps_yarn() {
+  echo "Installing node modules with yarn.."
+  yarn global add "${__npm_deps[@]}"
+  echo "All NodeJS dependencies are successfully installed"
+}
+
+function __validate_node_installation() {
+  local pkg_manager="$1"
+  local manager_home
+
+  if ! command -v "$pkg_manager" &>/dev/null; then
+    return 1
+  fi
+
+  if [ "$pkg_manager" == "npm" ]; then
+    manager_home="$(npm config get prefix 2>/dev/null)"
+  elif [ "$pkg_manager" == "pnpm" ]; then
+    manager_home="$(pnpm config get prefix 2>/dev/null)"
+  else
+    manager_home="$(yarn global bin 2>/dev/null)"
+  fi
+
+  if [ ! -d "$manager_home" ] || [ ! -w "$manager_home" ]; then
+    echo "[ERROR] Unable to install using [$pkg_manager] without administrative privileges."
+    return 1
+  fi
+
+  return 0
+}
+
+function install_nodejs_deps() {
+  local -a pkg_managers=("pnpm" "yarn" "npm")
+  for pkg_manager in "${pkg_managers[@]}"; do
+    if __validate_node_installation "$pkg_manager"; then
+      eval "__install_nodejs_deps_$pkg_manager"
+      return
+    fi
+  done
+  print_missing_dep_msg "${pkg_managers[@]}"
+  exit 1
+}
+
+function install_python_deps() {
+  echo "Verifying that pip is available.."
+  if ! python3 -m ensurepip &>/dev/null; then
+    if ! python3 -m pip --version &>/dev/null; then
+      print_missing_dep_msg "pip"
+      exit 1
+    fi
+  fi
+  echo "Installing with pip.."
+  for dep in "${__pip_deps[@]}"; do
+    python3 -m pip install --user "$dep"
+  done
+  echo "All Python dependencies are successfully installed"
+}
+
+function __attempt_to_install_with_cargo() {
+  if command -v cargo &>/dev/null; then
+    echo "Installing missing Rust dependency with cargo"
+    cargo install "$1"
+  else
+    echo "[WARN]: Unable to find cargo. Make sure to install it to avoid any problems"
+    exit 1
+  fi
+}
+
+# we try to install the missing one with cargo even though it's unlikely to be found
+function install_rust_deps() {
+  local -a deps=("fd::fd-find" "rg::ripgrep")
+  for dep in "${deps[@]}"; do
+    if ! command -v "${dep%%::*}" &>/dev/null; then
+      __attempt_to_install_with_cargo "${dep##*::}"
+    fi
+  done
+  echo "All Rust dependencies are successfully installed"
 }
 
 function verify_dvim_dirs() {
@@ -307,16 +374,16 @@ function backup_old_config() {
 }
 
 function clone_dvim() {
-  msg "Cloning DeathVim configuration"
-  git clone --branch "$DV_BRANCH" \
-    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"
-  cd "$DEATHVIM_BASE_DIR"
-  msg "Updating submodules"
-  git submodule update --init --recursive
+  msg "Cloning DeathVin configuration"
+  if ! git clone --branch "$DV_BRANCH" \
+    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
+    echo "Failed to clone repository. Installation failed."
+    exit 1
+  fi
 }
 
 function link_local_dvim() {
-  echo "Linking local DeathVim repo"
+  echo "Linking local DeathVin repo"
 
   # Detect whether it's a symlink or a folder
   if [ -d "$DEATHVIM_BASE_DIR" ]; then
@@ -326,6 +393,10 @@ function link_local_dvim() {
 
   echo "   - $BASEDIR -> $DEATHVIM_BASE_DIR"
   ln -s -f "$BASEDIR" "$DEATHVIM_BASE_DIR"
+}
+
+function setup_shim() {
+  make -C "$DEATHVIM_BASE_DIR" install-bin
 }
 
 function remove_old_cache_files() {
@@ -342,105 +413,37 @@ function remove_old_cache_files() {
 }
 
 function setup_dvim() {
+
   remove_old_cache_files
 
-  msg "Installing DeathVim example configuration"
+  msg "Installing DeathVin shim"
 
-  mkdir -p "$HOME"/.config/dvim/lua
-  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
+  setup_shim
+
+  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
 
   echo "Preparing Packer setup"
 
   "$INSTALL_PREFIX/bin/dvim" --headless \
+    -c "lua require('dvim.core.log'):set_level([[$DEATHVIM_LOG_LEVEL]])" \
     -c 'autocmd User PackerComplete quitall'
 
   echo "Packer setup complete"
-}
 
-function validate_deathvim_files() {
-  local verify_version_cmd='if v:errmsg != "" | cquit | else | quit | endif'
-  if ! "$INSTALL_PREFIX/bin/dvim" --headless -c 'DvimUpdate' -c "$verify_version_cmd" &>/dev/null; then
-    msg "Removing old installation files"
-    rm -rf "$DEATHVIM_BASE_DIR"
-    clone_dvim
-  fi
-}
-
-function create_executable() {
-  msg "Creating DeathVim executable"
-
-  local src="$DEATHVIM_BASE_DIR/utils/bin/dvim.template"
-  local dst="$INSTALL_PREFIX/bin/dvim"
-
-  if [[ -f $dst ]]; then
-    rm -rf "$dst"
-  fi
-
-  cp "$src" "$dst"
-  chmod +x "$dst"
+  verify_core_plugins
 }
 
 function print_logo() {
   cat <<'EOF'
- /$$$$$$$                        /$$     /$$       /$$    /$$ /$$              
-| $$__  $$                      | $$    | $$      | $$   | $$|__/              
-| $$  \ $$  /$$$$$$   /$$$$$$  /$$$$$$  | $$$$$$$ | $$   | $$ /$$ /$$$$$$/$$$$ 
-| $$  | $$ /$$__  $$ |____  $$|_  $$_/  | $$__  $$|  $$ / $$/| $$| $$_  $$_  $$
-| $$  | $$| $$$$$$$$  /$$$$$$$  | $$    | $$  \ $$ \  $$ $$/ | $$| $$ \ $$ \ $$
-| $$  | $$| $$_____/ /$$__  $$  | $$ /$$| $$  | $$  \  $$$/  | $$| $$ | $$ | $$
-| $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/| $$  | $$   \  $/   | $$| $$ | $$ | $$
-|_______/  \_______/ \_______/   \___/  |__/  |__/    \_/    |__/|__/ |__/ |__/
+       /$$$$$$$                        /$$     /$$       /$$    /$$ /$$               
+      | $$__  $$                      | $$    | $$      | $$   | $$|__/               
+      | $$  \ $$  /$$$$$$   /$$$$$$  /$$$$$$  | $$$$$$$ | $$   | $$ /$$ /$$$$$$/$$$$  
+      | $$  | $$ /$$__  $$ |____  $$|_  $$_/  | $$__  $$|  $$ / $$/| $$| $$_  $$_  $$ 
+      | $$  | $$| $$$$$$$$  /$$$$$$$  | $$    | $$  \ $$ \  $$ $$/ | $$| $$ \ $$ \ $$ 
+      | $$  | $$| $$_____/ /$$__  $$  | $$ /$$| $$  | $$  \  $$$/  | $$| $$ | $$ | $$ 
+      | $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/| $$  | $$   \  $/   | $$| $$ | $$ | $$ 
+      |_______/  \_______/ \_______/   \___/  |__/  |__/    \_/    |__/|__/ |__/ |__/ 
 EOF
-}
-
-function main() {
-  parse_arguments "$@"
-
-  print_logo
-
-  msg "Detecting platform for managing any additional dependencies"
-  detect_platform
-
-  if [ "$ARGS_INSTALL_DEPENDENCIES" -eq 1 ]; then
-    if [ "$INTERACTIVE_MODE" -eq 1 ]; then
-      if confirm "Would you like to install DeathVim's OS dependencies?"; then
-        install_os_dependencies
-      fi
-      if confirm "Would you like to install DeathVim's NodeJS dependencies?"; then
-        install_nodejs_dependencies
-      fi
-      if confirm "Would you like to install DeathVim's Python dependencies?"; then
-        install_python_dependencies
-      fi
-      if confirm "Would you like to install DeathVim's Rust dependencies?"; then
-        install_rust_dependencies
-      fi
-    else
-      install_nodejs_dependencies
-      install_python_dependencies
-      install_rust_dependencies
-    fi
-  fi
-
-  backup_old_config
-
-  verify_dvim_dirs
-
-  if [ "$ARGS_LOCAL" -eq 1 ]; then
-    link_local_dvim
-  elif [ -d "$DEATHVIM_BASE_DIR" ]; then
-    validate_deathvim_files
-  else
-    clone_dvim
-  fi
-
-  create_executable
-  setup_dvim
-
-  msg "Thank you for installing DeathVim! :)"
-
-  log_info "You can start it by running: $INSTALL_PREFIX/bin/dvim"
-  log_info "Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"
 }
 
 main "$@"
