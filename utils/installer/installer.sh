@@ -97,14 +97,7 @@ declare -a __dvim_dirs=(
   "$DEATHVIM_CACHE_DIR"
 )
 
-declare -a __os_deps=(
-  "git"
-  "neovim"
-  "texlive-latexindent-meta"
-  "sumneko_lua"
-  "prettier"
-  "cppcheck"
-)
+declare -a __os_deps=()
 
 declare -a __npm_deps=(
   "vim-language-server"
@@ -136,6 +129,7 @@ function usage() {
   echo "    --overwrite                              Overwrite previous LunarVim configuration (a backup is always performed first)"
   echo "    --[no]-install-dependencies              Whether to automatically install external dependencies (will prompt by default)"
   echo "    --log-level                              Log level (debug, info, warn, error)"
+  echo "    --create-executable                      Only create the dvim executable"
 }
 
 function change_log_level() {
@@ -172,6 +166,9 @@ function parse_arguments() {
         ;;
       --no-install-dependencies)
         ARGS_INSTALL_DEPENDENCIES=0
+        ;;
+      --create-executable)
+        create_executable()
         ;;
       -h | --help)
         usage
