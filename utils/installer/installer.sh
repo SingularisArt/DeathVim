@@ -387,8 +387,6 @@ function link_local_dvim() {
 }
 
 function create_executable() {
-  msg "Creating DeathVim executable"
-
   local src="$DEATHVIM_BASE_DIR/utils/bin/dvim.template"
   local dst="$INSTALL_PREFIX/bin/dvim"
 
