@@ -1,7 +1,7 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = os.getenv("HOME") .. "/.local/share/deathvim/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
 		"git",
@@ -31,6 +31,8 @@ end
 
 -- Have packer use a popup window
 packer.init({
+	package_root = os.getenv("HOME") .. "/.local/share/deathvim/site/pack",
+	compile_path = os.getenv("HOME") .. "/.config/dvim/plugin/packer_compiled.lua",
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
