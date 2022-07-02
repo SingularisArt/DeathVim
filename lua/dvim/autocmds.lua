@@ -95,6 +95,50 @@ function M.load_defaults()
 				end,
 			},
 		},
+
+		{
+			"BufWinEnter",
+			{
+				callback = function()
+					if vim.bo.filetype ~= "tex" then
+						require("dvim.core.plugins.winbar").setup()
+					end
+				end,
+			},
+		},
+
+		{
+			"BufFilePost",
+			{
+				callback = function()
+					if vim.bo.filetype ~= "tex" then
+						require("dvim.core.plugins.winbar").setup()
+					end
+				end,
+			},
+		},
+
+		{
+			"InsertEnter",
+			{
+				callback = function()
+					if vim.bo.filetype ~= "tex" then
+						require("dvim.core.plugins.winbar").setup()
+					end
+				end,
+			},
+		},
+
+		{
+			"BufWritePost",
+			{
+				callback = function()
+					if vim.bo.filetype ~= "tex" then
+						require("dvim.core.plugins.winbar").setup()
+					end
+				end,
+			},
+		},
 	}
 
 	M.define_autocmds(definitions)

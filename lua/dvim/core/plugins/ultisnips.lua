@@ -16,7 +16,7 @@ M.setup = function()
     let g:UltiSnipsEditSplit='tabdo'
 
     " the location of the snippets
-    let g:UltiSnipsSnippetDirectories=[$HOME."/.local/share/deathvim/dvim/UltiSnips"]
+    let g:UltiSnipsSnippetDirectories=[$HOME."/.local/share/deathvim/dvim/UltiSnips", "UltiSnips"]
   ]])
 end
 

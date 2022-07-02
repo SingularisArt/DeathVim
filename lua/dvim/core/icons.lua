@@ -4,31 +4,23 @@
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 vim.g.use_nerd_icons = true
 if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
-  -- elseif vim.fn.has "mac" == 1 then
   return {
     kind = {
       Text = "",
-      Method = "m",
       Function = "",
       Constructor = "",
-      -- Method = "",
-      -- Function = "",
-      -- Constructor = "",
+      Method = "",
       Field = "",
-      -- Variable = "",
       Variable = "",
       Class = "",
       Interface = "",
       Module = "",
-      -- Module = "",
       Property = "",
       Unit = "",
       Value = "",
       Enum = "",
       Keyword = "",
-      -- Keyword = "",
       Snippet = "",
-      -- Snippet = "",
       Color = "",
       File = "",
       Reference = "",
@@ -92,7 +84,6 @@ if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
       BookMark = "",
       Pencil = "",
       ChevronRight = "",
-      -- ChevronRight = ">",
       Table = "",
       Calendar = "",
       CloudDownload = "",
@@ -118,7 +109,6 @@ if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
     },
   }
 else
-  --   פּ ﯟ   蘒練 some other good icons
   return {
     kind = {
       Text = " ",
