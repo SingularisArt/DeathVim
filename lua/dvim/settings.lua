@@ -41,7 +41,8 @@ M.load_default_options = function()
 		signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 		wrap = false, -- don't display lines as one long line
 		scrolloff = 8, -- scroll when you are 8 lines away from the top/bottom
-		-- spell = true,                            -- turn on spell check
+		cursorline = true, -- highlight the current line
+		-- spell = true, -- turn on spell check
 	}
 
 	---  SETTINGS  ---

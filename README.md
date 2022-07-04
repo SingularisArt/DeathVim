@@ -363,3 +363,20 @@ Here's a complete list of all the supported colorschemes.
 - [ ] Get more screenshots.
 
 ## Need to do
+
+- [ ] Configure the following plugins:
+  - [undotree](https://github.com/mbbill/undotree)
+  - [nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
+  - [pretty-fold.nvim](https://github.com/anuvyklack/pretty-fold.nvim)
+  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+  - [venn.nvim](https://github.com/jbyuki/venn.nvim)
+  - [zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
+  - [twilight.nvim](https://github.com/folke/twilight.nvim)
+  - [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
+  - [vim-grammarous](https://github.com/rhysd/vim-grammarous)
+  - [vim-LanguageTool](https://github.com/dpelle/vim-LanguageTool)
+  - [LanguageTool.nvim](https://github.com/vigoux/LanguageTool.nvim)
+  - [vim-pencil](https://github.com/preservim/vim-pencil)
+  - [HighStr.nvim](https://github.com/Pocco81/HighStr.nvim)
+  - [lookatme](https://github.com/d0c-s4vage/lookatme) NOTE: This isn't a
+    plugin, it's something that I want to incorperate into DeathVim.

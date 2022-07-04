@@ -139,6 +139,19 @@ function M.load_defaults()
 				end,
 			},
 		},
+
+		{
+			"BufReadPost",
+			{
+				callback = function()
+					vim.cmd([[
+            if line("'\"") > 0 && line("'\"") <= line("$") |
+              exe "normal! g`\"" |
+            endif
+          ]])
+				end,
+			},
+		},
 	}
 
 	M.define_autocmds(definitions)
