@@ -1,6 +1,7 @@
 <p align="center">💀 A Hackable, Fully Featured, Rice Friendly NeoVim Configuration 💀</p>
 
 <p align="center">
+  <a href="#gallery">Gallery</a> •
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
@@ -22,6 +23,12 @@
 <p align="center">
   <img src="https://stars.medv.io/SingularisArt/Death.NeoVim.svg", title="commits"/>
 </p>
+
+<p align="center">
+  <img src="utils/images/logo.jpg", title="commits"/>
+</p>
+
+# Gallery
 
 <p align="center">
   <img src="media/screenshot-1.png">
