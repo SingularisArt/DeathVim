@@ -163,7 +163,6 @@ return require("packer").startup(function(use)
 	-- Other
 	use({ "mattn/emmet-vim" })
 	use({ "Valloric/MatchTagAlways" })
-	use({ "alvan/vim-closetag" })
 	use({ "wakatime/vim-wakatime" })
 	use({ "easymotion/vim-easymotion" })
 	use({ "voldikss/vim-translator" })
@@ -403,6 +402,12 @@ return require("packer").startup(function(use)
 		end,
 		branch = "main",
 		disable = not dvim.builtin.plugins.bufferline.active,
+	})
+
+	-- HTML
+	use({
+		"windwp/nvim-ts-autotag",
+		disable = not dvim.builtin.filetypes.html.active,
 	})
 
 	-- LaTeX
