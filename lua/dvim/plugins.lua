@@ -454,6 +454,9 @@ return require("packer").startup(function(use)
 		disable = not dvim.builtin.actions.writing,
 	})
 
+	-- Tmux
+	use({ "christoomey/vim-tmux-navigator" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

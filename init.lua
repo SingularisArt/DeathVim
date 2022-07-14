@@ -38,3 +38,6 @@ Log.trace("Applied colorscheme")
 
 require("dvim.lsp")
 Log.trace("Loaded LSP")
+
+-- NOTE: I need to move this into it's own file
+vim.cmd('let g:tmux_navigator_save_on_switch = 2')
