@@ -64,10 +64,10 @@ dvim.builtin.plugins.cmp = {
 
         -- NOTE: order matters
         vim_item.menu = ({
-          nvim_lsp = "",
-          nvim_lua = "",
-          copilot = "",
-          cmp_tabnine = "",
+          -- nvim_lsp = "",
+          -- nvim_lua = "",
+          -- copilot = "",
+          -- cmp_tabnine = "",
           latex_symbols = "",
           ultisnips = "",
           calc = "",
@@ -80,10 +80,10 @@ dvim.builtin.plugins.cmp = {
       end,
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = "copilot" },
-      { name = "cmp_tabnine" },
+      -- { name = "nvim_lsp" },
+      -- { name = "nvim_lua" },
+      -- { name = "copilot" },
+      -- { name = "cmp_tabnine" },
       { name = "latex_symbols" },
       { name = "ultisnips" },
       { name = "calc" },

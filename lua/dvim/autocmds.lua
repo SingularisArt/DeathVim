@@ -3,17 +3,6 @@ local M = {}
 function M.load_defaults()
 	local definitions = {
 		{
-			"FileType",
-			{
-				pattern = { "markdown" },
-				callback = function()
-					vim.opt.conceallevel = 3
-					vim.opt.wrap = true
-				end,
-			},
-		},
-
-		{
 			"VimEnter",
 			{
 				callback = function()
@@ -30,27 +19,6 @@ function M.load_defaults()
             if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
             normal zz
           ]])
-				end,
-			},
-		},
-
-		{
-			"BufEnter",
-			{
-				callback = function()
-					if vim.bo.filetype == "tex" then
-						vim.opt.showtabline = 0
-						vim.opt.laststatus = 0
-						vim.opt.conceallevel = 1
-					elseif vim.bo.filetype == "markdown" then
-						vim.opt.showtabline = 2
-						vim.opt.laststatus = 2
-						vim.opt.conceallevel = 3
-					else
-						vim.opt.showtabline = 2
-						vim.opt.laststatus = 2
-						vim.opt.conceallevel = 0
-					end
 				end,
 			},
 		},
@@ -80,7 +48,7 @@ function M.load_defaults()
 			"TextYankPost",
 			{
 				callback = function()
-					vim.highlight.on_yank({ higroup = "Visual", timeout = 100 })
+					vim.highlight.on_yank({ higroup = "Visual", timeout = 50 })
 				end,
 			},
 		},
@@ -89,9 +57,7 @@ function M.load_defaults()
 			"CursorMoved",
 			{
 				callback = function()
-					if vim.bo.filetype ~= "tex" then
-						require("dvim.core.plugins.winbar").setup()
-					end
+          require("dvim.core.plugins.winbar").setup()
 				end,
 			},
 		},
@@ -100,9 +66,7 @@ function M.load_defaults()
 			"BufWinEnter",
 			{
 				callback = function()
-					if vim.bo.filetype ~= "tex" then
-						require("dvim.core.plugins.winbar").setup()
-					end
+          require("dvim.core.plugins.winbar").setup()
 				end,
 			},
 		},
@@ -111,9 +75,7 @@ function M.load_defaults()
 			"BufFilePost",
 			{
 				callback = function()
-					if vim.bo.filetype ~= "tex" then
-						require("dvim.core.plugins.winbar").setup()
-					end
+          require("dvim.core.plugins.winbar").setup()
 				end,
 			},
 		},
@@ -122,9 +84,7 @@ function M.load_defaults()
 			"InsertEnter",
 			{
 				callback = function()
-					if vim.bo.filetype ~= "tex" then
-						require("dvim.core.plugins.winbar").setup()
-					end
+          require("dvim.core.plugins.winbar").setup()
 				end,
 			},
 		},
@@ -133,9 +93,7 @@ function M.load_defaults()
 			"BufWritePost",
 			{
 				callback = function()
-					if vim.bo.filetype ~= "tex" then
-						require("dvim.core.plugins.winbar").setup()
-					end
+          require("dvim.core.plugins.winbar").setup()
 				end,
 			},
 		},

@@ -92,8 +92,9 @@ dvim.builtin.plugins = {
 	bufferline = { active = true },
 	notify = { active = true },
 	treesitter = { active = true },
-	latex = { active = true },
+	tex = { active = true },
 	markdown = { active = true },
+	tmux = { active = true },
 }
 
 -------------------------
@@ -132,10 +133,11 @@ dvim.builtin.filetypes = {
 	go = { active = true },
 	bash = { active = true },
 	log = { active = true },
-	latex = { active = true },
+	tex = { active = true },
 	markdown = { active = true },
 	yaml = { active = true },
 	json = { active = true },
+	toml = { active = true },
 }
 
 -----------------------
@@ -143,7 +145,8 @@ dvim.builtin.filetypes = {
 -----------------------
 
 dvim.builtin.actions = {
-  presentation = { active = true },
+	presentation = { active = true },
+	writing = { active = true },
 }
 
 ------------------------------------------------------------------------
@@ -190,6 +193,7 @@ dvim.builtin.plugins.treesitter = {
 		"bash",
 		"yaml",
 		"json",
+		"toml",
 	},
 	-- Language servers to not install
 	ignore_install = {
@@ -260,7 +264,9 @@ dvim.lsp.language_servers = {
 	{ server = "clangd", filetype = "cpp" },
 	{ server = "cmake", filetype = "cmake" },
 	{ server = "html", filetype = "html" },
+	{ server = "emmet_ls", filetype = "html" },
 	{ server = "cssls", filetype = "css" },
+	{ server = "tailwindcss", filetype = "css" },
 	{ server = "jsonls", filetype = "json" },
 	{ server = "rust_analyzer", filetype = "rust" },
 	{ server = "solang", filetype = "solidity" },
@@ -425,5 +431,5 @@ vim.api.nvim_create_autocmd("FileType", {
 ------------------------------------------------------------------------
 
 dvim.vim_commands = {
-	{ command = "set rtp+=~/Documents/notes/school-notes/current-course" },
+	{ command = "set rtp+=~/Documents/school-notes/current-course" },
 }

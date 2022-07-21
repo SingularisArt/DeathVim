@@ -42,6 +42,7 @@ M.load_default_options = function()
 		wrap = false, -- don't display lines as one long line
 		scrolloff = 8, -- scroll when you are 8 lines away from the top/bottom
 		cursorline = true, -- highlight the current line
+		laststatus = 3, -- make statusline cover the entire bottom
 		-- spell = true, -- turn on spell check
 	}
 

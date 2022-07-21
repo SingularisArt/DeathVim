@@ -23,6 +23,10 @@ local settings = require("dvim.settings")
 settings.load_defaults()
 Log.trace("Loaded settings")
 
+local filetypes = require("dvim.filetypes")
+filetypes.filetype_settings()
+Log.trace("Loaded filetype specific settings")
+
 local autocmds = require("dvim.autocmds")
 autocmds.load_defaults()
 Log.trace("Loaded autocmds")
