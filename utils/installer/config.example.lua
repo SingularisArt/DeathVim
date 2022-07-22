@@ -92,9 +92,6 @@ dvim.builtin.plugins = {
 	bufferline = { active = true },
 	notify = { active = true },
 	treesitter = { active = true },
-	tex = { active = true },
-	markdown = { active = true },
-	tmux = { active = true },
 }
 
 -------------------------
@@ -138,15 +135,18 @@ dvim.builtin.filetypes = {
 	yaml = { active = true },
 	json = { active = true },
 	toml = { active = true },
+	tmux = { active = true },
 }
-
 -----------------------
 --  Builtin Actions  --
 -----------------------
 
 dvim.builtin.actions = {
+  writing = { active = true },
+  note_taking = { active = true },
+  programming = { active = true },
 	presentation = { active = true },
-	writing = { active = true },
+	documentation = { active = true },
 }
 
 ------------------------------------------------------------------------

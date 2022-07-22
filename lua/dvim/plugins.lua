@@ -461,7 +461,7 @@ return require("packer").startup(function(use)
   -- Tmux
   use({
     "christoomey/vim-tmux-navigator",
-    disable = not dvim.builtin.plugins.tmux,
+    disable = not dvim.builtin.filetypes.tmux,
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
