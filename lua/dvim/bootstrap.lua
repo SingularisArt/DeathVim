@@ -1,15 +1,15 @@
 local M = {}
 
-if vim.fn.has "nvim-0.7" ~= 1 then
+if vim.fn.has("nvim-0.7") ~= 1 then
   vim.notify("Please upgrade your Neovim base installation. Deathvim requires v0.7+", vim.log.levels.WARN)
   vim.wait(5000, function()
     return false
   end)
-  vim.cmd "cquit"
+  vim.cmd("cquit")
 end
 
 local uv = vim.loop
-local path_sep = uv.os_uname().version:match "Windows" and "\\" or "/"
+local path_sep = uv.os_uname().version:match("Windows") and "\\" or "/"
 
 ---Join path segments that were passed as input
 ---@return string
@@ -31,7 +31,7 @@ end
 ---Get the full path to `$DEATHVIM_RUNTIME_DIR`
 ---@return string
 function _G.get_runtime_dir()
-  local dvim_runtime_dir = os.getenv "DEATHVIM_RUNTIME_DIR"
+  local dvim_runtime_dir = os.getenv("DEATHVIM_RUNTIME_DIR")
   if not dvim_runtime_dir then
     -- when nvim is used directly
     return vim.call("stdpath", "data")
@@ -42,7 +42,7 @@ end
 ---Get the full path to `$DEATHVIM_CONFIG_DIR`
 ---@return string
 function _G.get_config_dir()
-  local dvim_config_dir = os.getenv "DEATHVIM_CONFIG_DIR"
+  local dvim_config_dir = os.getenv("DEATHVIM_CONFIG_DIR")
   if not dvim_config_dir then
     return vim.call("stdpath", "config")
   end
@@ -52,7 +52,7 @@ end
 ---Get the full path to `$DEATHVIM_CACHE_DIR`
 ---@return string
 function _G.get_cache_dir()
-  local dvim_cache_dir = os.getenv "DEATHVIM_CACHE_DIR"
+  local dvim_cache_dir = os.getenv("DEATHVIM_CACHE_DIR")
   if not dvim_cache_dir then
     return vim.call("stdpath", "cache")
   end
@@ -73,6 +73,22 @@ function M:init(base_dir)
   ---@return string
   function _G.get_dvim_base_dir()
     return base_dir
+  end
+
+  -- vim.cmd("set runtimepath+=~/.config/dvim")
+
+  if os.getenv "DEATHVIM_RUNTIME_DIR" then
+    -- vim.opt.rtp:append(os.getenv "DEATHVIM_RUNTIME_DIR" .. path_sep .. "dvim")
+    vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site"))
+    vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site", "after"))
+    vim.opt.rtp:prepend(join_paths(self.runtime_dir, "site"))
+    vim.opt.rtp:append(join_paths(self.runtime_dir, "site", "after"))
+
+    vim.opt.rtp:remove(vim.call("stdpath", "config"))
+    vim.opt.rtp:remove(join_paths(vim.call("stdpath", "config"), "after"))
+    vim.opt.rtp:prepend(self.config_dir)
+    vim.opt.rtp:append(join_paths(self.config_dir, "after"))
+    vim.cmd [[let &packpath = &runtimepath]]
   end
 
   require("dvim.defaults")

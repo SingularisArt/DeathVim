@@ -1,9 +1,3 @@
-vim.cmd([[
-  set runtimepath+=~/.config/dvim
-  set runtimepath+=~/.local/share/deathvim/dvim
-  set runtimepath+=~/.local/share/deathvim/site
-]])
-
 local init_path = debug.getinfo(1, "S").source:sub(2)
 local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
 
@@ -44,4 +38,4 @@ require("dvim.lsp")
 Log.trace("Loaded LSP")
 
 -- NOTE: I need to move this into it's own file
-vim.cmd('let g:tmux_navigator_save_on_switch = 2')
+vim.cmd("let g:tmux_navigator_save_on_switch = 2")
