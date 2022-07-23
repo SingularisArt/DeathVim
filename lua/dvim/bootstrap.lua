@@ -75,7 +75,7 @@ function M:init(base_dir)
     return base_dir
   end
 
-  -- vim.cmd("set runtimepath+=~/.config/dvim")
+  vim.cmd("set runtimepath+=~/.config/dvim")
 
   if os.getenv "DEATHVIM_RUNTIME_DIR" then
     -- vim.opt.rtp:append(os.getenv "DEATHVIM_RUNTIME_DIR" .. path_sep .. "dvim")
