@@ -422,7 +422,7 @@ function setup_dvim() {
   msg "Creating example config.lua file"
 
   mkdir -p "$DEATHVIM_CONFIG_DIR/lua"
-  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/config.lua"
+  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
 
   msg "Preparing Packer setup"
 
