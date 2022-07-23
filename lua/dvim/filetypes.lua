@@ -1,6 +1,6 @@
 local M = {}
 
-M.filetype_settings = function()
+M.load_filetype_settings = function()
 	for filetype, filetype_table in pairs(dvim.builtin.filetypes) do
 		for command, value in pairs(filetype_table) do
 			if command == "active" then

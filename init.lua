@@ -2,13 +2,13 @@ local init_path = debug.getinfo(1, "S").source:sub(2)
 local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
 
 if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
-  vim.opt.rtp:append(base_dir)
+	vim.opt.rtp:append(base_dir)
 end
 
 require("dvim.bootstrap"):init(base_dir)
 
 if #vim.api.nvim_list_uis() == 0 then
-  return
+	return
 end
 
 Log = require("dvim.log")
@@ -18,8 +18,12 @@ settings.load_defaults()
 Log.trace("Loaded settings")
 
 local filetypes = require("dvim.filetypes")
-filetypes.filetype_settings()
+filetypes.load_filetype_settings()
 Log.trace("Loaded filetype specific settings")
+
+local actions = require("dvim.actions")
+actions.load_actions()
+Log.trace("Loaded actions")
 
 local autocmds = require("dvim.autocmds")
 autocmds.load_defaults()
@@ -36,6 +40,3 @@ Log.trace("Applied colorscheme")
 
 require("dvim.lsp")
 Log.trace("Loaded LSP")
-
--- NOTE: I need to move this into it's own file
-vim.cmd("let g:tmux_navigator_save_on_switch = 2")

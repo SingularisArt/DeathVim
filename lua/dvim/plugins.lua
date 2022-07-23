@@ -457,11 +457,17 @@ return packer.startup(function(use)
 	use({
 		"preservim/vim-pencil",
 		disable = not dvim.builtin.actions.writing,
+		config = function()
+			require("dvim.core.actions.writing").setup()
+		end,
 	})
 
 	-- Tmux
 	use({
 		"christoomey/vim-tmux-navigator",
+		config = function()
+			require("dvim.core.plugins.tmux").setup()
+		end,
 		disable = not dvim.builtin.filetypes.tmux,
 	})
 
