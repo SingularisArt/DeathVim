@@ -21,9 +21,7 @@ M.setup = function()
   end
 
   for _, formatter_object in ipairs(dvim.lsp.formatters) do
-    if pcall(function()
-      return dvim.builtin.filetypes[formatter_object.filetype].active ~= nil
-    end) then
+    if dvim.builtin.filetypes[formatter_object.filetype].active == true then
       if formatter_object.extra_args then
         table.insert(
           sources,

@@ -35,7 +35,7 @@ function M.get_client_capabilities(client_id)
     client = vim.lsp.get_client_by_id(tonumber(client_id))
   end
   if not client then
-    error "Unable to determine client_id"
+    error("Unable to determine client_id")
     return
   end
 
@@ -70,7 +70,7 @@ end
 ---@param filetype string
 ---@return table list of names of supported servers
 function M.get_supported_servers_per_filetype(filetype)
-  local filetype_server_map = require "nvim-lsp-installer._generated.filetype_map"
+  local filetype_server_map = require("nvim-lsp-installer._generated.filetype_map")
   return filetype_server_map[filetype]
 end
 
@@ -86,7 +86,7 @@ end
 
 function M.setup_document_highlight(client, bufnr)
   local status_ok, highlight_supported = pcall(function()
-    return client.supports_method "textDocument/documentHighlight"
+    return client.supports_method("textDocument/documentHighlight")
   end)
   if not status_ok or not highlight_supported then
     return
@@ -111,7 +111,7 @@ end
 
 function M.setup_codelens_refresh(client, bufnr)
   local status_ok, codelens_supported = pcall(function()
-    return client.supports_method "textDocument/codeLens"
+    return client.supports_method("textDocument/codeLens")
   end)
   if not status_ok or not codelens_supported then
     return
@@ -136,7 +136,7 @@ end
 function M.format_filter(clients)
   return vim.tbl_filter(function(client)
     local status_ok, formatting_supported = pcall(function()
-      return client.supports_method "textDocument/formatting"
+      return client.supports_method("textDocument/formatting")
     end)
     -- give higher prio to null-ls
     if status_ok and formatting_supported and client.name == "null-ls" then
@@ -172,7 +172,7 @@ function M.format(opts)
   end
 
   clients = vim.tbl_filter(function(client)
-    return client.supports_method "textDocument/formatting"
+    return client.supports_method("textDocument/formatting")
   end, clients)
 
   local timeout_ms = opts.timeout_ms or 1000
@@ -183,6 +183,46 @@ function M.format(opts)
       vim.lsp.util.apply_text_edits(result.result, bufnr, client.offset_encoding)
     end
   end
+end
+
+---Get servers from table.
+---The variable `dvim.lsp.language_servers` holds all the information needed.
+---This function parses that table, and returns the active servers.
+function M.get_servers()
+  local servers = {}
+
+  for _, server_object in ipairs(dvim.lsp.language_servers) do
+    if pcall(function()
+      return dvim.builtin.filetypes[server_object.filetype].active ~= nil
+    end) then
+      Log.trace(
+        "[LSP] Toggling server for filetype: "
+        .. server_object.filetype
+        .. " Server is: ["
+        .. server_object.server
+        .. "]"
+      )
+      table.insert(servers, server_object.server)
+    else
+      Log.error(
+        "[LSP] Filetype: ["
+        .. server_object.filetype
+        .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
+      )
+    end
+  end
+
+  return servers
+end
+
+---Concatenate two tables together
+---@param t1 table can be any table
+---@param t2 table can be any table
+function M.concat(t1, t2)
+  for i = 1, #t2 do
+    t1[#t1 + 1] = t2[i]
+  end
+  return t1
 end
 
 return M

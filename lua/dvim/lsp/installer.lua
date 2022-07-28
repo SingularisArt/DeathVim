@@ -21,10 +21,6 @@ function M.setup(servers, options)
   for server_name, _ in pairs(servers) do
     local opts = vim.tbl_deep_extend("force", options, servers[server_name] or {})
 
-    -- if server_name == "sumneko_lua" then
-    --   opts = require("lua-dev").setup { lspconfig = opts }
-    -- end
-
     lspconfig[server_name].setup(opts)
   end
 end

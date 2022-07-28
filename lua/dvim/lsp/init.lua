@@ -1,35 +1,43 @@
-----------------
--- Main Files --
-----------------
-
-local M = {}
-
-require_clean("lspconfig")
-
 if dvim.format_on_save then
 	vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-local opts = {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-	flags = {
-		debounce_text_changes = 150,
-	},
-}
-
 local servers = {}
 
 for _, server_object in ipairs(dvim.lsp.language_servers) do
-	servers[server_object.server] = {}
+	if dvim.builtin.filetypes[server_object.filetype].active == true then
+		servers[server_object.server] = {}
+	end
 end
 
-require("dvim.lsp.installer").setup(servers, opts)
+local formatters = require("dvim.lsp.null-ls.formatters").setup()
+local diagnostics = require("dvim.lsp.null-ls.diagnostics").setup()
+
+local ensure_installed = {}
+
+-- Checking if we want to automatically install the needed servers
+if dvim.lsp.automatic_servers_installation then
+	for server, _ in pairs(servers) do
+		ensure_installed[server] = {}
+	end
+end
+
+-- Checking if we want to automatically install the needed formatters
+if dvim.lsp.automatic_formatters_installation then
+	for _, formatter in pairs(formatters) do
+		ensure_installed[formatter.name] = {}
+	end
+end
+
+-- Checking if we want to automatically install the needed diagnostics
+if dvim.lsp.automatic_diagnostics_installation then
+	for _, diagnostic in pairs(diagnostics) do
+		ensure_installed[diagnostic.name] = {}
+	end
+end
+
 require("dvim.lsp.handlers").setup()
-require("dvim.lsp.servers").setup()
 require("dvim.lsp.lsp-signature")
+require("dvim.lsp.inlayhints").setup()
 require("dvim.lsp.null-ls").setup()
+require("dvim.lsp.mason").setup(ensure_installed, servers)
