@@ -131,7 +131,7 @@ dvim.builtin.filetypes = {
 	go = { active = true },
 	bash = { active = true },
 	log = { active = true },
-	tex = { active = true },
+	latex = { active = true },
 	markdown = { active = true },
 	yaml = { active = true },
 	json = { active = true },
