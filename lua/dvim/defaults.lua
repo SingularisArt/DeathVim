@@ -10,7 +10,11 @@ dvim = {
   use_icons = true,
 
   builtin = {
-    plugins = {},
+    plugins = {
+      which_key = {
+        mappings = {},
+      },
+    },
     filetypes = {},
   },
 
@@ -20,8 +24,7 @@ dvim = {
     ---@usage can be { "trace", "debug", "info", "warn", "error", "fatal" },
     level = "trace",
   },
+  lsp = require("dvim.lsp.config"),
 }
-
-dvim.lsp = require('dvim.lsp.config')
 
 return dvim

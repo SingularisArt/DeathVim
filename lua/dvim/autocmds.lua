@@ -17,7 +17,6 @@ function M.load_defaults()
 				callback = function()
 					vim.cmd([[
             if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-            normal zz
           ]])
 				end,
 			},

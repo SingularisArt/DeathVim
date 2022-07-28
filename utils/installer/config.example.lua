@@ -6,7 +6,7 @@
 ------------------------------------------------------------------------
 
 dvim.colorscheme = "rose-pine"
-dvim.format_on_save = true
+dvim.format_on_save = false
 
 ------------------------------------------------------------------------
 --                                Logging                             --
@@ -163,6 +163,17 @@ dvim.statusline = "staline"
 -- Possible values: "evil", "normal" "pebble" "simple" "simpler"
 dvim.builtin.plugins.staline.mode = "simple"
 
+-----------------
+--  Telescope  --
+-----------------
+
+dvim.builtin.plugins.telescope.active = true
+dvim.builtin.plugins.telescope.extensions = {
+  fzf = true,
+  file_browser = true,
+  notify = true,
+}
+
 -------------------
 --  Tree Sitter  --
 -------------------
@@ -226,15 +237,15 @@ dvim.builtin.plugins.treesitter = {
 
 dvim.builtin.plugins.which_key.marks = true
 dvim.builtin.plugins.which_key.presets = {
-  operators = false,
-  motions = false,
-  text_objects = false,
-  nav = false,
-  z = false,
-  g = false,
+  operators = true,
+  motions = true,
+  text_objects = true,
+  nav = true,
+  z = true,
+  g = true,
 }
 dvim.builtin.plugins.which_key.spelling = {
-  enabled = false, -- For some reason, this breaks which key
+  enabled = true,
   suggestions = 20,
 }
 

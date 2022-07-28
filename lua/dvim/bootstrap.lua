@@ -96,8 +96,6 @@ function M:init(base_dir)
 
   Utils = require("dvim.utils.functions")
 
-  dvim.builtin.plugins.which_key = { mappings = {} }
-
   require("config")
   require("dvim.keymappings").load(dvim.keys)
 

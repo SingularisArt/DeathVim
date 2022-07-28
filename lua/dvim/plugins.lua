@@ -149,6 +149,7 @@ return packer.startup(function(use)
     config = function()
       require("dvim.core.plugins.which-key").setup()
     end,
+    event = "BufWinEnter",
     disable = not dvim.builtin.plugins.which_key.active,
   })
 
@@ -298,7 +299,27 @@ return packer.startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
     run = "make",
+    disable = not dvim.builtin.plugins.telescope.active and not dvim.builtin.plugins.telescope.fzf,
+  })
+  use({
+    "nvim-telescope/telescope-symbols.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
     disable = not dvim.builtin.plugins.telescope.active,
+  })
+  use({
+    "nvim-telescope/telescope-media-files.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+    disable = not dvim.builtin.plugins.telescope.active,
+  })
+  use({
+    "tom-anders/telescope-vim-bookmarks.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+    disable = not dvim.builtin.plugins.telescope.active,
+  })
+  use({
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+    disable = not dvim.builtin.plugins.telescope.active and not dvim.builtin.plugins.telescope.file_browser,
   })
 
   -- Project

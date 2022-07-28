@@ -17,7 +17,7 @@ M.config = function()
         nav = dvim.builtin.plugins.which_key.presets.nav,
         z = dvim.builtin.plugins.which_key.presets.z,
         g = dvim.builtin.plugins.which_key.presets.g,
-      }
+      },
     },
   }
 
@@ -28,43 +28,78 @@ M.config = function()
   dvim.builtin.plugins.which_key.vmappings = {}
   -- Normal mappings
   dvim.builtin.plugins.which_key.mappings = {
-    e = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
-    v = { "<cmd>vsplit<CR>", "Vertical Split" },
-    h = { "<cmd>split<CR>", "Horizontal Split" },
-    o = { "<cmd>only<CR>", "Tab only" },
-    y = { "<Plug>(easymotion-bd-f)", "Easymotion" },
-    u = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
-    j = "which_key_ignore",
-    k = "which_key_ignore",
+    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
+    ["v"] = { "<cmd>vsplit<CR>", "Vertical Split" },
+    ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
+    ["o"] = { "<cmd>wincmd _ | wincmd |<CR>", "Tab only" },
+    ["O"] = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
+    ["y"] = { "<Plug>(easymotion-bd-f)", "Easymotion" },
+    ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
+    ["j"] = "which_key_ignore",
+    ["k"] = "which_key_ignore",
+    [" "] = "which_key_ignore",
+
+    b = {
+      name = "Buffers",
+      p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
+      c = {
+        name = "Close",
+        l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffers to the left" },
+        r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffers to the right" },
+      },
+      m = {
+        name = "Move",
+        n = { "<cmd>BufferLineMoveNext<CR>", "Move buffer next" },
+        p = { "<cmd>BufferLineMovePrev<CR>", "Move buffer previous" },
+      },
+      s = {
+        name = "Sort",
+        d = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by directory" },
+        e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by extension" },
+        r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by relative directory" },
+        t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by tabs" },
+      },
+    },
 
     g = {
       name = "Git",
-      s = { "<cmd>Git<CR>", "Status" },
       a = { "<cmd>Git add .<CR>", "Add" },
-      d = { "<cmd>Git diff<CR>", "Diff" },
       c = { "<cmd>Git commit<CR>", "Commit" },
-      p = { "<cmd>Git push<CR>", "Push" },
-      P = { "<cmd>Git pull<CR>", "Pull" },
+      d = { "<cmd>Git diff<CR>", "Diff" },
+      f = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
       l = { "<cmd>Git log<CR>", "Log" },
       L = { "<cmd>LazyGit<CR>", "LazyGit" },
-      f = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
+      p = { "<cmd>Git push<CR>", "Push" },
+      P = { "<cmd>Git pull<CR>", "Pull" },
+      s = { "<cmd>Git<CR>", "Status" },
     },
 
     p = {
       name = "Packer",
-      i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
-      u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
       c = { "<cmd>PackerClean<CR>", "Clean Plugins" },
+      C = { "<cmd>PackerCompile<CR>", "Compile Plugins" },
+      i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
       l = { "<cmd>PackerLoad<CR>", "Load Plugins" },
-      s = { "<cmd>PackerSync<CR>", "Sync Plugins" },
-      p = { "<cmd>PackerProfile<CR>", "Profile  Plugins" },
+      p = { "<cmd>PackerProfile<CR>", "Profile Plugins" },
+      s = {
+        name = "Snapshot",
+        s = { "<cmd>PackerSnapshot<CR>", "Snapshot Plugins" },
+        d = { "<cmd>PackerSnapshotDelete<CR>", "Delete Snapshot Plugins" },
+        r = { "<cmd>PackerSnapshotRollback<CR>", "Rollback Snapshot Plugins" },
+      },
+      t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
+      y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
+      u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
     },
 
     T = {
       name = "Translator",
-      t = { "<cmd>Translate<CR>", "Translate" },
-      w = { "<cmd>TranslateW<CR>", "Translate output to screen" },
-      r = { "<cmd>TranslateR<CR>", "Translate output to file" },
+      t = { "<cmd>Translate --engines=google<CR>", "Translate" },
+      h = { "<cmd>TranslateH --engines=google<CR>", "Translate History" },
+      l = { "<cmd>TranslateL --engines=google<CR>", "Translate Log" },
+      r = { "<cmd>TranslateR --engines=google<CR>", "Translate" },
+      w = { "<cmd>TranslateW --engines=google<CR>", "Translate and display in a Popup Window" },
+      x = { "<cmd>TranslateX --engines=google<CR>", "Translate and Display in the cmdline" },
     },
 
     m = {
@@ -134,32 +169,42 @@ M.config = function()
 
     f = {
       name = "Telescope",
-      f = {
-        "<cmd>Telescope find_files<CR>",
-        "Fuzzy Find Files",
+      f = { "<cmd>Telescope find_files<CR>", "Fuzzy find files" },
+      o = { "<cmd>Telescope oldfiles<CR>", "Fuzzy find old files" },
+      c = { "<cmd>Telescope colorscheme<CR>", "Fuzzy find colorschemes" },
+      b = { "<cmd>Telescope buffers<CR>", "Fuzzy find buffers" },
+      a = { "<cmd>Telescope autocommands<CR>", "Fuzzy find auto commands" },
+      l = { "<cmd>Telescope live_grep<CR>", "Fuzzy find words" },
+      m = { "<cmd>Telescope marks<CR>", "Fuzzy find marks" },
+      n = { "<cmd>Telescope notify<CR>", "Fuzzy find notifications" },
+      p = { "<cmd>Telescope projects<CR>", "Fuzzy find projects" },
+      s = { "<cmd>Telescope symbols<CR>", "Fuzzy find symbols" },
+      d = { "<cmd>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
+      v = { "<cmd>Telescope vim_options<CR>", "Fuzzy find vim options" },
+      M = { "<cmd>Telescope man_pages<CR>", "Fuzzy find man pages" },
+      k = { "<cmd>Telescope keymaps<CR>", "Fuzzy find keymaps" },
+      t = { "<cmd>Telescope treesitter<CR>", "Fuzzy find treesitter" },
+      r = { "<cmd>Telescope registers<CR>", "Fuzzy find registers" },
+      h = { "<cmd>Telescope help_tags<CR>", "Fuzzy find help tags" },
+      S = { "<cmd>Telescope search_history<CR>", "Fuzzy find search history" },
+      C = {
+        name = "Commands",
+        c = { "<cmd>Telescope commands<CR>", "Fuzzy find commands" },
+        h = { "<cmd>Telescope command_history<CR>", "Fuzzy find commands history" },
       },
       g = {
         name = "Git",
-        s = {
-          "<cmd>Telescope git_status<CR>",
-          "Git Status",
-        },
-        f = {
-          "<cmd>Telescope git_files<CR>",
-          "Git Files",
-        },
-        c = {
-          "<cmd>Telescope git_commits<CR>",
-          "Commits",
-        },
-        b = {
-          "<cmd>Telescope git_branches<CR>",
-          "Branches",
-        },
-        t = {
-          "<cmd>Telescope git_stash<CR>",
-          "Stash",
-        },
+        f = { "<cmd>Telescope git_files<CR>", "Git Files" },
+        c = { "<cmd>Telescope git_commits<CR>", "Git Commits" },
+        b = { "<cmd>Telescope git_branches<CR>", "Git Branches" },
+        B = { "<cmd>Telescope git_bcommits<CR>", "Git Branch Commits" },
+        s = { "<cmd>Telescope git_status<CR>", "Git Status" },
+        S = { "<cmd>Telescope git_stash<CR>", "Git Stash" },
+      },
+      q = {
+        name = "QuickFix",
+        q = { "<cmd>Telescope quickfix<CR>", "Fuzzy find quickfix" },
+        h = { "<cmd>Telescope quickfixhistory<CR>", "Fuzzy find quickfix history" },
       },
     },
 
@@ -167,7 +212,10 @@ M.config = function()
       name = "Debug",
       R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
       E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
-      C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+      C = {
+        "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>",
+        "Conditional Breakpoint",
+      },
       U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
       b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
       c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -208,30 +256,8 @@ M.config = function()
       },
       w = {
         name = "Workspace",
-        a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()", "Add workspace" },
-        r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()", "Remove workspace" },
-      },
-    },
-
-    b = {
-      name = "Buffers",
-      p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
-      c = {
-        name = "Close",
-        l = { "<cmd>BufferLineCloseLeft", "Close all buffers to the left" },
-        r = { "<cmd>BufferLineCloseRight", "Close all buffers to the right" },
-      },
-      m = {
-        name = "Move",
-        n = { "<cmd>BufferLineMoveNext", "Move buffer next" },
-        p = { "<cmd>BufferLineMovePrev", "Move buffer previous" },
-      },
-      s = {
-        name = "Sort",
-        d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
-        e = { "<cmd>BufferLineSortByExtension", "Sort by extension" },
-        r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
-        t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
+        a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace" },
+        r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace" },
       },
     },
   }
@@ -239,11 +265,18 @@ end
 
 M.setup = function()
   M.config()
-  local wk = require("which-key")
-  wk.setup(dvim.builtin.plugins.which_key.setup)
 
-  wk.register(dvim.builtin.plugins.which_key.mappings, dvim.builtin.plugins.which_key.opts)
-  wk.register(dvim.builtin.plugins.which_key.vmappings, dvim.builtin.plugins.which_key.vopts)
+  local which_key = require("which-key")
+  which_key.setup(dvim.builtin.plugins.which_key.setup)
+
+  local opts = dvim.builtin.plugins.which_key.opts
+  local vopts = dvim.builtin.plugins.which_key.vopts
+
+  local mappings = dvim.builtin.plugins.which_key.mappings
+  local vmappings = dvim.builtin.plugins.which_key.vmappings
+
+  which_key.register(mappings, opts)
+  which_key.register(vmappings, vopts)
 end
 
 return M

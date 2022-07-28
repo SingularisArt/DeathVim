@@ -1,8 +1,6 @@
 local M = {}
 
 M.config = function()
-  -- Define this minimal config so that it's available if telescope is not yet available.
-
   dvim.builtin.plugins.telescope = {
     ---@usage disable telescope completely [not recommended]
     active = true,
@@ -91,57 +89,6 @@ end
 M.setup = function()
   M.config()
 
-  local previewers = require("telescope.previewers")
-  local sorters = require("telescope.sorters")
-
-  dvim.builtin.plugins.telescope = vim.tbl_extend("keep", {
-    file_previewer = previewers.vim_buffer_cat.new,
-    grep_previewer = previewers.vim_buffer_vimgrep.new,
-    qflist_previewer = previewers.vim_buffer_qflist.new,
-    file_sorter = sorters.get_fuzzy_file,
-    generic_sorter = sorters.get_generic_fuzzy_sorter,
-    ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
-    mappings = {
-      f = {
-        name = "Telescope",
-        f = {
-          name = "Find",
-          f = {
-            "<cmd>Telescope find_files<CR>",
-            "Fuzzy Find Files",
-          },
-          b = {
-            '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>',
-            "Browser Find Files",
-          },
-        },
-        g = {
-          name = "Git",
-          s = {
-            "<cmd>Telescope git_status<CR>",
-            "Git Status",
-          },
-          f = {
-            "<cmd>Telescope git_files<CR>",
-            "Git Files",
-          },
-          c = {
-            "<cmd>Telescope git_commits<CR>",
-            "Commits",
-          },
-          b = {
-            "<cmd>Telescope git_branches<CR>",
-            "Branches",
-          },
-          t = {
-            "<cmd>Telescope git_stash<CR>",
-            "Stash",
-          },
-        },
-      },
-    },
-  }, dvim.builtin.plugins.telescope)
-
   local telescope = require("telescope")
   telescope.setup(dvim.builtin.plugins.telescope)
 
@@ -151,7 +98,7 @@ M.setup = function()
     end)
   end
 
-  if dvim.builtin.plugins.notify.active then
+  if dvim.builtin.plugins.notify.active and dvim.builtin.plugins.telescope.extensions.notify then
     pcall(function()
       require("telescope").load_extension("notify")
     end)
@@ -161,7 +108,13 @@ M.setup = function()
     dvim.builtin.plugins.telescope.on_config_done(telescope)
   end
 
-  if dvim.builtin.plugins.telescope.extensions and dvim.builtin.plugins.telescope.extensions.fzf then
+  if dvim.builtin.plugins.telescope.extensions.active and dvim.builtin.plugins.telescope.extensions.file_browser then
+    pcall(function()
+      require("telescope").load_extension("file_browser")
+    end)
+  end
+
+  if dvim.builtin.plugins.telescope.extensions.active and dvim.builtin.plugins.telescope.extensions.fzf then
     pcall(function()
       require("telescope").load_extension("fzf")
     end)
