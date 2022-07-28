@@ -33,13 +33,22 @@ M.setup = function(ensure_installed, servers)
 
   local opts = {}
 
-  for server, _ in pairs(servers) do
-    opts = {
-      on_attach = require("dvim.lsp.handlers").on_attach,
-      capabilities = require("dvim.lsp.handlers").capabilities,
-    }
+  opts = {
+    on_attach = require("dvim.lsp.handlers").on_attach,
+    capabilities = require("dvim.lsp.handlers").capabilities,
+  }
 
-    server = vim.split(server, "@")[1]
+  for server, _ in pairs(servers) do
+    if server == "sumneko_lua" then
+      opts.settings = {
+        Lua = {
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { "vim", "dvim", "use" },
+          },
+        },
+      }
+    end
 
     lspconfig[server].setup(opts)
   end

@@ -81,9 +81,10 @@ return packer.startup(function(use)
 
   -- Pretty folds
   use({ "anuvyklack/nvim-keymap-amend" })
+  use({ "anuvyklack/keymap-amend.nvim" })
+  use({ "anuvyklack/fold-preview.nvim" })
   use({
-    "anuvyklack/fold-preview.nvim",
-    requires = "anuvyklack/keymap-amend.nvim",
+    "anuvyklack/pretty-fold.nvim",
     config = function()
       require("dvim.core.plugins.folds").setup()
     end,
@@ -104,6 +105,7 @@ return packer.startup(function(use)
   use({ "williamboman/nvim-lsp-installer" })
   use({ "jose-elias-alvarez/null-ls.nvim" })
   use({ "onsails/lspkind-nvim" })
+  use({ "SmiteshP/nvim-navic" })
   use({
     "RRethy/vim-illuminate",
     config = function()
