@@ -5,7 +5,7 @@ end
 
 M.setup = function()
   require('pretty-fold').setup()
-  require('pretty-fold.preview').setup()
+  require('fold-preview').setup()
 end
 
 return M

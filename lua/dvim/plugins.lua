@@ -82,10 +82,12 @@ return packer.startup(function(use)
   -- Pretty folds
   use({ "anuvyklack/nvim-keymap-amend" })
   use({
-    "anuvyklack/pretty-fold.nvim",
+    "anuvyklack/fold-preview.nvim",
+    requires = "anuvyklack/keymap-amend.nvim",
     config = function()
       require("dvim.core.plugins.folds").setup()
     end,
+    disable = not dvim.builtin.plugins.folds.active,
   })
 
   -- Indent Blankline
@@ -131,6 +133,7 @@ return packer.startup(function(use)
   })
   use({ "williamboman/mason.nvim" })
   use({ "williamboman/mason-lspconfig.nvim" })
+  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
 
   -- Log files
   use({
