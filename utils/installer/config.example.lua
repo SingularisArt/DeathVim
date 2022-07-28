@@ -92,6 +92,7 @@ dvim.builtin.plugins = {
 	bufferline = { active = true },
 	notify = { active = true },
 	treesitter = { active = true },
+	folds = { active = true },
 }
 
 -------------------------
