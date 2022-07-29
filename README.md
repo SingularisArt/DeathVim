@@ -397,7 +397,7 @@ Here's a template for the `config.lua` file.
 ------------------------------------------------------------------------
 
 dvim.colorscheme = "rose-pine"
-dvim.format_on_save = true
+dvim.format_on_save = false
 
 ------------------------------------------------------------------------
 --                                Logging                             --
@@ -410,47 +410,6 @@ dvim.log.level = "trace"
 dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 ------------------------------------------------------------------------
---                         TODO: Keymappings                          --
-------------------------------------------------------------------------
-
--------------
---  Setup  --
--------------
-
-dvim.leader = " "
-
------------------------
---  Add Keymappings  --
------------------------
-
-dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-dvim.keys.normal_mode["<C-f>"] =
-	":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
-dvim.keys.insert_mode["<C-f>"] =
-	"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>"
-
---------------------------
---  Which Key Bindings  --
---------------------------
-
-dvim.builtin.plugins.which_key.mappings["r"] = {
-	name = "+Trouble",
-	r = { "<cmd>Trouble lsp_references<cr>", "References" },
-	f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-	d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-	q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-	l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-	w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
-}
-
---------------------------
---  Remove Keymappings  --
---------------------------
-
--- Ctrl+a highlights everything
-dvim.keys.normal_mode["<C-a>"] = ""
-
-------------------------------------------------------------------------
 --                              Builtin                               --
 ------------------------------------------------------------------------
 
@@ -461,26 +420,29 @@ dvim.keys.normal_mode["<C-a>"] = ""
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
 dvim.builtin.plugins = {
-	alpha = { active = true, mode = "dashboard" },
-	indent_blankline = { active = true },
-	symbols_outline = { active = true },
-	which_key = { active = true },
-	gitsigns = { active = true },
-	comment = { active = true },
-	surround = { active = true },
-	todo_comments = { active = true },
-	terminal = { active = true },
-	dap = { active = true },
-	ultisnips = { active = true },
-	telescope = { active = true },
-	project = { active = true },
-	copilot = { active = true },
-	cmp = { active = true },
-	autopairs = { active = true },
-	nvimtree = { active = true },
-	lualine = { active = true },
-	staline = { active = true },
-	bufferline = { active = true },
+  alpha = { active = true, mode = "dashboard" },
+  indent_blankline = { active = true },
+  symbols_outline = { active = true },
+  which_key = { active = true },
+  gitsigns = { active = true },
+  comment = { active = true },
+  surround = { active = true },
+  todo_comments = { active = true },
+  terminal = { active = true },
+  dap = { active = true },
+  ultisnips = { active = true },
+  telescope = { active = true },
+  project = { active = true },
+  copilot = { active = true },
+  cmp = { active = true },
+  autopairs = { active = true },
+  nvimtree = { active = true },
+  lualine = { active = true },
+  staline = { active = true },
+  bufferline = { active = true },
+  notify = { active = true },
+  treesitter = { active = true },
+  folds = { active = true },
 }
 
 -------------------------
@@ -498,35 +460,34 @@ dvim.builtin.plugins = {
 -- can just disable the filetype.
 -- After modifying this list, exit and reopen DeathVim, then run :PackerSync.
 dvim.builtin.filetypes = {
-	lua = { active = true },
-	vim = { active = true },
-	python = { active = true },
-	cpp = { active = true },
-	cmake = { active = true },
-	c = { active = true },
-	c_sharp = { active = true },
-	sql = { active = true },
-	html = { active = true },
-	css = { active = true },
-	javascript = { active = true },
-	typescript = { active = true },
-	php = { active = true },
-	ruby = { active = true },
-	perl = { active = true },
-	java = { active = true },
-	rust = { active = true },
-	solidity = { active = true },
-	go = { active = true },
-	bash = { active = true },
-	log = { active = true },
-	tex = { active = true },
-	markdown = { active = true },
-	yaml = { active = true },
-	json = { active = true },
-	toml = { active = true },
-	tmux = { active = true },
+  lua = { active = true },
+  vim = { active = true },
+  python = { active = true },
+  cpp = { active = true },
+  cmake = { active = true },
+  c = { active = true },
+  c_sharp = { active = true },
+  sql = { active = true },
+  html = { active = true },
+  css = { active = true },
+  javascript = { active = true },
+  typescript = { active = true },
+  php = { active = true },
+  ruby = { active = true },
+  perl = { active = true },
+  java = { active = true },
+  rust = { active = true },
+  solidity = { active = true },
+  go = { active = true },
+  bash = { active = true },
+  log = { active = true },
+  latex = { active = true },
+  markdown = { active = true },
+  yaml = { active = true },
+  json = { active = true },
+  toml = { active = true },
+  tmux = { active = true },
 }
-
 -----------------------
 --  Builtin Actions  --
 -----------------------
@@ -537,6 +498,52 @@ dvim.builtin.actions = {
   programming = { active = true },
   presentation = { active = true },
   documentation = { active = true },
+}
+------------------------------------------------------------------------
+--                            Keymappings                             --
+------------------------------------------------------------------------
+
+-------------
+--  Setup  --
+-------------
+
+dvim.leader = " "
+
+-----------------------
+--  Add Keymappings  --
+-----------------------
+
+dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+dvim.keys.normal_mode["<C-f>"] =
+":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
+dvim.keys.insert_mode["<C-f>"] =
+"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>"
+
+--------------------------
+--  Remove Keymappings  --
+--------------------------
+
+-- Ctrl+a highlights everything
+dvim.keys.normal_mode["<C-a>"] = ""
+
+--------------------------
+--  Which Key Bindings  --
+--------------------------
+
+-- Ignore this. If you remove this, then a whole ton of shit starts to happen
+-- and this is the easiest way to fix it.
+dvim.builtin.plugins.which_key.user_vmappings = {}
+dvim.builtin.plugins.which_key.user_mappings = {}
+
+dvim.builtin.plugins.which_key.user_vmappings = {}
+dvim.builtin.plugins.which_key.user_mappings["r"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
 
 ------------------------------------------------------------------------
@@ -552,61 +559,72 @@ dvim.statusline = "staline"
 -- Possible values: "evil", "normal" "pebble" "simple" "simpler"
 dvim.builtin.plugins.staline.mode = "simple"
 
+-----------------
+--  Telescope  --
+-----------------
+
+dvim.builtin.plugins.telescope.active = true
+dvim.builtin.plugins.telescope.extensions = {
+  fzf = true,
+  file_browser = true,
+  notify = true,
+}
+
 -------------------
 --  Tree Sitter  --
 -------------------
 
 dvim.builtin.plugins.treesitter = {
-	-- Install TreeSitter parsers automatically
-	sync_install = { enabled = true },
-	-- Parsers that are going to be installed by default
-	ensure_installed = {
-		"lua",
-		"vim",
-		"python",
-		"cpp",
-		"cmake",
-		"c",
-		"c_sharp",
-		-- "sql",
-		"html",
-		"css",
-		"javascript",
-		"typescript",
-		"php",
-		"ruby",
-		"perl",
-		"java",
-		"rust",
-		"solidity",
-		"go",
-		"bash",
-		"yaml",
-		"json",
-		"toml",
-	},
-	-- Language servers to not install
-	ignore_install = {
-		"latex",
-		"markdown",
-	},
-	-- Enable indenting automatically
-	indent = {
-		enabled = true,
-		disable = {},
-	},
-	autotag = { enabled = true },
-	highlight = {
-		-- Enable highlighting automatically
-		enabled = true,
-		-- Parsers to not highlight
-		-- NOTE: This is not the filetype, but the parser name. For example, if you
-		-- want to disable the filetype tex, just type latex.
-		disable = {
-			"latex",
-			"markdown",
-		},
-	},
+  -- Install TreeSitter parsers automatically
+  sync_install = { enabled = true },
+  -- Parsers that are going to be installed by default
+  ensure_installed = {
+    "lua",
+    "vim",
+    "python",
+    "cpp",
+    "cmake",
+    "c",
+    "c_sharp",
+    -- "sql",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "php",
+    "ruby",
+    "perl",
+    "java",
+    "rust",
+    "solidity",
+    "go",
+    "bash",
+    "yaml",
+    "json",
+    "toml",
+  },
+  -- Language servers to not install
+  ignore_install = {
+    "latex",
+    "markdown",
+  },
+  -- Enable indenting automatically
+  indent = {
+    enabled = true,
+    disable = {},
+  },
+  autotag = { enabled = true },
+  highlight = {
+    -- Enable highlighting automatically
+    enabled = true,
+    -- Parsers to not highlight
+    -- NOTE: This is not the filetype, but the parser name. For example, if you
+    -- want to disable the filetype tex, just type latex.
+    disable = {
+      "latex",
+      "markdown",
+    },
+  },
 }
 
 -----------------
@@ -615,16 +633,16 @@ dvim.builtin.plugins.treesitter = {
 
 dvim.builtin.plugins.which_key.marks = true
 dvim.builtin.plugins.which_key.presets = {
-	operators = false,
-	motions = false,
-	text_objects = false,
-	nav = false,
-	z = false,
-	g = false,
+  operators = true,
+  motions = true,
+  text_objects = true,
+  nav = true,
+  z = true,
+  g = true,
 }
 dvim.builtin.plugins.which_key.spelling = {
-	enabled = false, -- For some reason, this breaks which key
-	suggestions = 20,
+  enabled = true,
+  suggestions = 20,
 }
 
 -----------------
@@ -646,26 +664,26 @@ dvim.builtin.plugins.gitsigns.line_blame = true
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
 dvim.lsp.language_servers = {
-	{ server = "sumneko_lua", filetype = "lua" },
-	{ server = "vimls", filetype = "vim" },
-	{ server = "texlab", filetype = "latex" },
-	{ server = "pylsp", filetype = "python" },
-	{ server = "bashls", filetype = "bash" },
-	{ server = "clangd", filetype = "cpp" },
-	{ server = "cmake", filetype = "cmake" },
-	{ server = "html", filetype = "html" },
-	{ server = "emmet_ls", filetype = "html" },
-	{ server = "cssls", filetype = "css" },
-	{ server = "tailwindcss", filetype = "css" },
-	{ server = "jsonls", filetype = "json" },
-	{ server = "rust_analyzer", filetype = "rust" },
-	{ server = "solang", filetype = "solidity" },
-	{ server = "solc", filetype = "solidity" },
-	{ server = "marksman", filetype = "markdown" },
-	{ server = "golangci_lint_ls", filetype = "go" },
-	{ server = "tsserver", filetype = "javascript" },
-	{ server = "jdtls", filetype = "java" },
-	{ server = "yamlls", filetype = "yaml" },
+  { server = "sumneko_lua", filetype = "lua" },
+  { server = "vimls", filetype = "vim" },
+  { server = "texlab", filetype = "latex" },
+  { server = "pylsp", filetype = "python" },
+  { server = "bashls", filetype = "bash" },
+  { server = "clangd", filetype = "cpp" },
+  { server = "cmake", filetype = "cmake" },
+  { server = "html", filetype = "html" },
+  { server = "emmet_ls", filetype = "html" },
+  { server = "cssls", filetype = "css" },
+  { server = "tailwindcss", filetype = "css" },
+  { server = "jsonls", filetype = "json" },
+  { server = "rust_analyzer", filetype = "rust" },
+  { server = "solang", filetype = "solidity" },
+  { server = "solc", filetype = "solidity" },
+  { server = "marksman", filetype = "markdown" },
+  { server = "golangci_lint_ls", filetype = "go" },
+  { server = "tsserver", filetype = "javascript" },
+  { server = "jdtls", filetype = "java" },
+  { server = "yamlls", filetype = "yaml" },
 }
 
 -- If you don't have a server installed for a filetype, DeathVim will try to
@@ -681,49 +699,49 @@ dvim.lsp.automatic_servers_installation = true
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
 dvim.lsp.formatters = {
-	{
-		formatter = "black",
-		extra_args = { "--fast" },
-		filetype = "python",
-	},
-	{
-		formatter = "clang_format",
-		filetype = "cpp",
-	},
-	{
-		formatter = "latexindent",
-		filetype = "latex",
-	},
-	{
-		formatter = "prettier",
-		extra_args = { "--single-quote", "--jsx-single-quote" },
-		filetype = "javascript",
-	},
-	{
-		formatter = "rustfmt",
-		filetype = "rust",
-	},
-	{
-		formatter = "sql_formatter",
-		filetype = "sql",
-	},
-	{
-		formatter = "standardrb",
-		extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-		filetype = "ruby",
-	},
-	{
-		formatter = "stylua",
-		filetype = "lua",
-	},
-	{
-		formatter = "google_java_format",
-		filetype = "java",
-	},
-	{
-		formatter = "shellharden",
-		filetype = "bash",
-	},
+  {
+    formatter = "black",
+    extra_args = { "--fast" },
+    filetype = "python",
+  },
+  {
+    formatter = "clang_format",
+    filetype = "cpp",
+  },
+  {
+    formatter = "latexindent",
+    filetype = "latex",
+  },
+  {
+    formatter = "prettier",
+    extra_args = { "--single-quote", "--jsx-single-quote" },
+    filetype = "javascript",
+  },
+  {
+    formatter = "rustfmt",
+    filetype = "rust",
+  },
+  {
+    formatter = "sql_formatter",
+    filetype = "sql",
+  },
+  {
+    formatter = "standardrb",
+    extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+    filetype = "ruby",
+  },
+  {
+    formatter = "stylua",
+    filetype = "lua",
+  },
+  {
+    formatter = "google_java_format",
+    filetype = "java",
+  },
+  {
+    formatter = "shellharden",
+    filetype = "bash",
+  },
 }
 
 -- TODO:
@@ -740,22 +758,22 @@ dvim.lsp.automatic_formatters_installation = true
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
 dvim.lsp.diagnostics = {
-	{
-		diagnostic = "flake8",
-		filetype = "python",
-	},
-	{
-		diagnostic = "cppcheck",
-		filetype = "cpp",
-	},
-	{
-		diagnostic = "write_good",
-		filetype = "latex",
-	},
-	{
-		diagnostic = "write_good",
-		filetype = "markdown",
-	},
+  {
+    diagnostic = "flake8",
+    filetype = "python",
+  },
+  {
+    diagnostic = "cppcheck",
+    filetype = "cpp",
+  },
+  {
+    diagnostic = "write_good",
+    filetype = "latex",
+  },
+  {
+    diagnostic = "write_good",
+    filetype = "markdown",
+  },
 }
 
 -- TODO:
@@ -769,7 +787,7 @@ dvim.lsp.automatic_diagnostics_installation = true
 -----------
 
 dvim.lsp.hovers = {
-	{ hover = "dictionary" },
+  { hover = "dictionary" },
 }
 
 -----------------
@@ -777,8 +795,8 @@ dvim.lsp.hovers = {
 -----------------
 
 dvim.lsp.code_actions = {
-	{ code_action = "gitsigns" },
-	{ code_action = "gitrebase" },
+  { code_action = "gitsigns" },
+  { code_action = "gitrebase" },
 }
 
 ----------------
@@ -786,7 +804,22 @@ dvim.lsp.code_actions = {
 ----------------
 
 dvim.lsp.completions = {
-	{ completion = "spell" },
+  { completion = "spell" },
+}
+
+------------------------------------------------------------------------
+--                    Individual Filetype Settings                    --
+------------------------------------------------------------------------
+
+-- Here is where you put each speific settings for each filetype.
+
+dvim.builtin.filetypes.latex.settings = {
+  filetype = "tex",
+  wrap = true,
+}
+dvim.builtin.filetypes.markdown.settings = {
+  filetype = "md",
+  wrap = true,
 }
 
 ------------------------------------------------------------------------
@@ -795,46 +828,32 @@ dvim.lsp.completions = {
 
 -- Add any additional plugins you may want
 dvim.plugins = {
-	"folke/trouble.nvim",
+  "folke/trouble.nvim",
+  "tjdevries/express_line.nvim",
 }
 
 ------------------------------------------------------------------------
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.json", "*.jsonc" },
-	-- enable wrap mode for json files only
-	command = "setlocal wrap",
-})
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "zsh",
-	callback = function()
-		-- let treesitter use bash highlight for zsh files as well
-		require("nvim-treesitter.highlight").attach(0, "bash")
-	end,
+  pattern = "zsh",
+  callback = function()
+    -- let treesitter use bash highlight for zsh files as well
+    require("nvim-treesitter.highlight").attach(0, "bash")
+  end,
 })
 
 ------------------------------------------------------------------------
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
 
-Vim.vim_commands = {
-	{ command = "set rtp+=~/Documents/school-notes/current-course" },
+dvim.vim_commands = {
+  { command = "set rtp+=~/Documents/school-notes/current-course" },
 }
 ```
 
 ## General
-
-In this section, you have 2 variables.
-
-- dvim.colorscheme
-- dvim.format_on_save
-
-The first one changes the colorscheme and the second one, if set to `true`,
-will format the file after you save it. For the first variable, you can view
-all the supported colorschemes [here](#colorschemes).
 
 ## Logging
 
@@ -852,111 +871,9 @@ all the supported colorschemes [here](#colorschemes).
 
 ### Builtin Plugins
 
-DeathVim comes with dozens of already configured plugins for you, and if you
-aren't happy with its configuration, please view [here](#config-file) to see
-how to change that. Here's the list of all the builtin plugin configurations:
-
-- [Alpha](https://github.com/goolord/alpha-nvim)
-- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [Symbols Outline](https://github.com/simrat39/symbols-outline.nvim)
-- [Which Key](https://github.com/folke/which-key.nvim)
-- [Gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-- [Comment](https://github.com/numToStr/Comment.nvim)
-- [Surround](https://github.com/Mephistophiles/surround.nvim)
-- [Todo Comments](https://github.com/folke/todo-comments.nvim)
-- [Terminal](https://github.com/akinsho/toggleterm.nvim)
-- [Dap](https://github.com/mfussenegger/nvim-dap)
-- [Ultisnips](https://github.com/SirVer/UltiSnips)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-- [Project](https://github.com/ahmedkhalf/project.nvim)
-- [Copilot](https://github.com/github/copilot.vim)
-- [Cmp](https://github.com/hrsh7th/nvim-cmp)
-- [Autopairs](https://github.com/windwp/nvim-autopairs)
-- [Nvimtree](https://github.com/kyazdani42/nvim-tree.lua)
-- [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-- [Staline](https://github.com/tamton-aquib/staline.nvim)
-- [Bufferline](https://github.com/akinsho/bufferline.nvim)
-
-Let's say you would like to disable the `alpha` builtin plugin. To do this,
-change the line
-
-```lua
-alpha = { active = true, mode = "dashboard" },
-```
-
-To
-
-```lua
-alpha = { active = false, mode = "dashboard" },
-```
-
-Then, reopen DeathVim and run `:PackerSync`, `:PackerCompile`.
-
 ### Builtin Filetypes
 
-This is a bit more complicated than the builtin plugins. The builtin filetypes
-affect dozens of other things throughout the configuration. If you disable a
-filetype, all the filetypes:
-
-- Plugins
-- Tree Sitter Parsers
-- Keymappings
-- Language Servers
-- Formatters
-- Diagnostics
-- Specific settings
-
-Will all be disabled.
-
-Let’s say you would like to disable the `tex` builtin filetype. To do this,
-change the line
-
-```lua
-tex = { active = true },
-```
-
-To
-
-```lua
-tex = { active = false },
-```
-
-Then, reopen DeathVim and run `:PackerSync`, `:PackerCompile`.
-
-I'm going to add a section in the `config.lua` file a place for you to modify
-each filetype's individual settings.
-
 ### Builtin Actions
-
-I use NeoVim for everything.
-
-- Writing books/poems
-- Taking notes in LaTeX and Markdown
-- Programming
-- Creating presentations
-- Documentation
-
-That's one big difference from this setup to others. It comes with
-configurations for not just programming, but for all the stuff above
-(Eventually, there'll be way more).
-
-Each action comes with its own configuration, plugins, and filetypes.
-For now, you can't modify any of it, but you will eventually be able to.
-
-Let’s say you would like to disable the `note_taking` builtin action. To do
-this, change the line
-
-```lua
-note_taking = { active = true },
-```
-
-To
-
-```lua
-note_taking = { active = false },
-```
-
-Then, reopen DeathVim and run `:PackerSync`, `:PackerCompile`.
 
 ## Modifying Plugins
 
@@ -1016,14 +933,12 @@ Huge shoutout to the follwing people and organizations:
 - [x] Add **features** to **README.md**.
 - [x] Add TabNine.
 - [x] Add GitHub copilot.
+- [x] Patch up the installation script.
 
 ## Working on
 
-- [ ] Patch up the installation script.
+- [ ] Work on the documentation.
 - [ ] Get more screenshots.
-
-## Need to do
-
 - [ ] Configure the following plugins:
   - [undotree](https://github.com/mbbill/undotree)
   - [nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
@@ -1038,5 +953,6 @@ Huge shoutout to the follwing people and organizations:
   - [LanguageTool.nvim](https://github.com/vigoux/LanguageTool.nvim)
   - [vim-pencil](https://github.com/preservim/vim-pencil)
   - [HighStr.nvim](https://github.com/Pocco81/HighStr.nvim)
-  - [lookatme](https://github.com/d0c-s4vage/lookatme) NOTE: This isn't a
-    plugin, it's something that I want to incorperate into DeathVim.
+  - [lookatme](https://github.com/d0c-s4vage/lookatme) NOTE: This isn't a plugin, it's something that I want to incorperate into DeathVim.
+
+## Need to do
