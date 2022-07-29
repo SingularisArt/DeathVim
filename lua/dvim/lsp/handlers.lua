@@ -170,20 +170,14 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
-  end
+  local illuminate = require_clean("illuminate")
   illuminate.on_attach(client)
   -- end
 end
 
 local function attach_navic(client, bufnr)
   vim.g.navic_silence = true
-  local status_ok, navic = pcall(require, "nvim-navic")
-  if not status_ok then
-    return
-  end
+  local navic = require_clean("nvim-navic")
   navic.attach(client, bufnr)
 end
 

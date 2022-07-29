@@ -24,7 +24,10 @@ end
 function _G.require_clean(module)
   package.loaded[module] = nil
   _G[module] = nil
-  local _, requested = pcall(require, module)
+  local status, requested = pcall(require, module)
+  if not status then
+    return
+  end
   return requested
 end
 

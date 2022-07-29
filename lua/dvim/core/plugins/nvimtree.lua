@@ -162,7 +162,7 @@ end
 M.setup = function()
   M.config()
 
-  local _, nvim_tree = pcall(require, "nvim-tree")
+  local nvim_tree = require_clean("nvim-tree")
 
   dvim.builtin.plugins.nvimtree._setup_called = true
 

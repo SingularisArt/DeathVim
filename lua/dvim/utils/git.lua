@@ -3,10 +3,7 @@ local M = {}
 local if_nil = vim.F.if_nil
 
 local function git_cmd(opts)
-  local plenary_loaded, Job = pcall(require, "plenary.job")
-  if not plenary_loaded then
-    return 1, { "" }
-  end
+  local Job = require_clean("plenary.job")
 
   opts = opts or {}
   opts.cwd = opts.cwd or get_dvim_base_dir()

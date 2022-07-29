@@ -9,7 +9,7 @@ M.load_default_filetype_settings = function()
             pattern = "*",
             callback = function()
               if vim.bo.filetype == filetype then
-                pcall(require, "dvim.core.filetypes." .. filetype)
+                require_clean("dvim.core.filetypes." .. filetype)
               end
             end,
           })
@@ -20,14 +20,12 @@ M.load_default_filetype_settings = function()
 end
 
 M.load_user_filetype_settings = function()
-  for filetype, table in pairs(dvim.builtin.filetypes) do
+  -- local filetype
+  for _, table in pairs(dvim.builtin.filetypes) do
+    local filetype = table.filetype
     for key, value in pairs(table) do
       if key == "settings" then
         for option, set_to in pairs(value) do
-          if option == "filetype" then
-            filetype = set_to
-          end
-
           local group = vim.api.nvim_create_augroup(filetype, { clear = true })
           vim.api.nvim_create_autocmd("BufEnter", {
             pattern = "*." .. filetype,
@@ -40,4 +38,5 @@ M.load_user_filetype_settings = function()
   end
 end
 
+M.load_user_filetype_settings()
 return M

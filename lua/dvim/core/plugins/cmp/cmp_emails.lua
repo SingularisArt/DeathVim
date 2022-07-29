@@ -8,11 +8,9 @@ handles.setup = function()
   end
   registered = true
 
-  local M = require('dvim.utils.functions')
+  local cmp = require("cmp")
 
-  local cmp = M.safe_require('cmp')
-
-  local config = vim.fn.expand('~/.github-handles.json')
+  local config = vim.fn.expand("~/.github-handles.json")
   if vim.fn.filereadable(config) == 0 then
     return
   end
@@ -25,7 +23,7 @@ handles.setup = function()
   end
 
   source.get_trigger_characters = function()
-    return { '@' }
+    return { "@" }
   end
 
   source.get_keyword_pattern = function()
@@ -37,11 +35,11 @@ handles.setup = function()
     local input = string.sub(request.context.cursor_before_line, request.offset - 1)
     local prefix = string.sub(request.context.cursor_before_line, 1, request.offset - 1)
 
-    if vim.startswith(input, '@') and (prefix == '@' or vim.endswith(prefix, ' @')) then
+    if vim.startswith(input, "@") and (prefix == "@" or vim.endswith(prefix, " @")) then
       local items = {}
       for handle, address in pairs(addresses) do
         table.insert(items, {
-          filterText = handle .. ' ' .. address,
+          filterText = handle .. " " .. address,
           label = address,
           textEdit = {
             newText = address,
@@ -50,27 +48,26 @@ handles.setup = function()
                 line = request.context.cursor.row - 1,
                 character = request.context.cursor.col - 1 - #input,
               },
-              ['end'] = {
+              ["end"] = {
                 line = request.context.cursor.row - 1,
                 character = request.context.cursor.col - 1,
               },
             },
           },
-        }
-        )
+        })
       end
-      callback {
+      callback({
         items = items,
         isIncomplete = true,
-      }
+      })
     else
       callback({ isIncomplete = true })
     end
   end
 
-  cmp.register_source('handles', source.new())
+  cmp.register_source("handles", source.new())
 
-  local filetypes = { 'gitcommit', 'mail' }
+  local filetypes = { "gitcommit", "mail" }
   cmp.setup.filetype(filetypes, {
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
@@ -83,7 +80,7 @@ handles.setup = function()
       { name = "gh_issues" },
 
       -- My custom sources.
-      { name = 'handles' }, -- GitHub handles; eg. @hashem → Hashem A. Damrah <singularis@github.com>
+      { name = "handles" }, -- GitHub handles; eg. @hashem → Hashem A. Damrah <singularis@github.com>
     }),
   })
 end

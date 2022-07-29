@@ -19,10 +19,7 @@ if fn.empty(fn.glob(packer_install_dir)) > 0 then
 end
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local packer = require_clean("packer")
 
 -- Have packer use a popup window
 packer.init({
@@ -131,9 +128,21 @@ return packer.startup(function(use)
     "lvimuser/lsp-inlayhints.nvim",
     branch = "readme",
   })
-  use({ "williamboman/mason.nvim" })
-  use({ "williamboman/mason-lspconfig.nvim" })
-  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
+  use({
+    "williamboman/mason.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "williamboman/mason-lspconfig.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("dvim.lsp.lines").setup()
+    end,
+    disable = not dvim.lsp.active and not dvim.lsp.lsp_lines,
+  })
 
   -- Log files
   use({

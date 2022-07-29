@@ -265,6 +265,18 @@ dvim.builtin.plugins.gitsigns.line_blame = true
 --                                LSP                                 --
 ------------------------------------------------------------------------
 
+-------------
+-- General --
+-------------
+
+dvim.lsp.active = true
+
+-----------------
+--  Lsp Lines  --
+-----------------
+
+dvim.lsp.lsp_lines = false
+
 ------------------------
 --  Language Servers  --
 ------------------------
@@ -353,7 +365,6 @@ dvim.lsp.formatters = {
   },
 }
 
--- TODO:
 -- If you don't have a formatter installed for a filetype, DeathVim will try to
 -- install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
@@ -422,12 +433,13 @@ dvim.lsp.completions = {
 
 -- Here is where you put each speific settings for each filetype.
 
+dvim.builtin.filetypes.latex.filetype = "tex"
 dvim.builtin.filetypes.latex.settings = {
-  filetype = "tex",
   wrap = true,
 }
+
+dvim.builtin.filetypes.markdown.filetype = "md"
 dvim.builtin.filetypes.markdown.settings = {
-  filetype = "md",
   wrap = true,
 }
 

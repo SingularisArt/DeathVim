@@ -1,6 +1,4 @@
-local M = require('dvim.utils.functions')
-
-local Job = M.safe_require('plenary.job')
+local Job = require_clean("plenary.job")
 
 local source = {}
 
@@ -68,4 +66,4 @@ source.is_available = function()
   return vim.bo.filetype == "gitcommit"
 end
 
-M.safe_require('cmp').register_source('gh_issues', source.new())
+require('cmp').register_source('gh_issues', source.new())

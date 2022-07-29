@@ -88,10 +88,7 @@ M.add_exec = function(opts)
     term_mode = { [opts.keymap] = exec_func },
   }
 
-  local wk_status_ok, wk = pcall(require, "which-key")
-  if not wk_status_ok then
-    return
-  end
+  local wk = require_clean("which-key")
   wk.register({ [opts.keymap] = { opts.label } }, { mode = "n" })
 end
 

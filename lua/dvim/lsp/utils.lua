@@ -53,10 +53,7 @@ end
 ---@param server_name string can be any server supported by nvim-lsp-installer
 ---@return table supported filestypes as a list of strings
 function M.get_supported_filetypes(server_name)
-  local status_ok, lsp_installer_servers = pcall(require, "nvim-lsp-installer.servers")
-  if not status_ok then
-    return {}
-  end
+  local lsp_installer_servers = require_clean("nvim-lsp-installer.servers")
 
   local server_available, requested_server = lsp_installer_servers.get_server(server_name)
   if not server_available then
@@ -77,10 +74,7 @@ end
 ---Get all supported filetypes by nvim-lsp-installer
 ---@return table supported filestypes as a list of strings
 function M.get_all_supported_filetypes()
-  local status_ok, lsp_installer_filetypes = pcall(require, "nvim-lsp-installer._generated.filetype_map")
-  if not status_ok then
-    return {}
-  end
+  local lsp_installer_filetypes = require_clean("nvim-lsp-installer._generated.filetype_map")
   return vim.tbl_keys(lsp_installer_filetypes or {})
 end
 
