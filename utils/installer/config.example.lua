@@ -19,47 +19,6 @@ dvim.log.level = "trace"
 dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 ------------------------------------------------------------------------
---                         TODO: Keymappings                          --
-------------------------------------------------------------------------
-
--------------
---  Setup  --
--------------
-
-dvim.leader = " "
-
------------------------
---  Add Keymappings  --
------------------------
-
-dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-dvim.keys.normal_mode["<C-f>"] =
-":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
-dvim.keys.insert_mode["<C-f>"] =
-"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>"
-
---------------------------
---  Which Key Bindings  --
---------------------------
-
-dvim.builtin.plugins.which_key.mappings["r"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
-}
-
---------------------------
---  Remove Keymappings  --
---------------------------
-
--- Ctrl+a highlights everything
-dvim.keys.normal_mode["<C-a>"] = ""
-
-------------------------------------------------------------------------
 --                              Builtin                               --
 ------------------------------------------------------------------------
 
@@ -148,6 +107,52 @@ dvim.builtin.actions = {
   programming = { active = true },
   presentation = { active = true },
   documentation = { active = true },
+}
+------------------------------------------------------------------------
+--                            Keymappings                             --
+------------------------------------------------------------------------
+
+-------------
+--  Setup  --
+-------------
+
+dvim.leader = " "
+
+-----------------------
+--  Add Keymappings  --
+-----------------------
+
+dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+dvim.keys.normal_mode["<C-f>"] =
+":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
+dvim.keys.insert_mode["<C-f>"] =
+"<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR>"
+
+--------------------------
+--  Remove Keymappings  --
+--------------------------
+
+-- Ctrl+a highlights everything
+dvim.keys.normal_mode["<C-a>"] = ""
+
+--------------------------
+--  Which Key Bindings  --
+--------------------------
+
+-- Ignore this. If you remove this, then a whole ton of shit starts to happen
+-- and this is the easiest way to fix it.
+dvim.builtin.plugins.which_key.user_vmappings = {}
+dvim.builtin.plugins.which_key.user_mappings = {}
+
+dvim.builtin.plugins.which_key.user_vmappings = {}
+dvim.builtin.plugins.which_key.user_mappings["r"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 }
 
 ------------------------------------------------------------------------

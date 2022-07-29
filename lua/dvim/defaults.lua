@@ -13,6 +13,8 @@ dvim = {
     plugins = {
       which_key = {
         mappings = {},
+        user_vmappings = {},
+        user_mappings = {},
       },
     },
     filetypes = {},

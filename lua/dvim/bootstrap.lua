@@ -94,8 +94,6 @@ function M:init(base_dir)
   require("dvim.defaults")
   require("dvim.keymappings").load_defaults()
 
-  Utils = require("dvim.utils.functions")
-
   require("config")
   require("dvim.keymappings").load(dvim.keys)
 

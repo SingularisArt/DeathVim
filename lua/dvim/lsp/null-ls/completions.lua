@@ -1,6 +1,6 @@
 local M = {}
 
-local null_ls = Utils.safe_require("null-ls")
+local null_ls = require_clean("null-ls")
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
 local completions = null_ls.builtins.completion
 local sources = {}

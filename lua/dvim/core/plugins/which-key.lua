@@ -261,6 +261,13 @@ M.config = function()
       },
     },
   }
+
+  for index, value in pairs(dvim.builtin.plugins.which_key.user_mappings) do
+    dvim.builtin.plugins.which_key.mappings[index] = value
+  end
+  for index, value in pairs(dvim.builtin.plugins.which_key.user_vmappings) do
+    dvim.builtin.plugins.which_key.vmappings[index] = value
+  end
 end
 
 M.setup = function()
@@ -279,4 +286,5 @@ M.setup = function()
   which_key.register(vmappings, vopts)
 end
 
+M.config()
 return M

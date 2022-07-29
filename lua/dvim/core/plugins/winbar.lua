@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("dvim.utils.functions")
 
 dvim.winbar = {
   filetype_exclude = {
@@ -21,7 +22,7 @@ local get_filename = function()
   local filename = vim.fn.expand("%:t")
   local extension = vim.fn.expand("%:e")
 
-  if not Utils.isempty(filename) then
+  if not require_clean(filename) then
     local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
       filename,
       extension,
@@ -31,7 +32,7 @@ local get_filename = function()
     local hl_group = "FileIconColor" .. extension
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    if Utils.isempty(file_icon) then
+    if utils.isempty(file_icon) then
       file_icon = ""
       file_icon_color = ""
     end
@@ -74,15 +75,15 @@ M.setup = function()
   local value = get_filename()
 
   local gps_added = false
-  if not Utils.isempty(value) then
+  if not utils.isempty(value) then
     local gps_value = get_gps()
     value = value .. " " .. gps_value
-    if not Utils.isempty(gps_value) then
+    if not utils.isempty(gps_value) then
       gps_added = true
     end
   end
 
-  if not Utils.isempty(value) and Utils.get_buf_option("mod") then
+  if not utils.isempty(value) and utils.get_buf_option("mod") then
     local mod = "%#LineNr#" .. require("dvim.core.icons").ui.Circle .. "%*"
     if gps_added then
       value = value .. " " .. mod
