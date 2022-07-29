@@ -417,24 +417,34 @@ dvim.lsp.completions = {
 }
 
 ------------------------------------------------------------------------
+--                    Individual Filetype Settings                    --
+------------------------------------------------------------------------
+
+-- Here is where you put each speific settings for each filetype.
+
+dvim.builtin.filetypes.latex.settings = {
+  filetype = "tex",
+  wrap = true,
+}
+dvim.builtin.filetypes.markdown.settings = {
+  filetype = "md",
+  wrap = true,
+}
+
+------------------------------------------------------------------------
 --                         Additional Plugins                         --
 ------------------------------------------------------------------------
 
 -- Add any additional plugins you may want
 dvim.plugins = {
   "folke/trouble.nvim",
+  "tjdevries/express_line.nvim",
 }
 
 ------------------------------------------------------------------------
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
-  command = "setlocal wrap",
-})
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()

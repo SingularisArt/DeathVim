@@ -17,10 +17,6 @@ local settings = require("dvim.settings")
 settings.load_defaults()
 Log.trace("Loaded settings")
 
-local filetypes = require("dvim.filetypes")
-filetypes.load_filetype_settings()
-Log.trace("Loaded filetype specific settings")
-
 local actions = require("dvim.actions")
 actions.load_actions()
 Log.trace("Loaded actions")
@@ -37,6 +33,12 @@ local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.colorscheme)
 colorscheme.highlight_lsp()
 Log.trace("Applied colorscheme")
+
+local filetypes = require("dvim.filetypes")
+filetypes.load_default_filetype_settings()
+Log.trace("Loaded default filetype specific settings")
+filetypes.load_user_filetype_settings()
+Log.trace("Loaded user filetype specific settings")
 
 require("dvim.lsp")
 Log.trace("Loaded LSP")

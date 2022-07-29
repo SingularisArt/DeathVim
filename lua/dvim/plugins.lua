@@ -39,13 +39,11 @@ packer.init({
   },
 })
 
-for _, plugin in pairs(dvim.plugins) do
-  packer.startup(function(use)
-    use({ plugin })
-  end)
-end
-
 return packer.startup(function(use)
+  for _, plugin in pairs(dvim.plugins) do
+    use({ plugin })
+  end
+
   use({ "wbthomason/packer.nvim" })
 
   use({ "nvim-lua/popup.nvim" })
@@ -187,15 +185,6 @@ return packer.startup(function(use)
   use({ "folke/twilight.nvim" })
   use({ "Pocco81/HighStr.nvim" })
 
-  -- Surround
-  -- use({
-  -- 	"Mephistophiles/surround.nvim",
-  -- 	config = function()
-  -- 		require("dvim.core.plugins.surround").setup()
-  -- 	end,
-  -- 	disable = not dvim.builtin.plugins.surround.active,
-  -- })
-
   -- Todo Comments
   use({
     "folke/todo-comments.nvim",
@@ -228,9 +217,15 @@ return packer.startup(function(use)
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
   use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-  -- use({ "wellle/targets.vim" })
-  -- use({ "RRethy/nvim-treesitter-textsubjects" })
-  use({ "kylechui/nvim-surround" })
+  use({ "wellle/targets.vim" })
+  use({ "RRethy/nvim-treesitter-textsubjects" })
+  use({
+    "kylechui/nvim-surround",
+    config = function()
+      require("dvim.core.plugins.surround").setup()
+    end,
+    disable = not dvim.builtin.plugins.surround.active,
+  })
   use({
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
