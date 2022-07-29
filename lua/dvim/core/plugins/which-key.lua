@@ -247,6 +247,7 @@ M.config = function()
       j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
       k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
       C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
+      l = { "<cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
       d = {
         name = "Definition",
         d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },

@@ -164,9 +164,12 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
 ------------------
 
 -- Possible values: "staline", "lualine"
-dvim.statusline = "staline"
--- Possible values: "evil", "normal" "pebble" "simple" "simpler"
-dvim.builtin.plugins.staline.mode = "simple"
+dvim.statusline = "lualine"
+-- Possible values: "evil", "normal", "pebble", "simple", "simpler"
+dvim.builtin.plugins.staline.mode = "evil"
+-- Possible values: "evil", "bubbles", "slanted"
+dvim.builtin.plugins.lualine.theme = "pywal" -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+dvim.builtin.plugins.lualine.mode = "evil"
 
 -----------------
 --  Telescope  --

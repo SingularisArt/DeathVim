@@ -425,8 +425,9 @@ return packer.startup(function(use)
 
   -- Status Line and Bufferline
   use({
-    "nvim-lualine/lualine.nvim",
+    "christianchiarulli/lualine.nvim",
     config = function()
+      -- require("dvim.core.plugins.lualine").setup()
       require("dvim.core.plugins.lualine").setup()
     end,
     disable = not dvim.builtin.plugins.lualine.active,
