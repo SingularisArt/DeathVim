@@ -77,4 +77,10 @@ M.load_defaults = function()
   M.load_default_options()
 end
 
+M.load_filetype_defaults = function(settings)
+  for k, v in pairs(settings) do
+    vim.opt[k] = v
+  end
+end
+
 return M
