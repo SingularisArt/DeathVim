@@ -2,13 +2,13 @@ local init_path = debug.getinfo(1, "S").source:sub(2)
 local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
 
 if not vim.tbl_contains(vim.opt.rtp:get(), base_dir) then
-	vim.opt.rtp:append(base_dir)
+  vim.opt.rtp:append(base_dir)
 end
 
 require("dvim.bootstrap"):init(base_dir)
 
 if #vim.api.nvim_list_uis() == 0 then
-	return
+  return
 end
 
 Log = require("dvim.log")
@@ -16,10 +16,6 @@ Log = require("dvim.log")
 local settings = require("dvim.settings")
 settings.load_defaults()
 Log.trace("Loaded settings")
-
-local actions = require("dvim.actions")
-actions.load_actions()
-Log.trace("Loaded actions")
 
 local autocmds = require("dvim.autocmds")
 autocmds.load_defaults()
@@ -34,7 +30,11 @@ colorscheme.apply_colorscheme(dvim.colorscheme)
 colorscheme.highlight_lsp()
 Log.trace("Applied colorscheme")
 
-local filetypes = require("dvim.filetypes")
+local actions = require("dvim.core.actions")
+actions.load_actions()
+Log.trace("Loaded actions")
+
+local filetypes = require("dvim.core.filetypes")
 filetypes.load_default_filetype_settings()
 Log.trace("Loaded default filetype specific settings")
 filetypes.load_user_filetype_settings()

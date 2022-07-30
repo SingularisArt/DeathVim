@@ -17,7 +17,6 @@ M.load_default_filetype_settings = function()
 end
 
 M.load_user_filetype_settings = function()
-  -- local filetype
   for _, table in pairs(dvim.builtin.filetypes) do
     local filetype = table.filetype
     for key, setting_table in pairs(table) do
