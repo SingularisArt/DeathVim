@@ -1,5 +1,7 @@
--- For more information, see:
--- https://github.com/SingularisArt/Death.NeoVim/wiki/Modifying-the-config.lua-file
+-- For a quickstart guide, please see:
+-- https://github.com/SingularisArt/DeathVim/#config-file for a quickstart
+-- For more indepth explanation, please see:
+-- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
 
 ------------------------------------------------------------------------
 --                              General                               --
@@ -192,7 +194,7 @@ dvim.builtin.plugins.treesitter = {
     "cmake",
     "c",
     "c_sharp",
-    -- "sql",
+    "sql",
     "html",
     "css",
     "javascript",
@@ -389,7 +391,6 @@ dvim.lsp.diagnostics = {
   },
 }
 
--- TODO:
 -- If you don't have a diagnostic installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
