@@ -124,10 +124,7 @@ return packer.startup(function(use)
   use({ "ray-x/lsp_signature.nvim" })
   use({ "rmagatti/goto-preview" })
   use({ "tamago324/nlsp-settings.nvim" })
-  use({
-    "lvimuser/lsp-inlayhints.nvim",
-    branch = "readme",
-  })
+  use({ "lvimuser/lsp-inlayhints.nvim" })
   use({
     "williamboman/mason.nvim",
     disable = not dvim.lsp.active,
@@ -303,7 +300,9 @@ return packer.startup(function(use)
     "nvim-telescope/telescope-fzf-native.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
     run = "make",
-    disable = not dvim.builtin.plugins.telescope.active and not dvim.builtin.plugins.telescope.fzf,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.fzf,
   })
   use({
     "nvim-telescope/telescope-symbols.nvim",
@@ -323,7 +322,9 @@ return packer.startup(function(use)
   use({
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active and not dvim.builtin.plugins.telescope.file_browser,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.file_browser,
   })
 
   -- Project

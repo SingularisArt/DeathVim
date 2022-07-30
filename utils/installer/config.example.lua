@@ -28,31 +28,30 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins = {
-  alpha = { active = true, mode = "dashboard" },
-  indent_blankline = { active = true },
-  symbols_outline = { active = true },
-  which_key = { active = true },
-  gitsigns = { active = true },
-  comment = { active = true },
-  surround = { active = true },
-  todo_comments = { active = true },
-  terminal = { active = true },
-  dap = { active = true },
-  ultisnips = { active = true },
-  telescope = { active = true },
-  project = { active = true },
-  copilot = { active = true },
-  cmp = { active = true },
-  autopairs = { active = true },
-  nvimtree = { active = true },
-  lualine = { active = true },
-  staline = { active = true },
-  bufferline = { active = true },
-  notify = { active = true },
-  treesitter = { active = true },
-  folds = { active = true },
-}
+dvim.builtin.plugins.alpha.active = true
+dvim.builtin.plugins.alpha.mode = "dashboard"
+dvim.builtin.plugins.indent_blankline.active = true
+dvim.builtin.plugins.symbols_outline.active = true
+dvim.builtin.plugins.which_key.active = true
+dvim.builtin.plugins.gitsigns.active = true
+dvim.builtin.plugins.comment.active = true
+dvim.builtin.plugins.surround.active = true
+dvim.builtin.plugins.todo_comments.active = true
+dvim.builtin.plugins.terminal.active = true
+dvim.builtin.plugins.dap.active = true
+dvim.builtin.plugins.ultisnips.active = true
+dvim.builtin.plugins.telescope.active = true
+dvim.builtin.plugins.project.active = true
+dvim.builtin.plugins.copilot.active = true
+dvim.builtin.plugins.cmp.active = true
+dvim.builtin.plugins.autopairs.active = true
+dvim.builtin.plugins.nvimtree.active = true
+dvim.builtin.plugins.lualine.active = true
+dvim.builtin.plugins.staline.active = true
+dvim.builtin.plugins.bufferline.active = true
+dvim.builtin.plugins.notify.active = true
+dvim.builtin.plugins.treesitter.active = true
+dvim.builtin.plugins.folds.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -68,46 +67,44 @@ dvim.builtin.plugins = {
 -- So, instead of you going through each of those items and disabling them, you
 -- can just disable the filetype.
 -- After modifying this list, exit and reopen DeathVim, then run :PackerSync.
-dvim.builtin.filetypes = {
-  lua = { active = true },
-  vim = { active = true },
-  python = { active = true },
-  cpp = { active = true },
-  cmake = { active = true },
-  c = { active = true },
-  c_sharp = { active = true },
-  sql = { active = true },
-  html = { active = true },
-  css = { active = true },
-  javascript = { active = true },
-  typescript = { active = true },
-  php = { active = true },
-  ruby = { active = true },
-  perl = { active = true },
-  java = { active = true },
-  rust = { active = true },
-  solidity = { active = true },
-  go = { active = true },
-  bash = { active = true },
-  log = { active = true },
-  latex = { active = true },
-  markdown = { active = true },
-  yaml = { active = true },
-  json = { active = true },
-  toml = { active = true },
-  tmux = { active = true },
-}
+dvim.builtin.filetypes.lua.active = true
+dvim.builtin.filetypes.vim.active = true
+dvim.builtin.filetypes.python.active = true
+dvim.builtin.filetypes.cpp.active = true
+dvim.builtin.filetypes.cmake.active = true
+dvim.builtin.filetypes.c.active = true
+dvim.builtin.filetypes.c_sharp.active = true
+dvim.builtin.filetypes.sql.active = true
+dvim.builtin.filetypes.html.active = true
+dvim.builtin.filetypes.css.active = true
+dvim.builtin.filetypes.javascript.active = true
+dvim.builtin.filetypes.typescript.active = true
+dvim.builtin.filetypes.php.active = true
+dvim.builtin.filetypes.ruby.active = true
+dvim.builtin.filetypes.perl.active = true
+dvim.builtin.filetypes.java.active = true
+dvim.builtin.filetypes.rust.active = true
+dvim.builtin.filetypes.solidity.active = true
+dvim.builtin.filetypes.go.active = true
+dvim.builtin.filetypes.bash.active = true
+dvim.builtin.filetypes.log.active = true
+dvim.builtin.filetypes.latex.active = true
+dvim.builtin.filetypes.markdown.active = true
+dvim.builtin.filetypes.yaml.active = true
+dvim.builtin.filetypes.json.active = true
+dvim.builtin.filetypes.toml.active = true
+dvim.builtin.filetypes.tmux.active = true
+
 -----------------------
 --  Builtin Actions  --
 -----------------------
 
-dvim.builtin.actions = {
-  writing = { active = true },
-  note_taking = { active = true },
-  programming = { active = true },
-  presentation = { active = true },
-  documentation = { active = true },
-}
+dvim.builtin.actions.writing.active = true
+dvim.builtin.actions.note_taking.active = true
+dvim.builtin.actions.programming.active = true
+dvim.builtin.actions.presentation.active = true
+dvim.builtin.actions.documentation.active = true
+
 ------------------------------------------------------------------------
 --                            Keymappings                             --
 ------------------------------------------------------------------------
@@ -175,12 +172,9 @@ dvim.builtin.plugins.lualine.mode = "evil"
 --  Telescope  --
 -----------------
 
-dvim.builtin.plugins.telescope.active = true
-dvim.builtin.plugins.telescope.extensions = {
-  fzf = true,
-  file_browser = true,
-  notify = true,
-}
+dvim.builtin.plugins.telescope.extensions.active = true
+dvim.builtin.plugins.telescope.extensions.file_browser = true
+dvim.builtin.plugins.telescope.extensions.notify = true
 
 -------------------
 --  Tree Sitter  --
@@ -244,18 +238,14 @@ dvim.builtin.plugins.treesitter = {
 -----------------
 
 dvim.builtin.plugins.which_key.marks = true
-dvim.builtin.plugins.which_key.presets = {
-  operators = true,
-  motions = true,
-  text_objects = true,
-  nav = true,
-  z = true,
-  g = true,
-}
-dvim.builtin.plugins.which_key.spelling = {
-  enabled = true,
-  suggestions = 20,
-}
+dvim.builtin.plugins.which_key.presets.operators = true
+dvim.builtin.plugins.which_key.presets.motions = true
+dvim.builtin.plugins.which_key.presets.text_objects = true
+dvim.builtin.plugins.which_key.presets.nav = true
+dvim.builtin.plugins.which_key.presets.z = true
+dvim.builtin.plugins.which_key.presets.g = true
+dvim.builtin.plugins.which_key.spelling.enabled = true
+dvim.builtin.plugins.which_key.spelling.suggestions = 20
 
 -----------------
 --  Git Signs  --
@@ -439,11 +429,13 @@ dvim.lsp.completions = {
 dvim.builtin.filetypes.latex.filetype = "tex"
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
+  spell = true,
 }
 
 dvim.builtin.filetypes.markdown.filetype = "md"
 dvim.builtin.filetypes.markdown.settings = {
   wrap = true,
+  spell = true,
 }
 
 ------------------------------------------------------------------------

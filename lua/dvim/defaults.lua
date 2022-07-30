@@ -9,17 +9,6 @@ dvim = {
 
   use_icons = true,
 
-  builtin = {
-    plugins = {
-      which_key = {
-        mappings = {},
-        user_vmappings = {},
-        user_mappings = {},
-      },
-    },
-    filetypes = {},
-  },
-
   autocommands = {},
   lang = {},
   log = {
@@ -28,5 +17,7 @@ dvim = {
   },
   lsp = require("dvim.lsp.config"),
 }
+
+dvim.builtin = require("dvim.builtin")
 
 return dvim
