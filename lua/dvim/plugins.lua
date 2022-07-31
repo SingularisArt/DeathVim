@@ -245,6 +245,9 @@ return packer.startup(function(use)
     end,
   })
 
+  -- Winbar
+  use({ 'fgheng/winbar.nvim' })
+
   -- Debugging
   use({
     "mfussenegger/nvim-dap",
@@ -334,16 +337,6 @@ return packer.startup(function(use)
       require("dvim.core.plugins.project").setup()
     end,
     disable = not dvim.builtin.plugins.project.active,
-  })
-
-  -- Copilot
-  use({
-    "github/copilot.vim",
-    disable = not dvim.builtin.plugins.copilot.active,
-  })
-  use({
-    "hrsh7th/cmp-copilot",
-    disable = not dvim.builtin.plugins.copilot.active and not dvim.builtin.plugins.cmp.active,
   })
 
   -- CMP

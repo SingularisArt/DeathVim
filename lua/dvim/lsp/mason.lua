@@ -1,18 +1,19 @@
 local M = {}
 
 M.config = function()
+  local icons = require("dvim.core.icons")
   dvim.lsp.mason = {
     setup = {
       ui = {
         border = "rounded",
         icons = {
-          package_installed = "◍",
-          package_pending = "◍",
-          package_uninstalled = "◍",
+          package_installed = icons.lsp.server_installed,
+          package_pending = icons.lsp.server_pending,
+          package_uninstalled = icons.lsp.server_uninstalled,
         },
       },
       log_level = vim.log.levels.INFO,
-      max_concurrent_installers = 4,
+      max_concurrent_installers = 5,
     },
   }
 end
@@ -24,6 +25,7 @@ M.setup = function(ensure_installed, servers)
   local mason_lspconfig = require_clean("mason-lspconfig")
 
   mason.setup(dvim.lsp.mason.setup)
+  ensure_installed = { "black", "cpptools", "cpplint" }
   mason_lspconfig.setup({
     ensure_installed = ensure_installed,
     automatic_installation = true,

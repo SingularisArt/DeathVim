@@ -5,7 +5,6 @@ local cmp_dap = require("cmp_dap")
 local icons = require("dvim.core.icons")
 local kind_icons = icons.kind
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
 vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 
@@ -53,11 +52,6 @@ M.config = function()
             vim_item.kind_hl_group = "CmpItemKindTabnine"
           end
 
-          if entry.source.name == "copilot" then
-            vim_item.kind = icons.git.Octoface
-            vim_item.kind_hl_group = "CmpItemKindCopilot"
-          end
-
           if entry.source.name == "emoji" then
             vim_item.kind = icons.misc.Smiley
             vim_item.kind_hl_group = "CmpItemKindEmoji"
@@ -67,7 +61,6 @@ M.config = function()
           vim_item.menu = ({
             nvim_lsp = "",
             nvim_lua = "",
-            copilot = "",
             cmp_tabnine = "",
             latex_symbols = "",
             ultisnips = "",
@@ -83,7 +76,6 @@ M.config = function()
       sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "copilot" },
         { name = "cmp_tabnine" },
         { name = "latex_symbols" },
         { name = "ultisnips" },
