@@ -25,7 +25,6 @@ M.setup = function(ensure_installed, servers)
   local mason_lspconfig = require_clean("mason-lspconfig")
 
   mason.setup(dvim.lsp.mason.setup)
-  ensure_installed = { "black", "cpptools", "cpplint" }
   mason_lspconfig.setup({
     ensure_installed = ensure_installed,
     automatic_installation = true,
