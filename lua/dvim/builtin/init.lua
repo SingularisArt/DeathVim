@@ -25,7 +25,14 @@ return {
     dap = {},
     ultisnips = {},
     telescope = {
-      extensions = {}
+      extensions = {
+        file_browser = {},
+        project = {},
+        notify = {},
+        vim_bookmarks = {},
+        media_files = {},
+        symbols = {},
+      }
     },
     project = {},
     copilot = {},
@@ -40,32 +47,110 @@ return {
     folds = {},
   },
   filetypes = {
-    lua = {},
-    vim = {},
-    python = {},
-    cpp = {},
-    cmake = {},
-    c = {},
-    c_sharp = {},
-    sql = {},
-    html = {},
-    css = {},
-    javascript = {},
-    typescript = {},
-    php = {},
-    ruby = {},
-    perl = {},
-    java = {},
-    rust = {},
-    solidity = {},
-    go = {},
-    bash = {},
+    lua = {
+      filetype = "lua",
+      settings = {},
+    },
+    vim = {
+      filetype = "vim",
+      settings = {},
+    },
+    python = {
+      filetype = "py",
+      settings = {},
+    },
+    cpp = {
+      filetype = "cpp",
+      settings = {},
+    },
+    cmake = {
+      filetype = "cmake",
+      settings = {},
+    },
+    c = {
+      filetype = "c",
+      settings = {},
+    },
+    c_sharp = {
+      filetype = "cs",
+      settings = {},
+    },
+    sql = {
+      filetype = "sql",
+      settings = {},
+    },
+    html = {
+      filetype = "tml",
+      settings = {},
+    },
+    css = {
+      filetype = "css",
+      settings = {},
+    },
+    javascript = {
+      filetype = "javascript",
+      settings = {},
+    },
+    typescript = {
+      filetype = "typescript",
+      settings = {},
+    },
+    php = {
+      filetype = "php",
+      settings = {},
+    },
+    ruby = {
+      filetype = "ruby",
+      settings = {},
+    },
+    perl = {
+      filetype = "perl",
+      settings = {},
+    },
+    java = {
+      filetype = "java",
+      settings = {},
+    },
+    rust = {
+      filetype = "rust",
+      settings = {},
+    },
+    solidity = {
+      filetype = "solidity",
+      settings = {},
+    },
+    go = {
+      filetype = "go",
+      settings = {},
+    },
+    bash = {
+      filetype = "sh",
+      settings = {},
+    },
     log = {},
-    latex = {},
-    markdown = {},
-    yaml = {},
-    json = {},
-    toml = {},
-    tmux = {},
+    latex = {
+      filetype = "tex",
+      settings = {},
+    },
+    markdown = {
+      filetype = "markdown",
+      settings = {},
+    },
+    yaml = {
+      filetype = "yaml",
+      settings = {},
+    },
+    json = {
+      filetype = "json",
+      settings = {},
+    },
+    toml = {
+      filetype = "toml",
+      settings = {},
+    },
+    tmux = {
+      filetype = "",
+      settings = {},
+    },
   },
 }

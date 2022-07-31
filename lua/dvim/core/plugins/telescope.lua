@@ -76,26 +76,37 @@ M.setup = function()
   local telescope = require("telescope")
   telescope.setup(dvim.builtin.plugins.telescope.defaults)
 
-  if dvim.builtin.plugins.project.active then
-    pcall(function()
-      require("telescope").load_extension("projects")
-    end)
-  end
-
-  if dvim.builtin.plugins.notify.active and dvim.builtin.plugins.telescope.extensions.notify then
-    pcall(function()
-      require("telescope").load_extension("notify")
-    end)
-  end
-
-  if dvim.builtin.plugins.telescope.on_config_done then
-    dvim.builtin.plugins.telescope.on_config_done(telescope)
-  end
-
-  if dvim.builtin.plugins.telescope.extensions.active and dvim.builtin.plugins.telescope.extensions.file_browser then
-    pcall(function()
-      require("telescope").load_extension("file_browser")
-    end)
+  if dvim.builtin.plugins.telescope.extensions.active then
+    if dvim.builtin.plugins.project.active and dvim.builtin.plugins.telescope.extensions.project.active then
+      pcall(function()
+        require("telescope").load_extension("projects")
+      end)
+    end
+    if dvim.builtin.plugins.notify.active and dvim.builtin.plugins.telescope.extensions.notify.active then
+      pcall(function()
+        require("telescope").load_extension("notify")
+      end)
+    end
+    if dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active then
+      pcall(function()
+        require("telescope").load_extension("vim_bookmarks")
+      end)
+    end
+    if dvim.builtin.plugins.telescope.extensions.file_browser.active then
+      pcall(function()
+        require("telescope").load_extension("file_browser")
+      end)
+    end
+    if dvim.builtin.plugins.telescope.extensions.media_files.active then
+      pcall(function()
+        require("telescope").load_extension("media_files")
+      end)
+    end
+    if dvim.builtin.plugins.telescope.extensions.symbols.active then
+      pcall(function()
+        require("telescope").load_extension("symbols")
+      end)
+    end
   end
 end
 

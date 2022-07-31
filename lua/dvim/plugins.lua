@@ -246,7 +246,7 @@ return packer.startup(function(use)
   })
 
   -- Winbar
-  use({ 'fgheng/winbar.nvim' })
+  use({ "fgheng/winbar.nvim" })
 
   -- Debugging
   use({
@@ -300,43 +300,41 @@ return packer.startup(function(use)
     disable = not dvim.builtin.plugins.telescope.active,
   })
   use({
-    "nvim-telescope/telescope-fzf-native.nvim",
-    requires = { "nvim-telescope/telescope.nvim" },
-    run = "make",
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.fzf,
-  })
-  use({
     "nvim-telescope/telescope-symbols.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.symbols.active,
   })
   use({
     "nvim-telescope/telescope-media-files.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.media_files.active,
   })
   use({
     "tom-anders/telescope-vim-bookmarks.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active,
   })
   use({
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim" },
     disable = not dvim.builtin.plugins.telescope.active
         and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.file_browser,
+        and not dvim.builtin.plugins.telescope.extensions.file_browser.active,
   })
-
-  -- Project
   use({
     "ahmedkhalf/project.nvim",
     config = function()
       require("dvim.core.plugins.project").setup()
     end,
-    disable = not dvim.builtin.plugins.project.active,
+    disable = not dvim.builtin.plugins.telescope.active
+        and not dvim.builtin.plugins.telescope.extensions.active
+        and not dvim.builtin.plugins.telescope.extensions.project.active,
   })
 
   -- CMP

@@ -174,9 +174,14 @@ dvim.builtin.plugins.lualine.mode = "evil"
 --  Telescope  --
 -----------------
 
+-- Extensions
 dvim.builtin.plugins.telescope.extensions.active = true
-dvim.builtin.plugins.telescope.extensions.file_browser = true
-dvim.builtin.plugins.telescope.extensions.notify = true
+dvim.builtin.plugins.telescope.extensions.file_browser.active = true
+dvim.builtin.plugins.telescope.extensions.project.active = true
+dvim.builtin.plugins.telescope.extensions.notify.active = true
+dvim.builtin.plugins.telescope.extensions.media_files.active = true
+dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active = true
+dvim.builtin.plugins.telescope.extensions.symbols.active = true
 
 -------------------
 --  Tree Sitter  --
@@ -427,13 +432,11 @@ dvim.lsp.completions = {
 
 -- Here is where you put each speific settings for each filetype.
 
-dvim.builtin.filetypes.latex.filetype = "tex"
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
   spell = true,
 }
 
-dvim.builtin.filetypes.markdown.filetype = "md"
 dvim.builtin.filetypes.markdown.settings = {
   wrap = true,
   spell = true,
