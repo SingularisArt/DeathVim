@@ -1,5 +1,6 @@
 local M = {}
 
+---Setup the configuration needed for mason
 M.config = function()
   local icons = require("dvim.core.icons")
   dvim.lsp.mason = {
@@ -18,14 +19,18 @@ M.config = function()
   }
 end
 
+---@param ensure_installed table: A table with all the servers, formatters, and linters
+---@param servers table: A table with all the servers to initiate
 M.setup = function(ensure_installed, servers)
   M.config()
 
   local mason = require_clean("mason")
   local mason_lspconfig = require_clean("mason-lspconfig")
+  local mason_installer = require_clean("mason-tool-installer")
 
   mason.setup(dvim.lsp.mason.setup)
-  mason_lspconfig.setup({
+  mason_lspconfig.setup()
+  mason_installer.setup({
     ensure_installed = ensure_installed,
     automatic_installation = true,
   })

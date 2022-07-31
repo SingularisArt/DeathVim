@@ -134,6 +134,10 @@ return packer.startup(function(use)
     disable = not dvim.lsp.active,
   })
   use({
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
       require("dvim.lsp.lines").setup()
