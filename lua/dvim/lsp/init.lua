@@ -1,3 +1,5 @@
+local M = {}
+
 require_clean("lsp_signature").setup()
 
 if dvim.format_on_save then
@@ -38,7 +40,11 @@ if dvim.lsp.automatic_diagnostics_installation then
   end
 end
 
-require("dvim.lsp.null-ls").setup()
-require("dvim.lsp.handlers").setup()
-require("dvim.lsp.inlayhints").setup()
-require("dvim.lsp.mason").setup(ensure_installed, servers)
+M.setup = function()
+  require("dvim.lsp.null-ls").setup()
+  require("dvim.lsp.handlers").setup()
+  require("dvim.lsp.inlayhints").setup()
+  require("dvim.lsp.mason").setup(ensure_installed, servers)
+end
+
+return M

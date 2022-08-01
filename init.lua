@@ -40,5 +40,6 @@ Log.trace("Loaded default filetype specific settings")
 filetypes.load_user_filetype_settings()
 Log.trace("Loaded user filetype specific settings")
 
-require("dvim.lsp")
+local lsp = require("dvim.lsp")
+lsp.setup()
 Log.trace("Loaded LSP")
