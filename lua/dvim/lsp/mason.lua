@@ -29,7 +29,10 @@ M.setup = function(ensure_installed, servers)
   local mason_installer = require_clean("mason-tool-installer")
 
   mason.setup(dvim.lsp.mason.setup)
-  mason_lspconfig.setup()
+  mason_lspconfig.setup({
+    ensure_installed = ensure_installed,
+    automatic_installation = true,
+  })
   mason_installer.setup({
     ensure_installed = ensure_installed,
     automatic_installation = true,
