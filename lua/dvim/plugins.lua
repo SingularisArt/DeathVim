@@ -230,13 +230,6 @@ return packer.startup(function(use)
   use({ "wellle/targets.vim" })
   use({ "RRethy/nvim-treesitter-textsubjects" })
   use({
-    "kylechui/nvim-surround",
-    config = function()
-      require("dvim.core.plugins.surround").setup()
-    end,
-    disable = not dvim.builtin.plugins.surround.active,
-  })
-  use({
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far
   })

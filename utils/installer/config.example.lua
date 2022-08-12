@@ -37,7 +37,6 @@ dvim.builtin.plugins.symbols_outline.active = true
 dvim.builtin.plugins.which_key.active = true
 dvim.builtin.plugins.gitsigns.active = true
 dvim.builtin.plugins.comment.active = true
-dvim.builtin.plugins.surround.active = true
 dvim.builtin.plugins.todo_comments.active = true
 dvim.builtin.plugins.terminal.active = true
 dvim.builtin.plugins.dap.active = true
