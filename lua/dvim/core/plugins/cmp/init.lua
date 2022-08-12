@@ -91,8 +91,14 @@ M.config = function()
         select = false,
       },
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        documentation = {
+          border = "rounded",
+          winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+        },
+        completion = {
+          border = "rounded",
+          winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+        },
       },
       experimental = {
         ghost_text = true,
