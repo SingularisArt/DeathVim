@@ -288,6 +288,15 @@ return packer.startup(function(use)
     disable = not dvim.builtin.plugins.ultisnips.active,
   })
 
+  -- Autopairs
+  use({
+    "windwp/nvim-autopairs",
+    config = function()
+      require("dvim.core.plugins.autopairs").setup()
+    end,
+    disable = not dvim.builtin.plugins.autopairs.active,
+  })
+
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",
@@ -392,15 +401,6 @@ return packer.startup(function(use)
     "hrsh7th/cmp-emoji",
     requires = { "hrsh7th/nvim-cmp" },
     disable = not dvim.builtin.plugins.cmp.active,
-  })
-
-  -- Autopairs
-  use({
-    "windwp/nvim-autopairs",
-    config = function()
-      require("dvim.core.plugins.autopairs").setup()
-    end,
-    disable = not dvim.builtin.plugins.autopairs.active,
   })
 
   -- NvimTree

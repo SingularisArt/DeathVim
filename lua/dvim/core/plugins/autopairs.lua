@@ -2,8 +2,6 @@ local M = {}
 
 M.config = function()
   dvim.builtin.plugins.autopairs = {
-    active = true,
-    on_config_done = nil,
     ---@usage  modifies the function or method delimiter by filetypes
     map_char = {
       all = "(",

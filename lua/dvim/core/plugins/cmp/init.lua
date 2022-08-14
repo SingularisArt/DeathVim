@@ -129,7 +129,6 @@ M.setup = function()
 
   require("dvim.core.plugins.cmp.cmp_github_issues")
   require("dvim.core.plugins.cmp.cmp_emails").setup()
-  require("dvim.core.plugins.cmp.cmp_autopairs").setup()
 end
 
 return M
