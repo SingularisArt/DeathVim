@@ -186,57 +186,73 @@ dvim.builtin.plugins.telescope.extensions.symbols.active = true
 --  Tree Sitter  --
 -------------------
 
-dvim.builtin.plugins.treesitter = {
-  -- Install TreeSitter parsers automatically
-  sync_install = { enabled = true },
-  -- Parsers that are going to be installed by default
-  ensure_installed = {
-    "lua",
-    "vim",
-    "python",
-    "cpp",
-    "cmake",
-    "c",
-    "c_sharp",
-    "sql",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "php",
-    "ruby",
-    "perl",
-    "java",
-    "rust",
-    "solidity",
-    "go",
-    "bash",
-    "yaml",
-    "json",
-    "toml",
-  },
-  -- Language servers to not install
-  ignore_install = {
-    "latex",
-    "markdown",
-  },
-  -- Enable indenting automatically
-  indent = {
-    enabled = true,
-    disable = {},
-  },
-  autotag = { enabled = true },
-  highlight = {
-    -- Enable highlighting automatically
-    enabled = true,
-    -- Parsers to not highlight
-    -- NOTE: This is not the filetype, but the parser name. For example, if you
-    -- want to disable the filetype tex, just type latex.
-    disable = {
-      "latex",
-      "markdown",
-    },
-  },
+dvim.builtin.plugins.treesitter.ensure_installed = {
+  "lua",
+  "vim",
+  "python",
+  "cpp",
+  "cmake",
+  "c",
+  "c_sharp",
+  "sql",
+  "html",
+  "css",
+  "javascript",
+  "typescript",
+  "php",
+  "ruby",
+  "perl",
+  "java",
+  "rust",
+  "solidity",
+  "go",
+  "bash",
+  "yaml",
+  "json",
+  "toml",
+}
+dvim.builtin.plugins.treesitter.ignore_install = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.highlight.enable = true
+dvim.builtin.plugins.treesitter.highlight.additional_vim_regex_highlighting = false
+dvim.builtin.plugins.treesitter.highlight.disable = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.autopairs.enable = true
+dvim.builtin.plugins.treesitter.autopairs.disable = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.context_commentstring.enable = true
+dvim.builtin.plugins.treesitter.context_commentstring.enable_autocmd = false
+dvim.builtin.plugins.treesitter.indent.enable = true
+dvim.builtin.plugins.treesitter.indent.disable = {
+  "markdown",
+  "latex",
+}
+
+dvim.builtin.plugins.treesitter.autotag.enable = true
+
+dvim.builtin.plugins.treesitter.textobjects.swap.enable = true
+dvim.builtin.plugins.treesitter.textobjects.select.enable = true
+dvim.builtin.plugins.treesitter.textobjects.move.enable = true
+dvim.builtin.plugins.treesitter.textobjects.move.set_jumps = true
+
+dvim.builtin.plugins.treesitter.textsubjects.enable = true
+
+dvim.builtin.plugins.treesitter.playground.enable = true
+dvim.builtin.plugins.treesitter.playground.disable = {
+  "",
+}
+
+dvim.builtin.plugins.treesitter.rainbow.enable = true
+dvim.builtin.plugins.treesitter.rainbow.extended_mode = true
+dvim.builtin.plugins.treesitter.rainbow.max_file_lines = 1000
+dvim.builtin.plugins.treesitter.rainbow.disable = {
+  "html",
 }
 
 -----------------

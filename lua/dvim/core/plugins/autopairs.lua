@@ -50,9 +50,8 @@ M.setup = function()
   M.config()
 
   local autopairs = require("nvim-autopairs")
-  local Rule = require("nvim-autopairs.rule")
 
-  autopairs.setup {
+  autopairs.setup({
     check_ts = dvim.builtin.plugins.autopairs.check_ts,
     enable_check_bracket_line = dvim.builtin.plugins.autopairs.enable_check_bracket_line,
     ts_config = dvim.builtin.plugins.autopairs.ts_config,
@@ -65,22 +64,7 @@ M.setup = function()
     map_bs = dvim.builtin.plugins.autopairs.map_bs,
     disable_in_visualblock = dvim.builtin.plugins.autopairs.disable_in_visualblock,
     fast_wrap = dvim.builtin.plugins.autopairs.fast_wrap,
-  }
-
-  require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
-
-  local ts_conds = require("nvim-autopairs.ts-conds")
-
-  -- TODO: can these rules be safely added from "config.lua" ?
-  -- press % => %% is only inside comment or string
-  autopairs.add_rules {
-    Rule("%", "%", "lua"):with_pair(ts_conds.is_ts_node { "string", "comment" }),
-    Rule("$", "$", "lua"):with_pair(ts_conds.is_not_ts_node { "function" }),
-  }
-
-  if dvim.builtin.plugins.autopairs.on_config_done then
-    dvim.builtin.plugins.autopairs.on_config_done(autopairs)
-  end
+  })
 end
 
 return M

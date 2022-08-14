@@ -48,18 +48,24 @@ M.setup = function(ensure_installed, servers)
   }
 
   for server, _ in pairs(servers) do
-    if server == "sumneko_lua" then
-      opts.settings = {
-        Lua = {
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { "vim", "dvim", "use" },
+    if server == "clangd" then
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.offsetEncoding = { "utf-16" }
+      lspconfig[server].setup({ capabilities = capabilities })
+    else
+      if server == "sumneko_lua" then
+        opts.settings = {
+          Lua = {
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { "vim", "dvim", "use" },
+            },
           },
-        },
-      }
-    end
+        }
+      end
 
-    lspconfig[server].setup(opts)
+      lspconfig[server].setup(opts)
+    end
   end
 end
 

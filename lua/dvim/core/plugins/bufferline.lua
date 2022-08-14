@@ -45,10 +45,14 @@ M.config = function()
     },
     highlights = {
       background = {
-        gui = "italic",
+        underline = true,
+        undercurl = true,
+        italic = true,
       },
       buffer_selected = {
-        gui = "bold",
+        underline = true,
+        undercurl = true,
+        italic = true,
       },
     },
     options = {
