@@ -22,79 +22,33 @@
 # Gallery
 
 <p align="center">
-  <img src="media/screenshot-1.png">
-  <img src="media/screenshot-2.png">
-  <img src="media/screenshot-3.png">
-  <img src="media/screenshot-4.png">
-  <img src="media/screenshot-5.png">
+  <img src="media/screenshot-01.png">
+  <img src="media/screenshot-02.png">
+  <img src="media/screenshot-03.png">
+  <img src="media/screenshot-04.png">
+  <img src="media/screenshot-05.png">
+  <img src="media/screenshot-06.png">
+  <img src="media/screenshot-07.png">
+  <img src="media/screenshot-08.png">
+  <img src="media/screenshot-09.png">
+  <img src="media/screenshot-10.png">
 </p>
-
-# Table of Contents
-
-<!-- vim-markdown-toc GFM -->
-
-* [Features](#features)
-* [Installation](#installation)
-  * [Install Language Support](#install-language-support)
-* [Usage](#usage)
-  * [Keybindings](#keybindings)
-* [Colorschemes](#colorschemes)
-* [Future Plans](#future-plans)
-* [Config file](#config-file)
-  * [General](#general)
-  * [Logging](#logging)
-  * [Keymappings](#keymappings)
-    * [Setup](#setup)
-    * [Add Keymappings](#add-keymappings)
-    * [Remove Keymappings](#remove-keymappings)
-    * [Add Which Key Keymappings](#add-which-key-keymappings)
-  * [Builtin](#builtin)
-    * [Builtin Plugins](#builtin-plugins)
-    * [Builtin Filetypes](#builtin-filetypes)
-    * [Builtin Actions](#builtin-actions)
-  * [Modifying Plugins](#modifying-plugins)
-    * [Statusline](#statusline)
-    * [Tree Sitter](#tree-sitter)
-    * [Which Key](#which-key)
-    * [Git Signs](#git-signs)
-  * [LSP](#lsp)
-    * [Language Servers](#language-servers)
-    * [Formatters](#formatters)
-    * [Diagnostics](#diagnostics)
-    * [Hover](#hover)
-    * [Code Action](#code-action)
-    * [Completion](#completion)
-  * [Additional Plugins](#additional-plugins)
-  * [Auto Commands](#auto-commands)
-  * [Vim Commands](#vim-commands)
-* [Credit](#credit)
-* [TODO](#todo)
-  * [Completed](#completed)
-  * [Working on](#working-on)
-  * [Need to do](#need-to-do)
-
-<!-- vim-markdown-toc -->
 
 # Features
 
-- Install in just one line of code, view [here](#installation) for more info.
-- Blazing fast.
-- Written in 100% **LUA**.
-- Has TreeSitter syntax highlighting.
-- Intellisense, Completion, Linting, and Debugging.
-- Easily able to install LSP, DAP, and TS servers by running:
-  - `:LspInstall`
-  - `:DIIstall`
-  - `:TSInstall`.
-- Already supports $20+$ programming languages out of the box with LSP,
-  Debugging, TreeSitter, and special plugins for each filetype.
+- Install in one line of code (view [here](#installation) for more info).
+- Blazingly fast.
+- Written in 100% **Lua**.
+- Easily able to install (view [here](#install-language-support) for more info):
+  * LSP
+  * Debuggers
+  * Formatters
+  * Linters
+  * TreeSitter Parsers
 - Git integration with [vim-fugitive](https://github.com/tpope/vim-fugitive)
   and [vim-gitgutter](https://github.com/airblade/vim-gitgutter).
-- Informative [statusline](https://github.com/nvim-lualine/lualine.nvim) and
-  [bufferline](https://github.com/akinsho/bufferline.nvim).
+- Multiple statuslines.
 - Code snippets powered by [UltiSnips](https://github.com/SirVer/ultisnips).
-- Simple file browsing with
-  [NvimTree](https://github.com/kyazdani42/nvim-tree.lua).
 - Dynamic homepage with [alpha-vim](https://github.com/goolord/alpha-nvim).
 - Distraction free writing with
   [ZenMode](https://github.com/folke/zen-mode.nvim) and
@@ -102,16 +56,12 @@
 - Common sense keybindings.
 - Uses [Which-Key](https://github.com/folke/which-key.nvim) so you never forget
   your keybindings.
-- Already comes with dozens of plugins that are already configured for you,
-  view [here](#builtin-plugins) for more info.
-- Already comes with dozens of filetypes that are already configured for you,
-  view [here](#builtin-filetypes) for more info.
-- Already comes with dozens of snippets that are already configured for you,
-  view [here](#builtin-snippets) for more info.
-- Comes with a config file so you don't have to deal with any of the dirty
-  work, view [here](#config-file) for more info.
-- Has dozens of themes already setup for you, view [here](#builtin-themes) for
-  more info.
+- Super configurable (view [here](#configu) for more info).
+- Already comes with dozens of builtin stuff (view
+  [here](https://github.com/SingularisArt/DeathVim/wiki/Builtin) for more
+  info).
+- Comes with a simple, intuitive config file (view [here](#config-file) for
+  more info).
 
 # Installation
 
@@ -121,15 +71,23 @@ bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/mast
 
 ## Install Language Support
 
-You can find a list of supported languages
-[here](https://github.com/kabouzeid/nvim-lspinstall/tree/main/lua/lspinstall/servers).
+View [here](https://github.com/williamboman/mason.nvim/blob/main/PACKAGES.md)
+for all the supported:
 
-To install any of them run
+- **Language Servers**.
+- **Debuggers**.
+- **Formatters**.
+- **Linters**.
 
-- Enter `:LspInstall` followed by `<TAB>` to see your options for LSP
-- Enter `:TSInstall` followed by `<TAB>` to see your options for syntax
-  highlighting
-- Enter `:DIInstall` followed by `<TAB>` to see your options for debugging
+View
+[here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages)
+for all the supported **TreeSitter Parsers**.
+
+- Run `:MasonInstall` followed by the **language server** to install.
+- Run `:MasonInstall` followed by the **debugger** to install.
+- Run `:MasonInstall` followed by the **formatter** to install.
+- Run `:MasonInstall` followed by the **linter** to install.
+- Run `:TSInstall` followed by the **TreeSitter parser** to install.
 
 # Usage
 
@@ -359,38 +317,18 @@ To install any of them run
 </p>
 </details>
 
-# Colorschemes
+# Config File
 
-Here's a complete list of all the supported colorschemes.
+This is just a quick setup. For a complete guide on configuring DeathVim,
+please read the [wiki](https://github.com/SingularisArt/DeathVim/wiki) page.
 
-- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
-- [lunarvim-colorschemes](https://github.com/lunarvim/colorschemes)
-- [wal.vim](https://github.com/dylanaraps/wal.vim)
-- [pywal.nvim](https://github.com/AlphaTechnolog/pywal.nvim)
-- [vim-code-dark](https://github.com/tomasiser/vim-code-dark)
-- [vim-lighthaus](https://github.com/lighthaus-theme/vim-lighthaus)
-- [tender.vim](https://github.com/jacoborus/tender.vim)
-- [zenbones.nvim](https://github.com/mcchrish/zenbones.nvim)
-- [onenord.nvim](https://github.com/rmehri01/onenord.nvim)
-- [neovim-ayu](https://github.com/Shatur/neovim-ayu)
-- [neon](https://github.com/rafamadriz/neon)
-- [gruvbox-baby](https://github.com/luisiacc/gruvbox-baby)
-- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
-- [base16-vim](https://github.com/chriskempson/base16-vim)
-- [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
-
-# Future Plans
-
-- Work more on configuring each individual filetype.
-- Add each filetype config in the `config.lua` file.
-
-# Config file
-
-Here's a template for the `config.lua` file.
+Paste the following content in the `~/.config/dvim/lua/config.lua` file.
 
 ```lua
--- For more information, see:
--- https://github.com/SingularisArt/Death.NeoVim/wiki/Modifying-the-config.lua-file
+-- For a quickstart guide, please see:
+-- https://github.com/SingularisArt/DeathVim/#config-file for a quickstart
+-- For more indepth explanation, please see:
+-- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
 
 ------------------------------------------------------------------------
 --                              General                               --
@@ -419,31 +357,29 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins = {
-  alpha = { active = true, mode = "dashboard" },
-  indent_blankline = { active = true },
-  symbols_outline = { active = true },
-  which_key = { active = true },
-  gitsigns = { active = true },
-  comment = { active = true },
-  surround = { active = true },
-  todo_comments = { active = true },
-  terminal = { active = true },
-  dap = { active = true },
-  ultisnips = { active = true },
-  telescope = { active = true },
-  project = { active = true },
-  copilot = { active = true },
-  cmp = { active = true },
-  autopairs = { active = true },
-  nvimtree = { active = true },
-  lualine = { active = true },
-  staline = { active = true },
-  bufferline = { active = true },
-  notify = { active = true },
-  treesitter = { active = true },
-  folds = { active = true },
-}
+dvim.builtin.plugins.alpha.active = true
+dvim.builtin.plugins.alpha.mode = "dashboard"
+dvim.builtin.plugins.indent_blankline.active = true
+dvim.builtin.plugins.symbols_outline.active = true
+dvim.builtin.plugins.which_key.active = true
+dvim.builtin.plugins.gitsigns.active = true
+dvim.builtin.plugins.comment.active = true
+dvim.builtin.plugins.todo_comments.active = true
+dvim.builtin.plugins.terminal.active = true
+dvim.builtin.plugins.dap.active = true
+dvim.builtin.plugins.ultisnips.active = true
+dvim.builtin.plugins.telescope.active = true
+dvim.builtin.plugins.project.active = true
+dvim.builtin.plugins.copilot.active = true
+dvim.builtin.plugins.cmp.active = true
+dvim.builtin.plugins.autopairs.active = true
+dvim.builtin.plugins.nvimtree.active = true
+dvim.builtin.plugins.lualine.active = true
+dvim.builtin.plugins.staline.active = true
+dvim.builtin.plugins.bufferline.active = true
+dvim.builtin.plugins.notify.active = true
+dvim.builtin.plugins.treesitter.active = true
+dvim.builtin.plugins.folds.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -459,46 +395,44 @@ dvim.builtin.plugins = {
 -- So, instead of you going through each of those items and disabling them, you
 -- can just disable the filetype.
 -- After modifying this list, exit and reopen DeathVim, then run :PackerSync.
-dvim.builtin.filetypes = {
-  lua = { active = true },
-  vim = { active = true },
-  python = { active = true },
-  cpp = { active = true },
-  cmake = { active = true },
-  c = { active = true },
-  c_sharp = { active = true },
-  sql = { active = true },
-  html = { active = true },
-  css = { active = true },
-  javascript = { active = true },
-  typescript = { active = true },
-  php = { active = true },
-  ruby = { active = true },
-  perl = { active = true },
-  java = { active = true },
-  rust = { active = true },
-  solidity = { active = true },
-  go = { active = true },
-  bash = { active = true },
-  log = { active = true },
-  latex = { active = true },
-  markdown = { active = true },
-  yaml = { active = true },
-  json = { active = true },
-  toml = { active = true },
-  tmux = { active = true },
-}
+dvim.builtin.filetypes.lua.active = true
+dvim.builtin.filetypes.vim.active = true
+dvim.builtin.filetypes.python.active = true
+dvim.builtin.filetypes.cpp.active = true
+dvim.builtin.filetypes.cmake.active = true
+dvim.builtin.filetypes.c.active = true
+dvim.builtin.filetypes.c_sharp.active = true
+dvim.builtin.filetypes.sql.active = true
+dvim.builtin.filetypes.html.active = true
+dvim.builtin.filetypes.css.active = true
+dvim.builtin.filetypes.javascript.active = true
+dvim.builtin.filetypes.typescript.active = true
+dvim.builtin.filetypes.php.active = true
+dvim.builtin.filetypes.ruby.active = true
+dvim.builtin.filetypes.perl.active = true
+dvim.builtin.filetypes.java.active = true
+dvim.builtin.filetypes.rust.active = true
+dvim.builtin.filetypes.solidity.active = true
+dvim.builtin.filetypes.go.active = true
+dvim.builtin.filetypes.bash.active = true
+dvim.builtin.filetypes.log.active = true
+dvim.builtin.filetypes.latex.active = true
+dvim.builtin.filetypes.markdown.active = true
+dvim.builtin.filetypes.yaml.active = true
+dvim.builtin.filetypes.json.active = true
+dvim.builtin.filetypes.toml.active = true
+dvim.builtin.filetypes.tmux.active = true
+
 -----------------------
 --  Builtin Actions  --
 -----------------------
 
-dvim.builtin.actions = {
-  writing = { active = true },
-  note_taking = { active = true },
-  programming = { active = true },
-  presentation = { active = true },
-  documentation = { active = true },
-}
+dvim.builtin.actions.writing.active = true
+dvim.builtin.actions.note_taking.active = true
+dvim.builtin.actions.programming.active = true
+dvim.builtin.actions.presentation.active = true
+dvim.builtin.actions.documentation.active = true
+
 ------------------------------------------------------------------------
 --                            Keymappings                             --
 ------------------------------------------------------------------------
@@ -555,76 +489,97 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
 ------------------
 
 -- Possible values: "staline", "lualine"
-dvim.statusline = "staline"
--- Possible values: "evil", "normal" "pebble" "simple" "simpler"
-dvim.builtin.plugins.staline.mode = "simple"
+dvim.statusline = "lualine"
+-- Possible values: "evil", "normal", "pebble", "simple", "simpler"
+dvim.builtin.plugins.staline.mode = "evil"
+-- Possible values: "evil", "bubbles", "slanted"
+dvim.builtin.plugins.lualine.theme = "pywal" -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+dvim.builtin.plugins.lualine.mode = "evil"
 
 -----------------
 --  Telescope  --
 -----------------
 
-dvim.builtin.plugins.telescope.active = true
-dvim.builtin.plugins.telescope.extensions = {
-  fzf = true,
-  file_browser = true,
-  notify = true,
-}
+-- Extensions
+dvim.builtin.plugins.telescope.extensions.active = true
+dvim.builtin.plugins.telescope.extensions.file_browser.active = true
+dvim.builtin.plugins.telescope.extensions.project.active = true
+dvim.builtin.plugins.telescope.extensions.notify.active = true
+dvim.builtin.plugins.telescope.extensions.media_files.active = true
+dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active = true
+dvim.builtin.plugins.telescope.extensions.symbols.active = true
 
 -------------------
 --  Tree Sitter  --
 -------------------
 
-dvim.builtin.plugins.treesitter = {
-  -- Install TreeSitter parsers automatically
-  sync_install = { enabled = true },
-  -- Parsers that are going to be installed by default
-  ensure_installed = {
-    "lua",
-    "vim",
-    "python",
-    "cpp",
-    "cmake",
-    "c",
-    "c_sharp",
-    -- "sql",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "php",
-    "ruby",
-    "perl",
-    "java",
-    "rust",
-    "solidity",
-    "go",
-    "bash",
-    "yaml",
-    "json",
-    "toml",
-  },
-  -- Language servers to not install
-  ignore_install = {
-    "latex",
-    "markdown",
-  },
-  -- Enable indenting automatically
-  indent = {
-    enabled = true,
-    disable = {},
-  },
-  autotag = { enabled = true },
-  highlight = {
-    -- Enable highlighting automatically
-    enabled = true,
-    -- Parsers to not highlight
-    -- NOTE: This is not the filetype, but the parser name. For example, if you
-    -- want to disable the filetype tex, just type latex.
-    disable = {
-      "latex",
-      "markdown",
-    },
-  },
+dvim.builtin.plugins.treesitter.ensure_installed = {
+  "lua",
+  "vim",
+  "python",
+  "cpp",
+  "cmake",
+  "c",
+  "c_sharp",
+  "sql",
+  "html",
+  "css",
+  "javascript",
+  "typescript",
+  "php",
+  "ruby",
+  "perl",
+  "java",
+  "rust",
+  "solidity",
+  "go",
+  "bash",
+  "yaml",
+  "json",
+  "toml",
+}
+dvim.builtin.plugins.treesitter.ignore_install = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.highlight.enable = true
+dvim.builtin.plugins.treesitter.highlight.additional_vim_regex_highlighting = false
+dvim.builtin.plugins.treesitter.highlight.disable = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.autopairs.enable = true
+dvim.builtin.plugins.treesitter.autopairs.disable = {
+  "markdown",
+  "latex",
+}
+dvim.builtin.plugins.treesitter.context_commentstring.enable = true
+dvim.builtin.plugins.treesitter.context_commentstring.enable_autocmd = false
+dvim.builtin.plugins.treesitter.indent.enable = true
+dvim.builtin.plugins.treesitter.indent.disable = {
+  "markdown",
+  "latex",
+}
+
+dvim.builtin.plugins.treesitter.autotag.enable = true
+
+dvim.builtin.plugins.treesitter.textobjects.swap.enable = true
+dvim.builtin.plugins.treesitter.textobjects.select.enable = true
+dvim.builtin.plugins.treesitter.textobjects.move.enable = true
+dvim.builtin.plugins.treesitter.textobjects.move.set_jumps = true
+
+dvim.builtin.plugins.treesitter.textsubjects.enable = true
+
+dvim.builtin.plugins.treesitter.playground.enable = true
+dvim.builtin.plugins.treesitter.playground.disable = {
+  "",
+}
+
+dvim.builtin.plugins.treesitter.rainbow.enable = true
+dvim.builtin.plugins.treesitter.rainbow.extended_mode = true
+dvim.builtin.plugins.treesitter.rainbow.max_file_lines = 1000
+dvim.builtin.plugins.treesitter.rainbow.disable = {
+  "html",
 }
 
 -----------------
@@ -632,18 +587,14 @@ dvim.builtin.plugins.treesitter = {
 -----------------
 
 dvim.builtin.plugins.which_key.marks = true
-dvim.builtin.plugins.which_key.presets = {
-  operators = true,
-  motions = true,
-  text_objects = true,
-  nav = true,
-  z = true,
-  g = true,
-}
-dvim.builtin.plugins.which_key.spelling = {
-  enabled = true,
-  suggestions = 20,
-}
+dvim.builtin.plugins.which_key.presets.operators = true
+dvim.builtin.plugins.which_key.presets.motions = true
+dvim.builtin.plugins.which_key.presets.text_objects = true
+dvim.builtin.plugins.which_key.presets.nav = true
+dvim.builtin.plugins.which_key.presets.z = true
+dvim.builtin.plugins.which_key.presets.g = true
+dvim.builtin.plugins.which_key.spelling.enabled = true
+dvim.builtin.plugins.which_key.spelling.suggestions = 20
 
 -----------------
 --  Git Signs  --
@@ -655,6 +606,18 @@ dvim.builtin.plugins.gitsigns.line_blame = true
 ------------------------------------------------------------------------
 --                                LSP                                 --
 ------------------------------------------------------------------------
+
+-------------
+-- General --
+-------------
+
+dvim.lsp.active = true
+
+-----------------
+--  Lsp Lines  --
+-----------------
+
+dvim.lsp.lsp_lines = false
 
 ------------------------
 --  Language Servers  --
@@ -679,7 +642,6 @@ dvim.lsp.language_servers = {
   { server = "rust_analyzer", filetype = "rust" },
   { server = "solang", filetype = "solidity" },
   { server = "solc", filetype = "solidity" },
-  { server = "marksman", filetype = "markdown" },
   { server = "golangci_lint_ls", filetype = "go" },
   { server = "tsserver", filetype = "javascript" },
   { server = "jdtls", filetype = "java" },
@@ -744,7 +706,6 @@ dvim.lsp.formatters = {
   },
 }
 
--- TODO:
 -- If you don't have a formatter installed for a filetype, DeathVim will try to
 -- install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
@@ -770,13 +731,8 @@ dvim.lsp.diagnostics = {
     diagnostic = "write_good",
     filetype = "latex",
   },
-  {
-    diagnostic = "write_good",
-    filetype = "markdown",
-  },
 }
 
--- TODO:
 -- If you don't have a diagnostic installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
@@ -814,12 +770,13 @@ dvim.lsp.completions = {
 -- Here is where you put each speific settings for each filetype.
 
 dvim.builtin.filetypes.latex.settings = {
-  filetype = "tex",
   wrap = true,
+  spell = true,
 }
+
 dvim.builtin.filetypes.markdown.settings = {
-  filetype = "md",
   wrap = true,
+  spell = true,
 }
 
 ------------------------------------------------------------------------
@@ -852,58 +809,6 @@ dvim.vim_commands = {
   { command = "set rtp+=~/Documents/school-notes/current-course" },
 }
 ```
-
-## General
-
-## Logging
-
-## Keymappings
-
-### Setup
-
-### Add Keymappings
-
-### Remove Keymappings
-
-### Add Which Key Keymappings
-
-## Builtin
-
-### Builtin Plugins
-
-### Builtin Filetypes
-
-### Builtin Actions
-
-## Modifying Plugins
-
-### Statusline
-
-### Tree Sitter
-
-### Which Key
-
-### Git Signs
-
-## LSP
-
-### Language Servers
-
-### Formatters
-
-### Diagnostics
-
-### Hover
-
-### Code Action
-
-### Completion
-
-## Additional Plugins
-
-## Auto Commands
-
-## Vim Commands
 
 # Credit
 

@@ -315,7 +315,6 @@ dvim.lsp.language_servers = {
   { server = "rust_analyzer", filetype = "rust" },
   { server = "solang", filetype = "solidity" },
   { server = "solc", filetype = "solidity" },
-  { server = "marksman", filetype = "markdown" },
   { server = "golangci_lint_ls", filetype = "go" },
   { server = "tsserver", filetype = "javascript" },
   { server = "jdtls", filetype = "java" },
@@ -404,10 +403,6 @@ dvim.lsp.diagnostics = {
   {
     diagnostic = "write_good",
     filetype = "latex",
-  },
-  {
-    diagnostic = "write_good",
-    filetype = "markdown",
   },
 }
 

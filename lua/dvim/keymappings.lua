@@ -59,8 +59,6 @@ local defaults = {
 		["<Leader>k"] = ":m . -2<CR>==",
 		["<Leader>v"] = ":vsplit<CR>",
 		["<Leader>h"] = ":split<CR>",
-		["<Leader>o"] = ":wincmd _<CR>wincmd |<CR>",
-		["<Leader>O"] = ":wincmd =<CR>",
 		-- Delete a buffer
 		["<C-w>"] = ":bdelete<CR>",
 		-- Create a buffer

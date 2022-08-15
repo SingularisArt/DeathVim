@@ -31,8 +31,6 @@ M.config = function()
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
     ["v"] = { "<cmd>vsplit<CR>", "Vertical Split" },
     ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
-    ["o"] = { "<cmd>wincmd _ | wincmd |<CR>", "Tab only" },
-    ["O"] = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
     ["y"] = { "<Plug>(easymotion-bd-f)", "Easymotion" },
     ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
     ["j"] = "which_key_ignore",
@@ -235,6 +233,22 @@ M.config = function()
       u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
     },
 
+    o = {
+      name = "Only",
+      o = {
+        name = "Close",
+        o = {
+          "<cmd>wincmd _ | wincmd |<CR>",
+          "Minimize all tabs (you can always bring them back with <Leader>oO)",
+        },
+        O = {
+          "<cmd>only<CR>",
+          "Close all tabs",
+        },
+      },
+      O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
+    },
+
     s = {
       name = "LSP",
       h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Documentation" },
@@ -287,5 +301,4 @@ M.setup = function()
   which_key.register(vmappings, vopts)
 end
 
-M.config()
 return M
