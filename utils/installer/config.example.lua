@@ -89,6 +89,7 @@ dvim.builtin.filetypes.solidity.active = true
 dvim.builtin.filetypes.go.active = true
 dvim.builtin.filetypes.bash.active = true
 dvim.builtin.filetypes.log.active = true
+dvim.builtin.filetypes.hugo.active = true
 dvim.builtin.filetypes.latex.active = true
 dvim.builtin.filetypes.markdown.active = true
 dvim.builtin.filetypes.yaml.active = true
@@ -466,10 +467,10 @@ dvim.plugins = {
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
+-- let treesitter use bash highlight for zsh files as well
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()
-    -- let treesitter use bash highlight for zsh files as well
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })

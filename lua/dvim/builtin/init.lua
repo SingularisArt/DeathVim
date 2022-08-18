@@ -143,7 +143,14 @@ return {
       filetype = "sh",
       settings = {},
     },
-    log = {},
+    log = {
+      filetype = "html",
+      settings = {},
+    },
+    hugo = {
+      filetype = "html",
+      settings = {},
+    },
     latex = {
       filetype = "tex",
       settings = {},

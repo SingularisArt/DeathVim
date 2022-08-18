@@ -151,6 +151,14 @@ return packer.startup(function(use)
     disable = not dvim.builtin.filetypes.log.active,
   })
 
+  use({
+    "phelipetls/vim-hugo",
+    config = function()
+      require("dvim.core.filetypes.hugo").setup()
+    end,
+    disable = not dvim.builtin.filetypes.hugo.active,
+  })
+
   -- WhichKey
   use({
     "max397574/which-key.nvim",
