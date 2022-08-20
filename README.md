@@ -885,4 +885,3 @@ Huge shoutout to the follwing people and organizations:
 <!-- [vim-pencil](https://github.com/preservim/vim-pencil) -->
 <!-- [HighStr.nvim](https://github.com/Pocco81/HighStr.nvim) -->
 <!-- [lookatme](https://github.com/d0c-s4vage/lookatme) -->
-
