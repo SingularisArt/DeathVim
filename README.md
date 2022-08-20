@@ -65,8 +65,20 @@
 
 # Installation
 
+> :warning: You need the latest neovim version, which currently is 0.8. If you
+> don't have or don't want to have the latest version, then go
+> [here](#installing-the-latest-stable-version).
+
+## Installing the Latest Version
+
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)
+bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh) --nightly
+```
+
+## Installing the Latest Stable Version
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh) --stable
 ```
 
 ## Install Language Support
@@ -95,170 +107,191 @@ for all the supported **TreeSitter Parsers**.
 
 <details><summary><code>Basic Key-Bindings</code></summary>
 <p>
-  
-| Function                                | Keybind           |
-| --------------------------------------- | ---------------   |
-| Leader Key                              | `SPACE`           |
-| Create a new tab                        | `Ctrl+t`          |
-| Remove the current tab                  | `Ctrl+w`          |
-| Toggle QuickFix                         | `Right Arrow`     |
-| Close QuickFix                          | `Left Arrow`      |
-| Previous QuickFix item                  | `Up Arrow`        |
-| Next QuickFix item                      | `Down Arrow`      |
-| Format file                             | `Ctrl+s`          |
-| Correct a misspelled word               | `Ctrl+l`          |
-| Create a vertical split                 | `<Leader>+v`      |
-| Create a horizontal split               | `<Leader>+h`      |
-| Close all splits                        | `<Leader>+o`      |
-| Highlight everything                    | `Ctrl+a`          |
-| Move text up                            | `J` (VISUAL MODE) |
-| Move text down                          | `K` (VISUAL MODE) |
-| Move text up                            | `<Leader>j`       |
-| Move text down                          | `<Leader>k`       |
-| Open NvimTree                           | `<Leader>e`       |
-| Toggle easymotion                       | `<Leader>y`       |
-| Toggle SymbolsOutline                   | `<Leader>u`       |
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Leader Key                               | `SPACE`         | `Normal` |
+| Create a new tab                         | `Ctrl+t`        | `Normal` |
+| Remove the current tab                   | `Ctrl+w`        | `Normal` |
+| Toggle QuickFix                          | `Right Arrow`   | `Normal` |
+| Close QuickFix                           | `Left Arrow`    | `Normal` |
+| Previous QuickFix item                   | `Up Arrow`      | `Normal` |
+| Next QuickFix item                       | `Down Arrow`    | `Normal` |
+| Format file                              | `Ctrl+s`        | `Normal` |
+| Correct a misspelled word                | `Ctrl+l`        | `Normal` |
+| Create a vertical split                  | `<Leader>v`     | `Normal` |
+| Create a horizontal split                | `<Leader>h`     | `Normal` |
+| Minimize all splits                      | `<Leader>ooo`   | `Normal` |
+| Close all splits                         | `<Leader>ooO`   | `Normal` |
+| Bring back all minimized splits          | `<Leader>oO`    | `Normal` |
+| Highlight everything                     | `Ctrl+a`        | `Normal` |
+| Move text up                             | `J`             | `Visual` |
+| Move text down                           | `K`             | `Visual` |
+| Move text up                             | `<Leader>j`     | `Normal` |
+| Move text down                           | `<Leader>k`     | `Normal` |
+| Open NvimTree                            | `<Leader>e`     | `Normal` |
+| Toggle easymotion                        | `<Leader>y`     | `Normal` |
+| Toggle SymbolsOutline                    | `<Leader>u`     | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>Packer</code></summary>
 <p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Install plugins                         | `<Leader>pi`    |
-| Update plugins                          | `<Leader>pu`    |
-| Clean plugins                           | `<Leader>pc`    |
-| Load plugins                            | `<Leader>pl`    |
-| Sync plugins                            | `<Leader>ps`    |
-| Bring profile                           | `<Leader>pp`    |
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Clean Plugins                            | `<Leader>pc`    | `Normal` |
+| Compile Plugins                          | `<Leader>pC`    | `Normal` |
+| Install Plugins                          | `<Leader>pi`    | `Normal` |
+| Load Plugins                             | `<Leader>pl`    | `Normal` |
+| Profile Plugins                          | `<Leader>pp`    | `Normal` |
+| Plugins Status                           | `<Leader>pt`    | `Normal` |
+| Sync Plugins                             | `<Leader>py`    | `Normal` |
+| Update Plugins                           | `<Leader>pu`    | `Normal` |
+| Snapshot Plugins                         | `<Leader>pss`   | `Normal` |
+| Delete Snapshot Plugins                  | `<Leader>psd`   | `Normal` |
+| Rollback Snapshot Plugins                | `<Leader>psr`   | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>Buffers</code></summary>
 <p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Pick from the buffers                   | `<Leader>bp`    |
-| Close all buffers to the left           | `<Leader>bcl`   |
-| Close all buffers to the right          | `<Leader>bcr`   |
-| Move buffer next                        | `<Leader>bmn`   |
-| Move buffer previous                    | `<Leader>bmp`   |
-| Sort buffers by directory               | `<Leader>bsd`   |
-| Sort buffers by extension               | `<Leader>bse`   |
-| Sort buffers by relative directory      | `<Leader>bsr`   |
-| Sort buffers by tabs                    | `<Leader>bst`   |
-| List all buffers with JABS              | \`              |
 
-</p>
-</details>
-
-<details><summary><code>Git</code></summary>
-<p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Git status                              | `<Leader>gs`    |
-| Git add                                 | `<Leader>ga`    |
-| Git commit                              | `<Leader>gc`    |
-| Git push                                | `<Leader>gp`    |
-| Git pull                                | `<Leader>gP`    |
-| Git log                                 | `<Leader>gl`    |
-| Git diff                                | `<Leader>gd`    |
-| Lazy Git                                | `<Leader>gL`    |
-| Lazy Git Filter                         | `<Leader>gf`    |
-
-</p>
-</details>
-
-<details><summary><code>Translate</code></summary>
-<p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Show the translation in the cmd line    | `<Leader>Rt`    |
-| Show the translation in a pop-up        | `<Leader>Rw`    |
-| Convert the word to the translated word | `<Leader>Rr`    |
-
-</p>
-</details>
-
-<details><summary><code>LaTeX</code></summary>
-<p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Clean                                   | `<Leader>lll`   |
-| Clean Cache                             | `<Leader>llc`   |
-| Compile                                 | `<Leader>lcc`   |
-| Compile and show output                 | `<Leader>lco`   |
-| Compile and show SS                     | `<Leader>lcs`   |
-| Compile selected                        | `<Leader>lce`   |
-| Reload                                  | `<Leader>lrr`   |
-| Reload state                            | `<Leader>lrs`   |
-| Stop                                    | `<Leader>lop`   |
-| Stop all                                | `<Leader>loa`   |
-| Show TOC                                | `<Leader>ltt`   |
-| Show context menu                       | `<Leader>lm`    |
-| Count letters                           | `<Leader>lu`    |
-| Count words                             | `<Leader>lw`    |
-| Document package                        | `<Leader>ld`    |
-| Errors                                  | `<Leader>le`    |
-| Status                                  | `<Leader>ls`    |
-| View pdf                                | `<Leader>vl`    |
-| Info                                    | `<Leader>li`    |
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Pick Buffer                              | `<Leader>bp`    | `Normal` |
+| Close all Buffers to the Left            | `<Leader>bcl`   | `Normal` |
+| Close all Buffers to the Right           | `<Leader>bcr`   | `Normal` |
+| Move Buffer Next                         | `<Leader>bmn`   | `Normal` |
+| Move Buffer Previous                     | `<Leader>bmp`   | `Normal` |
+| Sort Buffers by Directory                | `<Leader>bsd`   | `Normal` |
+| Sort Buffers by Extension                | `<Leader>bse`   | `Normal` |
+| Sort Buffers by Relative Directory       | `<Leader>bsr`   | `Normal` |
+| Sort Buffers by Tabs                     | `<Leader>bst`   | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>Markdown</code></summary>
 <p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Preview markdown                        | `<Leader>mp`    |
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | -------- |
+| View Markdown                            | `<Leader>mp`    | `Normal` |
+
+</p>
+</details>
+
+<details><summary><code>Git</code></summary>
+<p>
+
+| Function                                                 | Keybind         | Mode     |
+| -------------------------------------------------------- | --------------- | -------- |
+| Next Hunk                                                | `<Leader>gj`    | `Normal` |
+| Prev Hunk                                                | `<Leader>gk`    | `Normal` |
+| Blame                                                    | `<Leader>gl`    | `Normal` |
+| Preview Hunk                                             | `<Leader>gp`    | `Normal` |
+| Reset Hunk                                               | `<Leader>gr`    | `Normal` |
+| Reset Buffer                                             | `<Leader>gR`    | `Normal` |
+| Stage Hunk                                               | `<Leader>gs`    | `Normal` |
+| Undo Stage Hunk                                          | `<Leader>gu`    | `Normal` |
+| Open changed file                                        | `<Leader>go`    | `Normal` |
+| Checkout branch                                          | `<Leader>gb`    | `Normal` |
+| Checkout commit                                          | `<Leader>gc`    | `Normal` |
+| Checkout commit(for current file)                        | `<Leader>gC`    | `Normal` |
+| Git Diff                                                 | `<Leader>gd`    | `Normal` |
+
+</p>
+</details>
+
+<details><summary><code>Translate</code></summary>
+<p>
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | -------- |
+| Translate                                | `<Leader>Tt`    | `Normal` |
+| Translate History                        | `<Leader>Th`    | `Normal` |
+| Translate Log                            | `<Leader>Tl`    | `Normal` |
+| Translate                                | `<Leader>Tr`    | `Normal` |
+| Translate and display in a Popup Window  | `<Leader>Tw`    | `Normal` |
+| Translate and Display in the cmdline     | `<Leader>Tx`    | `Normal` |
+
+</p>
+</details>
+
+<details><summary><code>LaTeX</code></summary>
+<p>
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | -------- |
+| Open Context Menu                        | `<Leader>lm`    | `Normal` |
+| Count Letters                            | `<Leader>lu`    | `Normal` |
+| Count Words                              | `<Leader>lw`    | `Normal` |
+| Open Doc for package                     | `<Leader>ld`    | `Normal` |
+| Look at the errors                       | `<Leader>le`    | `Normal` |
+| Look at the status                       | `<Leader>ls`    | `Normal` |
+| Toggle Main                              | `<Leader>la`    | `Normal` |
+| View pdf                                 | `<Leader>lv`    | `Normal` |
+| Vimtex Info                              | `<Leader>li`    | `Normal` |
+| Clean Project                            | `<Leader>lll`   | `Normal` |
+| Clean Cache                              | `<Leader>llc`   | `Normal` |
+| Compile Project                          | `<Leader>lcc`   | `Normal` |
+| Compile Project and Show Output          | `<Leader>lco`   | `Normal` |
+| Compile project super fast               | `<Leader>lcs`   | `Normal` |
+| Compile Selected                         | `<Leader>lce`   | `Normal` |
+| Reload                                   | `<Leader>lrr`   | `Normal` |
+| Reload State                             | `<Leader>lrs`   | `Normal` |
+| Stop                                     | `<Leader>lop`   | `Normal` |
+| Stop All                                 | `<Leader>loa`   | `Normal` |
+| Open TOC                                 | `<Leader>lto`   | `Normal` |
+| Toggle TOC                               | `<Leader>ltt`   | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>Table</code></summary>
 <p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Toggle table mode                       | `<Leader>tt`    |
-| Delete row                              | `<Leader>tdd`   |
-| Delete column                           | `<Leader>tdc`   |
-| Insert column                           | `<Leader>tic`   |
-| Add formula                             | `<Leader>tfa`   |
-| Evaluate the formula on the current row | `<Leader>tfe`   |
-| Get cell info                           | `<Leader>tn`
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | -------- |
+| Enable/Disable Table Mode                | `<Leader>tt`    | `Normal` |
+| Get cell info                            | `<Leader>tn`    | `Normal` |
+| Add formula                              | `<Leader>tfa`   | `Normal` |
+| Evaluate formula on current row          | `<Leader>tfe`   | `Normal` |
+| Delete row                               | `<Leader>tdr`   | `Normal` |
+| Delete column                            | `<Leader>tdc`   | `Normal` |
+| Insert column                            | `<Leader>tic`   | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>Telescope</code></summary>
 <p>
-  
-| Function                                | Keybind         |
-| --------------------------------------- | --------------- |
-| Find files                              | `<Leader>fff`   |
-| Find files using a file browser         | `<Leader>ffb`   |
-| Git status                              | `<Leader>fgs`   |
-| Git commits                             | `<Leader>fgc`   |
-| Git branches                            | `<Leader>fgb`   |
-| Git stash                               | `<Leader>fgt`   |
-| Look through old files                  | `<Leader>fo`    |
-| Go through the colorschemes             | `<Leader>fc`    |
-| Go through buffers                      | `<Leader>fb`    |
-| Go through commands                     | `<Leader>fm`    |
-| Go through the QuickFix list            | `<Leader>fq`    |
-| Do a live grep                          | `<Leader>fl`    |
-| Go through marks                        | `<Leader>fm`    |
-| Go through projects                     | `<Leader>fp`    |
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Fuzzy find files                         | `<Leader>ff`    | `Normal` |
+| Fuzzy find old files                     | `<Leader>fo`    | `Normal` |
+| Fuzzy find colorschemes                  | `<Leader>fc`    | `Normal` |
+| Fuzzy find buffers                       | `<Leader>fb`    | `Normal` |
+| Fuzzy find auto commands                 | `<Leader>fa`    | `Normal` |
+| Fuzzy find words                         | `<Leader>fl`    | `Normal` |
+| Fuzzy find marks                         | `<Leader>fm`    | `Normal` |
+| Fuzzy find notifications                 | `<Leader>fn`    | `Normal` |
+| Fuzzy find projects                      | `<Leader>fp`    | `Normal` |
+| Fuzzy find symbols                       | `<Leader>fs`    | `Normal` |
+| Fuzzy find diagnostics                   | `<Leader>fd`    | `Normal` |
+| Fuzzy find vim options                   | `<Leader>fv`    | `Normal` |
+| Fuzzy find man pages                     | `<Leader>fM`    | `Normal` |
+| Fuzzy find keymaps                       | `<Leader>fk`    | `Normal` |
+| Fuzzy find treesitter                    | `<Leader>ft`    | `Normal` |
+| Fuzzy find registers                     | `<Leader>fr`    | `Normal` |
+| Fuzzy find help tags                     | `<Leader>fh`    | `Normal` |
+| Fuzzy find search history                | `<Leader>fS`    | `Normal` |
+| Fuzzy find commands                      | `<Leader>fCc`   | `Normal` |
+| Fuzzy find commands history              | `<Leader>fCh`   | `Normal` |
 
 </p>
 </details>
@@ -266,53 +299,54 @@ for all the supported **TreeSitter Parsers**.
 <details><summary><code>Debugging</code></summary>
 <p>
 
-| Function               | Keybind      |
-| ---------------------- | ------------ |
-| Start debug session    | `<Leader>ds` |
-| Conditional breakpoint | `<Leader>dC` |
-| Toggle breakpoint      | `<Leader>db` |
-| Toggle UI              | `<Leader>dU` |
-| Continue               | `<Leader>dc` |
-| Step back              | `<Leader>db` |
-| Step into              | `<Leader>di` |
-| Step over              | `<Leader>do` |
-| Step out               | `<Leader>du` |
-| Run to cursor          | `<Leader>dR` |
-| Hover variable         | `<Leader>dh` |
-| Get session            | `<Leader>dg` |
-| Evaluate               | `<Leader>de` |
-| Evaluate input         | `<Leader>dE` |
-| Toggle repl            | `<Leader>dr` |
-| Scopes                 | `<Leader>dS` |
-| Pause                  | `<Leader>dp` |
-| Disconnect             | `<Leader>dd` |
-| Quit                   | `<Leader>dq` |
-| Terminate              | `<Leader>dx` |
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Run to Cursor                            | `<Leader>dR`    | `Normal` |
+| Evaluate Input                           | `<Leader>dE`    | `Normal` |
+| Conditional Breakpoint                   | `<Leader>dC`    | `Normal` |
+| Toggle UI                                | `<Leader>dU`    | `Normal` |
+| Step Back                                | `<Leader>db`    | `Normal` |
+| Continue                                 | `<Leader>dc`    | `Normal` |
+| Disconnect                               | `<Leader>dd`    | `Normal` |
+| Evaluate                                 | `<Leader>de`    | `Normal` |
+| Get Session                              | `<Leader>dg`    | `Normal` |
+| Hover Variables                          | `<Leader>dh`    | `Normal` |
+| Scopes                                   | `<Leader>dS`    | `Normal` |
+| Step Into                                | `<Leader>di`    | `Normal` |
+| Step Over                                | `<Leader>do`    | `Normal` |
+| Pause                                    | `<Leader>dp`    | `Normal` |
+| Quit                                     | `<Leader>dq`    | `Normal` |
+| Toggle Repl                              | `<Leader>dr`    | `Normal` |
+| Start                                    | `<Leader>ds`    | `Normal` |
+| Toggle Breakpoint                        | `<Leader>dt`    | `Normal` |
+| Terminate                                | `<Leader>dx`    | `Normal` |
+| Step Out                                 | `<Leader>du`    | `Normal` |
 
 </p>
 </details>
 
 <details><summary><code>LSP</code></summary>
 <p>
-  
-| Function                                 | Keybind         |
-| ---------------------------------------- | --------------- |
-| Go to definition                         | `<Leader>sdd`   |
-| Show references                          | `<Leader>sdr`   |
-| Get type definition                      | `<Leader>sdt`   |
-| Show definition preview in pop-up window | `<Leader>sdp`   |
-| Add workspace                            | `<Leader>swa`   |
-| Remove workspace                         | `<Leader>swr`   |
-| Show documentation                       | `<Leader>sh`    |
-| Show code actions                        | `<Leader>sc`    |
-| Show line diagnostics                    | `<Leader>se`    |
-| Show QuickFix list                       | `<Leader>sq`    |
-| Format                                   | `<Leader>sf`    |
-| Rename                                   | `<Leader>sr`    |
-| Go to implementation                     | `<Leader>si`    |
-| Go to next diagnostic                    | `<Leader>sj`    |
-| Go to prev diagnostic                    | `<Leader>sk`    |
-| Close all windows                        | `<Leader>sC`    |
+
+| Function                                 | Keybind         | Mode     |
+| ---------------------------------------- | --------------- | ----     |
+| Show Documentation                       | `<Leader>sh`    | `Normal` |
+| Show code actions                        | `<Leader>sc`    | `Normal` |
+| Show line diagnostics                    | `<Leader>se`    | `Normal` |
+| Show QuickFix                            | `<Leader>sq`    | `Normal` |
+| Format                                   | `<Leader>sf`    | `Normal` |
+| Rename                                   | `<Leader>sr`    | `Normal` |
+| Go to implementation                     | `<Leader>si`    | `Normal` |
+| Go to next diagnostic                    | `<Leader>sj`    | `Normal` |
+| Go to previous diagnostic                | `<Leader>sk`    | `Normal` |
+| Close all windows                        | `<Leader>sC`    | `Normal` |
+| Toggle LSP Lines                         | `<Leader>sl`    | `Normal` |
+| Go to definition                         | `<Leader>sdd`   | `Normal` |
+| Find references                          | `<Leader>sdd`   | `Normal` |
+| Get type definition                      | `<Leader>sdd`   | `Normal` |
+| View definition in pop-up                | `<Leader>sdd`   | `Normal` |
+| Add workspace                            | `<Leader>swa`   | `Normal` |
+| Remove workspace                         | `<Leader>swr`   | `Normal` |
 
 </p>
 </details>
@@ -416,6 +450,7 @@ dvim.builtin.filetypes.solidity.active = true
 dvim.builtin.filetypes.go.active = true
 dvim.builtin.filetypes.bash.active = true
 dvim.builtin.filetypes.log.active = true
+dvim.builtin.filetypes.hugo.active = true
 dvim.builtin.filetypes.latex.active = true
 dvim.builtin.filetypes.markdown.active = true
 dvim.builtin.filetypes.yaml.active = true
@@ -793,10 +828,10 @@ dvim.plugins = {
 --                           Auto Commands                            --
 ------------------------------------------------------------------------
 
+-- let treesitter use bash highlight for zsh files as well
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()
-    -- let treesitter use bash highlight for zsh files as well
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
@@ -810,6 +845,14 @@ dvim.vim_commands = {
 }
 ```
 
+# Resources
+
+- [Documentation](https://github/SingularisArt/DeathVim/wiki)
+- [YouTube](https://www.youtube.com/channel/UCZlyhrxolHFdmMVPRhJK47Q)
+- [Discord](https://discord.gg/hVGRvra2)
+- [Twitter](https://twitter.com/SingularisArt)
+- [Website](https://singularisart.github.io)
+
 # Credit
 
 Huge shoutout to the follwing people and organizations:
@@ -822,42 +865,23 @@ Huge shoutout to the follwing people and organizations:
   series.
 - [Gideon Wolfe](https://github.com/GideonWolfe): I also borrowed some of his
   code and his idea from his `vim.reaper` project.
+- [Wincent](https://github.com/wincent): I got many ideas from his Vim/NeoVim
+  configuration setup.
 - [Sweet_Ad6090](https://www.reddit.com/user/Sweet_Ad6090/): He's the skilled
   man who created the logo for me. If you need any logo designing, he's your
   guy. Send him a message through reddit, and he's be happy to help you out.
 
-# TODO
-
-## Completed
-
-- [x] Setup NeoVim for taking notes in **LaTeX**.
-- [x] Add git signs in the gutter area.
-- [x] Add snippets.
-- [x] Add **requirements** to **README.md**.
-- [x] Get completion using either **Native LSP** or **COC**.
-- [x] Add **features** to **README.md**.
-- [x] Add TabNine.
-- [x] Add GitHub copilot.
-- [x] Patch up the installation script.
-
-## Working on
-
-- [ ] Work on the documentation.
-- [ ] Get more screenshots.
-- [ ] Configure the following plugins:
-  - [undotree](https://github.com/mbbill/undotree)
-  - [nvim-scrollview](https://github.com/dstein64/nvim-scrollview)
-  - [pretty-fold.nvim](https://github.com/anuvyklack/pretty-fold.nvim)
-  - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-  - [venn.nvim](https://github.com/jbyuki/venn.nvim)
-  - [zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
-  - [twilight.nvim](https://github.com/folke/twilight.nvim)
-  - [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc)
-  - [vim-grammarous](https://github.com/rhysd/vim-grammarous)
-  - [vim-LanguageTool](https://github.com/dpelle/vim-LanguageTool)
-  - [LanguageTool.nvim](https://github.com/vigoux/LanguageTool.nvim)
-  - [vim-pencil](https://github.com/preservim/vim-pencil)
-  - [HighStr.nvim](https://github.com/Pocco81/HighStr.nvim)
-  - [lookatme](https://github.com/d0c-s4vage/lookatme) NOTE: This isn't a plugin, it's something that I want to incorperate into DeathVim.
-
-## Need to do
+<!-- [undotree](https://github.com/mbbill/undotree) -->
+<!-- [nvim-scrollview](https://github.com/dstein64/nvim-scrollview) -->
+<!-- [pretty-fold.nvim](https://github.com/anuvyklack/pretty-fold.nvim) -->
+<!-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) -->
+<!-- [venn.nvim](https://github.com/jbyuki/venn.nvim) -->
+<!-- [zen-mode.nvim](https://github.com/folke/zen-mode.nvim) -->
+<!-- [twilight.nvim](https://github.com/folke/twilight.nvim) -->
+<!-- [vim-markdown-toc](https://github.com/mzlogin/vim-markdown-toc) -->
+<!-- [vim-grammarous](https://github.com/rhysd/vim-grammarous) -->
+<!-- [vim-LanguageTool](https://github.com/dpelle/vim-LanguageTool) -->
+<!-- [LanguageTool.nvim](https://github.com/vigoux/LanguageTool.nvim) -->
+<!-- [vim-pencil](https://github.com/preservim/vim-pencil) -->
+<!-- [HighStr.nvim](https://github.com/Pocco81/HighStr.nvim) -->
+<!-- [lookatme](https://github.com/d0c-s4vage/lookatme) -->

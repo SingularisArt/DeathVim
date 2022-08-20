@@ -61,15 +61,28 @@ M.config = function()
 
     g = {
       name = "Git",
-      a = { "<cmd>Git add .<CR>", "Add" },
-      c = { "<cmd>Git commit<CR>", "Commit" },
-      d = { "<cmd>Git diff<CR>", "Diff" },
-      f = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
-      l = { "<cmd>Git log<CR>", "Log" },
-      L = { "<cmd>LazyGit<CR>", "LazyGit" },
-      p = { "<cmd>Git push<CR>", "Push" },
-      P = { "<cmd>Git pull<CR>", "Pull" },
-      s = { "<cmd>Git<CR>", "Status" },
+      j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+      k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+      l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+      r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+      R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+      s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+      u = {
+        "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+        "Undo Stage Hunk",
+      },
+      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+      C = {
+        "<cmd>Telescope git_bcommits<cr>",
+        "Checkout commit(for current file)",
+      },
+      d = {
+        "<cmd>Gitsigns diffthis HEAD<cr>",
+        "Git Diff",
+      },
     },
 
     p = {
@@ -79,15 +92,15 @@ M.config = function()
       i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
       l = { "<cmd>PackerLoad<CR>", "Load Plugins" },
       p = { "<cmd>PackerProfile<CR>", "Profile Plugins" },
+      t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
+      y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
+      u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
       s = {
         name = "Snapshot",
         s = { "<cmd>PackerSnapshot<CR>", "Snapshot Plugins" },
         d = { "<cmd>PackerSnapshotDelete<CR>", "Delete Snapshot Plugins" },
         r = { "<cmd>PackerSnapshotRollback<CR>", "Rollback Snapshot Plugins" },
       },
-      t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
-      y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
-      u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
     },
 
     T = {
@@ -126,7 +139,7 @@ M.config = function()
     },
 
     l = {
-      name = "VimTex",
+      name = "LaTeX",
       m = { "<cmd>VimtexContextMenu<CR>", "Open Context Menu" },
       u = { "<cmd>VimtexCountLetters<CR>", "Count Letters" },
       w = { "<cmd>VimtexCountWords<CR>", "Count Words" },
@@ -189,15 +202,6 @@ M.config = function()
         name = "Commands",
         c = { "<cmd>Telescope commands<CR>", "Fuzzy find commands" },
         h = { "<cmd>Telescope command_history<CR>", "Fuzzy find commands history" },
-      },
-      g = {
-        name = "Git",
-        f = { "<cmd>Telescope git_files<CR>", "Git Files" },
-        c = { "<cmd>Telescope git_commits<CR>", "Git Commits" },
-        b = { "<cmd>Telescope git_branches<CR>", "Git Branches" },
-        B = { "<cmd>Telescope git_bcommits<CR>", "Git Branch Commits" },
-        s = { "<cmd>Telescope git_status<CR>", "Git Status" },
-        S = { "<cmd>Telescope git_stash<CR>", "Git Stash" },
       },
       q = {
         name = "QuickFix",
