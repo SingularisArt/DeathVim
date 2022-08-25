@@ -5,16 +5,6 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local sources = {}
 
-M.on_attach = function()
-  -- vim.cmd [[
-  --   augroup document_highlight
-  --     autocmd! * <buffer>
-  --     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-  --     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-  --   augroup END
-  -- ]]
-end
-
 M.setup = function()
   if vim.tbl_isempty(dvim.lsp.formatters) then
     return
