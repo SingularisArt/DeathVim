@@ -13,6 +13,8 @@ end
 
 Log = require("dvim.log")
 
+require("dvim.foldtext")
+
 local settings = require("dvim.settings")
 settings.load_defaults()
 Log.trace("Loaded settings")

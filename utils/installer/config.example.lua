@@ -52,7 +52,6 @@ dvim.builtin.plugins.staline.active = true
 dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
-dvim.builtin.plugins.folds.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -401,10 +400,6 @@ dvim.lsp.diagnostics = {
     diagnostic = "cppcheck",
     filetype = "cpp",
   },
-  {
-    diagnostic = "write_good",
-    filetype = "latex",
-  },
 }
 
 -- If you don't have a diagnostic installed for a filetype, DeathVim will try
@@ -445,11 +440,13 @@ dvim.lsp.completions = {
 
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
+  textwidth = 80,
   spell = true,
 }
 
 dvim.builtin.filetypes.markdown.settings = {
   wrap = true,
+  textwidth = 80,
   spell = true,
 }
 

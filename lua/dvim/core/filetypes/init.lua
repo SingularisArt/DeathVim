@@ -34,4 +34,5 @@ M.load_user_filetype_settings = function()
   end
 end
 
+M.load_user_filetype_settings()
 return M

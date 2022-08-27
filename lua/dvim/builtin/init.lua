@@ -60,7 +60,6 @@ return {
       playground = {},
       rainbow = {},
     },
-    folds = {},
   },
   filetypes = {
     lua = {
@@ -156,7 +155,7 @@ return {
       settings = {},
     },
     markdown = {
-      filetype = "markdown",
+      filetype = "md",
       settings = {},
     },
     yaml = {
