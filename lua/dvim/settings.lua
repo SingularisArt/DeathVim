@@ -57,7 +57,7 @@ M.load_default_options = function()
       fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
       vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     },
-    foldlevelstart = 1, -- start folded
+    foldlevelstart = 0, -- start all buffers folded
     foldmethod = "indent", -- not as cool as syntax, but faster
     foldtext = "v:lua.foldtext()", -- nice folding style
     formatoptions = vim.opt.formatoptions + "jn", -- j: remove comment leader when joining comment lines, n: smart auto-indenting inside numbered lists
