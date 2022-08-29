@@ -47,11 +47,10 @@ dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
 dvim.builtin.plugins.nvimtree.active = true
-dvim.builtin.plugins.lualine.active = true
-dvim.builtin.plugins.staline.active = true
-dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
+dvim.builtin.plugins.bufferline.active = true
+dvim.builtin.plugins.heirline.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -156,18 +155,6 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
 ------------------------------------------------------------------------
 --                         Modifying Plugins                          --
 ------------------------------------------------------------------------
-
-------------------
---  Statusline  --
-------------------
-
--- Possible values: "staline", "lualine"
-dvim.statusline = "lualine"
--- Possible values: "evil", "normal", "pebble", "simple", "simpler"
-dvim.builtin.plugins.staline.mode = "evil"
--- Possible values: "evil", "bubbles", "slanted"
-dvim.builtin.plugins.lualine.theme = "pywal" -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-dvim.builtin.plugins.lualine.mode = "evil"
 
 -----------------
 --  Telescope  --
@@ -445,8 +432,8 @@ dvim.builtin.filetypes.latex.settings = {
 }
 
 dvim.builtin.filetypes.markdown.settings = {
-  wrap = true,
   textwidth = 80,
+  wrap = true,
   spell = true,
 }
 
