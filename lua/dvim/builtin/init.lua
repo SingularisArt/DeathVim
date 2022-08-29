@@ -39,8 +39,6 @@ return {
     cmp = {},
     autopairs = {},
     nvimtree = {},
-    lualine = {},
-    staline = {},
     bufferline = {},
     notify = {},
     treesitter = {
@@ -60,6 +58,7 @@ return {
       playground = {},
       rainbow = {},
     },
+    heirline = {},
   },
   filetypes = {
     lua = {

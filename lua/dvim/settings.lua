@@ -20,7 +20,7 @@ M.load_default_options = function()
     ignorecase = true, -- ignore case in search patterns
     mouse = "a", -- allow the mouse to be used in neovim
     pumheight = 10, -- pop up menu height
-    showmode = false, -- we don't need to see things like -- INSERT -- anymore
+    showmode = true, -- we don't need to see things like -- INSERT -- anymore
     showtabline = 2, -- always show tabs
     smarttab = true, -- <tab>/<BS> indent/dedent in leading whitespace
     smartcase = true, -- don't ignore case in searches if uppercase characters present
@@ -57,8 +57,9 @@ M.load_default_options = function()
       fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
       vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
     },
-    foldlevelstart = 0, -- start all buffers folded
-    foldmethod = "indent", -- not as cool as syntax, but faster
+    foldlevelstart = 99, -- start all buffers unfolded
+    foldexpr = "nvim_treesitter#foldexpr()",
+    foldmethod = "expr", -- not as cool as syntax, but faster
     foldtext = "v:lua.foldtext()", -- nice folding style
     formatoptions = vim.opt.formatoptions + "jn", -- j: remove comment leader when joining comment lines, n: smart auto-indenting inside numbered lists
     hidden = true, -- allows you to hide buffers with unsaved changes without being prompted
@@ -115,22 +116,9 @@ M.load_default_options = function()
   vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
   vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 
-  vim.cmd([[
-    set foldexpr=nvim_treesitter#foldexpr()
-    set foldmethod=expr
-  ]])
-
   for k, v in pairs(default_options) do
     vim.opt[k] = v
   end
-end
-
-M.load_headless_options = function()
-  vim.opt.shortmess = "" -- try to prevent echom from cutting messages off or prompting
-  vim.opt.more = false -- don't pause listing when screen is filled
-  vim.opt.cmdheight = 9999 -- helps avoiding |hit-enter| prompts.
-  vim.opt.columns = 9999 -- set the widest screen possible
-  vim.opt.swapfile = false -- don't use a swap file
 end
 
 M.load_defaults = function()

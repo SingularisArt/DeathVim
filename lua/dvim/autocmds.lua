@@ -23,18 +23,6 @@ function M.load_defaults()
     },
 
     {
-      "User",
-      {
-        pattern = { "AlphaReady" },
-        callback = function()
-          vim.cmd([[
-            set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-          ]])
-        end,
-      },
-    },
-
-    {
       "VimResized",
       {
         callback = function()

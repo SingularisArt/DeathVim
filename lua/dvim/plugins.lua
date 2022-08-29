@@ -92,7 +92,7 @@ return packer.startup(function(use)
   use({
     "RRethy/vim-illuminate",
     config = function()
-      require("dvim.core.plugins.illuminate")
+      require("dvim.core.plugins.illuminate").setup()
     end,
   })
   use({ "folke/lua-dev.nvim" })
@@ -410,27 +410,19 @@ return packer.startup(function(use)
 
   -- Status Line and Bufferline
   use({
-    "christianchiarulli/lualine.nvim",
-    config = function()
-      -- require("dvim.core.plugins.lualine").setup()
-      require("dvim.core.plugins.lualine").setup()
-    end,
-    disable = not dvim.builtin.plugins.lualine.active,
-  })
-  use({
-    "tamton-aquib/staline.nvim",
-    config = function()
-      require("dvim.core.plugins.staline").setup()
-    end,
-    disable = not dvim.builtin.plugins.staline.active,
-  })
-  use({
     "akinsho/bufferline.nvim",
     config = function()
       require("dvim.core.plugins.bufferline").setup()
     end,
     branch = "main",
     disable = not dvim.builtin.plugins.bufferline.active,
+  })
+  use({
+    "rebelot/heirline.nvim",
+    config = function()
+      require("dvim.core.plugins.heirline").setup()
+    end,
+    disable = not dvim.builtin.plugins.heirline.active,
   })
 
   -- HTML
