@@ -107,12 +107,30 @@ return packer.startup(function(use)
     end,
     disable = not dvim.builtin.plugins.symbols_outline.active,
   })
-  use({ "ray-x/navigator.lua" })
-  use({ "ray-x/guihua.lua" })
-  use({ "ray-x/lsp_signature.nvim" })
-  use({ "rmagatti/goto-preview" })
-  use({ "tamago324/nlsp-settings.nvim" })
-  use({ "lvimuser/lsp-inlayhints.nvim" })
+  use({
+    "ray-x/navigator.lua",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "ray-x/guihua.lua",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "ray-x/lsp_signature.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "rmagatti/goto-preview",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "tamago324/nlsp-settings.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "lvimuser/lsp-inlayhints.nvim",
+    disable = not dvim.lsp.active,
+  })
   use({
     "williamboman/mason.nvim",
     disable = not dvim.lsp.active,

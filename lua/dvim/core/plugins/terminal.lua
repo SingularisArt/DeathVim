@@ -87,9 +87,6 @@ M.add_exec = function(opts)
     normal_mode = { [opts.keymap] = exec_func },
     term_mode = { [opts.keymap] = exec_func },
   }
-
-  local wk = require_clean("which-key")
-  wk.register({ [opts.keymap] = { opts.label } }, { mode = "n" })
 end
 
 M._exec_toggle = function(opts)

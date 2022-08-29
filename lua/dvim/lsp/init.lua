@@ -44,6 +44,7 @@ M.setup = function()
   require("dvim.lsp.null-ls").setup()
   require("dvim.lsp.handlers").setup()
   require("dvim.lsp.inlayhints").setup()
+  require("dvim.lsp.lsp-signature").setup()
   require("dvim.lsp.mason").setup(ensure_installed, servers)
 end
 
