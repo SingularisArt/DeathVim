@@ -5,10 +5,6 @@ M.apply_colorscheme = function(colorscheme)
   if not status_ok then
     return
   end
-
-  if dvim.focus then
-    vim.cmd("hi! link EndOfBuffer CursorLine")
-  end
 end
 
 M.highlight_lsp = function()

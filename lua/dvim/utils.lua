@@ -211,4 +211,25 @@ function M.setlocal(name, ...)
   end
 end
 
+function M.get_key_for_fn(fn, storage)
+  local callback_index = 0
+  local config_prefix = get_config_dir()
+
+  local info = debug.getinfo(fn)
+  local key = info.short_src
+  if vim.startswith(key, config_prefix) then
+    key = key:sub(#config_prefix + 1)
+  end
+  if vim.endswith(key, '.lua') then -- and sure would be weird if it _didn't_
+    key = key:sub(1, #key - 4)
+  end
+  key = key:gsub('%W', '_')
+  key = key .. '_L' .. info.linedefined
+  if storage[key] ~= nil then
+    key = key .. '_' .. callback_index
+    callback_index = callback_index + 1
+  end
+  return key
+end
+
 return M

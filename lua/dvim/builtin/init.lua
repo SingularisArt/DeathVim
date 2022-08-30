@@ -1,5 +1,4 @@
 return {
-  g = {},
   actions = {
     writing = {},
     note_taking = {},

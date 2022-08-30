@@ -23,7 +23,6 @@ settings.load_defaults()
 Log.trace("Loaded settings")
 
 local autocmds = require("dvim.autocmds")
-autocmds.load_defaults()
 Log.trace("Loaded autocmds")
 
 -- local augroups = require("dvim.augroup")
