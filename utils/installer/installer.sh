@@ -47,9 +47,9 @@ function usage() {
   echo ""
   echo "Options:"
   echo "    -h, --help                               Print this help message"
-  echo "    -l, --local                              Install local copy of DeathVin"
+  echo "    -l, --local                              Install local copy of DeathVim"
   echo "    -y, --yes                                Disable confirmation prompts (answer yes to all questions)"
-  echo "    --overwrite                              Overwrite previous DeathVin configuration (a backup is always performed first)"
+  echo "    --overwrite                              Overwrite previous DeathVim configuration (a backup is always performed first)"
   echo "    --[no]-install-dependencies              Whether to automatically install external dependencies (will prompt by default)"
 }
 
@@ -118,13 +118,13 @@ function main() {
 
   if [ "$ARGS_INSTALL_DEPENDENCIES" -eq 1 ]; then
     if [ "$INTERACTIVE_MODE" -eq 1 ]; then
-      if confirm "Would you like to install DeathVin's NodeJS dependencies?"; then
+      if confirm "Would you like to install DeathVim's NodeJS dependencies?"; then
         install_nodejs_deps
       fi
-      if confirm "Would you like to install DeathVin's Python dependencies?"; then
+      if confirm "Would you like to install DeathVim's Python dependencies?"; then
         install_python_deps
       fi
-      if confirm "Would you like to install DeathVin's Rust dependencies?"; then
+      if confirm "Would you like to install DeathVim's Rust dependencies?"; then
         install_rust_deps
       fi
     else
@@ -148,7 +148,7 @@ function main() {
 
   setup_dvim
 
-  msg "Thank you for installing DeathVin!!"
+  msg "Thank you for installing DeathVim!!"
   echo "You can start it by running: $INSTALL_PREFIX/bin/dvim"
   echo "Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"
 }
@@ -203,7 +203,7 @@ function check_neovim_min_version() {
 
   # exit with an error if min_version not found
   if ! nvim --headless -u NONE -c "$verify_version_cmd"; then
-    echo "[ERROR]: DeathVin requires at least Neovim v0.7 or higher"
+    echo "[ERROR]: DeathVim requires at least Neovim v0.7 or higher"
     exit 1
   fi
 }
@@ -365,16 +365,21 @@ function backup_old_config() {
 }
 
 function clone_dvim() {
-  msg "Cloning DeathVin configuration"
-  if ! git clone --branch "$DV_BRANCH" \
-    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
+  msg "Cloning DeathVim configuration"
+
+  if [[ -d "$XDG_DATA_HOME/deathvim/dvim" ]]; then
+    cp -r "$XDG_DATA_HOME/deathvim/dvim" "$XDG_DATA_HOME/deathvim/dvim.back"
+  fi
+
+  export installation_cmd="git clone --branch \"$DV_BRANCH\" --depth 1 --recursive \"https://github.com/$DV_REMOTE\" \"$DEATHVIM_BASE_DIR\""
+  if ! eval "$(installation_cmd)"; then
     echo "Failed to clone repository. Installation failed."
     exit 1
   fi
 }
 
 function link_local_dvim() {
-  echo "Linking local DeathVin repo"
+  echo "Linking local DeathVim repo"
 
   # Detect whether it's a symlink or a folder
   if [ -d "$DEATHVIM_BASE_DIR" ]; then
@@ -434,14 +439,14 @@ function setup_dvim() {
 
 function print_logo() {
   cat <<'EOF'
-       /$$$$$$$                        /$$     /$$       /$$    /$$ /$$               
-      | $$__  $$                      | $$    | $$      | $$   | $$|__/               
-      | $$  \ $$  /$$$$$$   /$$$$$$  /$$$$$$  | $$$$$$$ | $$   | $$ /$$ /$$$$$$/$$$$  
-      | $$  | $$ /$$__  $$ |____  $$|_  $$_/  | $$__  $$|  $$ / $$/| $$| $$_  $$_  $$ 
-      | $$  | $$| $$$$$$$$  /$$$$$$$  | $$    | $$  \ $$ \  $$ $$/ | $$| $$ \ $$ \ $$ 
-      | $$  | $$| $$_____/ /$$__  $$  | $$ /$$| $$  | $$  \  $$$/  | $$| $$ | $$ | $$ 
-      | $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/| $$  | $$   \  $/   | $$| $$ | $$ | $$ 
-      |_______/  \_______/ \_______/   \___/  |__/  |__/    \_/    |__/|__/ |__/ |__/ 
+       /$$$$$$$                        /$$     /$$       /$$    /$$ /$$
+      | $$__  $$                      | $$    | $$      | $$   | $$|__/
+      | $$  \ $$  /$$$$$$   /$$$$$$  /$$$$$$  | $$$$$$$ | $$   | $$ /$$ /$$$$$$/$$$$
+      | $$  | $$ /$$__  $$ |____  $$|_  $$_/  | $$__  $$|  $$ / $$/| $$| $$_  $$_  $$
+      | $$  | $$| $$$$$$$$  /$$$$$$$  | $$    | $$  \ $$ \  $$ $$/ | $$| $$ \ $$ \ $$
+      | $$  | $$| $$_____/ /$$__  $$  | $$ /$$| $$  | $$  \  $$$/  | $$| $$ | $$ | $$
+      | $$$$$$$/|  $$$$$$$|  $$$$$$$  |  $$$$/| $$  | $$   \  $/   | $$| $$ | $$ | $$
+      |_______/  \_______/ \_______/   \___/  |__/  |__/    \_/    |__/|__/ |__/ |__/
 EOF
 }
 
