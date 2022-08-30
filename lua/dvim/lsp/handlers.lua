@@ -60,7 +60,7 @@ local function lsp_highlight_document(client, bufnr)
 end
 
 local function attach_navic(client, bufnr)
-  vim.g.navic_silence = true
+  -- vim.g.navic_silence = true
   local navic = require_clean("nvim-navic")
   navic.attach(client, bufnr)
 end

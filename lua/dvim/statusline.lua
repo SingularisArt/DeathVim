@@ -230,6 +230,9 @@ statusline.set = function()
       .. "]" -- Right bracket (literal).
       .. "%)" -- End item group.
       .. "%*" -- Reset highlight group.
+      .. "%3*" -- Switch to User3 highlight group (bold).
+      .. "%= %<%{%v:lua.require'nvim-navic'.get_location()%} %=" -- Navic in Center.
+      .. "%*" -- Reset highlight group.
       .. "%=" -- Split point for left and right groups.
       .. " " -- Space.
       .. "" -- Powerline arrow.
@@ -257,27 +260,33 @@ statusline.update_highlight = function()
   vim.cmd("highlight User4 " .. pinnacle.highlight({ bg = bg, fg = fg }):gsub("cterm", "gui"))
 
   -- And opposite for the buffer number area.
-  vim.cmd("highlight User7 " .. pinnacle.highlight({
-    bg = fg,
-    fg = pinnacle.extract_fg("Normal"),
-    term = "bold",
-  }):gsub("cterm", "gui"))
+  vim.cmd("highlight User7 " .. pinnacle
+    .highlight({
+      bg = fg,
+      fg = pinnacle.extract_fg("Normal"),
+      term = "bold",
+    })
+    :gsub("cterm", "gui"))
 
   -- Right-hand side section.
   bg = pinnacle.extract_fg("Cursor")
   fg = pinnacle.extract_fg("User3")
-  vim.cmd("highlight User5 " .. pinnacle.highlight({
-    bg = fg,
-    fg = bg,
-    term = "bold",
-  }):gsub("cterm", "gui"))
+  vim.cmd("highlight User5 " .. pinnacle
+    .highlight({
+      bg = fg,
+      fg = bg,
+      term = "bold",
+    })
+    :gsub("cterm", "gui"))
 
   -- Right-hand side section + italic (used for %).
-  vim.cmd("highlight User6 " .. pinnacle.highlight({
-    bg = fg,
-    fg = bg,
-    term = "bold,italic",
-  }):gsub("cterm", "gui"))
+  vim.cmd("highlight User6 " .. pinnacle
+    .highlight({
+      bg = fg,
+      fg = bg,
+      term = "bold,italic",
+    })
+    :gsub("cterm", "gui"))
 
   vim.cmd("highlight clear StatusLineNC")
   vim.cmd("highlight! link StatusLineNC User1")

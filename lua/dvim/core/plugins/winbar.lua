@@ -38,20 +38,20 @@ local get_filename = function()
   end
 end
 
-local get_gps = function()
-  local gps = require("nvim-gps")
+local get_navic = function()
+  local navic = require("nvim-navic")
 
-  local status_ok, gps_location = pcall(gps.get_location, {})
+  local status_ok, navic_location = pcall(navic.get_location, {})
   if not status_ok then
     return ""
   end
 
-  if not gps.is_available() or gps_location == "error" then
+  if not navic.is_available() or navic_location == "error" then
     return ""
   end
 
-  if not require("dvim.utils.functions").isempty(gps_location) then
-    return require("dvim.core.icons").ui.ChevronRight .. " " .. gps_location
+  if not require("dvim.utils.functions").isempty(navic_location) then
+    return require("dvim.core.icons").ui.ChevronRight .. " " .. navic_location
   else
     return ""
   end
@@ -66,7 +66,7 @@ local excludes = function()
 end
 
 M.setup = function()
-  if not dvim.builtin.plugins.winbar.active then
+  if not dvim.builtin.plugins.winbar.active or dvim.builtin.plugins.winbar.type ~= "winbar" then
     vim.cmd("set winbar=\"\"")
     return
   end
@@ -76,18 +76,18 @@ M.setup = function()
   end
   local value = get_filename()
 
-  local gps_added = false
+  local navic_added = false
   if not utils.isempty(value) then
-    local gps_value = get_gps()
-    value = value .. " " .. gps_value
-    if not utils.isempty(gps_value) then
-      gps_added = true
+    local navic_value = get_navic()
+    value = value .. " " .. navic_value
+    if not utils.isempty(navic_value) then
+      navic_added = true
     end
   end
 
   if not utils.isempty(value) and utils.get_buf_option("mod") then
     local mod = "%#LineNr#" .. require("dvim.core.icons").ui.Circle .. "%*"
-    if gps_added then
+    if navic_added then
       value = value .. " " .. mod
     else
       value = value .. mod

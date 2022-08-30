@@ -50,7 +50,8 @@ dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.heirline.active = true
-dvim.builtin.plugins.winbar.active = false
+dvim.builtin.plugins.winbar.active = true
+dvim.builtin.plugins.winbar.type = "statusbar"
 
 -------------------------
 --  Builtin Filetypes  --

@@ -85,28 +85,50 @@ return packer.startup(function(use)
   })
 
   -- LSP
-  use({ "neovim/nvim-lspconfig" })
-  use({ "williamboman/nvim-lsp-installer" })
-  use({ "jose-elias-alvarez/null-ls.nvim" })
-  use({ "onsails/lspkind-nvim" })
-  use({ "SmiteshP/nvim-navic" })
+  use({
+    "neovim/nvim-lspconfig",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "williamboman/nvim-lsp-installer",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "onsails/lspkind-nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "folke/lua-dev.nvim",
+    disable = not dvim.lsp.active,
+  })
+  use({
+    "b0o/SchemaStore.nvim",
+    disable = not dvim.lsp.active and not dvim.builtin.filetypes.json.active,
+  })
+  use({
+    "SmiteshP/nvim-navic",
+    config = function()
+      require("dvim.core.plugins.navic").setup()
+    end,
+    disable = not dvim.lsp.active,
+  })
   use({
     "RRethy/vim-illuminate",
     config = function()
       require("dvim.core.plugins.illuminate").setup()
     end,
-  })
-  use({ "folke/lua-dev.nvim" })
-  use({
-    "b0o/SchemaStore.nvim",
-    disable = not dvim.builtin.filetypes.json.active,
+    disable = not dvim.lsp.active,
   })
   use({
     "simrat39/symbols-outline.nvim",
     config = function()
       require("dvim.core.plugins.symbols-outline").setup()
     end,
-    disable = not dvim.builtin.plugins.symbols_outline.active,
+    disable = not dvim.lsp.active and not dvim.builtin.plugins.symbols_outline.active,
   })
   use({
     "ray-x/navigator.lua",
@@ -244,27 +266,7 @@ return packer.startup(function(use)
   use({ "nvim-treesitter/nvim-treesitter-textobjects" })
   use({ "wellle/targets.vim" })
   use({ "RRethy/nvim-treesitter-textsubjects" })
-  use({
-    "abecodes/tabout.nvim",
-    wants = { "nvim-treesitter" }, -- or require if not used so far
-  })
-
-  -- GPS
-  use({
-    "SmiteshP/nvim-gps",
-    config = function()
-      require("dvim.core.plugins.gps").setup()
-    end,
-  })
-
-  -- Winbar
-  use({
-    "fgheng/winbar.nvim",
-    config = function()
-      require("dvim.core.plugins.winbar").setup()
-    end,
-    disable = not dvim.builtin.plugins.winbar.active,
-  })
+  use({ "abecodes/tabout.nvim" })
 
   -- Debugging
   use({

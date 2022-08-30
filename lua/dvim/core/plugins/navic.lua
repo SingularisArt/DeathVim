@@ -1,7 +1,7 @@
 local M = {}
 local icons = require("dvim.core.icons")
 
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 local space = " "
 
 if vim.fn.has("mac") == 1 then
@@ -13,7 +13,6 @@ M.config = function()
     active = true,
     setup = {
       disable_icons = false, -- Setting it to true will disable all icons
-
       icons = {
         ["class-name"] = "%#CmpItemKindClass#" .. icons.kind.Class .. "%*" .. space, -- Classes and class-like objects
         ["function-name"] = "%#CmpItemKindFunction#" .. icons.kind.Function .. "%*" .. space, -- Functions
@@ -47,7 +46,7 @@ M.config = function()
 
       -- indicator used when context is hits depth limit
       depth_limit_indicator = "..",
-      text_hl = "LineNr",
+      text_hl = "statusbar",
     },
   }
 end
@@ -55,7 +54,8 @@ end
 M.setup = function()
   M.config()
 
-  gps.setup(dvim.builtin.plugins.gps.setup)
+  navic.setup(dvim.builtin.plugins.gps.setup)
+  dvim.navic = navic
 end
 
 return M
