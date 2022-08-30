@@ -23,11 +23,8 @@ local get_filename = function()
   local extension = vim.fn.expand("%:e")
 
   if not require_clean(filename) then
-    local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
-      filename,
-      extension,
-      { default = true }
-    )
+    local file_icon, file_icon_color =
+    require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
     local hl_group = "FileIconColor" .. extension
 
@@ -69,6 +66,11 @@ local excludes = function()
 end
 
 M.setup = function()
+  if not dvim.builtin.plugins.winbar.active then
+    vim.cmd("set winbar=\"\"")
+    return
+  end
+
   if excludes() then
     return
   end

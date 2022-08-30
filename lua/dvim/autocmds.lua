@@ -41,51 +41,6 @@ function M.load_defaults()
     },
 
     {
-      "CursorMoved",
-      {
-        callback = function()
-          require("dvim.core.plugins.winbar").setup()
-        end,
-      },
-    },
-
-    {
-      "BufWinEnter",
-      {
-        callback = function()
-          require("dvim.core.plugins.winbar").setup()
-        end,
-      },
-    },
-
-    {
-      "BufFilePost",
-      {
-        callback = function()
-          require("dvim.core.plugins.winbar").setup()
-        end,
-      },
-    },
-
-    {
-      "InsertEnter",
-      {
-        callback = function()
-          require("dvim.core.plugins.winbar").setup()
-        end,
-      },
-    },
-
-    {
-      "BufWritePost",
-      {
-        callback = function()
-          require("dvim.core.plugins.winbar").setup()
-        end,
-      },
-    },
-
-    {
       "BufReadPost",
       {
         callback = function()
@@ -124,30 +79,6 @@ function M.enable_format_on_save()
       require("dvim.lsp.utils").format({ timeout_ms = opts.timeout, filter = opts.filter })
     end,
   })
-end
-
-function M.disable_format_on_save()
-  M.clear_augroup("lsp_format_on_save")
-end
-
-function M.configure_format_on_save()
-  if dvim.format_on_save then
-    M.enable_format_on_save()
-  else
-    M.disable_format_on_save()
-  end
-end
-
-function M.toggle_format_on_save()
-  local exists, autocmds = pcall(vim.api.nvim_get_autocmds, {
-    group = "lsp_format_on_save",
-    event = "BufWritePre",
-  })
-  if not exists or #autocmds == 0 then
-    M.enable_format_on_save()
-  else
-    M.disable_format_on_save()
-  end
 end
 
 function M.enable_transparent_mode()

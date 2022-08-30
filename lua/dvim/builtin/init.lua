@@ -1,4 +1,5 @@
 return {
+  g = {},
   actions = {
     writing = {},
     note_taking = {},
@@ -8,6 +9,7 @@ return {
   },
   plugins = {
     alpha = {},
+    winbar = {},
     indent_blankline = {},
     symbols_outline = {},
     which_key = {

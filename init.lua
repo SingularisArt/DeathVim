@@ -13,6 +13,9 @@ end
 
 Log = require("dvim.log")
 
+dvim.statusline = require("dvim.statusline")
+dvim.statusline.set()
+
 require("dvim.foldtext")
 
 local settings = require("dvim.settings")
@@ -22,6 +25,11 @@ Log.trace("Loaded settings")
 local autocmds = require("dvim.autocmds")
 autocmds.load_defaults()
 Log.trace("Loaded autocmds")
+
+-- local augroups = require("dvim.augroup")
+-- augroups.load_defaults()
+require("dvim.augroup")
+Log.trace("Loaded augroups")
 
 local parse_vim_commands = require("dvim.parse_vim_commands")
 parse_vim_commands.load_defaults()

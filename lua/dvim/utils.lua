@@ -6,7 +6,7 @@ local function r_inspect_settings(structure, limit, separator)
   limit = limit or 100 -- default item limit
   separator = separator or "." -- indent string
   if limit < 1 then
-    print "ERROR: Item limit reached."
+    print("ERROR: Item limit reached.")
     return limit - 1
   end
   if structure == nil then
@@ -18,7 +18,7 @@ local function r_inspect_settings(structure, limit, separator)
   if ts == "table" then
     for k, v in pairs(structure) do
       -- replace non alpha keys with ["key"]
-      if tostring(k):match "[^%a_]" then
+      if tostring(k):match("[^%a_]") then
         k = '["' .. tostring(k) .. '"]'
       end
       limit = r_inspect_settings(v, limit, separator .. "." .. tostring(k))
@@ -102,6 +102,113 @@ function M.write_file(path, txt, flag)
       end)
     end)
   end)
+end
+
+---Return table with integers betwene lower and upper
+---@param lower integer the beginning of the range
+---@param upper integer the end of the range
+function M.range(lower, upper)
+  local result = {}
+  for i = lower, upper do
+    table.insert(result, i)
+  end
+  return result
+end
+
+function M.join(tbl, delimiter)
+  delimiter = delimiter or ""
+  local result = ""
+  local len = #tbl
+  for i, item in ipairs(tbl) do
+    if i == len then
+      result = result .. item
+    else
+      result = result .. item .. delimiter
+    end
+  end
+  return result
+end
+
+-- This is a (probably) temporary workaround until:
+--
+--    https://github.com/neovim/neovim/issues/14670
+--
+-- is resolved.
+--
+-- Basically, Vim's `setlocal` is magical, sometimes operating as buffer-local
+-- and at other times as window-local.
+
+local options = {
+  breakindent = { scope = "window", type = "boolean" },
+  breakindentopt = { scope = "window", type = "string" },
+  colorcolumn = { scope = "window", type = "string" },
+  concealcursor = { scope = "window", type = "string" },
+  expandtab = { scope = "buffer", type = "boolean" },
+  foldenable = { scope = "window", type = "boolean" },
+  formatprg = { scope = "buffer", type = "string" },
+  iskeyword = { scope = "buffer", type = "list" },
+  list = { scope = "window", type = "boolean" },
+  modifiable = { scope = "buffer", type = "boolean" },
+  omnifunc = { scope = "buffer", type = "string" },
+  readonly = { scope = "buffer", type = "boolean" },
+  shiftwidth = { scope = "buffer", type = "number" },
+  smartindent = { scope = "buffer", type = "boolean" },
+  spell = { scope = "window", type = "boolean" },
+  spellfile = { scope = "buffer", type = "string" },
+  spelllang = { scope = "buffer", type = "string" },
+  statusline = { scope = "window", type = "string" },
+  synmaxcol = { scope = "buffer", type = "number" },
+  tabstop = { scope = "buffer", type = "number" },
+  textwidth = { scope = "buffer", type = "number" },
+  wrap = { scope = "window", type = "boolean" },
+  wrapmargin = { scope = "buffer", type = "number" },
+}
+
+function M.bail(msg)
+  vim.api.nvim_err_writeln(msg)
+end
+
+function M.setlocal(name, ...)
+  local args = { ... }
+  local operator = nil
+  local value = nil
+  if #args == 0 then
+    operator = "="
+    value = true
+  elseif #args == 1 then
+    operator = "="
+    value = args[1]
+  elseif #args == 2 then
+    operator = args[1]
+    value = args[2]
+  else
+    return M.bail("setlocal(): expects 1 or 2 arguments, got " .. #args)
+  end
+
+  local option = options[name]
+  if option == nil then
+    return M.bail("setlocal(): unsupported option: " .. name)
+  end
+
+  local get = option.scope == "buffer" and vim.api.nvim_buf_get_option or vim.api.nvim_win_get_option
+
+  local set = option.scope == "buffer" and vim.api.nvim_buf_set_option or vim.api.nvim_win_set_option
+
+  if operator == "=" then
+    set(0, name, value)
+  elseif operator == "-=" then
+    if option.type ~= "list" then
+      return M.bail('setlocal(): operator "-=" requires list type but got ' .. option.type)
+    end
+    local current = vim.split(get(0, name), ",")
+    print("current " .. vim.inspect(current))
+    local new = vim.tbl_filter(function(item)
+      return item ~= value
+    end, current)
+    set(0, name, M.join(new, ","))
+  else
+    return M.bail("setlocal(): unsupported operator: " .. operator)
+  end
 end
 
 return M

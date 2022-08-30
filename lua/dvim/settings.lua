@@ -116,6 +116,10 @@ M.load_default_options = function()
   vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
   vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 
+  if dvim.focus then
+    utils.setlocal("colorcolumn", "+" .. utils.join(utils.range(80, 255), ","))
+  end
+
   for k, v in pairs(default_options) do
     vim.opt[k] = v
   end

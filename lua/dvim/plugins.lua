@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use({ "chriskempson/base16-vim" })
   use({ "flazz/vim-colorschemes" })
   use({ "rose-pine/neovim" })
+  use({ "wincent/pinnacle" })
 
   -- Indent Blankline
   use({
@@ -257,7 +258,13 @@ return packer.startup(function(use)
   })
 
   -- Winbar
-  use({ "fgheng/winbar.nvim" })
+  use({
+    "fgheng/winbar.nvim",
+    config = function()
+      require("dvim.core.plugins.winbar").setup()
+    end,
+    disable = not dvim.builtin.plugins.winbar.active,
+  })
 
   -- Debugging
   use({

@@ -1,13 +1,12 @@
--- For a quickstart guide, please see:
--- https://github.com/SingularisArt/DeathVim/#config-file for a quickstart
 -- For more indepth explanation, please see:
--- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
+-- https://github.com/SingularisArt/DeathVim/wiki/more-in-depth-look-into-the-config.lua-file
 
 ------------------------------------------------------------------------
 --                              General                               --
 ------------------------------------------------------------------------
 
 dvim.colorscheme = "base16-bright"
+dvim.focus = true
 dvim.format_on_save = false
 
 ------------------------------------------------------------------------
@@ -30,7 +29,7 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins.alpha.active = true
+dvim.builtin.plugins.alpha.active = false
 dvim.builtin.plugins.alpha.mode = "dashboard"
 dvim.builtin.plugins.indent_blankline.active = true
 dvim.builtin.plugins.symbols_outline.active = true
@@ -51,6 +50,7 @@ dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.heirline.active = true
+dvim.builtin.plugins.winbar.active = false
 
 -------------------------
 --  Builtin Filetypes  --
