@@ -242,28 +242,28 @@ end
 
 statusline.update_highlight = function()
   -- Update StatusLine to use italics (used for filetype).
-  local highlight = pinnacle.italicize("StatusLine")
+  local highlight = pinnacle.italicize("StatusLine"):gsub("cterm", "gui")
   vim.cmd("highlight User1 " .. highlight)
 
   -- Update MatchParen to use italics (used for blurred statuslines).
-  highlight = pinnacle.italicize("MatchParen")
+  highlight = pinnacle.italicize("MatchParen"):gsub("cterm", "gui")
   vim.cmd("highlight User2 " .. highlight)
 
   -- StatusLine + bold (used for file names).
-  highlight = pinnacle.embolden("StatusLine")
+  highlight = pinnacle.embolden("StatusLine"):gsub("cterm", "gui")
   vim.cmd("highlight User3 " .. highlight)
 
   -- Inverted Error styling, for left-hand side "Powerline" triangle.
   local fg = pinnacle.extract_fg(status_highlight)
   local bg = pinnacle.extract_bg("StatusLine")
-  vim.cmd("highlight User4 " .. pinnacle.highlight({ bg = bg, fg = fg }))
+  vim.cmd("highlight User4 " .. pinnacle.highlight({ bg = bg, fg = fg }):gsub("cterm", "gui"))
 
   -- And opposite for the buffer number area.
   vim.cmd("highlight User7 " .. pinnacle.highlight({
     bg = fg,
     fg = pinnacle.extract_fg("Normal"),
     term = "bold",
-  }))
+  }):gsub("cterm", "gui"))
 
   -- Right-hand side section.
   bg = pinnacle.extract_fg("Cursor")
@@ -272,14 +272,14 @@ statusline.update_highlight = function()
     bg = fg,
     fg = bg,
     term = "bold",
-  }))
+  }):gsub("cterm", "gui"))
 
   -- Right-hand side section + italic (used for %).
   vim.cmd("highlight User6 " .. pinnacle.highlight({
     bg = fg,
     fg = bg,
     term = "bold,italic",
-  }))
+  }):gsub("cterm", "gui"))
 
   vim.cmd("highlight clear StatusLineNC")
   vim.cmd("highlight! link StatusLineNC User1")

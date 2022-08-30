@@ -1,6 +1,8 @@
 local M = {}
 
 M.load_default_options = function()
+  require("dvim.foldtext")
+
   local utils = require("dvim.utils")
   local join_paths = utils.join_paths
 
@@ -20,7 +22,7 @@ M.load_default_options = function()
     ignorecase = true, -- ignore case in search patterns
     mouse = "a", -- allow the mouse to be used in neovim
     pumheight = 10, -- pop up menu height
-    showmode = true, -- we don't need to see things like -- INSERT -- anymore
+    showmode = false, -- we don't need to see things like -- INSERT -- anymore
     showtabline = 2, -- always show tabs
     smarttab = true, -- <tab>/<BS> indent/dedent in leading whitespace
     smartcase = true, -- don't ignore case in searches if uppercase characters present
