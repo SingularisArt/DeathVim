@@ -12,7 +12,7 @@ local update_statusline = function(default, action)
   local result
   local filetype = vim.bo.filetype
 
-  if filetype == "command-t" then
+  if filetype == "command-t" or filetype == "packer" then
     -- Use Command-T-provided buffer name.
     --
     -- Note that we have to use `vim.fn.bufname()` here to
@@ -20,8 +20,6 @@ local update_statusline = function(default, action)
     -- `vim.api.nvim_buf_get_name(0)` isn't suitable because it prepends
     -- the current working directory (eg. "/Some/path/to/Command-T
     -- [Files]").
-    result = "  " .. vim.fn.bufname()
-  elseif filetype == "" then
     result = "  " .. vim.fn.bufname()
   elseif filetype == "diff" then
     if vim.b.isUndotreeBuffer == 1 then

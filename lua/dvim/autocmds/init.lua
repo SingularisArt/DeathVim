@@ -2,7 +2,7 @@ local augroup = require("dvim.vim.augroup")
 local autocmd = require("dvim.vim.autocmd")
 local autocmds = require("dvim.autocmds.functions")
 
-augroup("WincentAutocmds", function()
+augroup("DeathVimAutocmds", function()
   autocmd("BufEnter", "*", autocmds.buf_enter)
   autocmd("BufLeave", "?*", autocmds.buf_leave)
   autocmd("BufWinEnter", "?*", autocmds.buf_win_enter)
