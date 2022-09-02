@@ -56,6 +56,7 @@ M.setup = function()
 
   navic.setup(dvim.builtin.plugins.gps.setup)
   dvim.navic = navic
+  vim.g.navic_silence = true
 end
 
 return M

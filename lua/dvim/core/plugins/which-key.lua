@@ -35,7 +35,7 @@ M.config = function()
     ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
     ["j"] = "which_key_ignore",
     ["k"] = "which_key_ignore",
-    [" "] = "which_key_ignore",
+    [" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" },
 
     b = {
       name = "Buffers",

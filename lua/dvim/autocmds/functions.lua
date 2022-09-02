@@ -172,12 +172,10 @@ end
 
 autocmds.focus_gained = function()
   focus_window()
-  vim.cmd("exe \":TSBufEnable highlight\"")
 end
 
 autocmds.focus_lost = function()
   blur_window()
-  vim.cmd("exe \":TSBufDisable highlight\"")
 end
 
 autocmds.insert_enter = function()
@@ -218,12 +216,14 @@ autocmds.colorcolumn_filetype_blacklist = {
   ["undotree"] = true,
   ["qf"] = true,
   ["sagahover"] = true,
+  ["tsplayground"] = true,
 }
 
 -- Don't mess with 'conceallevel' for these.
 autocmds.conceallevel_filetypes = {
   ["dirvish"] = 2,
   ["help"] = 2,
+  ["tsplayground"] = true,
 }
 
 autocmds.cursorline_blacklist = {
@@ -232,6 +232,7 @@ autocmds.cursorline_blacklist = {
   ["CommandTTitle"] = true,
   ["command-t"] = true,
   ["undotree"] = true,
+  ["tsplayground"] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
@@ -245,6 +246,7 @@ autocmds.winhighlight_filetype_blacklist = {
   ["undotree"] = true,
   ["qf"] = true,
   ["sagahover"] = true,
+  ["tsplayground"] = true,
 }
 
 -- Force 'list' (when `true`) or 'nolist' (when `false`) for these.
@@ -256,6 +258,7 @@ autocmds.list_filetypes = {
   ["packer"] = false,
   ["help"] = false,
   ["undotree"] = true,
+  ["tsplayground"] = true,
 }
 
 autocmds.mkview_filetype_blacklist = {
@@ -278,6 +281,7 @@ autocmds.number_blacklist = {
   ["qf"] = true,
   ["sagahover"] = true,
   ["undotree"] = true,
+  ["tsplayground"] = true,
 }
 
 -- Don't do "ownsyntax on/off" for these.
@@ -292,6 +296,7 @@ autocmds.ownsyntax_filetypes = {
   ["qf"] = true,
   ["undotree"] = true,
   ["diff"] = true,
+  ["tsplayground"] = true,
 }
 
 return autocmds
