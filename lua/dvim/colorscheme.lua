@@ -18,7 +18,7 @@ end
 M.edit_colors = function()
   local pinnacle = require("wincent.pinnacle")
 
-  vim.cmd("highlight Comment " .. pinnacle.italicize("Comment"))
+  vim.cmd("highlight Comment " .. pinnacle.italicize("Comment"):gsub("cterm", "gui"))
 
   -- Hide (or at least make less obvious) the EndOfBuffer region
   vim.cmd("highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg")
@@ -38,7 +38,7 @@ M.edit_colors = function()
     highlight link NonText Conceal
     highlight clear CursorLineNr
   ]])
-  vim.cmd("highlight CursorLineNr " .. pinnacle.extract_highlight("DiffText"))
+  vim.cmd("highlight CursorLineNr " .. pinnacle.extract_highlight("DiffText"):gsub("cterm", "gui"))
   vim.cmd([[
     highlight clear Pmenu
     highlight link Pmenu Visual
@@ -61,7 +61,7 @@ M.edit_colors = function()
     local highlight = pinnacle.dump(group)
     highlight["bg"] = nil
     vim.cmd("highlight! clear " .. group)
-    vim.cmd("highlight! " .. group .. " " .. pinnacle.highlight(highlight))
+    vim.cmd("highlight! " .. group .. " " .. pinnacle.highlight(highlight):gsub("cterm", "gui"))
   end
 
   -- More subtle highlighting during merge conflict resolution.
@@ -71,7 +71,7 @@ M.edit_colors = function()
     highlight clear DiffText
   ]])
 
-  vim.cmd("highlight User8 " .. pinnacle.italicize("ModeMsg"))
+  vim.cmd("highlight User8 " .. pinnacle.italicize("ModeMsg"):gsub("cterm", "gui"))
 end
 
 return M
