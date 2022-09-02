@@ -66,11 +66,6 @@ local excludes = function()
 end
 
 M.setup = function()
-  if not dvim.builtin.plugins.winbar.active or dvim.builtin.plugins.winbar.type ~= "winbar" then
-    vim.cmd("set winbar=\"\"")
-    return
-  end
-
   if excludes() then
     return
   end
