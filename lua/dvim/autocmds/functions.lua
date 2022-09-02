@@ -231,6 +231,7 @@ autocmds.cursorline_blacklist = {
   ["CommandTPrompt"] = true,
   ["CommandTTitle"] = true,
   ["command-t"] = true,
+  ["undotree"] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
@@ -254,12 +255,14 @@ autocmds.list_filetypes = {
   ["command-t"] = false,
   ["packer"] = false,
   ["help"] = false,
+  ["undotree"] = true,
 }
 
 autocmds.mkview_filetype_blacklist = {
   ["diff"] = true,
   ["gitcommit"] = true,
   ["hgcommit"] = true,
+  ["undotree"] = true,
 }
 
 -- Don't mess with numbers in these filetypes.
@@ -287,6 +290,8 @@ autocmds.ownsyntax_filetypes = {
   ["dirvish"] = true,
   ["help"] = true,
   ["qf"] = true,
+  ["undotree"] = true,
+  ["diff"] = true,
 }
 
 return autocmds

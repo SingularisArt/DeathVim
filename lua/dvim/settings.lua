@@ -6,12 +6,6 @@ M.load_default_options = function()
   local utils = require("dvim.utils")
   local join_paths = utils.join_paths
 
-  local undodir = join_paths(get_cache_dir(), "undo")
-
-  if not utils.is_directory(undodir) then
-    vim.fn.mkdir(undodir, "p")
-  end
-
   local default_options = {
     backup = false, -- creates a backup file
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
@@ -50,7 +44,6 @@ M.load_default_options = function()
     backupskip = vim.opt.backupskip + "*.re,*.rei", -- prevent bsb's watch mode from getting confused (if 'backup' is ever set)
     belloff = "all", -- never ring the bell for any reason
     diffopt = vim.opt.diffopt + "foldcolumn:0", -- don't show fold column in diff view
-    directory = get_cache_dir() .. "/swap/", -- fallback
     emoji = false, -- don't assume all emoji are double width
     expandtab = true, -- always use spaces instead of tabs
     fillchars = {
@@ -103,6 +96,9 @@ M.load_default_options = function()
     wildmenu = true, -- show options as list when switching buffers etc
     wildmode = "longest:full,full", -- shell-like autocomplete to unambiguous portion
     winblend = 10, -- psuedo-transparency for floating windows
+    directory = join_paths(get_cache_dir(), "swap"), -- setting swap directory: (~/.cache/dvim/swap)
+    undodir = join_paths(get_cache_dir(), "undo"), -- setting undo directory: (~/.cache/dvim/undo)
+    backupdir = join_paths(get_cache_dir(), "backup"), -- setting backup directory: (~/.cache/dvim/backup)
   }
 
   ---  SETTINGS  ---

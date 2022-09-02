@@ -230,9 +230,6 @@ statusline.set = function()
       .. "]" -- Right bracket (literal).
       .. "%)" -- End item group.
       .. "%*" -- Reset highlight group.
-      .. "%3*" -- Switch to User3 highlight group (bold).
-      .. "%= %<%{%v:lua.require'nvim-navic'.get_location()%} %=" -- Navic in Center.
-      .. "%*" -- Reset highlight group.
       .. "%=" -- Split point for left and right groups.
       .. " " -- Space.
       .. "" -- Powerline arrow.
