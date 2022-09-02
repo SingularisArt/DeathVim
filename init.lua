@@ -31,7 +31,7 @@ parse_vim_commands.load_defaults()
 Log.trace("Loaded vim commands")
 
 local colorscheme = require("dvim.colorscheme")
-colorscheme.apply_colorscheme(dvim.colorscheme)
+colorscheme.apply_colorscheme(dvim.color.name)
 colorscheme.highlight_lsp()
 Log.trace("Applied colorscheme")
 

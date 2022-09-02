@@ -1,6 +1,10 @@
 dvim = {
   leader = " ",
-  colorscheme = "onedarker",
+  color = {
+    name = "onedarker",
+    dark = true,
+    light = false,
+  },
   transparent_window = false,
   format_on_save = true,
   keys = {},

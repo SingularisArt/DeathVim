@@ -5,7 +5,9 @@
 --                              General                               --
 ------------------------------------------------------------------------
 
-dvim.colorscheme = "base16-bright"
+dvim.color.name = "base16-bright"
+dvim.color.dark = true
+dvim.color.light = not dvim.color.dark -- Don't mess with this
 dvim.focus = true
 dvim.format_on_save = false
 
