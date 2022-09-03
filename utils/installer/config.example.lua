@@ -47,12 +47,14 @@ dvim.builtin.plugins.project.active = true
 dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
-dvim.builtin.plugins.nvimtree.active = true
+-- dvim.builtin.plugins.nvimtree.active = true
+-- dvim.builtin.plugins.nerdtree.active = true
+-- dvim.builtin.plugins.dirvish.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
-dvim.builtin.plugins.heirline.active = true
-dvim.builtin.plugins.winbar.active = true
+dvim.builtin.plugins.winbar.active = false
+dvim.builtin.plugins.neogen.active = false
 
 -------------------------
 --  Builtin Filetypes  --
@@ -157,6 +159,13 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
 ------------------------------------------------------------------------
 --                         Modifying Plugins                          --
 ------------------------------------------------------------------------
+
+-------------------
+-- File Browsers --
+-------------------
+
+-- Possible values: "dirvish", "nvim-tree", "nerd-tree"
+dvim.file_browser = "dirvish"
 
 -----------------
 --  Telescope  --

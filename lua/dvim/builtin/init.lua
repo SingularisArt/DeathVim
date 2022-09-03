@@ -8,6 +8,9 @@ return {
   },
   plugins = {
     alpha = {},
+    neogen = {},
+    dirvish = {},
+    nerdtree = {},
     winbar = {},
     indent_blankline = {},
     symbols_outline = {},
@@ -59,7 +62,6 @@ return {
       playground = {},
       rainbow = {},
     },
-    heirline = {},
   },
   filetypes = {
     lua = {

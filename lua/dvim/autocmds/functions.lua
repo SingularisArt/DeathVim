@@ -224,6 +224,7 @@ autocmds.conceallevel_filetypes = {
   ["dirvish"] = 2,
   ["help"] = 2,
   ["tsplayground"] = true,
+  ["packer"] = true,
 }
 
 autocmds.cursorline_blacklist = {
@@ -233,6 +234,7 @@ autocmds.cursorline_blacklist = {
   ["command-t"] = true,
   ["undotree"] = true,
   ["tsplayground"] = true,
+  ["packer"] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
@@ -266,6 +268,7 @@ autocmds.mkview_filetype_blacklist = {
   ["gitcommit"] = true,
   ["hgcommit"] = true,
   ["undotree"] = true,
+  ["packer"] = true,
 }
 
 -- Don't mess with numbers in these filetypes.

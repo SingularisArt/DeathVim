@@ -80,7 +80,7 @@ function M:init(base_dir)
 
   vim.cmd("set runtimepath+=~/.config/dvim")
 
-  if os.getenv "DEATHVIM_RUNTIME_DIR" then
+  if os.getenv("DEATHVIM_RUNTIME_DIR") then
     -- vim.opt.rtp:append(os.getenv "DEATHVIM_RUNTIME_DIR" .. path_sep .. "dvim")
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site"))
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site", "after"))
@@ -91,7 +91,7 @@ function M:init(base_dir)
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "config"), "after"))
     vim.opt.rtp:prepend(self.config_dir)
     vim.opt.rtp:append(join_paths(self.config_dir, "after"))
-    vim.cmd [[let &packpath = &runtimepath]]
+    vim.cmd([[let &packpath = &runtimepath]])
   end
 
   require("dvim.defaults")
@@ -99,6 +99,20 @@ function M:init(base_dir)
 
   require("config")
   require("dvim.keymappings").load(dvim.keys)
+
+  if dvim.file_browser == "dirvish" then
+    dvim.builtin.plugins.dirvish.active = true
+    dvim.builtin.plugins.nvimtree.active = false
+    dvim.builtin.plugins.nerdtree.active = false
+  elseif dvim.file_browser == "nvim-tree" then
+    dvim.builtin.plugins.dirvish.active = false
+    dvim.builtin.plugins.nvimtree.active = true
+    dvim.builtin.plugins.nerdtree.active = false
+  elseif dvim.file_browser == "nerd-tree" then
+    dvim.builtin.plugins.dirvish.active = false
+    dvim.builtin.plugins.nvimtree.active = false
+    dvim.builtin.plugins.nerdtree.active = true
+  end
 
   require("dvim.plugins")
 

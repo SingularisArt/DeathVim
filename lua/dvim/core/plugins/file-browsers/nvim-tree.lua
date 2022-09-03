@@ -154,9 +154,9 @@ function M.start_telescope(telescope_mode)
   local abspath = node.link_to or node.absolute_path
   local is_folder = node.open ~= nil
   local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
-  require("telescope.builtin")[telescope_mode] {
+  require("telescope.builtin")[telescope_mode]({
     cwd = basedir,
-  }
+  })
 end
 
 M.setup = function()
@@ -174,11 +174,11 @@ M.setup = function()
   end
 
   local function telescope_find_files(_)
-    require("dvim.core.nvimtree").start_telescope "find_files"
+    require("dvim.core.nvimtree").start_telescope("find_files")
   end
 
   local function telescope_live_grep(_)
-    require("dvim.core.nvimtree").start_telescope "live_grep"
+    require("dvim.core.nvimtree").start_telescope("live_grep")
   end
 
   -- Add useful keymaps

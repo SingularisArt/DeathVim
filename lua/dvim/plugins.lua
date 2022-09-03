@@ -55,7 +55,7 @@ return packer.startup(function(use)
   })
 
   -- Colorschemes
-  use({ "lilydjwg/colorizer" })
+  use({ "norcalli/nvim-colorizer.lua" })
   use({ "nekonako/xresources-nvim" })
   use({ "EdenEast/nightfox.nvim" })
   use({ "lunarvim/colorschemes" })
@@ -196,6 +196,15 @@ return packer.startup(function(use)
     end,
     event = "BufWinEnter",
     disable = not dvim.builtin.plugins.which_key.active,
+  })
+
+  -- Auto docstring generator
+  use({
+    "danymat/neogen",
+    config = function()
+      require("dvim.core.plugins.neogen").setup()
+    end,
+    disable = not dvim.builtin.plugins.neogen.active,
   })
 
   -- Git
@@ -426,13 +435,27 @@ return packer.startup(function(use)
     disable = not dvim.builtin.plugins.cmp.active,
   })
 
-  -- NvimTree
+  -- File Browsers
   use({
     "kyazdani42/nvim-tree.lua",
     config = function()
-      require("dvim.core.plugins.nvimtree").setup()
+      require("dvim.core.plugins.file-browsers").setup()
     end,
     disable = not dvim.builtin.plugins.nvimtree.active,
+  })
+  use({
+    "preservim/nerdtree",
+    config = function()
+      require("dvim.core.plugins.file-browsers").setup()
+    end,
+    disable = not dvim.builtin.plugins.nerdtree.active,
+  })
+  use({
+    "justinmk/vim-dirvish",
+    config = function()
+      require("dvim.core.plugins.file-browsers").setup()
+    end,
+    disable = not dvim.builtin.plugins.dirvish.active,
   })
 
   -- Status Line and Bufferline
@@ -443,13 +466,6 @@ return packer.startup(function(use)
     end,
     branch = "main",
     disable = not dvim.builtin.plugins.bufferline.active,
-  })
-  use({
-    "rebelot/heirline.nvim",
-    config = function()
-      require("dvim.core.plugins.heirline").setup()
-    end,
-    disable = not dvim.builtin.plugins.heirline.active,
   })
 
   -- HTML
