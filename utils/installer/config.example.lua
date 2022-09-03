@@ -47,9 +47,6 @@ dvim.builtin.plugins.project.active = true
 dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
--- dvim.builtin.plugins.nvimtree.active = true
--- dvim.builtin.plugins.nerdtree.active = true
--- dvim.builtin.plugins.dirvish.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
@@ -435,7 +432,6 @@ dvim.lsp.completions = {
 ------------------------------------------------------------------------
 
 -- Here is where you put each speific settings for each filetype.
-
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
   textwidth = 80,
@@ -455,7 +451,6 @@ dvim.builtin.filetypes.markdown.settings = {
 -- Add any additional plugins you may want
 dvim.plugins = {
   "folke/trouble.nvim",
-  "tjdevries/express_line.nvim",
 }
 
 ------------------------------------------------------------------------

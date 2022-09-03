@@ -27,17 +27,24 @@ M.config = function()
   -- Visual mappings
   dvim.builtin.plugins.which_key.vmappings = {}
   -- Normal mappings
-  dvim.builtin.plugins.which_key.mappings = {
-    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
-    ["v"] = { "<cmd>vsplit<CR>", "Vertical Split" },
-    ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
-    ["y"] = { "<Plug>(easymotion-bd-f)", "Easymotion" },
-    ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
-    ["j"] = "which_key_ignore",
-    ["k"] = "which_key_ignore",
-    [" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" },
+  dvim.builtin.plugins.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "Vertical Split" }
+  dvim.builtin.plugins.which_key.mappings["h"] = { "<cmd>split<CR>", "Horizontal Split" }
+  dvim.builtin.plugins.which_key.mappings["y"] = { "<Plug>(easymotion-bd-f)", "Easymotion" }
+  dvim.builtin.plugins.which_key.mappings["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" }
+  dvim.builtin.plugins.which_key.mappings["j"] = "which_key_ignore"
+  dvim.builtin.plugins.which_key.mappings["k"] = "which_key_ignore"
+  dvim.builtin.plugins.which_key.mappings[" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" }
 
-    b = {
+  if dvim.builtin.plugins.dirvish.active then
+    dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>Dirvish<CR>", "Toggle Dirvish" }
+  elseif dvim.builtin.plugins.nvimtree.active then
+    dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" }
+  elseif dvim.builtin.plugins.nerdtree.active then
+    dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>NERDTreeToggle<CR>", "Toggle NerdTree" }
+  end
+
+  if dvim.builtin.plugins.bufferline.active then
+    dvim.builtin.plugins.which_key.mappings["b"] = {
       name = "Buffers",
       p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
       c = {
@@ -57,9 +64,11 @@ M.config = function()
         r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by relative directory" },
         t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by tabs" },
       },
-    },
+    }
+  end
 
-    g = {
+  if dvim.builtin.plugins.gitsigns.active then
+    dvim.builtin.plugins.which_key.mappings["g"] = {
       name = "Git",
       j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
       k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -83,62 +92,38 @@ M.config = function()
         "<cmd>Gitsigns diffthis HEAD<cr>",
         "Git Diff",
       },
-    },
+    }
+  end
 
-    p = {
-      name = "Packer",
-      c = { "<cmd>PackerClean<CR>", "Clean Plugins" },
-      C = { "<cmd>PackerCompile<CR>", "Compile Plugins" },
-      i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
-      l = { "<cmd>PackerLoad<CR>", "Load Plugins" },
-      p = { "<cmd>PackerProfile<CR>", "Profile Plugins" },
-      t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
-      y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
-      u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
-      s = {
-        name = "Snapshot",
-        s = { "<cmd>PackerSnapshot<CR>", "Snapshot Plugins" },
-        d = { "<cmd>PackerSnapshotDelete<CR>", "Delete Snapshot Plugins" },
-        r = { "<cmd>PackerSnapshotRollback<CR>", "Rollback Snapshot Plugins" },
-      },
-    },
-
-    T = {
-      name = "Translator",
-      t = { "<cmd>Translate --engines=google<CR>", "Translate" },
-      h = { "<cmd>TranslateH --engines=google<CR>", "Translate History" },
-      l = { "<cmd>TranslateL --engines=google<CR>", "Translate Log" },
-      r = { "<cmd>TranslateR --engines=google<CR>", "Translate" },
-      w = { "<cmd>TranslateW --engines=google<CR>", "Translate and display in a Popup Window" },
-      x = { "<cmd>TranslateX --engines=google<CR>", "Translate and Display in the cmdline" },
-    },
-
-    m = {
+  if dvim.builtin.filetypes.markdown.active then
+    dvim.builtin.plugins.which_key.mappings["m"] = {
       name = "Markdown",
       p = { "<cmd>MarkdownPreview<CR>", "View Markdown" },
-    },
+    }
+  end
 
-    t = {
-      name = "Table",
-      t = { "<cmd>TableModeToggle<CR>", "Enable/Disable Table Mode" },
-      n = { "<Leader>ti", "Get cell info" },
-      f = {
-        name = "Formula",
-        a = { "<cmd>TableAddFormula<CR>", "Add formula" },
-        e = { "<Leader>tfe", "Evaluate formula on current row" },
-      },
-      d = {
-        name = "Delete",
-        r = { "<Leader>tdr", "Delete row" },
-        c = { "<Leader>tdc", "Delete column" },
-      },
-      i = {
-        name = "Insert",
-        c = { "<Leader>tic", "Insert column" },
-      },
+  dvim.builtin.plugins.which_key.mappings["t"] = {
+    name = "Table",
+    t = { "<cmd>TableModeToggle<CR>", "Enable/Disable Table Mode" },
+    n = { "<Leader>ti", "Get cell info" },
+    f = {
+      name = "Formula",
+      a = { "<cmd>TableAddFormula<CR>", "Add formula" },
+      e = { "<Leader>tfe", "Evaluate formula on current row" },
     },
+    d = {
+      name = "Delete",
+      r = { "<Leader>tdr", "Delete row" },
+      c = { "<Leader>tdc", "Delete column" },
+    },
+    i = {
+      name = "Insert",
+      c = { "<Leader>tic", "Insert column" },
+    },
+  }
 
-    l = {
+  if dvim.builtin.filetypes.latex.active then
+    dvim.builtin.plugins.which_key.mappings["l"] = {
       name = "LaTeX",
       m = { "<cmd>VimtexContextMenu<CR>", "Open Context Menu" },
       u = { "<cmd>VimtexCountLetters<CR>", "Count Letters" },
@@ -176,9 +161,11 @@ M.config = function()
         o = { "<cmd>VimtexTocOpen<CR>", "Open TOC" },
         t = { "<cmd>VimtexTocToggle<CR>", "Toggle TOC" },
       },
-    },
+    }
+  end
 
-    f = {
+  if dvim.builtin.plugins.telescope.active then
+    dvim.builtin.plugins.which_key.mappings["f"] = {
       name = "Telescope",
       f = { "<cmd>Telescope find_files<CR>", "Fuzzy find files" },
       o = { "<cmd>Telescope oldfiles<CR>", "Fuzzy find old files" },
@@ -208,9 +195,11 @@ M.config = function()
         q = { "<cmd>Telescope quickfix<CR>", "Fuzzy find quickfix" },
         h = { "<cmd>Telescope quickfixhistory<CR>", "Fuzzy find quickfix history" },
       },
-    },
+    }
+  end
 
-    d = {
+  if dvim.builtin.plugins.dap.active then
+    dvim.builtin.plugins.which_key.mappings["d"] = {
       name = "Debug",
       R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
       E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
@@ -235,25 +224,11 @@ M.config = function()
       t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
       x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
       u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-    },
+    }
+  end
 
-    o = {
-      name = "Only",
-      o = {
-        name = "Close",
-        o = {
-          "<cmd>wincmd _ | wincmd |<CR>",
-          "Minimize all tabs (you can always bring them back with <Leader>oO)",
-        },
-        O = {
-          "<cmd>only<CR>",
-          "Close all tabs",
-        },
-      },
-      O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
-    },
-
-    s = {
+  if dvim.lsp.active then
+    dvim.builtin.plugins.which_key.mappings["s"] = {
       name = "LSP",
       h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Documentation" },
       c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
@@ -278,7 +253,51 @@ M.config = function()
         a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace" },
         r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace" },
       },
+    }
+  end
+
+  dvim.builtin.plugins.which_key.mappings["p"] = {
+    name = "Packer",
+    c = { "<cmd>PackerClean<CR>", "Clean Plugins" },
+    C = { "<cmd>PackerCompile<CR>", "Compile Plugins" },
+    i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
+    l = { "<cmd>PackerLoad<CR>", "Load Plugins" },
+    p = { "<cmd>PackerProfile<CR>", "Profile Plugins" },
+    t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
+    y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
+    u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
+    s = {
+      name = "Snapshot",
+      s = { "<cmd>PackerSnapshot<CR>", "Snapshot Plugins" },
+      d = { "<cmd>PackerSnapshotDelete<CR>", "Delete Snapshot Plugins" },
+      r = { "<cmd>PackerSnapshotRollback<CR>", "Rollback Snapshot Plugins" },
     },
+  }
+
+  dvim.builtin.plugins.which_key.mappings["T"] = {
+    name = "Translator",
+    t = { "<cmd>Translate --engines=google<CR>", "Translate" },
+    h = { "<cmd>TranslateH --engines=google<CR>", "Translate History" },
+    l = { "<cmd>TranslateL --engines=google<CR>", "Translate Log" },
+    r = { "<cmd>TranslateR --engines=google<CR>", "Translate" },
+    w = { "<cmd>TranslateW --engines=google<CR>", "Translate and display in a Popup Window" },
+    x = { "<cmd>TranslateX --engines=google<CR>", "Translate and Display in the cmdline" },
+  }
+
+  dvim.builtin.plugins.which_key.mappings["o"] = {
+    name = "Only",
+    o = {
+      name = "Close",
+      o = {
+        "<cmd>wincmd _ | wincmd |<CR>",
+        "Minimize all tabs (you can always bring them back with <Leader>oO)",
+      },
+      O = {
+        "<cmd>only<CR>",
+        "Close all tabs",
+      },
+    },
+    O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
   }
 
   for index, value in pairs(dvim.builtin.plugins.which_key.user_mappings) do

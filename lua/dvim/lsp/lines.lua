@@ -4,7 +4,10 @@ M.setup = function()
   local lsp_lines = require_clean("lsp_lines")
 
   lsp_lines.setup()
-  lsp_lines.toggle()
+
+  if dvim.lsp.lsp_lines then
+    lsp_lines.toggle()
+  end
 end
 
 return M
