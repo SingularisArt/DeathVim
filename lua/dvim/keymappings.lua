@@ -68,6 +68,7 @@ local defaults = {
     ["<C-a>"] = "ggVG",
     -- Un-highlight everything
     [";"] = ":nohl<CR>",
+    ["K"] = ":lua vim.lsp.buf.hover()<CR>",
   },
 
   term_mode = {

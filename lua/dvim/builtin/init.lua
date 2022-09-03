@@ -18,8 +18,21 @@ return {
       mappings = {},
       user_vmappings = {},
       user_mappings = {},
-      presets = {},
-      spelling = {},
+      presets = {
+        operators = true,
+        motions = true,
+        text_objects = true,
+        nav = true,
+        z = true,
+        g = true,
+      },
+      spelling = {
+        enabled = true,
+        suggestions = 20,
+      },
+      layout = {
+        align = "center",
+      },
     },
     gitsigns = {},
     comment = {},

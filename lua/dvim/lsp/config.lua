@@ -37,9 +37,17 @@ return {
     style = "minimal",
     border = "rounded",
   },
+  peek = {
+    max_height = 15,
+    max_width = 30,
+    context = 10,
+  },
   on_attach_callback = nil,
   on_init_callback = nil,
-  automatic_servers_installation = true,
-  ---@deprecated use automatic_configuration.skipped_servers instead
-  override = {},
+  buffer_options = {
+    --- enable completion triggered by <c-x><c-o>
+    omnifunc = "v:lua.vim.lsp.omnifunc",
+    --- use gq for formatting
+    formatexpr = "v:lua.vim.lsp.formatexpr(#{timeout_ms:500})",
+  },
 }

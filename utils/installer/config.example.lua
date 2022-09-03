@@ -61,7 +61,7 @@ dvim.builtin.plugins.neogen.active = false
 -- the following for you:
 --  It's LSP
 --  It's formatter
---  It's diagnostic
+--  It's linter
 --  It's TreeSitter parser
 --  It's plugins
 -- So, instead of you going through each of those items and disabling them, you
@@ -147,10 +147,10 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  d = { "<cmd>Trouble document_linters<cr>", "linters" },
   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+  w = { "<cmd>Trouble workspace_linters<cr>", "Wordspace linters" },
 }
 
 ------------------------------------------------------------------------
@@ -263,6 +263,7 @@ dvim.builtin.plugins.which_key.presets.z = true
 dvim.builtin.plugins.which_key.presets.g = true
 dvim.builtin.plugins.which_key.spelling.enabled = true
 dvim.builtin.plugins.which_key.spelling.suggestions = 20
+dvim.builtin.plugins.which_key.layout.align = "center"
 
 -----------------
 --  Git Signs  --
@@ -379,28 +380,28 @@ dvim.lsp.formatters = {
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
 dvim.lsp.automatic_formatters_installation = true
 
------------------
--- Diagnostics --
------------------
+-------------
+-- Linters --
+-------------
 
 -- This list depends on the filetypes list. Don't remove any of the items. Only
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
-dvim.lsp.diagnostics = {
+dvim.lsp.linters = {
   {
-    diagnostic = "flake8",
+    linter = "flake8",
     filetype = "python",
   },
   {
-    diagnostic = "cppcheck",
+    linter = "cppcheck",
     filetype = "cpp",
   },
 }
 
--- If you don't have a diagnostic installed for a filetype, DeathVim will try
+-- If you don't have a linter installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
-dvim.lsp.automatic_diagnostics_installation = true
+dvim.lsp.automatic_linters_installation = true
 
 -----------
 -- Hover --

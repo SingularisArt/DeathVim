@@ -2,6 +2,9 @@ local M = {}
 
 M.config = function()
   dvim.builtin.plugins.which_key.setup = {
+    layout = {
+      align = dvim.builtin.plugins.which_key.layout.align,
+    },
     plugins = {
       marks = true,
       registers = true,
@@ -228,11 +231,18 @@ M.config = function()
   end
 
   if dvim.lsp.active then
+    dvim.builtin.plugins.which_key.mappings["K"] = { vim.lsp.buf.hover, "Show hover" }
     dvim.builtin.plugins.which_key.mappings["s"] = {
       name = "LSP",
-      h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Documentation" },
       c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
-      e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Show line diagnostics" },
+      e = {
+        function()
+          local config = dvim.lsp.diagnostics.float
+          config.scope = "line"
+          vim.diagnostic.open_float(0, config)
+        end,
+        "Show line diagnostics",
+      },
       q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show QuickFix" },
       f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
       r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
@@ -246,7 +256,12 @@ M.config = function()
         d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
         r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Find references" },
         t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Get type definition" },
-        p = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "View definition in pop-up" },
+        p = {
+          function()
+            require("dvim.lsp.peek").Peek("definition")
+          end,
+          "Peek definition",
+        },
       },
       w = {
         name = "Workspace",

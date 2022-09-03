@@ -1,34 +1,29 @@
 local M = {}
 
 local null_ls = require_clean("null-ls")
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/linters
+local linters = null_ls.builtins.diagnostics
+
 local sources = {}
 
 M.setup = function()
-  if vim.tbl_isempty(dvim.lsp.diagnostics) then
+  if vim.tbl_isempty(dvim.lsp.linters) then
     return
   end
 
-  for _, diagnostic_object in ipairs(dvim.lsp.diagnostics) do
-    if dvim.builtin.filetypes[diagnostic_object.filetype].active == true then
-      if diagnostic_object.extra_args then
-        table.insert(
-          sources,
-          diagnostics[diagnostic_object.diagnostic].with({ extra_args = diagnostic_object.extra_args })
-        )
+  for _, linter_object in ipairs(dvim.lsp.linters) do
+    if dvim.builtin.filetypes[linter_object.filetype].active == true then
+      if linter_object.extra_args then
+        table.insert(sources, linters[linter_object.linter].with({ extra_args = linter_object.extra_args }))
       else
-        table.insert(sources, diagnostics[diagnostic_object.diagnostic])
+        table.insert(sources, linters[linter_object.linter])
       end
 
-      Log.trace(
-        "[NULL-LS] Toggling diagnostic "
-        .. diagnostic_object.diagnostic
-      )
+      Log.trace("[NULL-LS] Toggling linter " .. linter_object.linter)
     else
       Log.error(
         "[NULL-LS] Filetype: ["
-        .. diagnostic_object.filetype
+        .. linter_object.filetype
         .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
       )
     end
