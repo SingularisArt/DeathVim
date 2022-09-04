@@ -9,7 +9,12 @@ return {
   plugins = {
     alpha = {},
     neogen = {},
-    colorizer = {},
+    colors = {
+      colorizer = {},
+      document_highlight = {
+        mode = "background",
+      },
+    },
     dirvish = {},
     nerdtree = {},
     winbar = {},
@@ -58,6 +63,7 @@ return {
     },
     project = {},
     copilot = {},
+    colortils = {},
     cmp = {
       extensions = {
         active = true,

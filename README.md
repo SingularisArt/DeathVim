@@ -395,7 +395,7 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 dvim.builtin.plugins.alpha.active = true
 dvim.builtin.plugins.alpha.mode = "dashboard"
 dvim.builtin.plugins.indent_blankline.active = true
-dvim.builtin.plugins.colorizer.active = true
+dvim.builtin.plugins.colors.active = true
 dvim.builtin.plugins.symbols_outline.active = true
 dvim.builtin.plugins.which_key.active = true
 dvim.builtin.plugins.gitsigns.active = true
@@ -409,7 +409,6 @@ dvim.builtin.plugins.project.active = true
 dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
-dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.winbar.active = true
@@ -655,6 +654,13 @@ dvim.builtin.plugins.which_key.window.position = "bottom"
 -- Show the git commit message on the line
 dvim.builtin.plugins.gitsigns.line_blame = true
 
+--------------
+--  Colors  --
+--------------
+
+-- Possible values: "background", "foreground", "single"
+dvim.builtin.plugins.colors.document_highlight.mode = "background"
+
 ------------------------------------------------------------------------
 --                                LSP                                 --
 ------------------------------------------------------------------------
@@ -664,11 +670,8 @@ dvim.builtin.plugins.gitsigns.line_blame = true
 -------------
 
 dvim.lsp.active = true
-
------------------
---  Lsp Lines  --
------------------
-
+dvim.lsp.illuminate = true
+dvim.lsp.inlay_hints = true
 dvim.lsp.lsp_lines = false
 
 ------------------------

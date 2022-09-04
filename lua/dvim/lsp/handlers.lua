@@ -1,8 +1,8 @@
 local M = {}
 
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-
 local cmp_nvim_lsp = require_clean("cmp_nvim_lsp")
+
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
@@ -54,21 +54,35 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client, bufnr)
-  local illuminate = require_clean("illuminate")
-  illuminate.on_attach(client, bufnr)
+local function on_attach_illuminate(client, bufnr)
+  if dvim.lsp.illuminate then
+    require_clean("illuminate").on_attach(client, bufnr)
+  end
 end
 
-local function attach_navic(client, bufnr)
-  -- vim.g.navic_silence = true
-  local navic = require_clean("nvim-navic")
-  navic.attach(client, bufnr)
+local function on_attach_navic(client, bufnr)
+  if dvim.builtin.plugins.winbar.active then
+    require_clean("nvim-navic").on_attach(client, bufnr)
+  end
+end
+
+local function on_attach_color(bufnr)
+  if dvim.builtin.plugins.colors.active then
+    require_clean("document-color").buf_attach(bufnr)
+  end
+end
+
+local function on_attach_inlay_hints(client, bufnr)
+  if dvim.lsp.inlay_hints then
+    require_clean("lsp-inlayhints").on_attach(client, bufnr)
+  end
 end
 
 M.on_attach = function(client, bufnr)
-  lsp_highlight_document(client, bufnr)
-  attach_navic(client, bufnr)
-  require("lsp-inlayhints").on_attach(client, bufnr)
+  on_attach_illuminate(client, bufnr)
+  on_attach_navic(client, bufnr)
+  on_attach_color(bufnr)
+  on_attach_inlay_hints(client, bufnr)
 end
 
 return M

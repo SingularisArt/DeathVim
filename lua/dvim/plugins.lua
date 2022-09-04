@@ -54,14 +54,30 @@ return packer.startup(function(use)
     end,
   })
 
-  -- Colorschemes
+  -- Color Pickers
   use({
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = function()
       require("dvim.core.plugins.colorizer").setup()
     end,
-    disable = not dvim.builtin.plugins.colorizer.active,
+    disable = not dvim.builtin.plugins.colors.active,
   })
+  use({
+    "nvim-colortils/colortils.nvim",
+    config = function()
+      require("dvim.core.plugins.colortils").setup()
+    end,
+    disable = not dvim.builtin.plugins.colors.active,
+  })
+  use({
+    "mrshmllow/document-color.nvim",
+    config = function()
+      require("dvim.core.plugins.document-color").setup()
+    end,
+    disable = not dvim.builtin.plugins.colors.active,
+  })
+
+  -- Colorschemes
   use({ "nekonako/xresources-nvim" })
   use({ "EdenEast/nightfox.nvim" })
   use({ "lunarvim/colorschemes" })
