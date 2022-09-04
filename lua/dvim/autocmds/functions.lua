@@ -217,6 +217,9 @@ autocmds.colorcolumn_filetype_blacklist = {
   ["qf"] = true,
   ["sagahover"] = true,
   ["tsplayground"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 -- Don't mess with 'conceallevel' for these.
@@ -225,6 +228,9 @@ autocmds.conceallevel_filetypes = {
   ["help"] = 2,
   ["tsplayground"] = true,
   ["packer"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 autocmds.cursorline_blacklist = {
@@ -235,6 +241,9 @@ autocmds.cursorline_blacklist = {
   ["undotree"] = true,
   ["tsplayground"] = true,
   ["packer"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
@@ -249,6 +258,9 @@ autocmds.winhighlight_filetype_blacklist = {
   ["qf"] = true,
   ["sagahover"] = true,
   ["tsplayground"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 -- Force 'list' (when `true`) or 'nolist' (when `false`) for these.
@@ -259,8 +271,11 @@ autocmds.list_filetypes = {
   ["command-t"] = false,
   ["packer"] = false,
   ["help"] = false,
-  ["undotree"] = true,
-  ["tsplayground"] = true,
+  ["undotree"] = false,
+  ["tsplayground"] = false,
+  ["NvimTree"] = false,
+  ["Outline"] = false,
+  ["alpha"] = true,
 }
 
 autocmds.mkview_filetype_blacklist = {
@@ -269,6 +284,9 @@ autocmds.mkview_filetype_blacklist = {
   ["hgcommit"] = true,
   ["undotree"] = true,
   ["packer"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 -- Don't mess with numbers in these filetypes.
@@ -285,6 +303,9 @@ autocmds.number_blacklist = {
   ["sagahover"] = true,
   ["undotree"] = true,
   ["tsplayground"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 -- Don't do "ownsyntax on/off" for these.
@@ -293,13 +314,15 @@ autocmds.ownsyntax_filetypes = {
   ["CommandTPrompt"] = true,
   ["CommandTTitle"] = true,
   ["packer"] = true,
-  ["NvimTree"] = true,
   ["dirvish"] = true,
   ["help"] = true,
   ["qf"] = true,
   ["undotree"] = true,
   ["diff"] = true,
   ["tsplayground"] = true,
+  ["NvimTree"] = true,
+  ["Outline"] = true,
+  ["alpha"] = true,
 }
 
 return autocmds

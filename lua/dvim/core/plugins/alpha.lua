@@ -36,7 +36,7 @@ local function resolve_config(theme_name)
 
   for name, el in pairs(section) do
     for k, v in pairs(el) do
-      if name:match "buttons" and k == "entries" then
+      if name:match("buttons") and k == "entries" then
         resolved_section[name].val = resolve_buttons(theme_name, v)
       elseif v then
         resolved_section[name][k] = v
@@ -53,7 +53,8 @@ local function configure_additional_autocmds()
   vim.api.nvim_create_autocmd("FileType", {
     group = group,
     pattern = "alpha",
-    command = "set showtabline=0 laststatus=0 | autocmd BufLeave <buffer> set showtabline=" .. vim.opt.showtabline._value,
+    command = "autocmd BufLeave <buffer> set showtabline="
+        .. vim.opt.showtabline._value,
   })
 end
 
@@ -68,7 +69,6 @@ M.setup = function()
   if vim.tbl_isempty(config) then
     config = resolve_config(mode)
   end
-
 
   alpha.setup(config)
   configure_additional_autocmds()

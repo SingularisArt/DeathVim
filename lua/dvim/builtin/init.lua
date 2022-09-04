@@ -9,6 +9,7 @@ return {
   plugins = {
     alpha = {},
     neogen = {},
+    colorizer = {},
     dirvish = {},
     nerdtree = {},
     winbar = {},
@@ -32,6 +33,10 @@ return {
       },
       layout = {
         align = "center",
+      },
+      window = {
+        border = "none",
+        position = "bottom",
       },
     },
     gitsigns = {},

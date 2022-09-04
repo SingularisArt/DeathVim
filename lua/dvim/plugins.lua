@@ -55,7 +55,13 @@ return packer.startup(function(use)
   })
 
   -- Colorschemes
-  use({ "norcalli/nvim-colorizer.lua" })
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("dvim.core.plugins.colorizer").setup()
+    end,
+    disable = not dvim.builtin.plugins.colorizer.active,
+  })
   use({ "nekonako/xresources-nvim" })
   use({ "EdenEast/nightfox.nvim" })
   use({ "lunarvim/colorschemes" })

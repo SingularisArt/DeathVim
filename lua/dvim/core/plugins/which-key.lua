@@ -5,6 +5,10 @@ M.config = function()
     layout = {
       align = dvim.builtin.plugins.which_key.layout.align,
     },
+    window = {
+      border = dvim.builtin.plugins.which_key.window.border,
+      position = dvim.builtin.plugins.which_key.window.position,
+    },
     plugins = {
       marks = true,
       registers = true,
