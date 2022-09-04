@@ -359,16 +359,17 @@ please read the [wiki](https://github.com/SingularisArt/DeathVim/wiki) page.
 Paste the following content in the `~/.config/dvim/lua/config.lua` file.
 
 ```lua
--- For a quickstart guide, please see:
--- https://github.com/SingularisArt/DeathVim/#config-file for a quickstart
 -- For more indepth explanation, please see:
--- https://github.com/SingularisArt/DeathVim/wiki/Modifying-the-config.lua-file
+-- https://github.com/SingularisArt/DeathVim/wiki/more-in-depth-look-into-the-config.lua-file
 
 ------------------------------------------------------------------------
 --                              General                               --
 ------------------------------------------------------------------------
 
-dvim.colorscheme = "rose-pine"
+dvim.color.name = "base16-bright"
+dvim.color.dark = true
+dvim.color.light = not dvim.color.dark -- Don't mess with this
+dvim.focus = true
 dvim.format_on_save = false
 
 ------------------------------------------------------------------------
@@ -394,6 +395,7 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 dvim.builtin.plugins.alpha.active = true
 dvim.builtin.plugins.alpha.mode = "dashboard"
 dvim.builtin.plugins.indent_blankline.active = true
+dvim.builtin.plugins.colorizer.active = true
 dvim.builtin.plugins.symbols_outline.active = true
 dvim.builtin.plugins.which_key.active = true
 dvim.builtin.plugins.gitsigns.active = true
@@ -407,13 +409,11 @@ dvim.builtin.plugins.project.active = true
 dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
-dvim.builtin.plugins.nvimtree.active = true
-dvim.builtin.plugins.lualine.active = true
-dvim.builtin.plugins.staline.active = true
-dvim.builtin.plugins.bufferline.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
-dvim.builtin.plugins.folds.active = true
+dvim.builtin.plugins.bufferline.active = true
+dvim.builtin.plugins.winbar.active = true
+dvim.builtin.plugins.neogen.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -423,7 +423,7 @@ dvim.builtin.plugins.folds.active = true
 -- the following for you:
 --  It's LSP
 --  It's formatter
---  It's diagnostic
+--  It's linter
 --  It's TreeSitter parser
 --  It's plugins
 -- So, instead of you going through each of those items and disabling them, you
@@ -509,27 +509,39 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  d = { "<cmd>Trouble document_linters<cr>", "linters" },
   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+  w = { "<cmd>Trouble workspace_linters<cr>", "Wordspace linters" },
 }
 
 ------------------------------------------------------------------------
 --                         Modifying Plugins                          --
 ------------------------------------------------------------------------
 
-------------------
---  Statusline  --
-------------------
+---------
+-- CMP --
+---------
 
--- Possible values: "staline", "lualine"
-dvim.statusline = "lualine"
--- Possible values: "evil", "normal", "pebble", "simple", "simpler"
-dvim.builtin.plugins.staline.mode = "evil"
--- Possible values: "evil", "bubbles", "slanted"
-dvim.builtin.plugins.lualine.theme = "pywal" -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-dvim.builtin.plugins.lualine.mode = "evil"
+dvim.builtin.plugins.cmp.extensions.active = true
+dvim.builtin.plugins.cmp.extensions.nvim_lsp.active = true
+dvim.builtin.plugins.cmp.extensions.nvim_lua.active = true
+dvim.builtin.plugins.cmp.extensions.cmp_tabnine.active = true
+dvim.builtin.plugins.cmp.extensions.latex_symbols.active = true
+dvim.builtin.plugins.cmp.extensions.ultisnips.active = true
+dvim.builtin.plugins.cmp.extensions.calc.active = true
+dvim.builtin.plugins.cmp.extensions.path.active = true
+dvim.builtin.plugins.cmp.extensions.buffer.active = true
+dvim.builtin.plugins.cmp.extensions.emails.active = true
+dvim.builtin.plugins.cmp.extensions.emoji.active = true
+dvim.builtin.plugins.cmp.extensions.gh_issues.active = true
+
+-------------------
+-- File Browsers --
+-------------------
+
+-- Possible values: "dirvish", "nvim-tree", "nerd-tree"
+dvim.file_browser = "nvim-tree"
 
 -----------------
 --  Telescope  --
@@ -630,6 +642,11 @@ dvim.builtin.plugins.which_key.presets.z = true
 dvim.builtin.plugins.which_key.presets.g = true
 dvim.builtin.plugins.which_key.spelling.enabled = true
 dvim.builtin.plugins.which_key.spelling.suggestions = 20
+dvim.builtin.plugins.which_key.layout.align = "center"
+-- Possible values: "none", "single", "double", "shadow"
+dvim.builtin.plugins.which_key.window.border = "single"
+-- Possible values: "bottom", "top"
+dvim.builtin.plugins.which_key.window.position = "bottom"
 
 -----------------
 --  Git Signs  --
@@ -746,32 +763,28 @@ dvim.lsp.formatters = {
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
 dvim.lsp.automatic_formatters_installation = true
 
------------------
--- Diagnostics --
------------------
+-------------
+-- Linters --
+-------------
 
 -- This list depends on the filetypes list. Don't remove any of the items. Only
 -- add new ones and if you want to disable a filetype, set it to false in the
 -- filetypes list from above.
-dvim.lsp.diagnostics = {
+dvim.lsp.linters = {
   {
-    diagnostic = "flake8",
+    linter = "flake8",
     filetype = "python",
   },
   {
-    diagnostic = "cppcheck",
+    linter = "cppcheck",
     filetype = "cpp",
-  },
-  {
-    diagnostic = "write_good",
-    filetype = "latex",
   },
 }
 
--- If you don't have a diagnostic installed for a filetype, DeathVim will try
+-- If you don't have a linter installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
-dvim.lsp.automatic_diagnostics_installation = true
+dvim.lsp.automatic_linters_installation = true
 
 -----------
 -- Hover --
@@ -803,13 +816,14 @@ dvim.lsp.completions = {
 ------------------------------------------------------------------------
 
 -- Here is where you put each speific settings for each filetype.
-
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
+  textwidth = 80,
   spell = true,
 }
 
 dvim.builtin.filetypes.markdown.settings = {
+  textwidth = 80,
   wrap = true,
   spell = true,
 }
@@ -821,7 +835,6 @@ dvim.builtin.filetypes.markdown.settings = {
 -- Add any additional plugins you may want
 dvim.plugins = {
   "folke/trouble.nvim",
-  "tjdevries/express_line.nvim",
 }
 
 ------------------------------------------------------------------------
@@ -871,9 +884,6 @@ Huge shoutout to the follwing people and organizations:
   man who created the logo for me. If you need any logo designing, he's your
   guy. Send him a message through reddit, and he's be happy to help you out.
 
-<!-- [undotree](https://github.com/mbbill/undotree) -->
-<!-- [nvim-scrollview](https://github.com/dstein64/nvim-scrollview) -->
-<!-- [pretty-fold.nvim](https://github.com/anuvyklack/pretty-fold.nvim) -->
 <!-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) -->
 <!-- [venn.nvim](https://github.com/jbyuki/venn.nvim) -->
 <!-- [zen-mode.nvim](https://github.com/folke/zen-mode.nvim) -->

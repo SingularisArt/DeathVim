@@ -31,9 +31,10 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins.alpha.active = false
+dvim.builtin.plugins.alpha.active = true
 dvim.builtin.plugins.alpha.mode = "dashboard"
 dvim.builtin.plugins.indent_blankline.active = true
+dvim.builtin.plugins.colorizer.active = true
 dvim.builtin.plugins.symbols_outline.active = true
 dvim.builtin.plugins.which_key.active = true
 dvim.builtin.plugins.gitsigns.active = true
@@ -50,8 +51,8 @@ dvim.builtin.plugins.autopairs.active = true
 dvim.builtin.plugins.notify.active = true
 dvim.builtin.plugins.treesitter.active = true
 dvim.builtin.plugins.bufferline.active = true
-dvim.builtin.plugins.winbar.active = false
-dvim.builtin.plugins.neogen.active = false
+dvim.builtin.plugins.winbar.active = true
+dvim.builtin.plugins.neogen.active = true
 
 -------------------------
 --  Builtin Filetypes  --
@@ -162,7 +163,7 @@ dvim.builtin.plugins.which_key.user_mappings["r"] = {
 -------------------
 
 -- Possible values: "dirvish", "nvim-tree", "nerd-tree"
-dvim.file_browser = "dirvish"
+dvim.file_browser = "nvim-tree"
 
 -----------------
 --  Telescope  --
@@ -264,6 +265,10 @@ dvim.builtin.plugins.which_key.presets.g = true
 dvim.builtin.plugins.which_key.spelling.enabled = true
 dvim.builtin.plugins.which_key.spelling.suggestions = 20
 dvim.builtin.plugins.which_key.layout.align = "center"
+-- Possible values: "none", "single", "double", "shadow"
+dvim.builtin.plugins.which_key.window.border = "single"
+-- Possible values: "bottom", "top"
+dvim.builtin.plugins.which_key.window.position = "bottom"
 
 -----------------
 --  Git Signs  --

@@ -81,6 +81,7 @@ M.config = function()
             calc = "",
             path = "",
             buffer = "",
+            gh_issues = "",
             emails = "",
             emoji = "",
           })[entry.source.name]
