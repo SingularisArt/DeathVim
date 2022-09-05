@@ -44,34 +44,10 @@ M.config = function()
 
   if dvim.builtin.plugins.dirvish.active then
     dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>Dirvish<CR>", "Toggle Dirvish" }
-  elseif dvim.builtin.plugins.nvimtree.active then
+  elseif dvim.builtin.plugins.nvim_tree.active then
     dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" }
-  elseif dvim.builtin.plugins.nerdtree.active then
+  elseif dvim.builtin.plugins.nerd_tree.active then
     dvim.builtin.plugins.which_key.mappings["e"] = { "<cmd>NERDTreeToggle<CR>", "Toggle NerdTree" }
-  end
-
-  if dvim.builtin.plugins.bufferline.active then
-    dvim.builtin.plugins.which_key.mappings["b"] = {
-      name = "Buffers",
-      p = { "<cmd>BufferLinePick<CR>", "Pick buffer" },
-      c = {
-        name = "Close",
-        l = { "<cmd>BufferLineCloseLeft<CR>", "Close all buffers to the left" },
-        r = { "<cmd>BufferLineCloseRight<CR>", "Close all buffers to the right" },
-      },
-      m = {
-        name = "Move",
-        n = { "<cmd>BufferLineMoveNext<CR>", "Move buffer next" },
-        p = { "<cmd>BufferLineMovePrev<CR>", "Move buffer previous" },
-      },
-      s = {
-        name = "Sort",
-        d = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by directory" },
-        e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by extension" },
-        r = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "Sort by relative directory" },
-        t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by tabs" },
-      },
-    }
   end
 
   if dvim.builtin.plugins.gitsigns.active then

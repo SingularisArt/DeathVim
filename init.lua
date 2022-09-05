@@ -26,10 +26,6 @@ Log.trace("Loaded autocmds")
 require("dvim.augroup")
 Log.trace("Loaded augroups")
 
-local parse_vim_commands = require("dvim.parse_vim_commands")
-parse_vim_commands.load_defaults()
-Log.trace("Loaded vim commands")
-
 local colorscheme = require("dvim.colorscheme")
 colorscheme.apply_colorscheme(dvim.color.name)
 colorscheme.highlight_lsp()

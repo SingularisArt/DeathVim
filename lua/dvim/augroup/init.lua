@@ -9,13 +9,3 @@ augroup("Statusline", function()
   )
   autocmd("ColorScheme", "*", dvim.statusline.update_highlight)
 end)
-
-if dvim.builtin.plugins.winbar.active then
-  augroup("Winbar", function()
-    autocmd(
-      "CursorMoved,BufWinEnter,BufFilePost,InsertEnter,BufWritePost",
-      "*",
-      "lua require('dvim.core.plugins.winbar').setup()"
-    )
-  end)
-end

@@ -45,8 +45,6 @@ return packer.startup(function(use)
 
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
-  use({ "antoinemadec/FixCursorHold.nvim" })
-  use({ "lewis6991/impatient.nvim" })
   use({
     "rcarriga/nvim-notify",
     config = function()
@@ -63,13 +61,6 @@ return packer.startup(function(use)
     disable = not dvim.builtin.plugins.colors.active,
   })
   use({
-    "nvim-colortils/colortils.nvim",
-    config = function()
-      require("dvim.core.plugins.colortils").setup()
-    end,
-    disable = not dvim.builtin.plugins.colors.active,
-  })
-  use({
     "mrshmllow/document-color.nvim",
     config = function()
       require("dvim.core.plugins.document-color").setup()
@@ -78,23 +69,9 @@ return packer.startup(function(use)
   })
 
   -- Colorschemes
-  use({ "nekonako/xresources-nvim" })
-  use({ "EdenEast/nightfox.nvim" })
-  use({ "lunarvim/colorschemes" })
-  use({ "dylanaraps/wal.vim" })
-  use({ "tomasiser/vim-code-dark" })
-  use({ "AlphaTechnolog/pywal.nvim" })
-  use({ "lighthaus-theme/vim-lighthaus" })
-  use({ "jacoborus/tender.vim" })
-  use({ "mcchrish/zenbones.nvim" })
-  use({ "rmehri01/onenord.nvim" })
-  use({ "Shatur/neovim-ayu" })
-  use({ "rafamadriz/neon" })
-  use({ "luisiacc/gruvbox-baby" })
   use({ "folke/tokyonight.nvim" })
   use({ "chriskempson/base16-vim" })
   use({ "flazz/vim-colorschemes" })
-  use({ "rose-pine/neovim" })
   use({ "wincent/pinnacle" })
 
   -- Indent Blankline
@@ -112,10 +89,6 @@ return packer.startup(function(use)
     disable = not dvim.lsp.active,
   })
   use({
-    "williamboman/nvim-lsp-installer",
-    disable = not dvim.lsp.active,
-  })
-  use({
     "jose-elias-alvarez/null-ls.nvim",
     disable = not dvim.lsp.active,
   })
@@ -125,17 +98,6 @@ return packer.startup(function(use)
   })
   use({
     "folke/lua-dev.nvim",
-    disable = not dvim.lsp.active,
-  })
-  use({
-    "b0o/SchemaStore.nvim",
-    disable = not dvim.lsp.active and not dvim.builtin.filetypes.json.active,
-  })
-  use({
-    "SmiteshP/nvim-navic",
-    config = function()
-      require("dvim.core.plugins.navic").setup()
-    end,
     disable = not dvim.lsp.active,
   })
   use({
@@ -153,27 +115,11 @@ return packer.startup(function(use)
     disable = not dvim.lsp.active and not dvim.builtin.plugins.symbols_outline.active,
   })
   use({
-    "ray-x/navigator.lua",
-    disable = not dvim.lsp.active,
-  })
-  use({
-    "ray-x/guihua.lua",
-    disable = not dvim.lsp.active,
-  })
-  use({
     "ray-x/lsp_signature.nvim",
     disable = not dvim.lsp.active,
   })
   use({
-    "rmagatti/goto-preview",
-    disable = not dvim.lsp.active,
-  })
-  use({
     "tamago324/nlsp-settings.nvim",
-    disable = not dvim.lsp.active,
-  })
-  use({
-    "lvimuser/lsp-inlayhints.nvim",
     disable = not dvim.lsp.active,
   })
   use({
@@ -194,20 +140,6 @@ return packer.startup(function(use)
       require("dvim.lsp.lines").setup()
     end,
     disable = not dvim.lsp.active and not dvim.lsp.lsp_lines,
-  })
-
-  -- Log files
-  use({
-    "mtdl9/vim-log-highlighting",
-    disable = not dvim.builtin.filetypes.log.active,
-  })
-
-  use({
-    "phelipetls/vim-hugo",
-    config = function()
-      require("dvim.core.filetypes.hugo").setup()
-    end,
-    disable = not dvim.builtin.filetypes.hugo.active,
   })
 
   -- WhichKey
@@ -253,36 +185,12 @@ return packer.startup(function(use)
   use({ "mattn/emmet-vim" })
   use({ "Valloric/MatchTagAlways" })
   use({ "wakatime/vim-wakatime" })
-  use({ "easymotion/vim-easymotion" })
   use({ "voldikss/vim-translator" })
   use({ "dhruvasagar/vim-table-mode" })
   use({ "machakann/vim-highlightedyank" })
-  use({ "turbio/bracey.vim" })
-  use({ "jbyuki/venn.nvim" })
-  use({ "folke/zen-mode.nvim" })
-  use({ "folke/twilight.nvim" })
-  use({ "Pocco81/HighStr.nvim" })
 
-  -- Todo Comments
-  use({
-    "folke/todo-comments.nvim",
-    config = function()
-      require("dvim.core.plugins.todo-comments").setup()
-    end,
-    disable = not dvim.builtin.plugins.todo_comments.active,
-  })
-
-  -- Terminal
-  use({
-    "akinsho/toggleterm.nvim",
-    config = function()
-      require("dvim.core.plugins.terminal").setup()
-    end,
-    branch = "main",
-    disable = not dvim.builtin.plugins.terminal.active,
-  })
-
-  use({ "kyazdani42/nvim-web-devicons" }) -- Icons
+  -- Icons
+  use({ "kyazdani42/nvim-web-devicons" })
 
   -- TreeSitter
   use({
@@ -292,12 +200,11 @@ return packer.startup(function(use)
     end,
   })
   use({ "nvim-treesitter/playground" })
-  use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+  -- use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
-  use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-  use({ "wellle/targets.vim" })
-  use({ "RRethy/nvim-treesitter-textsubjects" })
-  use({ "abecodes/tabout.nvim" })
+  -- use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+  -- use({ "wellle/targets.vim" })
+  -- use({ "RRethy/nvim-treesitter-textsubjects" })
 
   -- Debugging
   use({
@@ -318,19 +225,6 @@ return packer.startup(function(use)
   use({
     "ravenxrz/DAPInstall.nvim",
     disable = not dvim.builtin.plugins.dap.active,
-  })
-  use({
-    "mfussenegger/nvim-dap-python",
-    disable = not dvim.builtin.plugins.dap.active,
-  })
-
-  -- Alpha
-  use({
-    "goolord/alpha-nvim",
-    config = function()
-      require("dvim.core.plugins.alpha").setup()
-    end,
-    disable = not dvim.builtin.plugins.alpha.active,
   })
 
   -- Snippets
@@ -358,34 +252,6 @@ return packer.startup(function(use)
       require("dvim.core.plugins.telescope").setup()
     end,
     disable = not dvim.builtin.plugins.telescope.active,
-  })
-  use({
-    "nvim-telescope/telescope-symbols.nvim",
-    requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.symbols.active,
-  })
-  use({
-    "nvim-telescope/telescope-media-files.nvim",
-    requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.media_files.active,
-  })
-  use({
-    "tom-anders/telescope-vim-bookmarks.nvim",
-    requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active,
-  })
-  use({
-    "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim" },
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.file_browser.active,
   })
   use({
     "ahmedkhalf/project.nvim",
@@ -485,14 +351,14 @@ return packer.startup(function(use)
     config = function()
       require("dvim.core.plugins.file-browsers").setup()
     end,
-    disable = not dvim.builtin.plugins.nvimtree.active,
+    disable = not dvim.builtin.plugins.nvim_tree.active,
   })
   use({
     "preservim/nerdtree",
     config = function()
       require("dvim.core.plugins.file-browsers").setup()
     end,
-    disable = not dvim.builtin.plugins.nerdtree.active,
+    disable = not dvim.builtin.plugins.nerd_tree.active,
   })
   use({
     "justinmk/vim-dirvish",
@@ -500,22 +366,6 @@ return packer.startup(function(use)
       require("dvim.core.plugins.file-browsers").setup()
     end,
     disable = not dvim.builtin.plugins.dirvish.active,
-  })
-
-  -- Status Line and Bufferline
-  use({
-    "akinsho/bufferline.nvim",
-    config = function()
-      require("dvim.core.plugins.bufferline").setup()
-    end,
-    branch = "main",
-    disable = not dvim.builtin.plugins.bufferline.active,
-  })
-
-  -- HTML
-  use({
-    "windwp/nvim-ts-autotag",
-    disable = not dvim.builtin.filetypes.html.active,
   })
 
   -- LaTeX
@@ -546,27 +396,6 @@ return packer.startup(function(use)
   use({
     "dkarter/bullets.vim",
     disable = not dvim.builtin.filetypes.markdown.active,
-  })
-
-  -- Grammar
-  use({
-    "rhysd/vim-grammarous",
-    disable = not dvim.builtin.actions.writing,
-  })
-  use({
-    "dpelle/vim-LanguageTool",
-    disable = not dvim.builtin.actions.writing,
-  })
-  use({
-    "vigoux/LanguageTool.nvim",
-    disable = not dvim.builtin.actions.writing,
-  })
-  use({
-    "preservim/vim-pencil",
-    config = function()
-      require("dvim.core.actions.writing").setup()
-    end,
-    disable = not dvim.builtin.actions.writing,
   })
 
   -- Tmux

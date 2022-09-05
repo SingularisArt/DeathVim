@@ -72,17 +72,10 @@ local function on_attach_color(bufnr)
   end
 end
 
-local function on_attach_inlay_hints(client, bufnr)
-  if dvim.lsp.inlay_hints then
-    require_clean("lsp-inlayhints").on_attach(client, bufnr)
-  end
-end
-
 M.on_attach = function(client, bufnr)
   on_attach_illuminate(client, bufnr)
   on_attach_navic(client, bufnr)
   on_attach_color(bufnr)
-  on_attach_inlay_hints(client, bufnr)
 end
 
 return M

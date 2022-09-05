@@ -102,16 +102,16 @@ function M:init(base_dir)
 
   if dvim.file_browser == "dirvish" then
     dvim.builtin.plugins.dirvish.active = true
-    dvim.builtin.plugins.nvimtree.active = false
-    dvim.builtin.plugins.nerdtree.active = false
+    dvim.builtin.plugins.nvim_tree.active = false
+    dvim.builtin.plugins.nerd_tree.active = false
   elseif dvim.file_browser == "nvim-tree" then
     dvim.builtin.plugins.dirvish.active = false
-    dvim.builtin.plugins.nvimtree.active = true
-    dvim.builtin.plugins.nerdtree.active = false
+    dvim.builtin.plugins.nvim_tree.active = true
+    dvim.builtin.plugins.nerd_tree.active = false
   elseif dvim.file_browser == "nerd-tree" then
     dvim.builtin.plugins.dirvish.active = false
-    dvim.builtin.plugins.nvimtree.active = false
-    dvim.builtin.plugins.nerdtree.active = true
+    dvim.builtin.plugins.nvim_tree.active = false
+    dvim.builtin.plugins.nerd_tree.active = true
   end
 
   require("dvim.plugins")
