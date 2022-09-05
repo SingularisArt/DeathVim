@@ -37,7 +37,7 @@
 # Features
 
 - Install in one line of code (view [here](#installation) for more info).
-- Blazingly fast.
+- Blazingly fast. Average startup time of around 260m.
 - Written in 100% **Lua**.
 - Easily able to install (view [here](#install-language-support) for more info):
   - LSP

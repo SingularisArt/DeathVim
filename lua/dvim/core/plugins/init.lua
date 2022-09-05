@@ -89,7 +89,6 @@ M.get_defaults = function()
     cmp = {
       active = true,
       extensions = {
-        active = true,
         nvim_lsp = {},
         nvim_lua = {},
         cmp_tabnine = {},

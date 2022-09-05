@@ -258,9 +258,7 @@ return packer.startup(function(use)
     config = function()
       require("dvim.core.plugins.project").setup()
     end,
-    disable = not dvim.builtin.plugins.telescope.active
-        and not dvim.builtin.plugins.telescope.extensions.active
-        and not dvim.builtin.plugins.telescope.extensions.project.active,
+    disable = not dvim.builtin.plugins.project.active,
   })
 
   -- CMP
@@ -274,75 +272,48 @@ return packer.startup(function(use)
   use({
     "hrsh7th/cmp-buffer",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.buffer.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.buffer.active,
   })
   use({
     "hrsh7th/cmp-path",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.path.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.path.active,
   })
   use({
     "hrsh7th/cmp-nvim-lsp",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.nvim_lsp.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.nvim_lsp.active,
   })
   use({
     "hrsh7th/cmp-nvim-lua",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.nvim_lua.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.nvim_lua.active,
   })
   use({
     "hrsh7th/cmp-calc",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.calc.active,
-  })
-  use({
-    "rcarriga/cmp-dap",
-    requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.dap.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.dap.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.calc.active,
   })
   use({
     "tzachar/cmp-tabnine",
     run = "./install.sh",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.cmp_tabnine.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.cmp_tabnine.active,
   })
   use({
     "quangnguyen30192/cmp-nvim-ultisnips",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.ultisnips.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.ultisnips.active,
   })
   use({
     "kdheepak/cmp-latex-symbols",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.filetypes.latex.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.latex_symbols.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.latex_symbols.active,
   })
   use({
     "hrsh7th/cmp-emoji",
     requires = { "hrsh7th/nvim-cmp" },
-    disable = not dvim.builtin.plugins.cmp.active
-        and not dvim.builtin.plugins.cmp.extensions.active
-        and not dvim.builtin.plugins.cmp.extensions.emoji.active,
+    disable = not dvim.builtin.plugins.cmp.extensions.emoji.active,
   })
 
   -- File Browsers
