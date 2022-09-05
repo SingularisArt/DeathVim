@@ -22,4 +22,9 @@ augroup("DeathVimAutocmds", function()
   autocmd("VimResized", "*", 'execute "normal! \\<c-w>="')
   autocmd("WinEnter", "*", autocmds.win_enter)
   autocmd("WinLeave", "*", autocmds.win_leave)
+
+  if dvim.format_on_save then
+    -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
+    autocmd("BufWritePre", "<buffer>", vim.lsp.buf.format)
+  end
 end)

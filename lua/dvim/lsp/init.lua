@@ -2,10 +2,6 @@ local M = {}
 
 require_clean("lsp_signature").setup()
 
-if dvim.format_on_save then
-  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-end
-
 local servers = {}
 
 for _, server_object in ipairs(dvim.lsp.language_servers) do
