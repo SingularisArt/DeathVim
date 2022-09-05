@@ -1,7 +1,0 @@
-#!/bin/sh
-
-export DEATHVIM_RUNTIME_DIR="${DEATHVIM_RUNTIME_DIR:-"$XDG_DATA_HOME/deathvim"}"
-export DEATHVIM_CONFIG_DIR="${DEATHVIM_CONFIG_DIR:-"$XDG_CONFIG_HOME/dvim"}"
-export DEATHVIM_CACHE_DIR="${DEATHVIM_CACHE_DIR:-"$XDG_CACHE_HOME/dvim"}"
-
-exec nvim -u "$DEATHVIM_RUNTIME_DIR/dvim/init.lua" "$@"
