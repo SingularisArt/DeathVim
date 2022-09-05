@@ -18,14 +18,6 @@ M.setup = function()
       else
         table.insert(sources, linters[linter_object.linter])
       end
-
-      Log.trace("[NULL-LS] Toggling linter " .. linter_object.linter)
-    else
-      Log.error(
-        "[NULL-LS] Filetype: ["
-        .. linter_object.filetype
-        .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
-      )
     end
   end
 

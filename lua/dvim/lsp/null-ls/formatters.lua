@@ -20,14 +20,6 @@ M.setup = function()
       else
         table.insert(sources, formatting[formatter_object.formatter])
       end
-
-      Log.trace("[NULL-LS] Toggling formatter " .. formatter_object.formatter)
-    else
-      Log.error(
-        "[NULL-LS] Filetype: ["
-        .. formatter_object.filetype
-        .. "] not found in dvim.builtin.filetypes. Please look at the config.lua file."
-      )
     end
   end
 

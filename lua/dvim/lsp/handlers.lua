@@ -60,12 +60,6 @@ local function on_attach_illuminate(client, bufnr)
   end
 end
 
-local function on_attach_navic(client, bufnr)
-  if dvim.builtin.plugins.winbar.active then
-    require_clean("nvim-navic").on_attach(client, bufnr)
-  end
-end
-
 local function on_attach_color(bufnr)
   if dvim.builtin.plugins.colors.active then
     require_clean("document-color").buf_attach(bufnr)
@@ -74,7 +68,6 @@ end
 
 M.on_attach = function(client, bufnr)
   on_attach_illuminate(client, bufnr)
-  on_attach_navic(client, bufnr)
   on_attach_color(bufnr)
 end
 
