@@ -9,7 +9,7 @@ dvim.color.name = "base16-bright"
 dvim.color.dark = true
 dvim.color.light = not dvim.color.dark -- Don't mess with this
 dvim.focus = true
-dvim.format_on_save = false
+dvim.format_on_save = true
 
 ------------------------------------------------------------------------
 --                                Logging                             --
@@ -31,26 +31,19 @@ dvim.log.out_file = get_cache_dir() .. "/dvim.log"
 
 -- After changing plugin config exit and reopen DeathVim, then
 -- Run :PackerSync to reload the plugins.
-dvim.builtin.plugins.alpha.active = true
-dvim.builtin.plugins.alpha.mode = "dashboard"
 dvim.builtin.plugins.indent_blankline.active = true
 dvim.builtin.plugins.colors.active = true
 dvim.builtin.plugins.symbols_outline.active = true
 dvim.builtin.plugins.which_key.active = true
 dvim.builtin.plugins.gitsigns.active = true
 dvim.builtin.plugins.comment.active = true
-dvim.builtin.plugins.todo_comments.active = true
-dvim.builtin.plugins.terminal.active = true
 dvim.builtin.plugins.dap.active = true
 dvim.builtin.plugins.ultisnips.active = true
 dvim.builtin.plugins.telescope.active = true
 dvim.builtin.plugins.project.active = true
-dvim.builtin.plugins.copilot.active = true
 dvim.builtin.plugins.cmp.active = true
 dvim.builtin.plugins.autopairs.active = true
 dvim.builtin.plugins.treesitter.active = true
-dvim.builtin.plugins.bufferline.active = true
-dvim.builtin.plugins.winbar.active = true
 dvim.builtin.plugins.neogen.active = true
 
 -------------------------
@@ -143,15 +136,6 @@ dvim.builtin.plugins.which_key.user_vmappings = {}
 dvim.builtin.plugins.which_key.user_mappings = {}
 
 dvim.builtin.plugins.which_key.user_vmappings = {}
-dvim.builtin.plugins.which_key.user_mappings["r"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble document_linters<cr>", "linters" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble workspace_linters<cr>", "Wordspace linters" },
-}
 
 ------------------------------------------------------------------------
 --                         Modifying Plugins                          --
@@ -322,23 +306,23 @@ dvim.lsp.lsp_lines = false
 -- filetypes list from above.
 dvim.lsp.language_servers = {
   { server = "sumneko_lua", filetype = "lua" },
-  { server = "vimls", filetype = "vim" },
+  -- { server = "vimls", filetype = "vim" },
   { server = "texlab", filetype = "latex" },
   { server = "pylsp", filetype = "python" },
   { server = "bashls", filetype = "bash" },
-  { server = "clangd", filetype = "cpp" },
-  { server = "cmake", filetype = "cmake" },
+  -- { server = "clangd", filetype = "cpp" },
+  -- { server = "cmake", filetype = "cmake" },
   { server = "html", filetype = "html" },
   { server = "emmet_ls", filetype = "html" },
   { server = "cssls", filetype = "css" },
   { server = "tailwindcss", filetype = "css" },
   { server = "jsonls", filetype = "json" },
-  { server = "rust_analyzer", filetype = "rust" },
-  { server = "solang", filetype = "solidity" },
-  { server = "solc", filetype = "solidity" },
-  { server = "golangci_lint_ls", filetype = "go" },
+  -- { server = "rust_analyzer", filetype = "rust" },
+  -- { server = "solang", filetype = "solidity" },
+  -- { server = "solc", filetype = "solidity" },
+  -- { server = "golangci_lint_ls", filetype = "go" },
   { server = "tsserver", filetype = "javascript" },
-  { server = "jdtls", filetype = "java" },
+  -- { server = "jdtls", filetype = "java" },
   { server = "yamlls", filetype = "yaml" },
 }
 
@@ -360,40 +344,36 @@ dvim.lsp.formatters = {
     extra_args = { "--fast" },
     filetype = "python",
   },
-  {
-    formatter = "clang_format",
-    filetype = "cpp",
-  },
-  {
-    formatter = "latexindent",
-    filetype = "latex",
-  },
+  -- {
+  --   formatter = "clang_format",
+  --   filetype = "cpp",
+  -- },
   {
     formatter = "prettier",
     extra_args = { "--single-quote", "--jsx-single-quote" },
     filetype = "javascript",
   },
-  {
-    formatter = "rustfmt",
-    filetype = "rust",
-  },
-  {
-    formatter = "sql_formatter",
-    filetype = "sql",
-  },
-  {
-    formatter = "standardrb",
-    extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-    filetype = "ruby",
-  },
+  -- {
+  --   formatter = "rustfmt",
+  --   filetype = "rust",
+  -- },
+  -- {
+  --   formatter = "sql_formatter",
+  --   filetype = "sql",
+  -- },
+  -- {
+  --   formatter = "standardrb",
+  --   extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+  --   filetype = "ruby",
+  -- },
   {
     formatter = "stylua",
     filetype = "lua",
   },
-  {
-    formatter = "google_java_format",
-    filetype = "java",
-  },
+  -- {
+  --   formatter = "google_java_format",
+  --   filetype = "java",
+  -- },
   {
     formatter = "shellharden",
     filetype = "bash",
@@ -417,24 +397,16 @@ dvim.lsp.linters = {
     linter = "flake8",
     filetype = "python",
   },
-  {
-    linter = "cppcheck",
-    filetype = "cpp",
-  },
+  -- {
+  --   linter = "cppcheck",
+  --   filetype = "cpp",
+  -- },
 }
 
 -- If you don't have a linter installed for a filetype, DeathVim will try
 -- to install it for you, but it isn't perfect. Always check the log file
 -- (~/.config/dvim/log.log) to see if it succeded or failed.
 dvim.lsp.automatic_linters_installation = true
-
------------
--- Hover --
------------
-
-dvim.lsp.hovers = {
-  { hover = "dictionary" },
-}
 
 -----------------
 -- Code Action --
@@ -443,14 +415,6 @@ dvim.lsp.hovers = {
 dvim.lsp.code_actions = {
   { code_action = "gitsigns" },
   { code_action = "gitrebase" },
-}
-
-----------------
--- Completion --
-----------------
-
-dvim.lsp.completions = {
-  { completion = "spell" },
 }
 
 ------------------------------------------------------------------------
@@ -495,6 +459,4 @@ vim.api.nvim_create_autocmd("FileType", {
 --                            Vim Commands                            --
 ------------------------------------------------------------------------
 
-dvim.vim_commands = {
-  { command = "set rtp+=~/Documents/school-notes/current-course" },
-}
+vim.cmd("set rtp+=~/Documents/school-notes/current-course")
