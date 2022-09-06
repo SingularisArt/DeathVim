@@ -207,7 +207,7 @@ function check_neovim_min_version() {
 
 function validate_deathvim_files() {
   local verify_version_cmd='if v:errmsg != "" | cquit | else | quit | endif'
-  if ! "$INSTALL_PREFIX/bin/dvim" --headless -c 'DvimUpdate' -c "$verify_version_cmd" &>/dev/null; then
+  if ! "$INSTALL_PREFIX/bin/dvim" --headless -c "$verify_version_cmd" &>/dev/null; then
     msg "Removing old installation files"
     rm -rf "$DEATHVIM_BASE_DIR"
     clone_dvim
@@ -374,6 +374,11 @@ function clone_dvim() {
         echo "Failed to clone repository. Installation failed."
         exit 1
       fi
+    fi
+  else
+    if ! git clone --branch "$DV_BRANCH" "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
+      echo "Failed to clone repository. Installation failed."
+      exit 1
     fi
   fi
 }
