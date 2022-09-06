@@ -1,5 +1,5 @@
 -- For more indepth explanation, please see:
--- https://github.com/SingularisArt/DeathVim/wiki/more-in-depth-look-into-the-config.lua-file
+-- https://deathvim.github.io
 
 ------------------------------------------------------------------------
 --                              General                               --
