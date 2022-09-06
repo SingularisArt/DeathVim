@@ -1,21 +1,19 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-#Set branch to master unless specified by the user
-declare DV_BRANCH="${DV_BRANCH:-"master"}"
-declare -r DV_REMOTE="${DV_REMOTE:-singularisart/deathvim.git}"
+# Set branch to stabel unless specified by the user
+declare DV_BRANCH="stabel"
+declare -r DV_REMOTE="${DV_REMOTE:-SingularisArt/DeathVim.git}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 
-declare -r XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
-declare -r XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME/.cache"}"
-declare -r XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
+declare -r XDG_DATA_HOME="$HOME/.local/share"
+declare -r XDG_CACHE_HOME="$HOME/.cache"
+declare -r XDG_CONFIG_HOME="$HOME/.config"
 
-declare -r DEATHVIM_RUNTIME_DIR="${DEATHVIM_RUNTIME_DIR:-"$XDG_DATA_HOME/deathvim"}"
-declare -r DEATHVIM_CONFIG_DIR="${DEATHVIM_CONFIG_DIR:-"$XDG_CONFIG_HOME/dvim"}"
-declare -r DEATHVIM_CACHE_DIR="${DEATHVIM_CACHE_DIR:-"$XDG_CACHE_HOME/dvim"}"
-declare -r DEATHVIM_BASE_DIR="${DEATHVIM_BASE_DIR:-"$DEATHVIM_RUNTIME_DIR/dvim"}"
-
-declare -r DEATHVIM_LOG_LEVEL="${DEATHVIM_LOG_LEVEL:-warn}"
+declare -r DEATHVIM_RUNTIME_DIR="$XDG_DATA_HOME/deathvim"
+declare -r DEATHVIM_CONFIG_DIR="$XDG_CONFIG_HOME/dvim"
+declare -r DEATHVIM_CACHE_DIR="$XDG_CACHE_HOME/dvim"
+declare -r DEATHVIM_BASE_DIR="$DEATHVIM_RUNTIME_DIR/dvim"
 
 declare BASEDIR
 BASEDIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
@@ -50,6 +48,7 @@ function usage() {
   echo "    -l, --local                              Install local copy of DeathVim"
   echo "    -y, --yes                                Disable confirmation prompts (answer yes to all questions)"
   echo "    --overwrite                              Overwrite previous DeathVim configuration (a backup is always performed first)"
+  echo "    --branch                                 Specify a specific branch."
   echo "    --[no]-install-dependencies              Whether to automatically install external dependencies (will prompt by default)"
 }
 
@@ -57,19 +56,17 @@ function parse_arguments() {
   while [ "$#" -gt 0 ]; do
     case "$1" in
       -l | --local)
-        ARGS_LOCAL=1
-        ;;
+        ARGS_LOCAL=1 ;;
       --overwrite)
-        ARGS_OVERWRITE=1
-        ;;
+        ARGS_OVERWRITE=1 ;;
       -y | --yes)
-        INTERACTIVE_MODE=0
-        ;;
+        INTERACTIVE_MODE=0 ;;
       --install-dependencies)
-        ARGS_INSTALL_DEPENDENCIES=1
-        ;;
+        ARGS_INSTALL_DEPENDENCIES=1 ;;
       --no-install-dependencies)
-        ARGS_INSTALL_DEPENDENCIES=0
+        ARGS_INSTALL_DEPENDENCIES=0 ;;
+      --branch)
+        DV_BRANCH="$2"
         ;;
       -h | --help)
         usage
@@ -93,10 +90,10 @@ function confirm() {
     msg "$question"
     read -p "[y]es or [n]o (default: no) : " -r answer
     case "$answer" in
-      y | Y | yes | YES | Yes)
+      y | Y | yes | YES | Yes | YEs | YeS | yES | yeS | yEs)
         return 0
         ;;
-      n | N | no | NO | No | *[[:blank:]]* | "")
+      n | N | no | NO | No | nO | *[[:blank:]]* | "")
         return 1
         ;;
       *)
@@ -392,14 +389,14 @@ function link_local_dvim() {
 }
 
 function create_executable() {
-  local src="$DEATHVIM_BASE_DIR/utils/bin/dvim.template"
+  local src="https://raw.githubusercontent.com/SingularisArt/DeathVim/installation/bin/dvim.template"
   local dst="$INSTALL_PREFIX/bin/dvim"
 
   if [[ -f $dst ]]; then
     rm -rf "$dst"
   fi
 
-  cp "$src" "$dst"
+  curl -s "$src" >> "$dst"
   chmod +x "$dst"
 }
 
@@ -417,7 +414,6 @@ function remove_old_cache_files() {
 }
 
 function setup_dvim() {
-
   remove_old_cache_files
 
   msg "Creating DeathVim executable"
