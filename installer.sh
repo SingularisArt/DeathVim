@@ -368,9 +368,13 @@ function clone_dvim() {
     cp -r "$XDG_DATA_HOME/deathvim/dvim" "$XDG_DATA_HOME/deathvim/dvim.back"
   fi
 
-  if ! git clone --branch "$DV_BRANCH" "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
-    echo "Failed to clone repository. Installation failed."
-    exit 1
+  if [[ -d "$DEATHVIM_BASE_DIR" ]]; then
+    if confirm "$DEATHVIM_BASE_DIR already exists. Do you want to remove it by doing another git clone?"; then
+      if ! git clone --branch "$DV_BRANCH" "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
+        echo "Failed to clone repository. Installation failed."
+        exit 1
+      fi
+    fi
   fi
 }
 
