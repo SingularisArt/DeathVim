@@ -2,9 +2,9 @@
 set -eo pipefail
 
 # Set branch to stabel unless specified by the user
-declare DV_BRANCH="stabel"
-declare -r DV_REMOTE="${DV_REMOTE:-SingularisArt/DeathVim.git}"
-declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
+declare DV_BRANCH="master"
+declare -r DV_REMOTE="SingularisArt/DeathVim.git"
+declare -r INSTALL_PREFIX="$HOME/.local"
 
 declare -r XDG_DATA_HOME="$HOME/.local/share"
 declare -r XDG_CACHE_HOME="$HOME/.cache"
@@ -368,8 +368,7 @@ function clone_dvim() {
     cp -r "$XDG_DATA_HOME/deathvim/dvim" "$XDG_DATA_HOME/deathvim/dvim.back"
   fi
 
-  if ! git clone --branch "$DV_BRANCH" \
-    --depth 1 "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
+  if ! git clone --branch "$DV_BRANCH" "https://github.com/$DV_REMOTE" "$DEATHVIM_BASE_DIR"; then
     echo "Failed to clone repository. Installation failed."
     exit 1
   fi
@@ -420,10 +419,10 @@ function setup_dvim() {
 
   create_executable
 
-  msg "Creating example config.lua file"
+  msg "Generating config.lua file"
 
   mkdir -p "$DEATHVIM_CONFIG_DIR/lua"
-  cp "$DEATHVIM_BASE_DIR/utils/installer/config.example.lua" "$DEATHVIM_CONFIG_DIR/lua/config.lua"
+  curl -s "https://raw.githubusercontent.com/SingularisArt/DeathVim/installation/config.example.lua" >> "$DEATHVIM_CONFIG_DIR/lua/config.lua"
 
   msg "Preparing Packer setup"
 

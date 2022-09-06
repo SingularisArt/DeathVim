@@ -12,16 +12,6 @@ dvim.focus = true
 dvim.format_on_save = true
 
 ------------------------------------------------------------------------
---                                Logging                             --
-------------------------------------------------------------------------
-
--- The level of logging.
--- Possible values: "trace", "debug", "info", "warn", "error", "fatal"
-dvim.log.level = "trace"
--- The file to log to. Default is ~/.cache/dvim/dvim.log
-dvim.log.out_file = get_cache_dir() .. "/dvim.log"
-
-------------------------------------------------------------------------
 --                              Builtin                               --
 ------------------------------------------------------------------------
 
