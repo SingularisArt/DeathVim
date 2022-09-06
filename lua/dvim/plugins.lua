@@ -52,21 +52,22 @@ return packer.startup(function(use)
     end,
   })
 
-  -- Color Pickers
+  -- Colors
   use({
     "NvChad/nvim-colorizer.lua",
+    commit = "5f7680e7e7ccad68bd9962bcbb40dfde1c3669a1",
     config = function()
       require("dvim.core.plugins.colorizer").setup()
     end,
     disable = not dvim.builtin.plugins.colors.active,
   })
-  use({
-    "mrshmllow/document-color.nvim",
-    config = function()
-      require("dvim.core.plugins.document-color").setup()
-    end,
-    disable = not dvim.builtin.plugins.colors.active,
-  })
+  -- use({
+  --   "mrshmllow/document-color.nvim",
+  --   config = function()
+  --     require("dvim.core.plugins.document-color").setup()
+  --   end,
+  --   disable = not dvim.builtin.plugins.colors.active,
+  -- })
 
   -- Colorschemes
   use({ "folke/tokyonight.nvim" })

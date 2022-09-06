@@ -60,15 +60,8 @@ local function on_attach_illuminate(client, bufnr)
   end
 end
 
-local function on_attach_color(bufnr)
-  if dvim.builtin.plugins.colors.active then
-    require_clean("document-color").buf_attach(bufnr)
-  end
-end
-
 M.on_attach = function(client, bufnr)
   on_attach_illuminate(client, bufnr)
-  on_attach_color(bufnr)
 end
 
 return M
