@@ -7,9 +7,8 @@
 
 dvim.color.name = "base16-bright"
 dvim.color.dark = true
-dvim.color.light = not dvim.color.dark -- Don't mess with this
 dvim.focus = true
-dvim.format_on_save = true
+dvim.format_on_save = false
 
 ------------------------------------------------------------------------
 --                              Builtin                               --
@@ -103,6 +102,7 @@ dvim.leader = " "
 --  Add Keymappings  --
 -----------------------
 
+-- You can do the same with each mode: normal_mode, visual_mode, insert_mode
 dvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 dvim.keys.normal_mode["<C-f>"] =
 ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>"
@@ -138,7 +138,7 @@ dvim.builtin.plugins.which_key.user_vmappings = {}
 dvim.builtin.plugins.cmp.extensions.active = true
 dvim.builtin.plugins.cmp.extensions.nvim_lsp.active = true
 dvim.builtin.plugins.cmp.extensions.nvim_lua.active = true
-dvim.builtin.plugins.cmp.extensions.cmp_tabnine.active = true
+dvim.builtin.plugins.cmp.extensions.cmp_tabnine.active = false
 dvim.builtin.plugins.cmp.extensions.latex_symbols.active = true
 dvim.builtin.plugins.cmp.extensions.ultisnips.active = true
 dvim.builtin.plugins.cmp.extensions.calc.active = true
@@ -154,19 +154,6 @@ dvim.builtin.plugins.cmp.extensions.gh_issues.active = true
 
 -- Possible values: "dirvish", "nvim-tree", "nerd-tree"
 dvim.file_browser = "nvim-tree"
-
------------------
---  Telescope  --
------------------
-
--- Extensions
-dvim.builtin.plugins.telescope.extensions.active = true
-dvim.builtin.plugins.telescope.extensions.file_browser.active = true
-dvim.builtin.plugins.telescope.extensions.project.active = true
-dvim.builtin.plugins.telescope.extensions.notify.active = true
-dvim.builtin.plugins.telescope.extensions.media_files.active = true
-dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active = true
-dvim.builtin.plugins.telescope.extensions.symbols.active = true
 
 -------------------
 --  Tree Sitter  --
@@ -207,38 +194,15 @@ dvim.builtin.plugins.treesitter.highlight.disable = {
   "markdown",
   "latex",
 }
-dvim.builtin.plugins.treesitter.autopairs.enable = true
-dvim.builtin.plugins.treesitter.autopairs.disable = {
-  "markdown",
-  "latex",
-}
-dvim.builtin.plugins.treesitter.context_commentstring.enable = true
-dvim.builtin.plugins.treesitter.context_commentstring.enable_autocmd = false
+-- dvim.builtin.plugins.treesitter.autopairs.enable = true
+-- dvim.builtin.plugins.treesitter.autopairs.disable = {
+--   "markdown",
+--   "latex",
+-- }
 dvim.builtin.plugins.treesitter.indent.enable = true
 dvim.builtin.plugins.treesitter.indent.disable = {
   "markdown",
   "latex",
-}
-
-dvim.builtin.plugins.treesitter.autotag.enable = true
-
-dvim.builtin.plugins.treesitter.textobjects.swap.enable = true
-dvim.builtin.plugins.treesitter.textobjects.select.enable = true
-dvim.builtin.plugins.treesitter.textobjects.move.enable = true
-dvim.builtin.plugins.treesitter.textobjects.move.set_jumps = true
-
-dvim.builtin.plugins.treesitter.textsubjects.enable = true
-
-dvim.builtin.plugins.treesitter.playground.enable = true
-dvim.builtin.plugins.treesitter.playground.disable = {
-  "",
-}
-
-dvim.builtin.plugins.treesitter.rainbow.enable = true
-dvim.builtin.plugins.treesitter.rainbow.extended_mode = true
-dvim.builtin.plugins.treesitter.rainbow.max_file_lines = 1000
-dvim.builtin.plugins.treesitter.rainbow.disable = {
-  "html",
 }
 
 -----------------
@@ -334,36 +298,36 @@ dvim.lsp.formatters = {
     extra_args = { "--fast" },
     filetype = "python",
   },
-  -- {
-  --   formatter = "clang_format",
-  --   filetype = "cpp",
-  -- },
+  {
+    formatter = "clang_format",
+    filetype = "cpp",
+  },
   {
     formatter = "prettier",
     extra_args = { "--single-quote", "--jsx-single-quote" },
     filetype = "javascript",
   },
-  -- {
-  --   formatter = "rustfmt",
-  --   filetype = "rust",
-  -- },
-  -- {
-  --   formatter = "sql_formatter",
-  --   filetype = "sql",
-  -- },
-  -- {
-  --   formatter = "standardrb",
-  --   extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-  --   filetype = "ruby",
-  -- },
+  {
+    formatter = "rustfmt",
+    filetype = "rust",
+  },
+  {
+    formatter = "sql_formatter",
+    filetype = "sql",
+  },
+  {
+    formatter = "standardrb",
+    extra_args = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+    filetype = "ruby",
+  },
   {
     formatter = "stylua",
     filetype = "lua",
   },
-  -- {
-  --   formatter = "google_java_format",
-  --   filetype = "java",
-  -- },
+  {
+    formatter = "google_java_format",
+    filetype = "java",
+  },
   {
     formatter = "shellharden",
     filetype = "bash",
@@ -387,10 +351,10 @@ dvim.lsp.linters = {
     linter = "flake8",
     filetype = "python",
   },
-  -- {
-  --   linter = "cppcheck",
-  --   filetype = "cpp",
-  -- },
+  {
+    linter = "cppcheck",
+    filetype = "cpp",
+  },
 }
 
 -- If you don't have a linter installed for a filetype, DeathVim will try
