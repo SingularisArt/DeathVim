@@ -18,7 +18,6 @@ local settings = require("dvim.settings")
 settings.load_defaults()
 
 require("dvim.autocmds")
-
 require("dvim.augroup")
 
 local colorscheme = require("dvim.colorscheme")
@@ -37,3 +36,12 @@ if dvim.lsp.active then
   local lsp = require("dvim.lsp")
   lsp.setup()
 end
+
+local keys = require("dvim.keymappings")
+
+dvim.keys.normal_mode["<C-h>"] = ":TSBufDisable highlight | TmuxNavigateLeft<CR>:TSBufEnable highlight<CR>"
+dvim.keys.normal_mode["<C-j>"] = ":TSBufDisable highlight | TmuxNavigateDown<CR>:TSBufEnable highlight<CR>"
+dvim.keys.normal_mode["<C-k>"] = ":TSBufDisable highlight | TmuxNavigateUp<CR>:TSBufEnable highlight<CR>"
+dvim.keys.normal_mode["<C-l>"] = ":TSBufDisable highlight | TmuxNavigateRight<CR>:TSBufEnable highlight<CR>"
+
+keys.load(dvim.keys)

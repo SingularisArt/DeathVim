@@ -7,7 +7,11 @@ dvim = {
   },
   transparent_window = false,
   format_on_save = false,
-  keys = {},
+  keys = {
+    normal_mode = {},
+    insert_mode = {},
+    visual_mode = {},
+  },
   language_servers = {},
   vim_commands = {},
   use_icons = true,

@@ -55,7 +55,6 @@ return packer.startup(function(use)
   -- Colors
   use({
     "NvChad/nvim-colorizer.lua",
-    commit = "5f7680e7e7ccad68bd9962bcbb40dfde1c3669a1",
     config = function()
       require("dvim.core.plugins.colorizer").setup()
     end,
@@ -201,11 +200,7 @@ return packer.startup(function(use)
     end,
   })
   use({ "nvim-treesitter/playground" })
-  -- use({ "JoosepAlviste/nvim-ts-context-commentstring" })
   use({ "p00f/nvim-ts-rainbow" })
-  -- use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-  -- use({ "wellle/targets.vim" })
-  -- use({ "RRethy/nvim-treesitter-textsubjects" })
 
   -- Debugging
   use({

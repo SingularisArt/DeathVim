@@ -111,17 +111,7 @@ M.get_defaults = function()
       ignore_install = {},
       highlight = {},
       autopairs = {},
-      context_commentstring = {},
       indent = {},
-      autotag = {},
-      textobjects = {
-        swap = {},
-        select = {},
-        move = {},
-      },
-      textsubjects = {},
-      playground = {},
-      rainbow = {},
     },
     bufferline = {
       active = true,
